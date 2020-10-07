@@ -31,7 +31,16 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-header">Company Management</li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('admin.company.view') }}" class="nav-link {{ isActive('company-master*') }}">
+              <i class="nav-icon fas fa-building"></i>
+              <p>
+                Company Master
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -60,7 +69,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../layout/fixed-sidebar.html" class="nav-link active">
+                <a href="../layout/fixed-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fixed Sidebar</p>
                 </a>
