@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Designation;
+use App\Models\CompanyType;
 use Illuminate\Http\Request;
 
-class DesignationController extends Controller
+class CompanyTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class DesignationController extends Controller
      */
     public function index()
     {
-        return Designation::all();
+        return CompanyType::all();
     }
 
     /**
@@ -24,7 +24,7 @@ class DesignationController extends Controller
      */
     public function create()
     {
-        return view('desgination.create');
+        return view('companyType.create');
     }
 
     /**
@@ -38,57 +38,57 @@ class DesignationController extends Controller
         $this->validate($request,[
             'name' => 'required'
         ]);
-        Designation::create($request->all());
-        return redirect()->back()->with('success','Designation is created successgully !');
+        CompanyType::created($request->all());
+        return redirect()->back()->with('success' , 'CompanyType Created Successfully !');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Designation  $designation
+     * @param  \App\Models\CompanyType  $CompanyType
      * @return \Illuminate\Http\Response
      */
-    public function show(Designation $designation)
+    public function show(CompanyType $CompanyType)
     {
-        return view('designation.show',['desgination' => $designation]);
+        return view('companyType.show',['CompanyType',$CompanyType]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Designation  $designation
+     * @param  \App\Models\CompanyType  $CompanyType
      * @return \Illuminate\Http\Response
      */
-    public function edit(Designation $designation)
+    public function edit(CompanyType $CompanyType)
     {
-        return view('designation.edit',['designation',Designation::findOrFail($designation->id)]);
+        return view('companyType.edit',['CompanyType' , CompanyType::findOrFail($CompanyType->id)]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Designation  $designation
+     * @param  \App\Models\CompanyType  $CompanyType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Designation $designation)
+    public function update(Request $request, CompanyType $CompanyType)
     {
         $this->validate($request,[
             'name' => 'required'
         ]);
-        Designation::findOrFail($designation->id)->update($request->all());
-        return redirect()->back()->with('success','Designation update successfully !');
+        CompanyType::findOrFail($CompanyType->id)->update($request->all());
+        return redirect()->back()->with('success' , 'CompanyType Updated successfully !');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Designation  $designation
+     * @param  \App\Models\CompanyType  $CompanyType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Designation $designation)
+    public function destroy(CompanyType $CompanyType)
     {
-        Designation::findOrFail($designation->id)->delete();
-        return redirect()->back()->with('success','Designation deleted successfully !');
+        CompanyType::findOrFail($CompanyType->id)->delete();
+        return redirect()->back()->with('success' , 'CompanyType deleted successfully !');
     }
 }

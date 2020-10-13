@@ -40,7 +40,7 @@ class LocationController extends Controller
             'address' => 'required'
         ]);
         Location::created($request->all());
-        return redirect()->route('location.index')->with('success' , 'Location created successfully !');
+        return redirect()->back()->with('success' , 'Location created successfully !');
     }
 
     /**
@@ -79,7 +79,7 @@ class LocationController extends Controller
             'address' => 'required'
         ]);
         Location::findOrFail($location->id)->update($request->all());
-        return redirect()->route('location.index')->with('success' , 'Location update successfully !');
+        return redirect()->back()->with('success' , 'Location update successfully !');
     }
 
     /**
@@ -91,6 +91,6 @@ class LocationController extends Controller
     public function destroy(Location $location)
     {
         Location::findOrFail($location->id)->delete();
-        return redirect()->route('location.index')->with('success','Location deleted successfully !');
+        return redirect()->back()->with('success','Location deleted successfully !');
     }
 }

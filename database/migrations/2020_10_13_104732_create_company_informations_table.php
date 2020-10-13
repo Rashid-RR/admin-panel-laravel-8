@@ -14,23 +14,21 @@ class CreateCompanyInformationsTable extends Migration
     public function up()
     {
         Schema::create('company_informations', function (Blueprint $table) {
+            $table->id();
 
-            $table->increments('id');
-
-            $table->bigInteger('companyTypeId')->unsigned();
-            $table->foreign('companyTypeId')->references('id')->on('company_types')->onDelete('cascade');
+            $table->bigInteger('companyType_id')->unsigned();
+            $table->foreign('companyType_id')->references('id')->on('company_types')->onDelete('cascade');
 
             $table->string('companyTitle','50');
             $table->string('websiteAddress')->nullable();
             $table->string('email')->unique();
             $table->string('employeeRange');
 
-            $table->bigInteger('salaryMethodId')->unsigned();
-            $table->foreign('salaryMethodId')->references('id')->on('salary_methods')->onDelete('cascade');
+            $table->bigInteger('salaryMethod_id')->unsigned();
+            $table->foreign('salaryMethod_id')->references('id')->on('salary_methods')->onDelete('cascade');
 
             $table->string('companyLogo')->nullable();
             $table->timestamps();
-            
         });
     }
 

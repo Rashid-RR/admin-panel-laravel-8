@@ -5,9 +5,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\CompanyFileController;
+use App\Http\Controllers\CompanyInformationController;
+use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\SalaryMethodController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\Staff;
 
@@ -57,5 +60,8 @@ Route::resources([
     'designation' => DesignationController::class,
     'companyFile' => CompanyFileController::class,
     'location' => LocationController::class,
-    'shift' => ShiftController::class
+    'shift' => ShiftController::class,
+    'companyType' => CompanyTypeController::class,
+    'salaryMethod' => SalaryMethodController::class,
+    'companyInformation' => CompanyInformationController::class
 ]);

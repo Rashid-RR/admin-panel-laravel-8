@@ -44,7 +44,7 @@ class DepartmentController extends Controller
             'deptName' => 'required'
         ]);
         Department::create($request->all());
-        return redirect()->route('department.index')->with('success','Department created Successfully !');
+        return redirect()->back()->with('success','Department created Successfully !');
     }
 
     /**
@@ -82,7 +82,7 @@ class DepartmentController extends Controller
             'deptName' => 'required'
         ]);
         Department::findOrFail($department->id)->update($request->all());
-        return redirect()->route('department.index')->with('success','Department update successfully !');
+        return redirect()->back()->with('success','Department update successfully !');
     }
 
     /**
@@ -94,6 +94,6 @@ class DepartmentController extends Controller
     public function destroy(Department $department)
     {
         Department::findOrFail($department->id)->delete();
-        return redirect()->route('departmen.index')->with('success','Department deleted successfully');
+        return redirect()->back()->with('success','Department deleted successfully');
     }
 }
