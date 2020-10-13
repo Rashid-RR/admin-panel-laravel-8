@@ -15,7 +15,7 @@ class CreateSalaryMethodsTable extends Migration
     {
         Schema::create('salary_methods', function (Blueprint $table) {
 
-            $table->id();
+            $table->increments('id');
             $table->string('methodName');
             $table->timestamps();
 

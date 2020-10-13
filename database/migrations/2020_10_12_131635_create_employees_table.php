@@ -35,16 +35,16 @@ class CreateEmployeesTable extends Migration
             $table->string('salary');
 
             //FK 1.Department
-            $table->bigInteger('department_id')->unsigned();
+            $table->unsignedInteger('department_id');
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             //FK 2.Designation
-            $table->bigInteger('designation_id')->unsigned();
+            $table->unsignedInteger('designation_id');
             $table->foreign('designation_id')->references('id')->on('designations')->onDelete('cascade');
             //FK 3.Location
-            $table->bigInteger('location_id')->unsigned();
+            $table->unsignedInteger('location_id');
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
             //FK 4.Shift
-            $table->bigInteger('shift_id')->unsigned();
+            $table->unsignedInteger('shift_id');
             $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
 
             $table->timestamps();
