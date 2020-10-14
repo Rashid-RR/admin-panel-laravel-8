@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
+use App\Models\Designation;
 use App\Models\Employee;
+use App\Models\Location;
+use App\Models\Shift;
 use Illuminate\Http\Request;
+//use Excel;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\EmployeeImport;
 
 class EmployeeController extends Controller
 {
@@ -14,7 +21,11 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::all();
+        $designations = Designation::all();
+        $locations = Location::all();
+        $shifts = Shift::all();
+        return view('employee.index',compact('departments','designations','locations','shifts'));
     }
 
     /**
@@ -24,7 +35,11 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::all();
+        $designations = Designation::all();
+        $locations = Location::all();
+        $shifts = Shift::all();
+        return view('employee.create',compact('departments','designations','locations','shifts'));
     }
 
     /**
@@ -35,7 +50,18 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'gender' => 'required',
+            'cnic' => 'required',
+            'employeeAddress' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'salary' => 'required',
+        ]);
+        Employee::created($request->all());
+        return redirect()->back()->with('success','Employee created successfully !');
     }
 
     /**
@@ -46,7 +72,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return view('employee.show',['employees' => $employee ]);
     }
 
     /**
@@ -57,7 +83,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        return view('employee.edit',['employee' => Employee::findOrFail($employee->id)]);
     }
 
     /**
@@ -69,7 +95,18 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $this->validate($request,[
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'gender' => 'required',
+            'cnic' => 'required',
+            'employeeAddress' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'salary' => 'required',
+        ]);
+        Employee::findOrFail($employee->id)->update($request->all());
+        return redirect()->back()->with('success','Employee updated successfully !');
     }
 
     /**
@@ -80,6 +117,14 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        Employee::findOrFail($employee->id)->delete();
+        return redirect()->back()->with('success','Employee deleted successfully !');
+    }
+
+    public function import(Request $request)
+    {
+        
+        Excel::import(new EmployeeImport,$request->file('file')->store('temp'));
+        return 'record imported successfully !';
     }
 }

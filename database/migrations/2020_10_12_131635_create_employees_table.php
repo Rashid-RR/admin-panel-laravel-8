@@ -18,8 +18,8 @@ class CreateEmployeesTable extends Migration
             $table->string('firstName',30);
             $table->string('lastName',30);
             $table->string('gender')->default('M');
-            $table->date('dob')->nullable();
-            $table->string('cnic',13)->nullable();
+            $table->date('dob');
+            $table->string('cnic',13);
             $table->string('employeeAddress');
             $table->string('city',70);
             $table->string('country',100);
@@ -33,6 +33,11 @@ class CreateEmployeesTable extends Migration
             $table->date('hireDate')->nullable();
             $table->date('joinDate')->nullable();
             $table->string('salary');
+            $table->string('bankName')->nullable();
+            $table->string('branchName')->nullable();
+            $table->string('branchCode')->nullable();
+            $table->string('accountTitle')->nullable();
+            $table->string('accountNumber')->nullable();
 
             //FK 1.Department
             $table->unsignedInteger('department_id');
@@ -46,6 +51,9 @@ class CreateEmployeesTable extends Migration
             //FK 4.Shift
             $table->unsignedInteger('shift_id');
             $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
+            //FK 4.Salary Method
+            $table->unsignedInteger('salaryMethod_id');
+            $table->foreign('salaryMethod_id')->references('id')->on('salary_methods')->onDelete('cascade');
 
             $table->timestamps();
         });

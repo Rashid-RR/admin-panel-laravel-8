@@ -9,6 +9,7 @@ use App\Http\Controllers\CompanyInformationController;
 use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\SalaryMethodController;
 use App\Http\Controllers\ShiftController;
@@ -52,7 +53,8 @@ Route::group(['as' => 'staff.','prefix' => 'staff','namespace' => 'Staff','middl
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
+Route::view('/upload','sheet-upload/index');
+Route::post('/import',[EmployeeController::class,'import'])->name('import-upload');
 
 //This is for my tables CRUD
 Route::resources([
@@ -63,5 +65,6 @@ Route::resources([
     'shift' => ShiftController::class,
     'companyType' => CompanyTypeController::class,
     'salaryMethod' => SalaryMethodController::class,
-    'companyInformation' => CompanyInformationController::class
+    'companyInformation' => CompanyInformationController::class,
+    'employee' => EmployeeController::class
 ]);

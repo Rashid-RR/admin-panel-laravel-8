@@ -1,0 +1,2 @@
+firstName,lastName,gender,dob,cnic,employeeAddress,city,country,postalCode,homePhone,workPhone,emergencyContact,emergencyPhone,email,employeeCode,hireDate,joinDate,salary,bankName,branchName,branchCode,accountTitle,accountNumber,department_id,designation_id,location_id,shift_id,salaryMethod_id
+Rashid,Raza,M,10/2/1999,3522233445667,lahore,lahore,Pakistan,54600,7879878979,897897987987,79797979,7979879798,razarashid171@gmail.com,4343IT,4/28/2019,7/27/2019,1233,UBL,Attari Ashoba,Lahore,Rashid,45534343,1,1,1,1,1
