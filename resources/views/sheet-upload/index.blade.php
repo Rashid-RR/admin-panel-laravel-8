@@ -25,6 +25,7 @@
                                 <input type="file" class="form-control-file" name="file" id="file" placeholder="" aria-describedby="fileHelpId">
                                 <br>
                                 <button type="submit" class="btn btn-success">Upload</button>
+                                <a class="btn btn-warning" href="{{ route('export') }}">Export User Data</a>
                             </div>
                         </form>
                         </div>

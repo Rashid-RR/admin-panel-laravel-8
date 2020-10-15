@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EmployeeExport;
 use App\Models\Department;
 use App\Models\Designation;
 use App\Models\Employee;
@@ -121,10 +122,14 @@ class EmployeeController extends Controller
         return redirect()->back()->with('success','Employee deleted successfully !');
     }
 
-    public function import(Request $request)
+    public function importCSV(Request $request)
     {
         
-        Excel::import(new EmployeeImport,$request->file('file')->store('temp'));
-        return 'record imported successfully !';
+        Excel::import(new EmployeeImport,$request->file('file'));
+        return back();
+    }
+    public function exportCSV(Request $request)
+    {
+        return Excel::download(new EmployeeExport, 'employee.xlsx');
     }
 }

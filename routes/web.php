@@ -54,7 +54,8 @@ Route::group(['as' => 'staff.','prefix' => 'staff','namespace' => 'Staff','middl
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::view('/upload','sheet-upload/index');
-Route::post('/import',[EmployeeController::class,'import'])->name('import-upload');
+Route::post('/import',[EmployeeController::class,'importCSV'])->name('import-upload');
+Route::get('/export',[EmployeeController::class,'exportCSV'])->name('export');
 
 //This is for my tables CRUD
 Route::resources([
