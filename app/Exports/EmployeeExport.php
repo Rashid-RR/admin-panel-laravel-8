@@ -30,7 +30,6 @@ class EmployeeExport implements FromCollection , WithHeadings
             'workPhone',
             'emergencyContact',
             'emergencyPhone',
-            'emergencyContact',
             'email',
             'employeeCode',
             'hireDate',
@@ -44,8 +43,7 @@ class EmployeeExport implements FromCollection , WithHeadings
             'department_id',
             'designation_id',
             'location_id',
-            'shift_id',
-            'salaryMethod_id'
+            'shift_id'
             ];
     }
 

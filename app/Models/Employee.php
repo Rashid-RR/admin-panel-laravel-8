@@ -38,8 +38,7 @@ class Employee extends Model
         'department_id',
         'designation_id',
         'location_id',
-        'shift_id',
-        'salaryMethod_id'
+        'shift_id'
     ];
 
     public static function getEmployee()
@@ -71,10 +70,9 @@ class Employee extends Model
         'department_id',
         'designation_id',
         'location_id',
-        'shift_id',
-        'salaryMethod_id')
+        'shift_id')
         ->orderBy('id', 'asc')->get()->toArray();
-        
+
         return $records;
     }
 }

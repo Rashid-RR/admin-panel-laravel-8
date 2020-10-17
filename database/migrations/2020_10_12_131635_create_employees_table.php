@@ -51,9 +51,6 @@ class CreateEmployeesTable extends Migration
             //FK 4.Shift
             $table->unsignedInteger('shift_id');
             $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
-            //FK 4.Salary Method
-            $table->unsignedInteger('salaryMethod_id');
-            $table->foreign('salaryMethod_id')->references('id')->on('salary_methods')->onDelete('cascade');
 
             $table->timestamps();
         });
