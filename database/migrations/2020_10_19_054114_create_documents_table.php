@@ -17,6 +17,7 @@ class CreateDocumentsTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->date('expiryDate')->nullable();
+            $table->string('image');
             //FK Employee
             $table->unsignedInteger('employee_id');
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade')->onUpdate('cascade');
