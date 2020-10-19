@@ -5,8 +5,10 @@ namespace App\Imports;
 //use App\Employee;
 
 use App\Models\Employee;
+use Illuminate\Contracts\Validation\Rule;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
+use Maatwebsite\Excel\Concerns\WithValidation;
 
 class EmployeeImport implements ToModel,WithStartRow
 {
@@ -19,37 +21,39 @@ class EmployeeImport implements ToModel,WithStartRow
     {
         return 2;
     }
+
     public function model(array $row)
     {
-        return new Employee([
-            'firstName' => $row[1],
-            'lastName' => $row[2],
-            'gender' => $row[3],
-            'dob' => $row[4],
-            'cnic' => $row[5],
-            'employeeAddress' => $row[6],
-            'city' => $row[7],
-            'country' => $row[8],
-            'postalCode' => $row[9],
-            'homePhone' => $row[10],
-            'workPhone' => $row[11],
-            'emergencyContact' => $row[12],
-            'emergencyPhone' => $row[13],
-            'emergencyContact' => $row[14],
-            'email' => $row[15],
-            'employeeCode' => $row[16],
-            'hireDate' => $row[17],
-            'joinDate' => $row[18],
-            'salary' => $row[19],
-            'bankName' => $row[20],
-            'branchName' => $row[21],
-            'branchCode' => $row[22],
-            'accountTitle' => $row[23],
-            'accountNumber' => $row[24],
-            'department_id' => $row[25],
-            'designation_id' => $row[26],
-            'location_id' => @$row[27],
-            'shift_id' => @$row[28]
-        ]);
+        if(!Employee::where('cnic', '=', $row[4])->exists()){
+            return new Employee([
+                'firstName' => $row[0],
+                'lastName' => $row[1],
+                'gender' => $row[2],
+                'dob' => \DateTime::createFromFormat('d/m/Y', $row[3])->format('Y-m-d'),
+                'cnic' => $row[4],
+                'employeeAddress' => $row[5],
+                'city' => $row[6],
+                'country' => $row[7],
+                'postalCode' => $row[8],
+                'homePhone' => $row[9],
+                'workPhone' => $row[10],
+                'emergencyContact' => $row[11],
+                'emergencyPhone' => $row[12],
+                'email' => $row[13],
+                'employeeCode' => $row[14],
+                'hireDate' => \DateTime::createFromFormat('d/m/Y', $row[15])->format('Y-m-d'),
+                'joinDate' => \DateTime::createFromFormat('d/m/Y', $row[16])->format('Y-m-d'),
+                'salary' => $row[17],
+                'bankName' => $row[18],
+                'branchName' => $row[19],
+                'branchCode' => $row[20],
+                'accountTitle' => $row[21],
+                'accountNumber' => $row[22],
+                'department_id' => $row[23],
+                'designation_id' => $row[24],
+                'location_id' => $row[25],
+                'shift_id' => $row[26]
+            ]);
+        }
     }
 }

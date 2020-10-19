@@ -125,11 +125,12 @@ class EmployeeController extends Controller
     public function importCSV(Request $request)
     {
         
+        
         Excel::import(new EmployeeImport,$request->file('file'));
         return back();
     }
     public function exportCSV(Request $request)
     {
-        return Excel::download(new EmployeeExport, 'employee.xlsx');
+        return Excel::download(new EmployeeExport, 'employee.csv');
     }
 }
