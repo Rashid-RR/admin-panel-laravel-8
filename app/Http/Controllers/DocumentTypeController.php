@@ -38,6 +38,8 @@ class DocumentTypeController extends Controller
         $this->validate($request,[
             'type' => 'type',
         ]);
+        DocumentType::create($request->all());
+        return redirect()->back()->with('success','Document Type is created !');
     }
 
     /**
@@ -48,7 +50,7 @@ class DocumentTypeController extends Controller
      */
     public function show(DocumentType $documentType)
     {
-        //
+        return view('documentType.show',compact($documentType));
     }
 
     /**
@@ -59,7 +61,7 @@ class DocumentTypeController extends Controller
      */
     public function edit(DocumentType $documentType)
     {
-        //
+        return view('documentType.edit',['Document' => DocumentType::findOrFail($documentType->id)]);
     }
 
     /**
@@ -71,7 +73,11 @@ class DocumentTypeController extends Controller
      */
     public function update(Request $request, DocumentType $documentType)
     {
-        //
+        $this->validate($request,[
+            'type' => 'type'
+        ]);
+        DocumentType::findOrFail($documentType->id)->update($request->all());
+        return redirect()->back()->with('success','Document Type updated successfully !');
     }
 
     /**
@@ -82,6 +88,8 @@ class DocumentTypeController extends Controller
      */
     public function destroy(DocumentType $documentType)
     {
-        //
+        DocumentType::findOrFail($documentType->id)->delete();
+        return redirect()->back()->with('success','Document Type deleted successfully !');
+        
     }
 }
