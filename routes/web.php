@@ -43,7 +43,6 @@ Auth::routes(['register' => false]);
 
 Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth','admin']],function(){
     Route::get('dashboard',[Admin\DashboardController::class,'index'])->name('dashboard');
-    Route::get('logout',[Admin\DashboardController::class,'logout'])->name('logout');
     //Route::get('company-master',[Admin\CompanyMasterController::class,'index'])->name('company.view');
 });
 
