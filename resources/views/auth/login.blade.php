@@ -12,7 +12,8 @@
       <!--begin::Signin-->
       <div class="login-form login-signin py-11">
           <!--begin::Form-->
-          <form class="form" novalidate="novalidate" id="kt_login_signin_form">
+          <form action="{{ route('login') }}" method="POST" class="form" >
+            @csrf
               <!--begin::Title-->
               <div class="text-center pb-8">
                   <h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Sign In</h2>
@@ -25,8 +26,12 @@
               <div class="form-group">
                   <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
                   <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="text"
-                      name="username" autocomplete="off" />
+                      name="email" placeholder="Email" autocomplete="off" />
               </div>
+
+              @error('email')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
               <!--end::Form group-->
               <!--begin::Form group-->
               <div class="form-group">
@@ -37,12 +42,15 @@
                           id="kt_login_forgot">Forgot Password ?</a>
                   </div>
                   <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="password"
-                      name="password" autocomplete="off" />
+                      name="password" placeholder="Password" autocomplete="off" />
               </div>
+              @error('password')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
               <!--end::Form group-->
               <!--begin::Action-->
               <div class="text-center pt-2">
-                  <button id="kt_login_signin_submit"
+                  <button id="kt_login_signin_submit" type="submit"
                       class="btn btn-dark font-weight-bolder font-size-h6 px-8 py-4 my-3">Sign In</button>
               </div>
               <!--end::Action-->
