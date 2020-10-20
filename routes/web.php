@@ -44,7 +44,18 @@ Auth::routes(['register' => false]);
 
 Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth','admin']],function(){
     Route::get('dashboard',[Admin\DashboardController::class,'index'])->name('dashboard');
-    //Route::get('company-master',[Admin\CompanyMasterController::class,'index'])->name('company.view');
+    Route::get('employee',[Admin\EmployeeController::class, 'index'])->name('employee.index');
+    Route::resources([
+        'department' => DepartmentController::class,
+        'designation' => DesignationController::class,
+        'companyFile' => CompanyFileController::class,
+        'location' => LocationController::class,
+        'shift' => ShiftController::class,
+        'companyType' => CompanyTypeController::class,
+        'salaryMethod' => SalaryMethodController::class,
+        'companyInformation' => CompanyInformationController::class,
+        // 'employee' => EmployeeController::class
+    ]);
 });
 
 Route::group(['as' => 'staff.','prefix' => 'staff','namespace' => 'Staff','middleware' => ['auth','staff']],function(){
