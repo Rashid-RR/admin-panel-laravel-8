@@ -4,16 +4,17 @@ use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin;
+
 use App\Http\Controllers\CompanyFileController;
 use App\Http\Controllers\CompanyInformationController;
 use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
-use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\SalaryMethodController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\Staff;
+use App\Models\Employee;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,18 @@ Auth::routes(['register' => false]);
 Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth','admin']],function(){
     Route::get('dashboard',[Admin\DashboardController::class,'index'])->name('dashboard');
     Route::get('logout',[Admin\DashboardController::class,'logout'])->name('logout');
+    Route::get('employee',[Admin\EmployeeController::class, 'index'])->name('employee.index');
+    Route::resources([
+        'department' => DepartmentController::class,
+        'designation' => DesignationController::class,
+        'companyFile' => CompanyFileController::class,
+        'location' => LocationController::class,
+        'shift' => ShiftController::class,
+        'companyType' => CompanyTypeController::class,
+        'salaryMethod' => SalaryMethodController::class,
+        'companyInformation' => CompanyInformationController::class,
+        // 'employee' => EmployeeController::class
+    ]);
     //Route::get('company-master',[Admin\CompanyMasterController::class,'index'])->name('company.view');
 });
 
@@ -59,14 +72,4 @@ Route::post('/import',[EmployeeController::class,'importCSV'])->name('import-upl
 Route::get('/export',[EmployeeController::class,'exportCSV'])->name('export');
 
 //This is for my tables CRUD
-Route::resources([
-    'department' => DepartmentController::class,
-    'designation' => DesignationController::class,
-    'companyFile' => CompanyFileController::class,
-    'location' => LocationController::class,
-    'shift' => ShiftController::class,
-    'companyType' => CompanyTypeController::class,
-    'salaryMethod' => SalaryMethodController::class,
-    'companyInformation' => CompanyInformationController::class,
-    'employee' => EmployeeController::class
-]);
+
