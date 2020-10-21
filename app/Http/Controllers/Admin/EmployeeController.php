@@ -41,7 +41,7 @@ class EmployeeController extends Controller
         $designations = Designation::all();
         $locations = Location::all();
         $shifts = Shift::all();
-        return view('employee.create',compact('departments','designations','locations','shifts'));
+        return view('admin.employee.add',compact('departments','designations','locations','shifts'));
     }
 
     /**
@@ -85,7 +85,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        return view('employee.edit',['employee' => Employee::findOrFail($employee->id)]);
+        return view('admin.employee.edit',['employee' => Employee::findOrFail($employee->id)]);
     }
 
     /**
