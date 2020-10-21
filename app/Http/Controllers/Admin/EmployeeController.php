@@ -27,7 +27,8 @@ class EmployeeController extends Controller
         $designations = Designation::all();
         $locations = Location::all();
         $shifts = Shift::all();
-        return view('admin.employee.index',compact('departments','designations','locations','shifts'));
+        $employees = Employee::all();
+        return view('admin.employee.index',compact('employees','departments','designations','locations','shifts'));
     }
 
     /**

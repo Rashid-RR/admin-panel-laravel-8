@@ -163,21 +163,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>0006-3629</td>
-                                    <td>Land Rover</td>
-                                    <td>Range Rover</td>
-                                    <td>Orange</td>
-                                    <td>$22672.60</td>
-                                    <td>2016-11-28</td>
-                                    <td>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="" type="button" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-                                        <a href="" type="button" class="btn btn-info btn-sm"><i class="fas fa-calendar-week"></i></a>
-                                        <a href="" type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
-                                    </div>
-                                    </td>
-                                </tr>
+                                @foreach ($employees as $item)
+                                    <tr>
+                                    <td>{{ $item->firstName .' '. $item->lastName }}</td>
+                                    <td>{{ $item->emergencyPhone }}</td>
+                                    <td>{{ $item->cnic }}</td>
+                                    @foreach($designations as $key)
+                                        @if ($item->designation_id == $key->id)
+                                            <td>{{ $key->name }}</td>
+                                        @endif
+                                    @endforeach
+                                    @foreach($departments as $key2)
+                                        @if ($item->designation_id == $key2->id)
+                                            <td>{{ $key2->deptName }}</td>
+                                        @endif
+                                    @endforeach
+                                    <td>{{ $item->email }}</td>
+                                        <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <a href="{{ route('admin.employee.edit',$item->id)}}" type="button" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                            <a href="" type="button" class="btn btn-info btn-sm"><i class="fas fa-calendar-week"></i></a>
+                                            <a href="" type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <!--end: Datatable-->
