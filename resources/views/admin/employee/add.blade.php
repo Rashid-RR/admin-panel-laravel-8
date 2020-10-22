@@ -44,8 +44,6 @@
                         <div class="col-lg-2"></div>
                     </div>
 
-                    <div class="separator separator-dashed my-10"></div>
-
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label text-right">Gender:</label>
                         <div class="col-lg-3">
@@ -74,7 +72,6 @@
                         <div class="col-lg-2"></div>
                     </div>
 
-                    <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row">
                         <label class="col-form-label text-right col-lg-2">CNIC<span class="text-danger">*</span></label>
@@ -96,8 +93,6 @@
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
-
-                    <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label text-right">Email:</label>
@@ -126,8 +121,6 @@
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
-
-                    <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label text-right">Work Phone:</label>
@@ -158,8 +151,6 @@
                         
                     </div>
 
-                    <div class="separator separator-dashed my-10"></div>
-
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label text-right">Emergency Phone:</label>
                         <div class="col-lg-3">
@@ -187,8 +178,6 @@
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
-
-                    <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label text-right">City:</label>
@@ -218,8 +207,6 @@
                         <div class="col-lg-2"></div>
                     </div>
 
-                    <div class="separator separator-dashed my-10"></div>
-
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label text-right">Employee Code:</label>
                         <div class="col-lg-3">
@@ -240,8 +227,6 @@
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
-
-                    <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row">
                         <label class="col-form-label col-lg-2 text-right">Joining Date<span class="text-danger">*</span></label>
@@ -271,17 +256,7 @@
                         <div class="col-lg-2"></div>
                     </div>
 
-                    <div class="separator separator-dashed my-10"></div>
-
-                    <div class="separator separator-dashed my-10"></div>
-
                     <div class="form-group row">
-                        {{-- <label class="col-form-label text-right col-lg-3 col-sm-12">Basic Example</label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
-                            <select class="form-control" id="kt_select2_1" name="param">
-                                <option value="AK">Alaska</option>
-                            </select>
-                        </div> --}}
                         <label class="col-form-label text-right col-lg-2">Departments <span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_1" name="department_id">
@@ -304,8 +279,6 @@
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
-
-                    <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row">
                         <label class="col-form-label text-right col-lg-2">Location *</label>
