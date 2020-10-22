@@ -47,6 +47,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::get('employees',[Admin\EmployeeController::class, 'index'])->name('employee.index');
     Route::get('employee/add',[Admin\EmployeeController::class, 'create'])->name('employee.add');
     Route::get('employee/{id}',[Admin\EmployeeController::class, 'edit'])->name('employee.edit');
+    Route::post('employee/add',[Admin\EmployeeController::class,'store'])->name('employee.store');
     // Route::get('employee/detail',[Admin\EmployeeController::class, 'show'])->name('employee.detail');
     // Route::resources([
     //     'department' => DepartmentController::class,

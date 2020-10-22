@@ -10,4 +10,9 @@ class Designation extends Model
     use HasFactory;
 
     protected $table = 'designations';
+
+    public function employees()
+    {
+        return $this->hasMany('App\Models\Employee');
+    }
 }

@@ -23,12 +23,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $departments = Department::all();
-        $designations = Designation::all();
-        $locations = Location::all();
-        $shifts = Shift::all();
         $employees = Employee::all();
-        return view('admin.employee.index',compact('employees','departments','designations','locations','shifts'));
+        return view('admin.employee.index',compact('employees'));
     }
 
     /**
@@ -53,6 +49,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $this->validate($request,[
             'firstName' => 'required',
             'lastName' => 'required',
@@ -63,8 +60,34 @@ class EmployeeController extends Controller
             'country' => 'required',
             'salary' => 'required',
         ]);
-        Employee::created($request->all());
-        return redirect()->back()->with('success','Employee created successfully !');
+        // Employee::created($request->all());
+        $employee = new Employee;
+        $employee->firstName = $request->firstName;
+        $employee->lastName = $request->lastName;
+        $employee->gender = $request->gender;
+        $employee->dob = $request->dob;
+        $employee->cnic = $request->cnic;
+        $employee->employeeAddress = $request->employeeAddress;
+        $employee->email = $request->email;
+        $employee->workPhone = $request->workPhone;
+        $employee->emergencyPhone = $request->emergencyPhone;
+        $employee->homePhone = $request->homePhone;
+        $employee->emergencyContact = $request->emergencyContact;
+        $employee->country = $request->country;
+        $employee->city = $request->city;
+        $employee->salary = $request->salary;
+        $employee->postalCode = $request->postalCode;
+        $employee->employeeCode = $request->employeeCode;
+        $employee->hireDate = $request->hireDate;
+        $employee->joinDate = $request->joinDate;
+        $employee->department_id = $request->department_id;
+        $employee->designation_id = $request->designation_id;
+        $employee->location_id = $request->location_id;
+        $employee->shift_id = $request->shift_id;
+
+        $employee->save();
+        
+        return redirect()->route('admin.employee.index')->with('success','Employee created successfully !');
     }
 
     /**

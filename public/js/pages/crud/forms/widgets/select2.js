@@ -6,7 +6,15 @@ var KTSelect2 = function() {
         $('#kt_select2_1, #kt_select2_1_validate').select2({
             placeholder: 'Select a state'
         });
-
+        $('#kt_select2_11, #kt_select2_1_validate').select2({
+            placeholder: 'Select a state'
+        });
+        $('#kt_select2_111, #kt_select2_1_validate').select2({
+            placeholder: 'Select a state'
+        });
+        $('#kt_select2_1111, #kt_select2_1_validate').select2({
+            placeholder: 'Select a state'
+        });
         // nested
         $('#kt_select2_2, #kt_select2_2_validate').select2({
             placeholder: 'Select a state'

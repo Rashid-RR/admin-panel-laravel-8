@@ -8,6 +8,29 @@ var KTFormWidgetsValidation = function () {
         // Initialize Plugins
         // Datepicker
         $('#kt_datepicker').datepicker({
+            format: 'yyyy/mm/dd',
+            todayHighlight: true,
+            templates: {
+                leftArrow: '<i class=\"la la-angle-left\"></i>',
+                rightArrow: '<i class=\"la la-angle-right\"></i>'
+            }
+        }).on('changeDate', function(e) {
+            // Revalidate field
+            validator.revalidateField('date');
+        });
+        $('#kt_datepicker2').datepicker({
+            format: 'yyyy/mm/dd',
+            todayHighlight: true,
+            templates: {
+                leftArrow: '<i class=\"la la-angle-left\"></i>',
+                rightArrow: '<i class=\"la la-angle-right\"></i>'
+            }
+        }).on('changeDate', function(e) {
+            // Revalidate field
+            validator.revalidateField('date');
+        });
+        $('#kt_datepicker3').datepicker({
+            format: 'yyyy/mm/dd',
             todayHighlight: true,
             templates: {
                 leftArrow: '<i class=\"la la-angle-left\"></i>',

@@ -74,4 +74,12 @@ class Employee extends Model
 
         return $records;
     }
+    public function designation()
+    {
+        return $this->belongsTo('App\Models\Designation');
+    }
+    public function department()
+    {
+        return $this->belongsTo('App\Models\Department');
+    }
 }
