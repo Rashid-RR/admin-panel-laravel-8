@@ -8,7 +8,7 @@
             <a href="{{ route('admin.employee.index')}}" class="text-muted">Employees</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.employee.add')}}" class="text-muted">Add Employee</a>
+            <a href="{{ route('admin.employee.create')}}" class="text-muted">Add Employee</a>
         </li>
     </ul>
 @endsection

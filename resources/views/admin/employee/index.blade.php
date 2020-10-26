@@ -117,7 +117,7 @@
                         </div>
                         <!--end::Dropdown-->
                         <!--begin::Button-->
-                        <a href="{{ route('admin.employee.add') }}" class="btn btn-primary font-weight-bolder text-center">
+                        <a href="{{ route('admin.employee.create') }}" class="btn btn-primary font-weight-bolder text-center">
                             <i class="fas fa-plus"></i>
                             Add New
                         </a>
@@ -201,7 +201,7 @@
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
 
-                                        <a href="{{ route('admin.employee.edit',$item->id) }}"
+                                        <a href="{{ route('admin.employee.edit', $item->id) }}"
                                             class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span
                                                 class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"

@@ -38,7 +38,7 @@ class EmployeeController extends Controller
         $designations = Designation::all();
         $locations = Location::all();
         $shifts = Shift::all();
-        return view('admin.employee.add',compact('departments','designations','locations','shifts'));
+        return view('admin.employee.create',compact('departments','designations','locations','shifts'));
     }
 
     /**
@@ -60,7 +60,6 @@ class EmployeeController extends Controller
             'country' => 'required',
             'salary' => 'required',
         ]);
-        // Employee::created($request->all());
         $employee = new Employee;
         $employee->firstName = $request->firstName;
         $employee->lastName = $request->lastName;
@@ -107,9 +106,12 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit($employee)
     {
-        return view('admin.employee.edit',['employee' => Employee::findOrFail($employee->id)]);
+       //dd($id);
+       $employee = Employee::findOrFail($employee);
+    //    dd($employee);
+        return view('admin.employee.edit')->with('employee' , $employee);
     }
 
     /**
