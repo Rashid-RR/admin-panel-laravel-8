@@ -153,8 +153,6 @@ class EmployeeController extends Controller
 
     public function importCSV(Request $request)
     {
-        
-        
         Excel::import(new EmployeeImport,$request->file('file'));
         return back();
     }

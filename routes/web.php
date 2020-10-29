@@ -17,17 +17,6 @@ use App\Http\Controllers\SalaryMethodController;
 use App\Http\Controllers\Staff;
 use App\Models\Employee;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -37,34 +26,17 @@ Auth::routes(['register' => false]);
 
 
 Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],function(){
+
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
-
-    // Route::get('employees',[Admin\EmployeeController::class, 'index'])->name('employee.index');
-    // Route::get('employee/add',[Admin\EmployeeController::class, 'create'])->name('employee.add');
-    // Route::get('employee/edit/{id}',[Admin\EmployeeController::class, 'edit'])->name('employee.edit');
-    // Route::post('employee/add',[Admin\EmployeeController::class,'store'])->name('employee.store');
-
-    //Route::post('employee/edit',[Admin\EmployeeController::class,'update'])->name('employee.update');
-    // Route::get('employee/detail',[Admin\EmployeeController::class, 'show'])->name('employee.detail');
 
     Route::resource('employee',EmployeeController::class);
     Route::resource('department',DepartmentController::class);
     Route::resource('shift',ShiftController::class);
     Route::resource('designation',DesignationController::class);
-
-    // Route::resources([
-    //     'department' => DepartmentController::class,
-    //     'designation' => DesignationController::class,
-    //     'companyFile' => CompanyFileController::class,
-    //     'location' => LocationController::class,
-    //     'shift' => ShiftController::class,
-    //     'companyType' => CompanyTypeController::class,
-    //     'salaryMethod' => SalaryMethodController::class,
-    //     'companyInformation' => CompanyInformationController::class,
-    //     'employee' => Admin\EmployeeController::class
-    // ]);
-    
 });
+
+
+////////-----------------------------------------------------------------------------------------------------------------
 
 Route::group(['as' => 'staff.','prefix' => 'staff','namespace' => 'Staff','middleware' => ['auth','staff']],function(){
     Route::get('dashboard',[Staff\DashboardController::class,'index'])->name('dashboard');

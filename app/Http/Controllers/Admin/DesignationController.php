@@ -52,7 +52,7 @@ class DesignationController extends Controller
      */
     public function show(Designation $designation)
     {
-        return view('designation.show',['desgination' => $designation]);
+        return view('admin.designation.detail',['desgination' => $designation]);
     }
 
     /**
