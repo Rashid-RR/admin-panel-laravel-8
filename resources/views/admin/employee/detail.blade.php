@@ -19,8 +19,8 @@
                     </div>
                     <div class="top-right mt-4">
                     
-                        <a href="{{ route('admin.employee.index') }}"><button type="submit" class="btn btn-secondary">Back</button></a>
-                        <a href="{{ route('admin.employee.store') }}"><button type="submit" class="btn btn-success">Save</button></a>
+                        <a href="{{ route('admin.employee.index') }}"><button type="submit" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</button></a>
+                    <a href="{{ route('admin.employee.store') }}"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i>Save</button></a>
                     </div>
                 </div>
                 <!--end::Header-->
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Profile</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="image-input image-input-outline" id="kt_profile_avatar" style="background-image: url(assets/media/users/blank.png)">
                                     <div class="image-input-wrapper" style="background-image: url(assets/media/users/300_21.jpg)"></div>
@@ -55,37 +55,37 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">First Name</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">First Name</label>
                             <div class="col-lg-9 col-xl-6">
                                 <input class="form-control form-control-lg form-control-solid" type="text" value="Nick" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Last Name</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Last Name</label>
                             <div class="col-lg-9 col-xl-6">
                                 <input class="form-control form-control-lg form-control-solid" type="text" value="Bold" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Gender</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Gender</label>
                             <div class="col-lg-9 col-xl-6">
                                 <input class="form-control form-control-lg form-control-solid" type="text" value="Bold" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">DOB</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">DOB</label>
                             <div class="col-lg-9 col-xl-6">
                                 <input class="form-control form-control-lg form-control-solid" type="text" value="Bold" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">CNIC</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">CNIC</label>
                             <div class="col-lg-9 col-xl-6">
                                 <input class="form-control form-control-lg form-control-solid" type="text" value="Bold" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">ADDRESS</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">ADDRESS</label>
                             <div class="col-lg-9 col-xl-6">
                                 <input class="form-control form-control-lg form-control-solid" type="text" value="Bold" />
                             </div>
@@ -102,11 +102,11 @@
                         <div class="row">
                             <label class="col-xl-3"></label>
                             <div class="col-lg-9 col-xl-6">
-                                <h5 class="font-weight-bold mt-10 mb-6">Contact Info</h5>
+                                <h5 class="font-weight-bold mt-10 mb-6 text-center">Contact Info</h5>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Email:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Email:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -121,7 +121,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Home Phone:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Home Phone:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -135,7 +135,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Work Phone:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Work Phone:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Emergency Contact:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Emergency Contact:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -163,7 +163,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Emergency Phone:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Emergency Phone:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -178,7 +178,7 @@
                         </div>
                         <div class="form-group row">
 
-                            <label class="col-xl-3 col-lg-3 col-form-label">Country:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Country:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -193,7 +193,7 @@
                         </div>
                         <div class="form-group row">
 
-                            <label class="col-xl-3 col-lg-3 col-form-label">city:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">city:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -207,7 +207,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Postcode:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Postcode:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -222,7 +222,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Employee Code:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Employee Code:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                 
@@ -232,7 +232,7 @@
                                 {{-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> --}}
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Hire Date</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Hire Date</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -246,7 +246,7 @@
                                 {{-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> --}}
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Joining Date</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Joining Date</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -260,7 +260,7 @@
                                 {{-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> --}}
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Salary:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Salary:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -275,7 +275,7 @@
                                 {{-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> --}}
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Department</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Department</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -286,7 +286,7 @@
                                 {{-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> --}}
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Designation</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Designation</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -297,7 +297,7 @@
                                 {{-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> --}}
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Location</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Location</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -308,7 +308,7 @@
                                 {{-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> --}}
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">Shift</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Shift</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">

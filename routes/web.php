@@ -46,7 +46,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
 
     //Route::post('employee/edit',[Admin\EmployeeController::class,'update'])->name('employee.update');
     // Route::get('employee/detail',[Admin\EmployeeController::class, 'show'])->name('employee.detail');
-
+   
     Route::resource('employee',EmployeeController::class);
     Route::resource('department',DepartmentController::class);
     Route::resource('shift',ShiftController::class);
@@ -78,4 +78,4 @@ Route::post('/import',[EmployeeController::class,'importCSV'])->name('import-upl
 Route::get('/export',[EmployeeController::class,'exportCSV'])->name('export');
 
 //This is for my tables CRUD
-
+Route::view('/shift_edit','admin/shift/edit');
