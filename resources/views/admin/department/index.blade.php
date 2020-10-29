@@ -31,6 +31,7 @@
                             <div class="card-toolbar">
                                 <!--begin::Dropdown-->
                                 <div class="dropdown dropdown-inline mr-2">
+<<<<<<< HEAD
                                     <!--begin::Dropdown Menu-->
                                     <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                         <!--begin::Navigation-->
@@ -82,9 +83,9 @@
                                         <!--end::Navigation-->
                                     </div>
                                     <!--end::Dropdown Menu-->
+=======
+>>>>>>> fb86e008c6174eaadd27099459280aaa5fb9e8ed
                                 </div>
-                                <!--end::Dropdown-->
-                                <!--begin::Button-->
                                 <a href="{{ route('admin.department.create') }}" class="btn btn-primary font-weight-bolder text-center">
                                     <i class="fas fa-plus"></i>
                                     Add New
@@ -108,36 +109,13 @@
                                                     </span>
                                                 </div>
                                             </div>
+                                            
                                             <div class="col-md-4 my-2 my-md-0">
-                                                <div class="d-flex align-items-center">
-                                                    <label class="mr-3 mb-0 d-none d-md-block">Status:</label>
-                                                    <select class="form-control" id="kt_datatable_search_status">
-                                                        <option value="">All</option>
-                                                        <option value="1">Pending</option>
-                                                        <option value="2">Delivered</option>
-                                                        <option value="3">Canceled</option>
-                                                        <option value="4">Success</option>
-                                                        <option value="5">Info</option>
-                                                        <option value="6">Danger</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 my-2 my-md-0">
-                                                <div class="d-flex align-items-center">
-                                                    <label class="mr-3 mb-0 d-none d-md-block">Type:</label>
-                                                    <select class="form-control" id="kt_datatable_search_type">
-                                                        <option value="">All</option>
-                                                        <option value="1">Online</option>
-                                                        <option value="2">Retail</option>
-                                                        <option value="3">Direct</option>
-                                                    </select>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                                        <a href="#" class="btn btn-light-primary px-6 font-weight-bold">Search</a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <!--end::Search Form-->
@@ -181,8 +159,14 @@
                                                             </g>
                                                         </svg> </span>
                                                 </a>
+<<<<<<< HEAD
                                                 <a href="{{ route('admin.department.show',$item->id) }}" class="btn btn-sm btn-clean btn-icon mr-2"> 
                                                     <span class="svg-icon svg-icon-md"> <svg
+=======
+                                                <a href="{{ route('admin.department.show', $item->id) }}"
+                                                     class="btn btn-sm btn-clean btn-icon mr-2"> 
+                                                     <span class="svg-icon svg-icon-md"> <svg
+>>>>>>> fb86e008c6174eaadd27099459280aaa5fb9e8ed
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                                                             height="24px" viewBox="0 0 24 24" version="1.1">

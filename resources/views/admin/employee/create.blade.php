@@ -26,8 +26,8 @@
                 <h3 class="card-title">Add New Employee</h3>
                 <div class="top-right mt-4">
                    
-                    <a href="{{ route('admin.employee.index') }}"><button type="submit" class="btn btn-secondary">Back</button></a>
-                    <a href="{{ route('admin.employee.store') }}"><button type="submit" class="btn btn-success">Save</button></a>
+                    <a href="{{ route('admin.employee.index') }}"><button type="submit" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</button></a>
+                    <a href="{{ route('admin.employee.store') }}"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i>Save</button></a>
                 </div>
             </div>
             <!--begin::Form-->
