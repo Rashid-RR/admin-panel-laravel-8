@@ -24,16 +24,18 @@
                 <h3 class="card-title">Add New Department</h3>
                 <div class="top-right mt-4">
                     <a href="{{ route('admin.department.index') }}"><button type="submit" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back</button></a>
-                    <a href="{{ route('admin.department.store') }}"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i>Create</button></a>
+                    <button form="saveDeptForm" type="submit" class="btn btn-success"><i class="fas fa-save"></i>Create</button>
                 </div>
             </div>
             <!--begin::Form-->
-            <form class="form" method="POST" action="{{ route('admin.department.store') }}">
+            <form class="form" id="saveDeptForm" method="POST" action="{{ route('admin.department.store') }}">
+                @csrf
                 <div class="form-group row mt-3 justify-content-center">
                     <label class="col-form-label text-right col-lg-2">Departments <span class="text-danger">*</span></label>
                     <div class="col-lg-3">
-                        <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Department Name" />
-                    </div> 
+                        <input type="text" class="form-control form-control-lg form-control-solid" name="deptName" placeholder="Department Name" />
+                    </div>
+                </div>
             </form>
             <!--end::Form-->
         </div>

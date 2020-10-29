@@ -9,23 +9,23 @@
 @section('content')
 <div class="col-md-12">
     <div class="card card-custom example example-compact">
-        <div class="card-header">
-            <h3 class="card-title">Edit Department</h3>
-            <div class="top-right mt-4">
-                <a href="{{ route('admin.department.index') }}"><button type="submit" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back</button></a>
-                <a href="{{ route('admin.department.store') }}"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i>Save</button></a>
+            <div class="card-header">
+                <h3 class="card-title">Edit Department</h3>
+                <div class="top-right mt-4">
+                    <a href="{{ route('admin.department.index') }}"><button type="submit" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Back</button></a>
+                    <button form="updateForm" type="submit" class="btn btn-success"><i class="fas fa-save"></i>Update</button>
+                </div>
             </div>
-        </div>
-        <!--begin::Form-->
-        <form class="form" method="POST" action="">
+            <!--begin::Form-->
+        <form class="form" id="updateForm" method="POST" action="{{ route('admin.department.update',$department->id) }}">
+            @csrf
+            {{ @method_field('PUT') }}
             <div class="form-group row mt-3 justify-content-center">
                 <label class="col-form-label text-right col-lg-2">Departments <span class="text-danger">*</span></label>
                 <div class="col-lg-3">
-                    <select class="form-control" id="kt_select2_1" name="department_id">
-                        <option value="">Select</option>
-                    </select>
-                    <span class="form-text text-muted">Please select an department.</span>
-                </div> 
+                    <input type="text" name="deptName" class="form-control" value="{{ $department->deptName }}" placeholder="Department" />
+                </div>
+            </div>
         </form>
         <!--end::Form-->
     </div>

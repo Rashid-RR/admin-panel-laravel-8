@@ -14,13 +14,11 @@
                 <!--begin::Header-->
                 <div class="card-header py-3">
                     <div class="card-title align-items-start flex-column">
-                        <h3 class="card-label font-weight-bolder text-dark">Employee Department Information</h3>
+                        <h3 class="card-label font-weight-bolder text-dark">Department Information</h3>
                         <span class="text-muted font-weight-bold font-size-sm mt-1"></span>
                     </div>
                     <div class="top-right mt-4">
-                    
                         <a href="{{ route('admin.department.index') }}"><button type="submit" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</button></a>
-                    <a href="{{ route('admin.department.store') }}"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i>Save</button></a>
                     </div>
                 </div>
                 <!--end::Header-->
@@ -31,7 +29,7 @@
                         <div class="row">
                             <label class="col-xl-3 col-lg-3 col-form-label text-center">Department</label>
                             <div class="col-lg-9 col-xl-6">
-                                <input class="form-control form-control-lg form-control-solid" type="text" value="" disabled />
+                            <input class="form-control form-control-lg form-control-solid" type="text" value="{{$departments->deptName}}" disabled />
                             </div>
                         </div>
                 </form>

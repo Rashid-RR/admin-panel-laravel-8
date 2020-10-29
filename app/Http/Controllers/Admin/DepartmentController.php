@@ -40,15 +40,11 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        // $department = new Department();
-        // $department->deptName = $request->deptName;
-        // $department->save();
-
         $this->validate($request,[
             'deptName' => 'required'
         ]);
         Department::create($request->all());
-        return redirect()->back()->with('success','Department created Successfully !');
+        return redirect()->route('admin.department.index')->with('success','Department created Successfully !');
     }
 
     /**
@@ -80,13 +76,13 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request,$id)
     {
         $this->validate($request,[
             'deptName' => 'required'
         ]);
-        Department::findOrFail($department->id)->update($request->all());
-        return redirect()->back()->with('success','Department update successfully !');
+        Department::findOrFail($id)->update($request->all());
+        return redirect()->route('admin.department.index')->with('success','Department update successfully !');
     }
 
     /**
