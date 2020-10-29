@@ -54,7 +54,7 @@ class ShiftController extends Controller
      */
     public function show(Shift $shift)
     {
-        return view('shift.show',['shift',$shift]);
+        return view('admin.shift.show',['shift',$shift]);
     }
 
     /**

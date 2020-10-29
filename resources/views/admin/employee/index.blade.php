@@ -142,33 +142,23 @@
                                             </div>
                                             <div class="col-md-4 my-2 my-md-0">
                                                 <div class="d-flex align-items-center">
-                                                    <label class="mr-3 mb-0 d-none d-md-block">Status:</label>
+                                                    <label class="mr-3 mb-0 d-none d-md-block">Designation</label>
                                                     <select class="form-control" id="kt_datatable_search_status">
                                                         <option value="">All</option>
-                                                        <option value="1">Pending</option>
-                                                        <option value="2">Delivered</option>
-                                                        <option value="3">Canceled</option>
-                                                        <option value="4">Success</option>
-                                                        <option value="5">Info</option>
-                                                        <option value="6">Danger</option>
+                                                        <option value="1">Team Leader</option>
+                                                        <option value="2">Garphic Designer</option>
+                                                        <option value="3">IOS Developer</option>
+                                                        <option value="4">Android Developer</option>
+                                                        <option value="5">PHP Developer</option>
+                                                        <option value="6">Front-End Developer</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 my-2 my-md-0">
-                                                <div class="d-flex align-items-center">
-                                                    <label class="mr-3 mb-0 d-none d-md-block">Type:</label>
-                                                    <select class="form-control" id="kt_datatable_search_type">
-                                                        <option value="">All</option>
-                                                        <option value="1">Online</option>
-                                                        <option value="2">Retail</option>
-                                                        <option value="3">Direct</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                                        <a href="#" class="btn btn-light-primary px-6 font-weight-bold">Search</a>
+                                       
                                     </div>
                                 </div>
                             </div>
