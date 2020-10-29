@@ -58,7 +58,7 @@
 
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                <a href="{{ route('admin.shift.index') }}" class="menu-link menu-toggle">
+                <a href="{{ route('admin.designation.index') }}" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
                         <i class="fas fa-briefcase"></i>
                         <!--end::Svg Icon-->

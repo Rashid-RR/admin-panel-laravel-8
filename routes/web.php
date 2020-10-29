@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DesignationController;
+use App\Http\Controllers\Admin\ShiftController;
 
 use App\Http\Controllers\CompanyFileController;
 use App\Http\Controllers\CompanyInformationController;
 use App\Http\Controllers\CompanyTypeController;
-use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\SalaryMethodController;
-use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\Staff;
 use App\Models\Employee;
 
@@ -50,6 +50,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     Route::resource('employee',EmployeeController::class);
     Route::resource('department',DepartmentController::class);
     Route::resource('shift',ShiftController::class);
+    Route::resource('designation',DesignationController::class);
 
     // Route::resources([
     //     'department' => DepartmentController::class,
