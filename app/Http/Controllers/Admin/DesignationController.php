@@ -14,7 +14,8 @@ class DesignationController extends Controller
      */
     public function index()
     {
-        return Designation::all();
+        $designations = designation::all();
+        return view('admin.designation.index',compact('designations'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DesignationController extends Controller
      */
     public function create()
     {
-        return view('desgination.create');
+        return view('admin.desgination.create');
     }
 
     /**

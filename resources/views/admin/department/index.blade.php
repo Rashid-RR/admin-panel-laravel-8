@@ -1,13 +1,16 @@
 @extends('admin.layouts.master')
 
-@section('title','Employees')
+@section('title','Departments')
 
 @section('breadcrumb')
-    <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+    {{-- <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.employee.index')}}" class="text-muted">Employees</a>
+            <a href="{{ route('admin.department.index')}}" class="text-muted">Employees</a>
         </li>
-    </ul>
+        <li class="breadcrumb-item">
+            <a href="{{ route('admin.department.create')}}" class="text-muted">Add Employee</a>
+        </li>
+    </ul> --}}
 @endsection
 
 @push('css')
@@ -15,14 +18,15 @@
 @endpush
 
 @section('content')
+    <div class="col-md-12">
         <div class="col-md-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     <div class="card card-custom">
                         <div class="card-header flex-wrap border-0 pt-6 pb-0">
                             <div class="card-title">
-                                <h3 class="card-label">Employees
-                                    <span class="d-block text-muted pt-2 font-size-sm">All employees</span></h3>
+                                <h3 class="card-label">Deparments
+                                    <span class="d-block text-muted pt-2 font-size-sm">All Departments</span></h3>
                             </div>
                             <div class="card-toolbar">
                                 <!--begin::Dropdown-->
@@ -117,7 +121,7 @@
                                 </div>
                                 <!--end::Dropdown-->
                                 <!--begin::Button-->
-                                <a href="{{ route('admin.employee.create') }}" class="btn btn-primary font-weight-bolder text-center">
+                                <a href="{{ route('admin.department.create') }}" class="btn btn-primary font-weight-bolder text-center">
                                     <i class="fas fa-plus"></i>
                                     Add New
                                 </a>
@@ -178,30 +182,25 @@
                             <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                                 <thead>
                                     <tr>
-                                        <th title="Field #1">Full Name</th>
-                                        <th title="Field #2">Phone</th>
-                                        <th title="Field #3">CNIC</th>
-                                        <th title="Field #4">Designation</th>
-                                        <th title="Field #5">Department</th>
-                                        <th title="Field #6">Email</th>
-                                        <th title="Field #6">Actions</th>
-                                        <th title="Field #7"></th>
+                                        
+                                        <th title="Field #1">Department Name</th>
+                                        <th title="Field #2">Actions</th>
+                                        <th title="Field #3"></th>
+                                        <th title="Field #4"></th>
+                                        <th title="Field #5"></th>
+                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($employees as $item)
+                                    @foreach($departments as $item)
                                     <tr>
-                                        <td>{{ $item->firstName .' '. $item->lastName }}
-                                        </td>
-                                        <td>{{ $item->emergencyPhone }}</td>
-                                        <td>{{ $item->cnic }}</td>
-                                        <td>{{ $item->designation->name }}</td>
-                                        <td>{{ $item->department->deptName }}</td>
-                                        <td>{{ $item->email }}</td>
+            
+                                        <td>{{$item->deptName}}</td>
                                         <td>
-                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                            <div class="btn-group mr-1 " role="group" aria-label="Basic example" >
 
-                                                <a href="{{ route('admin.employee.edit', $item->id) }}"
+                                                <a href="{{ route('admin.department.edit', $item->id) }}"
                                                     class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span
                                                         class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -218,9 +217,8 @@
                                                             </g>
                                                         </svg> </span>
                                                 </a>
-                                                <a href="{{ route('admin.employee.show', $item->id) }}" 
-                                                    class="btn btn-sm btn-clean btn-icon mr-2" title="details"> 
-                                                    <span class="svg-icon svg-icon-md"> <svg
+                                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2"
+                                                    data-toggle="dropdown"> <span class="svg-icon svg-icon-md"> <svg
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                                                             height="24px" viewBox="0 0 24 24" version="1.1">
@@ -258,14 +256,12 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection
 
 @push('js')
-<script>
-    "use strict";
-    // Class definition
-
-    var KTDatatableHtmlTableDemo = function () {
+    <script>
+           var KTDatatableHtmlTableDemo = function () {
         // Private functions
 
         // demo initializer
@@ -385,5 +381,5 @@
         KTDatatableHtmlTableDemo.init();
     });
 
-</script>
+    </script>
 @endpush

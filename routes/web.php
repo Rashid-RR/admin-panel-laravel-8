@@ -4,12 +4,12 @@ use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DashboardController;
 
 use App\Http\Controllers\CompanyFileController;
 use App\Http\Controllers\CompanyInformationController;
 use App\Http\Controllers\CompanyTypeController;
-use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\SalaryMethodController;
@@ -32,13 +32,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/users/{name?}',function($name=null){
-//     return 'Hi ' . $name;
-// })->where('name','[a-zA-Z]+');
-
-// Route::get('/products/{id?}',function($id = null){
-//     return 'Product id is = ' . $id;
-// })->where('id','[0-9]+');
 
 Auth::routes(['register' => false]);
 
@@ -55,6 +48,8 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     // Route::get('employee/detail',[Admin\EmployeeController::class, 'show'])->name('employee.detail');
 
     Route::resource('employee',EmployeeController::class);
+    Route::resource('department',DepartmentController::class);
+    Route::resource('shift',ShiftController::class);
 
     // Route::resources([
     //     'department' => DepartmentController::class,

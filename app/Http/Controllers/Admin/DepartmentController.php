@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\Department;
 use Illuminate\Http\Request;
@@ -15,8 +16,11 @@ class DepartmentController extends Controller
     public function index()
     {
         //
-        return Department::all();
+        $departments = Department::all();
+        return view('admin.department.index',compact('departments'));
+
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +29,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('department.create');
+        return view('admin.department.create');
     }
 
     /**
@@ -55,7 +59,7 @@ class DepartmentController extends Controller
      */
     public function show(Department $department)
     {
-        return view('departmen.show',['department' => $department]);
+        return view('admin.department.detail',['department' => $department]);
     }
 
     /**
@@ -66,7 +70,7 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-        return view('department.edit',['department' => Department::findOrFail($department->id)]);
+        return view('admin.department.edit',['department' => Department::findOrFail($department->id)]);
     }
 
     /**

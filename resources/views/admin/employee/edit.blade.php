@@ -18,19 +18,20 @@
 @endpush
 
 @section('content')
+<div class="col-md-12">
     <div class="col-md-12">
         <div class="card card-custom example example-compact">
             <div class="card-header">
-                <h3 class="card-title">Add New Employee</h3>
+                <h3 class="card-title">Edit Employee Information</h3>
             </div>
             <!--begin::Form-->
-            <form class="form" method="POST" action="{{ route('admin.employee.update') }}">
-                <input type="hidden" name="id" value="{{ $employee->id }}" />
+            <form class="form" method="GET" action="{{ route('admin.employee.store') }}">
+                @csrf
                 <div class="card-body">
                     <div class="form-group row mt-3">
                         <label class="col-lg-2 col-form-label text-right">First Name:</label>
                         <div class="col-lg-3">
-                            <input type="text" class="form-control" name="firstName" value="{{ $employee->firstName }}" placeholder="First name" required/>
+                            <input type="text" class="form-control " name="firstName" placeholder="First name" required disabled/>
                             <span class="form-text text-muted">Please enter your first name</span>
                             {{-- @error('firstName')
                                 <small class="text-danger">{{ $firstName }}</small>
@@ -38,21 +39,21 @@
                         </div>
                         <label class="col-lg-2 col-form-label text-right">Last Name:</label>
                         <div class="col-lg-3">
-                            <input type="text" class="form-control" name="lastName" placeholder="Last name" required/>
+                            <input type="text" class="form-control" name="lastName" placeholder="Last name" required disabled/>
                             <span class="form-text text-muted">Please enter your last name</span>
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right">Gender:</label>
+                        <label class="col-lg-2 col-form-label text-right" disabled>Gender:</label>
                         <div class="col-lg-3">
                             <div class="radio-inline">
                                 <label class="radio radio-solid">
-                                    <input type="radio" name="gender" checked="checked" value="M" required/>
+                                    <input type="radio" name="gender" checked="checked" value="M" required disabled/>
                                     <span></span>Male</label>
                                 <label class="radio radio-solid">
-                                    <input type="radio" name="gender" value="F" />
+                                    <input type="radio" name="gender" value="F" disabled/>
                                     <span></span>Female</label>
                             </div>
                             <span class="form-text text-muted">Please select gender</span>
@@ -60,7 +61,7 @@
                         <label class="col-form-label col-lg-2 text-right">DOB<span class="text-danger">*</span></label>
                         <div class="col-lg-3 col-md-9 col-sm-12">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="dob" placeholder="Birth Date" id='kt_datepicker' required/>
+                                <input type="text" class="form-control" name="dob" placeholder="Birth Date" id='kt_datepicker' required disabled/>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="la la-calendar-check-o"></i>
@@ -77,7 +78,7 @@
                         <label class="col-form-label text-right col-lg-2">CNIC<span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="cnic" placeholder="Enter your CNIC no." required/>
+                                <input type="text" class="form-control" name="cnic" placeholder="Enter your CNIC no." required disabled/>
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
                                         <i class="flaticon2-browser"></i>
@@ -88,7 +89,7 @@
                         </div>
                         <label class="col-form-label text-right col-lg-2">Address *</label>
                         <div class="col-lg-3">
-                            <textarea class="form-control" name="employeeAddress" placeholder="Enter your address" rows="3"></textarea>
+                            <textarea class="form-control" name="employeeAddress" placeholder="Enter your address" rows="3" disabled></textarea>
                             <span class="form-text text-muted">Please enter your permanent home address.</span>
                         </div>
                         <div class="col-lg-2"></div>
@@ -98,7 +99,7 @@
                         <label class="col-lg-2 col-form-label text-right">Email:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="email" class="form-control" name="email" placeholder="Enter your email" required />
+                                <input type="email" class="form-control" name="email" placeholder="Enter your email" required disabled/>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="las la-envelope"></i>
@@ -110,7 +111,7 @@
                         <label class="col-lg-2 col-form-label text-right">Home Phone:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="homePhone" placeholder="Home number" required />
+                                <input type="text" class="form-control" name="homePhone" placeholder="Home number" required disabled />
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="la la-phone"></i>
@@ -126,7 +127,7 @@
                         <label class="col-lg-2 col-form-label text-right">Work Phone:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="workPhone" placeholder="Work number" required/>
+                                <input type="text" class="form-control" name="workPhone" placeholder="Work number" required disabled/>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="las la-phone-volume"></i>
@@ -138,7 +139,7 @@
                         <label class="col-lg-2 col-form-label text-right">Emergency Contact:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="emergencyContact" placeholder="Emergency contact" required/>
+                                <input type="text" class="form-control" name="emergencyContact" placeholder="Emergency contact" required disabled/>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="las la-mobile"></i>
@@ -155,7 +156,7 @@
                         <label class="col-lg-2 col-form-label text-right">Emergency Phone:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="emergencyPhone" placeholder="Emergency Phone" required />
+                                <input type="text" class="form-control" name="emergencyPhone" placeholder="Emergency Phone" required disabled />
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="las la-phone"></i>
@@ -167,7 +168,7 @@
                         <label class="col-lg-2 col-form-label text-right">Country:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="country" placeholder="Enter your country" required/>
+                                <input type="text" class="form-control" name="country" placeholder="Enter your country" required disabled/>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="las la-city"></i>
@@ -183,7 +184,7 @@
                         <label class="col-lg-2 col-form-label text-right">City:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="city" placeholder="Enter your city" required/>
+                                <input type="text" class="form-control" name="city" placeholder="Enter your city" required disabled/>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="la la-map-marker"></i>
@@ -195,7 +196,7 @@
                         <label class="col-lg-2 col-form-label text-right">Postcode:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="postalCode" placeholder="Enter your postcode" required />
+                                <input type="text" class="form-control" name="postalCode" placeholder="Enter your postcode" required disabled/>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="la la-bookmark-o"></i>
@@ -261,9 +262,7 @@
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_1" name="department_id">
                                 <option value="">Select</option>
-                                @foreach ($departments as $item)
-                                    <option value="{{ $item->id }}">{{ $item->deptName }}</option>
-                                @endforeach
+                               
                             </select>
                             <span class="form-text text-muted">Please select an department.</span>
                         </div>
@@ -271,9 +270,7 @@
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_11" name="designation_id">
                                 <option value="">Select</option>
-                                @foreach ($designations as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
+                               
                             </select>
                             <span class="form-text text-muted">Please select an designation.</span>
                         </div>
@@ -285,9 +282,7 @@
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_111" name="location_id">
                                 <option value="">Select</option>
-                                @foreach ($locations as $item)
-                                    <option value="{{ $item->id }}">{{ $item->location }}</option>
-                                @endforeach
+                                
                             </select>
                             <span class="form-text text-muted">Please select an location.</span>
                         </div>
@@ -295,9 +290,7 @@
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_1111" name="shift_id">
                                 <option value="">Select</option>
-                                @foreach ($shifts as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
+                                
                             </select>
                             <span class="form-text text-muted">Please select an designation.</span>
                         </div>
@@ -316,6 +309,7 @@
             <!--end::Form-->
         </div>
     </div>
+</div>
 @endsection
 
 @push('js')

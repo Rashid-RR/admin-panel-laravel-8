@@ -39,7 +39,9 @@ class EmployeeController extends Controller
         $locations = Location::all();
         $shifts = Shift::all();
         return view('admin.employee.create',compact('departments','designations','locations','shifts'));
+        
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -97,7 +99,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        return view('employee.show',['employees' => $employee ]);
+        return view('admin.employee.detail',['employees' => $employee ]);
     }
 
     /**
