@@ -12,12 +12,13 @@
         <div class="card-header">
             <h3 class="card-title">Edit Department</h3>
             <div class="top-right mt-4">
-            <a href="{{ route('admin.department.index') }}"><button type="submit" class="btn btn-primary">Update</button></a>
-               
+                    
+                <a href="{{ route('admin.department.index') }}"><button type="submit" class="btn btn-secondary">Back</button></a>
+                <a href="{{ route('admin.department.store') }}"><button type="submit" class="btn btn-success">Save</button></a>
             </div>
         </div>
         <!--begin::Form-->
-        <form class="form" method="POST" action="{{ route('admin.department.show') }}">
+        <form class="form" method="POST" action="">
             <div class="form-group row mt-3 justify-content-center">
                 <label class="col-form-label text-right col-lg-2">Departments <span class="text-danger">*</span></label>
                 <div class="col-lg-3">
