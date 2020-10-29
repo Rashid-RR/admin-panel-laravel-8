@@ -17,11 +17,10 @@
                         <h3 class="card-label font-weight-bolder text-dark">Personal Information</h3>
                         <span class="text-muted font-weight-bold font-size-sm mt-1">Update your personal informaiton</span>
                     </div>
-                    <div class="card-toolbar">
-                     <a href="{{ route('admin.employee.index') }}">
-                        <button type="reset" class="btn btn-success mr-2">Back</button>
-                            </a>
-                        
+                    <div class="top-right mt-4">
+                    
+                        <a href="{{ route('admin.employee.index') }}"><button type="submit" class="btn btn-secondary">Back</button></a>
+                        <a href="{{ route('admin.employee.store') }}"><button type="submit" class="btn btn-success">Save</button></a>
                     </div>
                 </div>
                 <!--end::Header-->

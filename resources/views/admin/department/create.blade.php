@@ -23,8 +23,9 @@
             <div class="card-header">
                 <h3 class="card-title">Add New Department</h3>
                 <div class="top-right mt-4">
-                <a href="{{ route('admin.department.index') }}"><button type="submit" class="btn btn-primary">Save</button></a>
-                   
+                    
+                    <a href="{{ route('admin.department.index') }}"><button type="submit" class="btn btn-secondary">Back</button></a>
+                    <a href="{{ route('admin.department.store') }}"><button type="submit" class="btn btn-success">Save</button></a>
                 </div>
             </div>
             <!--begin::Form-->

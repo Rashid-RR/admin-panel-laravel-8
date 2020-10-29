@@ -23,6 +23,12 @@
         <div class="card card-custom example example-compact">
             <div class="card-header">
                 <h3 class="card-title">Edit Employee Information</h3>
+                <div class="top-right mt-4">
+                    
+                    <a href="{{ route('admin.employee.index') }}"><button type="submit" class="btn btn-secondary">Back</button></a>
+                    <a href="{{ route('admin.employee.store') }}"><button type="submit" class="btn btn-success">Save</button></a>
+                </div>
+
             </div>
             <!--begin::Form-->
             <form class="form" method="GET" action="{{ route('admin.employee.store') }}">
@@ -297,14 +303,7 @@
                         <div class="col-lg-2"></div>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-lg-5"></div>
-                        <div class="col-lg-7">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </div>
-                    </div>
-                </div>
+               
             </form>
             <!--end::Form-->
         </div>
