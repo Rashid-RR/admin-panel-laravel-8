@@ -52,9 +52,10 @@ class ShiftController extends Controller
      * @param  \App\Models\Shift  $shift
      * @return \Illuminate\Http\Response
      */
-    public function show(Shift $shift)
+    public function show($id)
     {
-        return view('admin.shift.show',['shift',$shift]);
+        $shiftByID = Shift::findOrFail($id);
+        return view('admin.shift.detail',compact('shiftByID'));
     }
 
     /**

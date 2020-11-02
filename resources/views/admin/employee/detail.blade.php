@@ -25,7 +25,7 @@
                 </div>
                 <!--end::Header-->
                 <!--begin::Form-->
-                <form class="form" method="POST" action=>
+                <form class="form" method="POST" action="">
                     <!--begin::Body-->
                     <div class="card-body">
                         <div class="row">

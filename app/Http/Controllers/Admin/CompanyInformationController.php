@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\CompanyInformation;
 use App\Models\CompanyType;
 use App\Models\SalaryMethod;
@@ -19,7 +20,7 @@ class CompanyInformationController extends Controller
         $companyInfo = CompanyInformation::all();
         $companyType = CompanyType::all();
         $salaryMethod = SalaryMethod::all();
-        return view('companyInformation.index',['companyInfo' => $companyInfo , 'companyType' => $companyType , 'salaryMethod' => $salaryMethod]);
+        return view('admin.companyInformation.index',compact('companyInfo'));
     }
 
     /**

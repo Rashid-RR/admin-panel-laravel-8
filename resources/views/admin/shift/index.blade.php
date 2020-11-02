@@ -83,22 +83,78 @@
                                 </div>
                                 <!--end::Dropdown-->
                                 <!--begin::Button-->
-                                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary font-weight-bolder text-center">
+                                <a href="" data-toggle="modal" data-target="#addnew-modal-lg" class="btn btn-primary font-weight-bolder text-center">
                                     <i class="fas fa-plus"></i>
                                     Add New
                                 </a>
                                 <form action="post" method="POST" action="{{ route('admin.employee.store') }}">
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
+                                    <div class="modal fade" id="addnew-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
                                           <div class="modal-content">
                                             <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                              <h2 class="modal-title" id="exampleModalLabel">Add Shift</h2>
                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                               </button>
                                             </div>
                                             <div class="modal-body">
-                                              ...
+                                              <form action="" method="post">
+                                                <div class="form-group row">
+                                                    <label class="col-xl-4 col-lg-4 col-form-label">Shift Name</label>
+                                                    <div class="col-lg-12 col-xl-12">
+                                                        <input type="text" class="form-control" id="formGroupExampleInput" required>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <h5>Attendance Setting</h5><br>
+                                                <label class="col-lg-2 col-form-label">Working Hour</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"  required/>
+                                                </div>
+                                              
+                                                    <form >
+                                                        <div class="form-row mt-3">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="example-time-input">Start Time* (e.g. 09:00 AM)</label>
+                                                                    <input class="form-control" type="time" value="--:-- --" id="example-time-input" />   
+                                                            </div>
+                                                                <div class="form-group col-md-6">
+                                                                      <label for="example-time-input">End Time* (e.g. 09:00 PM)</label>
+                                                                    <input class="form-control" type="time" value="--:-- --" id="example-time-input" />
+                                                                </div>  
+                                                           
+                                                        </div>
+                                                    </form>
+                                                    
+                                                    <div class="form-group mt-1">
+                                                        <h5 >Working Days</h5>
+														<div class="checkbox-inline mt-4">
+															<label class="checkbox">
+															<input type="checkbox" name="Checkboxes2" />
+															<span></span>Monday</label>
+															<label class="checkbox">
+															<input type="checkbox" name="Checkboxes2" />
+															<span></span>Tuesday</label>
+															<label class="checkbox">
+															<input type="checkbox" name="Checkboxes2" />
+                                                            <span></span>Wednesday</label>
+                                                            <label class="checkbox">
+                                                            <input type="checkbox" name="Checkboxes2" />
+                                                            <span></span>Thursday</label>
+                                                            <label class="checkbox">
+                                                            <input type="checkbox" name="Checkboxes2" />
+                                                            <span></span>Friday</label>
+                                                            <label class="checkbox">
+                                                            <input type="checkbox" name="Checkboxes2" />
+                                                            <span></span>Satuday</label>
+                                                            <label class="checkbox">
+                                                            <input type="checkbox" name="Checkboxes2" />
+                                                            <span></span>Sunday</label>
+														</div>
+														
+													</div>
+
+                                              </form>
                                             </div>
                                             <div class="modal-footer">
                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -160,14 +216,14 @@
                                         <td>{{ $item->designation->name }}</td>
                                         <td>{{ $item->department->deptName }}</td>
                                         <td>{{ $item->email }}</td> --}}
-                                        <td>Ali</td>
-                                        <td>8</td>
-                                        <td>10</td>
-                                        <td>7</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->workingHours }}</td>
+                                    <td>{{ $item->startTime }} AM</td>
+                                    <td>{{ $item->endTime }} PM</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
 
-                                                <a href="{{ route('admin.shift.edit', $item->id) }}"
+                                                <a href="" data-toggle="modal" data-target="#edit-modal-lg"
                                                     class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span
                                                         class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -184,7 +240,84 @@
                                                             </g>
                                                         </svg> </span>
                                                 </a>
-                                                <a href="{{ route('admin.shift.show', $item->id) }}" 
+                                                <form action="post" method="POST" action="{{ route('admin.employee.store') }}">
+                                                    <div class="modal fade" id="edit-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg" role="document">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h2 class="modal-title" id="exampleModalLabel">Edit Shift</h2>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                              <form action="" method="post">
+                                                                <div class="form-group row">
+                                                                    <label class="col-xl-4 col-lg-4 col-form-label">Shift Name</label>
+                                                                    <div class="col-lg-12 col-xl-12">
+                                                                        <input type="text" class="form-control" id="formGroupExampleInput" required>
+                                                                    </div>
+                                                                </div>
+                                                                <hr>
+                                                                <h5>Attendance Setting</h5><br>
+                                                                <label class="col-lg-2 col-form-label">Working Hour</label>
+                                                                <div class="col-lg-6">
+                                                                    <input type="text" class="form-control"  required/>
+                                                                </div>
+                                                              
+                                                                    <form >
+                                                                        <div class="form-row mt-3">
+                                                                            <div class="form-group col-md-6">
+                                                                                <label for="example-time-input">Start Time* (e.g. 09:00 AM)</label>
+                                                                                    <input class="form-control" type="time" value="--:-- --" id="example-time-input" />   
+                                                                            </div>
+                                                                                <div class="form-group col-md-6">
+                                                                                      <label for="example-time-input">End Time* (e.g. 09:00 PM)</label>
+                                                                                    <input class="form-control" type="time" value="--:-- --" id="example-time-input" />
+                                                                                </div>  
+                                                                           
+                                                                        </div>
+                                                                    </form>
+                                                                    
+                                                                    <div class="form-group mt-1">
+                                                                        <h5 >Working Days</h5>
+                                                                        <div class="checkbox-inline mt-4">
+                                                                            <label class="checkbox">
+                                                                            <input type="checkbox" name="Checkboxes2" />
+                                                                            <span></span>Monday</label>
+                                                                            <label class="checkbox">
+                                                                            <input type="checkbox" name="Checkboxes2" />
+                                                                            <span></span>Tuesday</label>
+                                                                            <label class="checkbox">
+                                                                            <input type="checkbox" name="Checkboxes2" />
+                                                                            <span></span>Wednesday</label>
+                                                                            <label class="checkbox">
+                                                                            <input type="checkbox" name="Checkboxes2" />
+                                                                            <span></span>Thursday</label>
+                                                                            <label class="checkbox">
+                                                                            <input type="checkbox" name="Checkboxes2" />
+                                                                            <span></span>Friday</label>
+                                                                            <label class="checkbox">
+                                                                            <input type="checkbox" name="Checkboxes2" />
+                                                                            <span></span>Satuday</label>
+                                                                            <label class="checkbox">
+                                                                            <input type="checkbox" name="Checkboxes2" />
+                                                                            <span></span>Sunday</label>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                
+                                                              </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <a href="" data-toggle="modal" data-target="#detail-modal-lg"
                                                     class="btn btn-sm btn-clean btn-icon mr-2" title="details"> 
                                                     <span class="svg-icon svg-icon-md"> <svg
                                                             xmlns="http://www.w3.org/2000/svg"
@@ -197,6 +330,83 @@
                                                                     fill="#000000"></path>
                                                             </g>
                                                         </svg> </span> </a>
+                                                        <form action="post" method="POST" action="{{ route('admin.employee.store') }}">
+                                                            <div class="modal fade" id="detail-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg" role="document">
+                                                                  <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                      <h2 class="modal-title" id="exampleModalLabel">Shift Detail</h2>
+                                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                      </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                      <form action="" method="post">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-xl-4 col-lg-4 col-form-label">Shift Name</label>
+                                                                            <div class="col-lg-12 col-xl-12">
+                                                                                <input type="text" class="form-control" id="formGroupExampleInput" disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <h5>Attendance Setting</h5><br>
+                                                                        <label class="col-lg-2 col-form-label">Working Hour</label>
+                                                                        <div class="col-lg-6">
+                                                                            <input type="text" class="form-control"  disabled/>
+                                                                        </div>
+                                                                      
+                                                                            <form >
+                                                                                <div class="form-row mt-3">
+                                                                                    <div class="form-group col-md-6">
+                                                                                        <label for="example-time-input">Start Time* (e.g. 09:00 AM)</label>
+                                                                                            <input class="form-control" type="time" value="--:-- --" id="example-time-input" disabled/>   
+                                                                                    </div>
+                                                                                        <div class="form-group col-md-6">
+                                                                                              <label for="example-time-input">End Time* (e.g. 09:00 PM)</label>
+                                                                                            <input class="form-control" type="time" value="--:-- --" id="example-time-input" disabled/>
+                                                                                        </div>  
+                                                                                   
+                                                                                </div>
+                                                                            </form>
+                                                                            
+                                                                            <div class="form-group mt-1">
+                                                                                <h5 >Working Days</h5>
+                                                                                <div class="checkbox-inline mt-4">
+                                                                                    <label class="checkbox">
+                                                                                    <input type="checkbox" name="Checkboxes2" disabled/>
+                                                                                    <span></span>Monday</label>
+                                                                                    <label class="checkbox">
+                                                                                    <input type="checkbox" name="Checkboxes2" disabled/>
+                                                                                    <span></span>Tuesday</label>
+                                                                                    <label class="checkbox">
+                                                                                    <input type="checkbox" name="Checkboxes2" disabled/>
+                                                                                    <span></span>Wednesday</label>
+                                                                                    <label class="checkbox">
+                                                                                    <input type="checkbox" name="Checkboxes2" disabled/>
+                                                                                    <span></span>Thursday</label>
+                                                                                    <label class="checkbox">
+                                                                                    <input type="checkbox" name="Checkboxes2" disabled/>
+                                                                                    <span></span>Friday</label>
+                                                                                    <label class="checkbox">
+                                                                                    <input type="checkbox" name="Checkboxes2" disabled/>
+                                                                                    <span></span>Satuday</label>
+                                                                                    <label class="checkbox">
+                                                                                    <input type="checkbox" name="Checkboxes2" disabled/>
+                                                                                    <span></span>Sunday</label>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                        
+                                                                      </form>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                      <button type="button" class="btn btn-primary">Save changes</button>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
                                                 <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
