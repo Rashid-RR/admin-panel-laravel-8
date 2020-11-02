@@ -37,7 +37,7 @@
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label text-right">Profile Picture:</label>
                         <div class="col-lg-9 col-xl-6">
-                            <div class="image-input image-input-outline" id="kt_profile_avatar">
+                            <div class="image-input image-input-outline" id="kt_image_2">
                                 <div class="image-input-wrapper" style="background-image: url({{ asset('employeesProfile/'.$employee->profile) }})"></div>
                                 <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                     <i class="fa fa-pen icon-sm"></i>

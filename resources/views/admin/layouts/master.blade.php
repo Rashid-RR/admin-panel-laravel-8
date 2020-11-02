@@ -470,6 +470,7 @@
 		<script src="{{ asset('js/pages/widgets.js')}}"></script>
 		<script src="{{ asset('js/pages/crud/forms/validation/form-widgets.js')}}"></script>
 		<script src="{{ asset('js/pages/crud/forms/widgets/select2.js')}}"></script>
+		<script src="{{ asset('js/pages/crud/file-upload/image-input.js')}}"></script>
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->
