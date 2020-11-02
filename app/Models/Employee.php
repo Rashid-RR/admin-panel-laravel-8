@@ -37,7 +37,8 @@ class Employee extends Model
         'department_id',
         'designation_id',
         'location_id',
-        'shift_id'
+        'shift_id',
+        'profile'
     ];
 
     public static function getEmployee()
@@ -81,5 +82,11 @@ class Employee extends Model
     public function department()
     {
         return $this->belongsTo('App\Models\Department');
+    }
+    public function location(){
+        return $this->belongsTo('App\Models\Location');
+    }
+    public function shift(){
+        return $this->belongsTo('App\Models\Shift');
     }
 }

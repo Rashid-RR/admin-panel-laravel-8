@@ -61,6 +61,7 @@ class EmployeeController extends Controller
             'city' => 'required',
             'country' => 'required',
             'salary' => 'required',
+            'profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $employee = new Employee;
         $employee->firstName = $request->firstName;
@@ -85,6 +86,13 @@ class EmployeeController extends Controller
         $employee->designation_id = $request->designation_id;
         $employee->location_id = $request->location_id;
         $employee->shift_id = $request->shift_id;
+        
+        if($request->file('profile')){
+            $file = $request->profile;
+            $imageName = time().'.'.$file->extension();
+            $file->move(public_path('employeesProfile'), $imageName);
+            $employee->profile = $imageName;
+        }
 
         $employee->save();
         
@@ -97,9 +105,10 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show($id)
     {
-        return view('admin.employee.detail',['employees' => $employee ]);
+        $empById = Employee::findOrFail($id);
+        return view('admin.employee.detail',compact('empById'));
     }
 
     /**
@@ -112,8 +121,11 @@ class EmployeeController extends Controller
     {
        //dd($id);
        $employee = Employee::findOrFail($employee);
-    //    dd($employee);
-        return view('admin.employee.edit')->with('employee' , $employee);
+       $departments = Department::all();
+       $designations = Designation::all();
+       $locations = Location::all();
+       $shifts = Shift::all();
+       return view('admin.employee.edit',compact('employee','departments','designations','locations','shifts'));
     }
 
     /**
@@ -123,7 +135,7 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request,$id)
     {
         $this->validate($request,[
             'firstName' => 'required',
@@ -135,8 +147,40 @@ class EmployeeController extends Controller
             'country' => 'required',
             'salary' => 'required',
         ]);
-        Employee::findOrFail($employee->id)->update($request->all());
-        return redirect()->back()->with('success','Employee updated successfully !');
+        $employee = Employee::findOrFail($id);
+        $employee->firstName = $request->firstName;
+        $employee->lastName = $request->lastName;
+        $employee->gender = $request->gender;
+        $employee->dob = $request->dob;
+        $employee->cnic = $request->cnic;
+        $employee->employeeAddress = $request->employeeAddress;
+        $employee->email = $request->email;
+        $employee->workPhone = $request->workPhone;
+        $employee->emergencyPhone = $request->emergencyPhone;
+        $employee->homePhone = $request->homePhone;
+        $employee->emergencyContact = $request->emergencyContact;
+        $employee->country = $request->country;
+        $employee->city = $request->city;
+        $employee->salary = $request->salary;
+        $employee->postalCode = $request->postalCode;
+        $employee->employeeCode = $request->employeeCode;
+        $employee->hireDate = $request->hireDate;
+        $employee->joinDate = $request->joinDate;
+        $employee->department_id = $request->department_id;
+        $employee->designation_id = $request->designation_id;
+        $employee->location_id = $request->location_id;
+        $employee->shift_id = $request->shift_id;
+        
+        if($request->file('profile')){
+            $file = $request->profile;
+            $imageName = time().'.'.$file->extension();
+            $file->move(public_path('employeesProfile'), $imageName);
+            $employee->profile = $imageName;
+        }
+
+        $employee->save();
+        
+        return redirect()->route('admin.employee.index')->with('success','Employee updated successfully !');
     }
 
     /**
