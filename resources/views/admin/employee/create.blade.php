@@ -22,18 +22,38 @@
         <div class="card card-custom example example-compact">
             
             <div class="card-header">
-
                 <h3 class="card-title">Add New Employee</h3>
                 <div class="top-right mt-4">
-                   
                     <a href="{{ route('admin.employee.index') }}"><button type="submit" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</button></a>
-                    <a href="{{ route('admin.employee.store') }}"><button type="submit" class="btn btn-success"><i class="fas fa-save"></i>Save</button></a>
+                    <button type="submit" form="createEmployee" class="btn btn-success"><i class="fas fa-save"></i>Save</button>
                 </div>
             </div>
             <!--begin::Form-->
-            <form class="form" method="POST" action="{{ route('admin.employee.store') }}">
+            <form class="form" id="createEmployee" method="POST" action="{{ route('admin.employee.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label text-right">Profile Picture:</label>
+                        <div class="col-lg-9 col-xl-6">
+                            <div class="image-input image-input-outline" id="kt_profile_avatar">
+                                <div class="image-input-wrapper" style="background-image: url({{ asset('default.png') }})"></div>
+                                <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                    <i class="fa fa-pen icon-sm"></i>
+                                    <input type="file" name="profile" accept=".png, .jpg, .jpeg" />
+                                    {{-- <input type="hidden" name="profile_avatar_remove" /> --}}
+                                </label>
+                                {{-- <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                </span> --}}
+                                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                </span>
+                            </div>
+                            <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
+                        </div>
+                    </div>
+
                     <div class="form-group row mt-3">
                         <label class="col-lg-2 col-form-label text-right">First Name:</label>
                         <div class="col-lg-3">
