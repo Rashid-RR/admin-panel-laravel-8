@@ -67,6 +67,26 @@
                    
                 </a>
             </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                <a href="{{ route('admin.designation.index') }}" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                        <i class="fas fa-users"></i>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-text">Users</span>
+                   
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                <a href="{{ route('admin.companyInformation.index') }}" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                        <i class="fas fa-building"></i>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-text">Company</span>
+                   
+                </a>
+            </li>
         </ul>
         <!--end::Menu Nav-->
     </div>
