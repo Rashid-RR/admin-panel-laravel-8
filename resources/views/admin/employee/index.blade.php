@@ -11,7 +11,7 @@
 @endsection
 
 @push('css')
-
+<link href="{{ asset('plugins/custom/uppy/uppy.bundle.css') }}" rel="stylesheet" type="text/css" />
 @endpush
 
 @section('content')
@@ -45,7 +45,7 @@
                                             </svg>
                                             <!--end::Svg Icon-->
                                         </span>Export</button>
-                                    <button type="button" class="btn btn-light-primary font-weight-bolder"
+                                    <button type="button" class="btn btn-light-primary font-weight-bolder" data-toggle="modal" data-target="#import-modal"
                                         aria-haspopup="true" aria-expanded="false">
                                         <span class="svg-icon svg-icon-md">
                                             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
@@ -63,6 +63,33 @@
                                             </svg>
                                             <!--end::Svg Icon-->
                                         </span>Import</button>
+                                        <div class="modal fade" id="import-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h2 class="modal-title" id="exampleModalLabel">Import Employee CSV</h2>
+                                                  <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    
+												<div class="col-lg-12 col-md-9 col-sm-12">
+													<div class="dropzone dropzone-default" id="kt_dropzone_1">
+														<div class="dropzone-msg dz-message needsclick">
+															<h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+															<span class="dropzone-msg-desc">Drag or drop files to upload</span>
+														</div>
+													</div>
+												</div>
+                                                
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                  <button type="button" class="btn btn-primary">Upload</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        
                                     <!--begin::Dropdown Menu-->
                                     <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                         <!--begin::Navigation-->
@@ -251,7 +278,13 @@
 @endsection
 
 @push('js')
+
+
+<script src="{{ asset('js/pages/crud/file-upload/dropzonejs.js')}}"></script>
+
 <script>
+
+
     "use strict";
     // Class definition
 

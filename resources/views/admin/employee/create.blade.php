@@ -34,7 +34,7 @@
                 <div class="card-body">
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right">Profile Picture:</label>
+                        <label class="col-lg-2 col-form-label text-right"><b>Profile Picture:</b></label>
                         <div class="col-lg-9 col-xl-6">
                             <div class="image-input image-input-outline" id="kt_image_2">
                                 <div class="image-input-wrapper" style="background-image: url({{ asset('default.png') }})"></div>
@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label class="col-lg-2 col-form-label text-right">First Name:</label>
+                        <label class="col-lg-2 col-form-label text-right"><b>First Name:</b></label>
                         <div class="col-lg-3">
                             <input type="text" class="form-control" name="firstName" placeholder="First name" required/>
                             <span class="form-text text-muted">Please enter your first name</span>
@@ -63,7 +63,7 @@
                                 <small class="text-danger">{{ $firstName }}</small>
                             @enderror --}}
                         </div>
-                        <label class="col-lg-2 col-form-label text-right">Last Name:</label>
+                        <label class="col-lg-2 col-form-label text-right"><b>Last Name:</b></label>
                         <div class="col-lg-3">
                             <input type="text" class="form-control" name="lastName" placeholder="Last name" required/>
                             <span class="form-text text-muted">Please enter your last name</span>
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right">Gender:</label>
+                        <label class="col-lg-2 col-form-label text-right"><b>Gender:</b></label>
                         <div class="col-lg-3">
                             <div class="radio-inline">
                                 <label class="radio radio-solid">
@@ -84,7 +84,7 @@
                             </div>
                             <span class="form-text text-muted">Please select gender</span>
                         </div>
-                        <label class="col-form-label col-lg-2 text-right">DOB<span class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-2 text-right"><b>DOB</b><span class="text-danger">*</span></label>
                         <div class="col-lg-3 col-md-9 col-sm-12">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="dob" placeholder="Birth Date" id='kt_datepicker' required/>
