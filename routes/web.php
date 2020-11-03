@@ -25,7 +25,9 @@ Auth::routes(['register' => false]);
 Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],function(){
 
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
-   
+    Route::post('/import',[EmployeeController::class,'importCSV'])->name('emp.import');
+    Route::get('/export',[EmployeeController::class,'exportCSV'])->name('emp.export');
+
     Route::resource('employee',EmployeeController::class);
     Route::resource('department',DepartmentController::class);
     Route::resource('shift',ShiftController::class);
@@ -40,12 +42,4 @@ Route::group(['as' => 'staff.','prefix' => 'staff','namespace' => 'Staff','middl
     Route::get('dashboard',[Staff\DashboardController::class,'index'])->name('dashboard');
 });
 
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::view('/upload','sheet-upload/index');
-Route::post('/import',[EmployeeController::class,'importCSV'])->name('import-upload');
-Route::get('/export',[EmployeeController::class,'exportCSV'])->name('export');
-
-//This is for my tables CRUD
-Route::view('/shift_edit','admin/shift/edit');
