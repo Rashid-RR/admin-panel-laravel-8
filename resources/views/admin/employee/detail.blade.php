@@ -33,7 +33,7 @@
                         <div class="form-group row">
                             <label class="col-xl-3 col-lg-3 col-form-label text-center">Profile</label>
                             <div class="col-lg-9 col-xl-6">
-                                <div class="image-input image-input-outline" id="kt_profile_avatar">
+                                <div class="image-input image-input-outline" id="kt_image_2">
                                     <div class="image-input-wrapper" style="background-image: url({{ asset('employeesProfile/'.$empById->profile) }})"></div>
                                     
                                 </div>

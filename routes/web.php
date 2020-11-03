@@ -25,14 +25,6 @@ Auth::routes(['register' => false]);
 Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],function(){
 
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
-
-    // Route::get('employees',[Admin\EmployeeController::class, 'index'])->name('employee.index');
-    // Route::get('employee/add',[Admin\EmployeeController::class, 'create'])->name('employee.add');
-    // Route::get('employee/edit/{id}',[Admin\EmployeeController::class, 'edit'])->name('employee.edit');
-    // Route::post('employee/add',[Admin\EmployeeController::class,'store'])->name('employee.store');
-
-    //Route::post('employee/edit',[Admin\EmployeeController::class,'update'])->name('employee.update');
-    // Route::get('employee/detail',[Admin\EmployeeController::class, 'show'])->name('employee.detail');
    
     Route::resource('employee',EmployeeController::class);
     Route::resource('department',DepartmentController::class);
