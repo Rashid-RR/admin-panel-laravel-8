@@ -81,13 +81,135 @@
                             </div>
                             <!--end::Dropdown-->
                             <!--begin::Button-->
-                            <a href="" class="btn btn-primary font-weight-bolder text-center">
+                            <a href="" data-toggle="modal" data-target="#add1new-modal-lg" class="btn btn-primary font-weight-bolder text-center" >
                                 <i class="fas fa-plus"></i>
                                 Add New
                             </a>
+                            <form action="post" method="POST" action="{{ route('admin.employee.store') }}">
+                                <div class="modal fade" id="add1new-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Company Information</h3>
+                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label>Company Type</label>
+                                                                <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyTypeID">
+                                                                    <!----><option value="1">
+                                                                        Partnership Firm
+                                                                    </option><option value="2">
+                                                                        Private Limited Company
+                                                                    </option><option value="3">
+                                                                        Pakistan
+                                                                    </option><option value="4">
+                                                                        Sole Proprietorship
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label>Company Title</label>
+                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyName" maxlength="500" type="text">
+                                                                <!---->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label>Website</label>
+                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Website" maxlength="150" type="text">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label>Email</label>
+                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Email" maxlength="250" type="text">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label>Total Employees</label>
+                                                                <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="TotalEmployeeID">
+                                                                    <!----><option value="1">
+                                                                        1-25
+                                                                    </option><option value="2">
+                                                                        25-50
+                                                                    </option><option value="3">
+                                                                        50-100
+                                                                    </option><option value="4">
+                                                                        More than 100
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="usr">Salary Calculation Method </label>
+                                                                <select class="form-control m-input ng-untouched ng-pristine ng-valid" formcontrolname="SalaryMethodID">
+                                                                    <!----><option value="1">
+                                                                        Calendar Days
+                                                                    </option><option value="2">
+                                                                        Working Days
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6" style="display:none;">
+                                                            <div class="form-group">
+                                                                <label>Allowed Employee</label>
+                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="AllowedEmployee" type="number">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            {{-- <input class="form-control hidden ng-untouched ng-pristine ng-valid" type="text"> --}}
+                                                            <!----><div class="">
+                                                                <img style="width: 80px;height: 80px;border-radius: 50%;display: table;" src="Not OK">
+                                                            </div>
+                                                            <file-component class="UploadActnWrap ng-untouched ng-valid ng-dirty" _nghost-c0="">
 
-                            
-                           
+                                                                <div _ngcontent-c0="" class="uk-clearfix">
+                                                                    <ul _ngcontent-c0="" class="list-inline UplaodBtnWrap" style="display: block; text-align: center;">
+                                                                        <li _ngcontent-c0="">
+                                                                            <div _ngcontent-c0="" class="image-upload">
+                                                                                <label _ngcontent-c0="" for="myFile">
+                                                                                    <i _ngcontent-c0="" class="icon-upload2" style="color:#54a071;"></i>
+                                                                                </label>
+                                                                                <input _ngcontent-c0="" id="myFile" type="file">
+                                                                            </div>
+                                                                        </li>
+                                                                        <li _ngcontent-c0="">
+                                                                            <div _ngcontent-c0="" class="image-clear">
+                                                                                <label _ngcontent-c0="" for="myFile2">
+                                                                                    <i _ngcontent-c0="" class="icon-trash2 text-danger"></i>
+                                                                                </label>
+                                                                                <input _ngcontent-c0="" hidden="" id="myFile2" type="button">
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div _ngcontent-c0="" class="uk-clearfix showbarWrap" style="position: relative;">
+                                                                    <!---->
+                                                                    <div _ngcontent-c0="" class="uploadBar"></div>
+                                                                </div>
+                                                             </file-component>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-default btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                    <button class="btn btn-blue"  type="submit">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                
+                            </form>
                         </div>
                     </div>
                     <div class="card-body">
