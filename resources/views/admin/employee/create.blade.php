@@ -22,7 +22,7 @@
         <div class="card card-custom example example-compact">
             
             <div class="card-header">
-                <h1 class="card-title">Add New Employee</h1>
+                <h3 class="card-title">Add New Employee</h3>
                 <div class="top-right mt-4">
                     <a href="{{ route('admin.employee.index') }}"><button type="submit" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</button></a>
                     <button type="submit" form="createEmployee" class="btn btn-success"><i class="fas fa-save"></i>Save</button>
@@ -101,7 +101,7 @@
 
 
                     <div class="form-group row">
-                        <label class="col-form-label text-right col-lg-2"><b>CNIC</b><span class="text-danger">*</span></label>
+                        <label class="col-form-label text-right col-lg-2">CNIC<span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cnic" placeholder="Enter your CNIC no." required/>
@@ -113,7 +113,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter correct CNIC</span>
                         </div>
-                        <label class="col-form-label text-right col-lg-2"><b>Address *</b></label>
+                        <label class="col-form-label text-right col-lg-2">Address *</label>
                         <div class="col-lg-3">
                             <textarea class="form-control" name="employeeAddress" placeholder="Enter your address" rows="3"></textarea>
                             <span class="form-text text-muted">Please enter your permanent home address.</span>
@@ -122,7 +122,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>Email:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Email:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="email" class="form-control" name="email" placeholder="Enter your email" required />
@@ -134,7 +134,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter your email</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Home Phone:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Home Phone:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="homePhone" placeholder="Home number" required />
@@ -150,7 +150,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>Work Phone:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Work Phone:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="workPhone" placeholder="Work number" required/>
@@ -162,7 +162,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter work no.</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Emergency Contact:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Emergency Contact:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="emergencyContact" placeholder="Emergency contact" required/>
@@ -179,7 +179,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>Emergency Phone:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Emergency Phone:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="emergencyPhone" placeholder="Emergency Phone" required />
@@ -191,7 +191,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter emergency phone no.</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Country:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Country:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="country" placeholder="Enter your country" required/>
@@ -207,7 +207,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>City:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">City:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="city" placeholder="Enter your city" required/>
@@ -219,7 +219,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter your city</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Postcode:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Postcode:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="postalCode" placeholder="Enter your postcode" required />
@@ -235,12 +235,12 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>Employee Code:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Employee Code:</label>
                         <div class="col-lg-3">
                             <input type="text" class="form-control" name="employeeCode" placeholder="Enter Employee Code" required/>
                             <span class="form-text text-muted">Please employee code.</span>
                         </div>
-                        <label class="col-form-label col-lg-2 text-right"><b>Hire Date</b><span class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-2 text-right">Hire Date<span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="hireDate" placeholder="Hire Date" id='kt_datepicker2' required/>
@@ -256,7 +256,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-form-label col-lg-2 text-right"><b>Joining Date</b><span class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-2 text-right">Joining Date<span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="joinDate" placeholder="Join Date" id='kt_datepicker3' required/>
@@ -268,7 +268,7 @@
                             </div>
                             <span class="form-text text-muted">Select your joining date</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Salary:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Salary:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="number" class="form-control" name="salary" placeholder="Enter employee salary" required/>
@@ -284,7 +284,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-form-label text-right col-lg-2"><b>Departments</b><span class="text-danger">*</span></label>
+                        <label class="col-form-label text-right col-lg-2">Departments <span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_1" name="department_id">
                                 <option value="">Select</option>
@@ -294,7 +294,7 @@
                             </select>
                             <span class="form-text text-muted">Please select an department.</span>
                         </div>
-                        <label class="col-form-label text-right col-lg-2"><b>Designations </b><span class="text-danger">*</span></label>
+                        <label class="col-form-label text-right col-lg-2">Designations <span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_11" name="designation_id">
                                 <option value="">Select</option>
@@ -308,7 +308,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-form-label text-right col-lg-2"><b>Location *</b></label>
+                        <label class="col-form-label text-right col-lg-2">Location *</label>
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_111" name="location_id">
                                 <option value="">Select</option>
@@ -318,7 +318,7 @@
                             </select>
                             <span class="form-text text-muted">Please select an location.</span>
                         </div>
-                        <label class="col-form-label text-right col-lg-2"><b>Shift *</b></label>
+                        <label class="col-form-label text-right col-lg-2">Shift *</label>
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_1111" name="shift_id">
                                 <option value="">Select</option>

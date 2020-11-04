@@ -42,7 +42,14 @@
                                                 <span class="navi-text">Print</span>
                                             </a>
                                         </li>
-
+                                        <li class="navi-item">
+                                            <a href="#" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-copy"></i>
+                                                </span>
+                                                <span class="navi-text">Copy</span>
+                                            </a>
+                                        </li>
                                         <li class="navi-item">
                                             <a href="#" class="navi-link">
                                                 <span class="navi-icon">
@@ -59,7 +66,14 @@
                                                 <span class="navi-text">CSV</span>
                                             </a>
                                         </li>
-                                        
+                                        <li class="navi-item">
+                                            <a href="#" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-file-pdf-o"></i>
+                                                </span>
+                                                <span class="navi-text">PDF</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <!--end::Navigation-->
                                 </div>
@@ -78,7 +92,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Company Information</h3>
-                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times"></i></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row">
@@ -151,30 +165,44 @@
                                                                 <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="AllowedEmployee" type="number">
                                                             </div>
                                                         </div>
-                                                        <div class="form-group row ml-2">
-                                                            <div class="col-lg-9 col-xl-6">
-                                                                <div class="image-input image-input-outline" id="kt_image_2">
-                                                                    <div class="image-input-wrapper" style="background-image: url({{ asset('default.png') }})"></div>
-                                                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-                                                                        <i class="fa fa-pen icon-sm"></i>
-                                                                        <input type="file" name="profile" accept=".png, .jpg, .jpeg" />
-                                                                        {{-- <input type="hidden" name="profile_avatar_remove" /> --}}
-                                                                    </label>
-                                                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-                                                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                                                    </span>
-                                                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
-                                                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                                                    </span>
-                                                                </div>
-                                                                <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
+                                                        <div class="col-sm-6">
+                                                            {{-- <input class="form-control hidden ng-untouched ng-pristine ng-valid" type="text"> --}}
+                                                            <!----><div class="">
+                                                                <img style="width: 80px;height: 80px;border-radius: 50%;display: table;" src="Not OK">
                                                             </div>
+                                                            <file-component class="UploadActnWrap ng-untouched ng-valid ng-dirty" _nghost-c0="">
+
+                                                                <div _ngcontent-c0="" class="uk-clearfix">
+                                                                    <ul _ngcontent-c0="" class="list-inline UplaodBtnWrap" style="display: block; text-align: center;">
+                                                                        <li _ngcontent-c0="">
+                                                                            <div _ngcontent-c0="" class="image-upload">
+                                                                                <label _ngcontent-c0="" for="myFile">
+                                                                                    <i _ngcontent-c0="" class="icon-upload2" style="color:#54a071;"></i>
+                                                                                </label>
+                                                                                <input _ngcontent-c0="" id="myFile" type="file">
+                                                                            </div>
+                                                                        </li>
+                                                                        <li _ngcontent-c0="">
+                                                                            <div _ngcontent-c0="" class="image-clear">
+                                                                                <label _ngcontent-c0="" for="myFile2">
+                                                                                    <i _ngcontent-c0="" class="icon-trash2 text-danger"></i>
+                                                                                </label>
+                                                                                <input _ngcontent-c0="" hidden="" id="myFile2" type="button">
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div _ngcontent-c0="" class="uk-clearfix showbarWrap" style="position: relative;">
+                                                                    <!---->
+                                                                    <div _ngcontent-c0="" class="uploadBar"></div>
+                                                                </div>
+                                                             </file-component>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                    <button class="btn btn-primary"  type="submit">Save</button>
+                                                    <button class="btn btn-default btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                    <button class="btn btn-blue"  type="submit">Save</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -189,9 +217,9 @@
                         <!--begin::Search Form-->
                         <div class="mb-7">
                             <div class="row align-items-center">
-                                <div class="col-lg-12 col-xl-12">
-                                    <div class="row justify-content-end">
-                                        <div class="col-md-3 my-2 my-md-0">
+                                <div class="col-lg-9 col-xl-8">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-4 my-2 my-md-0">
                                             <div class="input-icon">
                                                 <input type="text" class="form-control" placeholder="Search..."
                                                     id="kt_datatable_search_query" />
@@ -257,7 +285,17 @@
                                             </a>
                                             <a href="" 
                                                 class="btn btn-sm btn-clean btn-icon mr-2" title="details"> 
-                                                <span class="fas fa-eye"> </span> </a>
+                                                <span class="svg-icon svg-icon-md"> <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                        height="24px" viewBox="0 0 24 24" version="1.1">
+                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                            <rect x="0" y="0" width="24" height="24"></rect>
+                                                            <path
+                                                                d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z"
+                                                                fill="#000000"></path>
+                                                        </g>
+                                                    </svg> </span> </a>
                                             <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                 <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"

@@ -35,7 +35,7 @@
                 <div class="card-body">
                     
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>Profile Picture:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Profile Picture:</label>
                         <div class="col-lg-9 col-xl-6">
                             <div class="image-input image-input-outline" id="kt_image_2">
                                 <div class="image-input-wrapper" style="background-image: url({{ asset('employeesProfile/'.$employee->profile) }})"></div>
@@ -56,12 +56,12 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label class="col-lg-2 col-form-label text-right"><b>First Name:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">First Name:</label>
                         <div class="col-lg-3">
                             <input type="text" class="form-control " name="firstName" placeholder="First name" value="{{$employee->firstName}}" readonly/>
                             <span class="form-text text-muted">Please enter your first name</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Last Name:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Last Name:</label>
                         <div class="col-lg-3">
                             <input type="text" class="form-control" name="lastName" placeholder="Last name" value="{{$employee->lastName}}" required readonly/>
                             <span class="form-text text-muted">Please enter your last name</span>
@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right" disabled><b>Gender:</b></label>
+                        <label class="col-lg-2 col-form-label text-right" disabled>Gender:</label>
                         <div class="col-lg-3">
                             <div class="radio-inline">
                                 <label class="radio radio-solid">
@@ -82,7 +82,7 @@
                             </div>
                             <span class="form-text text-muted">Please select gender</span>
                         </div>
-                        <label class="col-form-label col-lg-2 text-right"><b>DOB</b><span class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-2 text-right">DOB<span class="text-danger">*</span></label>
                         <div class="col-lg-3 col-md-9 col-sm-12">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="dob" placeholder="Birth Date" id='kt_datepicker' value="{{ $employee->dob }}" required readonly/>
@@ -99,7 +99,7 @@
 
 
                     <div class="form-group row">
-                        <label class="col-form-label text-right col-lg-2"><b>CNIC</b><span class="text-danger">*</span></label>
+                        <label class="col-form-label text-right col-lg-2">CNIC<span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cnic" value="{{ $employee->cnic }}" placeholder="Enter your CNIC no." required readonly/>
@@ -111,7 +111,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter correct CNIC</span>
                         </div>
-                        <label class="col-form-label text-right col-lg-2"><b>Address *</b></label>
+                        <label class="col-form-label text-right col-lg-2">Address *</label>
                         <div class="col-lg-3">
                             <textarea class="form-control" name="employeeAddress" placeholder="Enter your address" rows="3" readonly>{{ $employee->employeeAddress }}</textarea>
                             <span class="form-text text-muted">Please enter your permanent home address.</span>
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>Email:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Email:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="email" class="form-control" name="email" placeholder="Enter your email" value="{{ $employee->email }}" readonly/>
@@ -132,7 +132,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter your email</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Home Phone:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Home Phone:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="homePhone" placeholder="Home number" value={{$employee->homePhone}} readonly />
@@ -148,7 +148,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>Work Phone:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Work Phone:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="workPhone" placeholder="Work number" readonly value={{$employee->workPhone}} />
@@ -160,7 +160,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter work no.</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Emergency Contact:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Emergency Contact:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="emergencyContact" placeholder="Emergency contact" readonly value={{$employee->emergencyContact}}/>
@@ -177,7 +177,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>Emergency Phone:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Emergency Phone:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="emergencyPhone" placeholder="Emergency Phone" readonly value={{$employee->emergencyPhone}} required />
@@ -189,7 +189,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter emergency phone no.</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Country:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Country:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="country" placeholder="Enter your country" readonly value={{$employee->country}} required/>
@@ -205,7 +205,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>City:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">City:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="city" placeholder="Enter your city" readonly value={{$employee->city}} required/>
@@ -217,7 +217,7 @@
                             </div>
                             <span class="form-text text-muted">Please enter your city</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Postcode:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Postcode:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="postalCode" placeholder="Enter your postcode" readonly value={{$employee->postalCode}} required/>
@@ -233,12 +233,12 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label text-right"><b>Employee Code:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Employee Code:</label>
                         <div class="col-lg-3">
                             <input type="text" class="form-control" name="employeeCode" placeholder="Enter Employee Code" value={{$employee->employeeCode}} required/>
                             <span class="form-text text-muted">Please employee code.</span>
                         </div>
-                        <label class="col-form-label col-lg-2 text-right"><b>Hire Date</b><span class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-2 text-right">Hire Date<span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="hireDate" placeholder="Hire Date" id='kt_datepicker2' value="{{ $employee->hireDate }}" required/>
@@ -254,7 +254,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-form-label col-lg-2 text-right"><b>Joining Date</b><span class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-2 text-right">Joining Date<span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="joinDate" placeholder="Join Date" id='kt_datepicker3' value="{{ $employee->joinDate }}" required/>
@@ -266,7 +266,7 @@
                             </div>
                             <span class="form-text text-muted">Select your joining date</span>
                         </div>
-                        <label class="col-lg-2 col-form-label text-right"><b>Salary:</b></label>
+                        <label class="col-lg-2 col-form-label text-right">Salary:</label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="number" class="form-control" name="salary" placeholder="Enter employee salary" value="{{ $employee->salary }}" required/>
@@ -282,7 +282,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-form-label text-right col-lg-2"><b>Departments</b> <span class="text-danger">*</span></label>
+                        <label class="col-form-label text-right col-lg-2">Departments <span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_1" name="department_id">
                                 <option value="">Select</option>
@@ -292,7 +292,7 @@
                             </select>
                             <span class="form-text text-muted">Please select an department.</span>
                         </div>
-                        <label class="col-form-label text-right col-lg-2"><b>Designations</b> <span class="text-danger">*</span></label>
+                        <label class="col-form-label text-right col-lg-2">Designations <span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_11" name="designation_id">
                                 <option value="">Select</option>
@@ -306,7 +306,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-form-label text-right col-lg-2"><b>Location *</b></label>
+                        <label class="col-form-label text-right col-lg-2">Location *</label>
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_111" name="location_id">
                                 <option value="">Select</option>
@@ -316,7 +316,7 @@
                             </select>
                             <span class="form-text text-muted">Please select an location.</span>
                         </div>
-                        <label class="col-form-label text-right col-lg-2"><b>Shift *</b></label>
+                        <label class="col-form-label text-right col-lg-2">Shift *</label>
                         <div class="col-lg-3">
                             <select class="form-control" id="kt_select2_1111" name="shift_id">
                                 <option value="">Select</option>
