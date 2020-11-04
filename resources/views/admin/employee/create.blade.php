@@ -240,7 +240,7 @@
                             <input type="text" class="form-control" name="employeeCode" placeholder="Enter Employee Code" required/>
                             <span class="form-text text-muted">Please employee code.</span>
                         </div>
-                        <label class="col-form-label col-lg-2 text-right"><b>Hire Date</b><span class="text-danger">*</span></label>
+                        rm<label class="col-fo-label col-lg-2 text-right"><b>Hire Date</b><span class="text-danger">*</span></label>
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="hireDate" placeholder="Hire Date" id='kt_datepicker2' required/>

@@ -91,7 +91,7 @@
                                                 </div>
                                                 <hr>
                                                 <h5>Attendance Setting</h5><br>
-                                                <label class="col-lg-2 col-form-label">Working Hour</label>
+                                                <label class="col-lg-2 col-form-label" style="padding: 0" >Working Hour</label>
                                                 <div class="col-lg-6" style="padding: 0">
                                                     <input type="text" class="form-control"  required/>
                                                 </div>
@@ -243,7 +243,7 @@
                                                                 </div>
                                                                 <hr>
                                                                 <h5>Attendance Setting</h5><br>
-                                                                <label class="col-lg-2 col-form-label">Working Hour</label>
+                                                                <label class="col-lg-2 col-form-label" style="padding: 0">Working Hour</label>
                                                                 <div class="col-lg-6" style="padding: 0">
                                                                     <input type="text" class="form-control"  required/>
                                                                 </div>
@@ -294,7 +294,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                                              <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>Update</button>
                                                             </div>
                                                           </div>
                                                         </div>
@@ -322,7 +322,7 @@
                                                                         </div>
                                                                         <hr>
                                                                         <h5>Attendance Setting</h5><br>
-                                                                        <label class="col-lg-2 col-form-label">Working Hour</label>
+                                                                        <label class="col-lg-2 col-form-label" style="padding: 0">Working Hour</label>
                                                                         <div class="col-lg-6" style="padding: 0">
                                                                             <input type="text" class="form-control"  disabled/>
                                                                         </div>

@@ -111,7 +111,7 @@
             
                                         <td>{{$item->deptName}}</td>
                                         <td>
-                                            <div class="btn-group mr-1" role="group" aria-label="Basic example" >
+                                            <div class="btn-group mr-1" role="group" aria-label="Basic example" style="width: 0px!important" >
 
                                                 <a href="" data-toggle="modal" data-target="#editadd-modal-lg"
                                                     class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span
@@ -147,7 +147,7 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                    <button class="btn btn-primary" id="saveSchedule" type="submit">Save</button>
+                                                                    <button class="btn btn-primary" id="saveSchedule" type="submit"><i class="fas fa-save"></i>Update</button>
                                                                     <!---->
                                                                 </div>
                                                             </div>
