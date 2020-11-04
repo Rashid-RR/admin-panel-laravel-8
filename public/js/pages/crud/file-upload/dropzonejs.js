@@ -6,18 +6,18 @@ var KTDropzoneDemo = function () {
     var demo1 = function () {
         // single file upload
         $('#kt_dropzone_1').dropzone({
-            url: "https://keenthemes.com/scripts/void.php", // Set the url for your upload script location
+            url: "employee/import2", // Set the url for your upload script location
             paramName: "file", // The name that will be used to transfer the file
             maxFiles: 1,
-            maxFilesize: 5, // MB
+            maxFilesize: 10, // MB
             addRemoveLinks: true,
-            accept: function(file, done) {
-                if (file.name == "justinbieber.jpg") {
-                    done("Naha, you don't.");
-                } else {
-                    done();
-                }
-            }
+            acceptedFiles: ".csv,.xlsx",
+            maxFilesize: 12,
+            // renameFile: function(file) {
+            //     var dt = new Date();
+            //     var time = dt.getTime();
+            //    return time+file.name;
+            // }
         });
 
         // multiple file upload

@@ -21,12 +21,15 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
+Route::get('import',[EmployeeController::class,'importCSV'])->name('import');
 
 Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],function(){
 
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
-    Route::post('/import',[EmployeeController::class,'importCSV'])->name('emp.import');
-    Route::get('/export',[EmployeeController::class,'exportCSV'])->name('emp.export');
+    Route::post('/employee/import',[EmployeeController::class,'importCSV'])->name('emp.import');
+    Route::post('/employee/import2',[EmployeeController::class,'importCSV2'])->name('emp.import2');
+    Route::get('/employee/export',[EmployeeController::class,'exportCSV'])->name('emp.export');
+    Route::post('/employee/');
 
     Route::resource('employee',EmployeeController::class);
     Route::resource('department',DepartmentController::class);

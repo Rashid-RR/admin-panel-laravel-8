@@ -11,7 +11,7 @@
 @endsection
 
 @push('css')
-<link href="{{ asset('plugins/custom/uppy/uppy.bundle.css') }}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
 @endpush
 
 @section('content')
@@ -44,7 +44,8 @@
                                                 </g>
                                             </svg>
                                             <!--end::Svg Icon-->
-                                        </span>Export</button>
+                                        </span>Export
+                                    </button>
                                     <button type="button" class="btn btn-light-primary font-weight-bolder" data-toggle="modal" data-target="#import-modal"
                                         aria-haspopup="true" aria-expanded="false">
                                         <span class="svg-icon svg-icon-md">
@@ -65,28 +66,28 @@
                                         </span>Import</button>
                                         <div class="modal fade" id="import-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
-                                              <div class="modal-content">
-                                                <div class="modal-header">
-                                                  <h2 class="modal-title" id="exampleModalLabel">Import Employee CSV</h2>
-                                                  <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                </div>
-                                                <div class="modal-body">
+                                                <div class="modal-content">
                                                     
-												<div class="col-lg-12 col-md-9 col-sm-12">
-													<div class="dropzone dropzone-default" id="kt_dropzone_1">
-														<div class="dropzone-msg dz-message needsclick">
-															<h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
-															<span class="dropzone-msg-desc">Drag or drop files to upload</span>
-														</div>
-													</div>
-												</div>
-                                                
+                                                    <div class="modal-header">
+                                                        <h2 class="modal-title" id="exampleModalLabel">Import Employee CSV</h2>
+                                                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="col-lg-12 col-md-9 col-sm-12">
+                                                            <form method="post" action="{{url('admin/employee/import2')}}" enctype="multipart/form-data" class="dropzone dropzone-default" id="dropzone">
+                                                            @csrf
+                                                            <div class="dropzone-msg dz-message needsclick">
+                                                                <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+                                                                <span class="dropzone-msg-desc">Drag or drop files to upload</span>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                                    </div>
                                                 </div>
-                                                <div class="modal-footer">
-                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <button type="button" class="btn btn-primary">Upload</button>
-                                                </div>
-                                              </div>
                                             </div>
                                         </div>
                                         
@@ -106,15 +107,7 @@
                                                 </a>
                                             </li>
                                             <li class="navi-item">
-                                                <a href="#" class="navi-link">
-                                                    <span class="navi-icon">
-                                                        <i class="la la-copy"></i>
-                                                    </span>
-                                                    <span class="navi-text">Copy</span>
-                                                </a>
-                                            </li>
-                                            <li class="navi-item">
-                                                <a href="#" class="navi-link">
+                                                <a href="{{ route('admin.emp.export') }}" class="navi-link">
                                                     <span class="navi-icon">
                                                         <i class="la la-file-excel-o"></i>
                                                     </span>
@@ -122,19 +115,11 @@
                                                 </a>
                                             </li>
                                             <li class="navi-item">
-                                                <a href="#" class="navi-link">
+                                                <a href="{{ route('admin.emp.export') }}" class="navi-link">
                                                     <span class="navi-icon">
                                                         <i class="la la-file-text-o"></i>
                                                     </span>
                                                     <span class="navi-text">CSV</span>
-                                                </a>
-                                            </li>
-                                            <li class="navi-item">
-                                                <a href="#" class="navi-link">
-                                                    <span class="navi-icon">
-                                                        <i class="la la-file-pdf-o"></i>
-                                                    </span>
-                                                    <span class="navi-text">PDF</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -281,12 +266,34 @@
 
 
 <script src="{{ asset('js/pages/crud/file-upload/dropzonejs.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
 
 <script>
-
-
     "use strict";
     // Class definition
+
+Dropzone.options.dropzone =
+         {
+            maxFilesize: 12,
+            renameFile: function(file) {
+                var dt = new Date();
+                var time = dt.getTime();
+               return time+file.name;
+            },
+            acceptedFiles: ".csv,.xsls",
+            addRemoveLinks: true,
+            timeout: 5000,
+            success: function(file, response) 
+            {
+                console.log(response);
+            },
+            error: function(file, response)
+            {
+               return false;
+            }
+};
+
+
 
     var KTDatatableHtmlTableDemo = function () {
         // Private functions

@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\EmployeeImport;
 
+use File;
+
 class EmployeeController extends Controller
 {
     /**
@@ -195,10 +197,23 @@ class EmployeeController extends Controller
         return redirect()->back()->with('success','Employee deleted successfully !');
     }
 
-    public function importCSV(Request $request)
+    public function importCSV()
     {
-        Excel::import(new EmployeeImport,$request->file('file'));
+     //   dd(File::files(public_path('employeeSheet')));
+
+        //$file=base_path('employeeSheet/'.'1604407940675employee');
+        $sheet = File::get(public_path('employeeSheet/1604407940675employee.csv'));
+        //Excel::import(new EmployeeImport,$request->file('file'));
+        dd($sheet);
+        Excel::import(new EmployeeImport,$sheet);
         return back();
+    }
+    public function importCSV2(Request $request)
+    {   
+        $employeeSheet = $request->file('file');
+        $employeeSheetName = $employeeSheet->getClientOriginalName();
+        $employeeSheet->move(public_path('employeeSheet'),$employeeSheetName);
+        
     }
     public function exportCSV(Request $request)
     {
