@@ -15,7 +15,7 @@
                 <div class="card-header py-3">
                     <div class="card-title align-items-start flex-column">
                         <h3 class="card-label font-weight-bolder text-dark">Personal Information</h3>
-                        <span class="text-muted font-weight-bold font-size-sm mt-1">Update your personal informaiton</span>
+                        <span class="text-muted font-weight-bold font-size-sm mt-1"></span>
                     </div>
                     <div class="top-right mt-4">
                         <a href="{{ route('admin.employee.index') }}"><button type="submit" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</button></a>
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Profile</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Profile</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="image-input image-input-outline" id="kt_image_2">
                                     <div class="image-input-wrapper" style="background-image: url({{ asset('employeesProfile/'.$empById->profile) }})"></div>
@@ -41,37 +41,37 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">First Name</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>First Name</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <input disabled class="form-control form-control-lg form-control-solid" type="text" value="{{ $empById->firstName }}" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Last Name</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Last Name</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <input disabled class="form-control form-control-lg form-control-solid" type="text"  value="{{ $empById->lastName }}" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Gender</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Gender</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <input disabled class="form-control form-control-lg form-control-solid" type="text" value="{{ $empById->gender }}" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">DOB</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>DOB</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <input disabled class="form-control form-control-lg form-control-solid" type="text" value="{{$empById->dob}}" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">CNIC</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>CNIC</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <input disabled class="form-control form-control-lg form-control-solid" type="text" value="{{$empById->cnic}}" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">ADDRESS</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>ADDRESS</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <input disabled class="form-control form-control-lg form-control-solid" type="text" value="{{$empById->employeeAddress}}" />
                             </div>
@@ -79,11 +79,11 @@
                         <div class="row">
                             <label class="col-xl-3"></label>
                             <div class="col-lg-9 col-xl-6">
-                                <h5 class="font-weight-bold mt-10 mb-6 text-center">Contact Info</h5>
+                                <h5 class="font-weight-bold mt-10 mb-6 text-center"><b>Contact Info</b></h5>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Email:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Email:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Home Phone:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Home Phone:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Work Phone:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Work Phone:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -125,7 +125,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Emergency Contact:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Emergency Contact:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Emergency Phone:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Emergency Phone:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -154,7 +154,7 @@
                         </div>
                         <div class="form-group row">
 
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Country:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Country:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -169,7 +169,7 @@
                         </div>
                         <div class="form-group row">
 
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">city:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>city:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -183,7 +183,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Postcode:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Postcode:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -198,14 +198,14 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Employee Code:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Employee Code:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <input disabled type="text" class="form-control" name="employeeCode" placeholder="Enter Employee Code" value="{{$empById->employeeCode}}" required/>
                                 </div>
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Hire Date</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Hire Date</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -217,7 +217,7 @@
                                 </div>
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Joining Date</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Joining Date</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -229,7 +229,7 @@
                                 </div>
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Salary:</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Salary:</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <div class="input-group-prepend">
@@ -241,28 +241,28 @@
                                 </div>
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Department</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Department</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->department->deptName }}" placeholder="Department" />
                                 </div>
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Designation</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Designation</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->designation->name }}" placeholder="Designation" />
                                 </div>
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Location</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Location</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->location->location }}" placeholder="Location" />
                                 </div>
                             </div>
                         </div><div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-center">Shift</label>
+                            <label class="col-xl-3 col-lg-3 col-form-label text-center"><b>Shift</b></label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="input-group input-group-lg input-group-solid">
                                     <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->shift->name }}" placeholder="Shift" />
