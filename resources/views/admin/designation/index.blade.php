@@ -3,14 +3,11 @@
 @section('title','Designations')
 
 @section('breadcrumb')
-    {{-- <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+    <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.department.index')}}" class="text-muted">Employees</a>
+            <a href="{{ route('admin.designation.index')}}" class="text-muted">Designation</a>
         </li>
-        <li class="breadcrumb-item">
-            <a href="{{ route('admin.department.create')}}" class="text-muted">Add Employee</a>
-        </li>
-    </ul> --}}
+    </ul>
 @endsection
 
 @push('css')
@@ -38,7 +35,8 @@
                                 </a>
                                 <div class="modal fade" id="add-desg-modal-lg" role="dialog" style="display: none;">
                                     <div class="modal-dialog modal-md">
-                                        <form novalidate="" class="pristine invalid touched">
+                                        <form novalidate="" class="pristine invalid touched" action="{{ route('admin.designation.store') }}" method="POST">
+                                            @csrf
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Add Designation</h3>
@@ -47,13 +45,13 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Name*</label>
-                                                        <input class="form-control pristine invalid touched" formcontrolname="DesignationName" maxlength="250" placeholder="e.g. Software Engineer" type="text">
+                                                        <input class="form-control pristine invalid touched" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text">
                                                         <!---->
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                    <button class="btn btn-primary" id="saveSchedule" type="submit">Save</button>
+                                                    <button class="btn btn-primary" id="" type="submit">Save</button>
                                                     <!---->
                                                 </div>
                                             </div>
@@ -107,13 +105,10 @@
                                     <tr>
                                         
                                         <td>{{ $item->name }}</td>
-                                       
-                                            
-                                        </td>
                                         <td>
                                             <div class="btn-group mr-1 " role="group" aria-label="Basic example" >
 
-                                                <a href="" data-toggle="modal" data-target="#edit-desg-modal-lg"
+                                                <a href="" id="designationEditBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#edit-desg-modal-lg"
                                                     class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span
                                                         class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -132,7 +127,9 @@
                                                 </a>
                                                 <div class="modal fade" id="edit-desg-modal-lg" role="dialog" style="display: none;">
                                                     <div class="modal-dialog modal-md">
-                                                        <form novalidate="" class="pristine invalid touched">
+                                                        <form novalidate="" action="" id="designationEditData" class="pristine invalid touched" method="POST">
+                                                            {{ @method_field('PUT') }}
+                                                            @csrf
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Designation</h3>
@@ -141,46 +138,47 @@
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
                                                                         <label>Name*</label>
-                                                                        <input class="form-control pristine invalid touched" formcontrolname="DesignationName" maxlength="250" placeholder="e.g. Software Engineer" type="text">
+                                                                        <input class="form-control pristine invalid touched" id="name" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text">
                                                                         <!---->
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                    <button class="btn btn-primary" id="saveSchedule" type="submit">Save</button>
+                                                                    <button class="btn btn-primary" id="" type="submit">Save</button>
                                                                     <!---->
                                                                 </div>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <a href="" data-toggle="modal" data-target="#detail-desg-modal-lg"
+                                                <a href="" id="designationDetailBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#detail-desg-modal-lg"
                                                      class="btn btn-sm btn-clean btn-icon mr-2"> 
-                                                     <span class="fas fa-eye"></span> </a>
-                                                        <div class="modal fade" id="detail-desg-modal-lg" role="dialog" style="display: none;">
-                                                            <div class="modal-dialog modal-md">
-                                                                <form novalidate="" class="pristine invalid touched">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Designation Details</h3>
-                                                                            <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <div class="form-group">
-                                                                                <label>Name*</label>
-                                                                                <input class="form-control pristine invalid touched" formcontrolname="DesignationName" maxlength="250" placeholder="e.g. Software Engineer" type="text" disabled>
-                                                                                <!---->
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                           
-                                                                            <button class="btn btn-secondary outline-btn" data-dismiss="modal" type="submit">close</button>
-                                                                            <!---->
-                                                                        </div>
+                                                     <span class="fas fa-eye"></span> 
+                                                </a>
+                                                <div class="modal fade" id="detail-desg-modal-lg" role="dialog" style="display: none;">
+                                                    <div class="modal-dialog modal-md">
+                                                        <form novalidate="" class="pristine invalid touched">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Designation Details</h3>
+                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label>Name</label>
+                                                                        <input class="form-control pristine invalid touched" value="" id="designationName" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text" disabled>
+                                                                        <!---->
                                                                     </div>
-                                                                </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    
+                                                                    <button class="btn btn-secondary outline-btn" data-dismiss="modal" type="submit">close</button>
+                                                                    <!---->
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                                 <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -213,6 +211,21 @@
 
 @push('js')
     <script>
+
+
+            $('div').on('click', '#designationEditBtn', function (event) {
+                event.preventDefault();
+                var designation = $(this).data('id');
+                console.log(designation.deptName)
+                $('#name').val(designation.name);
+                $("#designationEditData").attr("action", "designation/" + designation.id);
+            });
+            $('div').on('click', '#designationDetailBtn', function (event) {
+                event.preventDefault();
+                var designation = $(this).data('id');
+                $('#designationName').val(designation.name);
+            });
+
            var KTDatatableHtmlTableDemo = function () {
         // Private functions
 

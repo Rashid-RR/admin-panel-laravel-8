@@ -37,13 +37,27 @@ class ShiftController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $this->validate($request,[
             'workingHours' => 'required',
             'startTime' => 'required',
             'endTime' => 'required'
         ]);
-        Shift::created($request->all());
-        return redirect()->route('shift.index')->with('success' , 'Shift Created Successfully !');
+        $shiftModal = new Shift;
+        $shiftModal->name = $request->name;
+        $shiftModal->workingHours = $request->workingHours;
+        $shiftModal->startTime = $request->startTime;
+        $shiftModal->endTime = $request->endTime;
+        $shiftModal->monday = $request->monday;
+        $shiftModal->tuesday = $request->tuesday;
+        $shiftModal->wednesday = $request->wednesday;
+        $shiftModal->thursday = $request->thursday;
+        $shiftModal->friday = $request->friday;
+        $shiftModal->saturday = $request->saturday;
+        $shiftModal->sunday = $request->sunday;
+        $shiftModal->save();
+
+        return redirect()->route('admin.shift.index')->with('success' , 'Shift Created Successfully !');
     }
 
     /**
@@ -76,15 +90,27 @@ class ShiftController extends Controller
      * @param  \App\Models\Shift  $shift
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shift $shift)
+    public function update(Request $request, $id)
     {
         $this->validate($request,[
             'workingHours' => 'required',
             'startTime' => 'required',
             'endTime' => 'required'
         ]);
-        Shift::findOrFail($shift->id)->update($request->all());
-        return redirect()->route('shift.index')->with('success' , 'Shift Updated successfully !');
+        $shiftModal = Shift::findOrFail($id);
+        $shiftModal->name = $request->name;
+        $shiftModal->workingHours = $request->workingHours;
+        $shiftModal->startTime = $request->startTime;
+        $shiftModal->endTime = $request->endTime;
+        $shiftModal->monday = $request->monday;
+        $shiftModal->tuesday = $request->tuesday;
+        $shiftModal->wednesday = $request->wednesday;
+        $shiftModal->thursday = $request->thursday;
+        $shiftModal->friday = $request->friday;
+        $shiftModal->saturday = $request->saturday;
+        $shiftModal->sunday = $request->sunday;
+        $shiftModal->save();
+        return redirect()->route('admin.shift.index')->with('success' , 'Shift Updated successfully !');
     }
 
     /**

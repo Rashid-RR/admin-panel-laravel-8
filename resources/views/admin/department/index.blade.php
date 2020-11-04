@@ -32,13 +32,14 @@
                                 <!--begin::Dropdown-->
                                 <div class="dropdown dropdown-inline mr-2">
                                 </div>
-                                <a href="" class="btn btn-primary font-weight-bolder text-center" data-toggle="modal" data-target="#deptadd-modal-lg">
+                                <a class="btn btn-primary font-weight-bolder text-center" data-toggle="modal" data-target="#deptadd-modal-lg">
                                     <i class="fas fa-plus"></i>
                                     Add New
                                 </a>
                                 <div class="modal fade" id="deptadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-md">
-                                        <form novalidate="" class="pristine invalid touched">
+                                        <form class="pristine invalid touched" action="{{ route('admin.department.store') }}" method="POST">
+                                            @csrf
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Add New Department</h3>
@@ -47,14 +48,12 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Name*</label>
-                                                        <input class="form-control pristine invalid touched" formcontrolname="DepartmentName" maxlength="250" type="text">
-                                                        <!---->
+                                                        <input class="form-control pristine invalid touched" placeholder="Enter department name.." name="deptName" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                    <button class="btn btn-primary" id="saveSchedule" type="submit">Save</button>
-                                                    <!---->
+                                                    <button class="btn btn-primary" id="" type="submit">Save</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -113,9 +112,8 @@
                                         <td>
                                             <div class="btn-group mr-1" role="group" aria-label="Basic example" >
 
-                                                <a href="" data-toggle="modal" data-target="#editadd-modal-lg"
-                                                    class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span
-                                                        class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
+                                                <a href="#" id="editBtn" data-toggle="modal" data-target="#editadd-modal-lg" data-id="{{ $item }}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> 
+                                                    <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                                                             height="24px" viewBox="0 0 24 24" version="1.1">
                                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -128,11 +126,15 @@
                                                                 <rect fill="#000000" opacity="0.3" x="5" y="20" width="15"
                                                                     height="2" rx="1"></rect>
                                                             </g>
-                                                        </svg> </span>
+                                                        </svg> 
+                                                    </span>
                                                 </a>
                                                 <div class="modal fade" id="editadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-md">
-                                                        <form novalidate="" class="pristine invalid touched">
+                                                        <form novalidate="" method="POST" action="" class="pristine invalid touched" id="departmentEditData">
+                                                            {{-- {{ route('admin.department.update',$item->id) }} --}}
+                                                            {{ @method_field('PUT') }}
+                                                            @csrf
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Department</h3>
@@ -141,46 +143,46 @@
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
                                                                         <label>Name*</label>
-                                                                        <input class="form-control pristine invalid touched" formcontrolname="DepartmentName" maxlength="250" type="text">
+                                                                        {{-- <input type="hidden" id="deptId" name="id" value="" /> --}}
+                                                                        <input class="form-control pristine invalid touched" value="" id="deptName" name="deptName" maxlength="250" type="text">
                                                                         <!---->
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                    <button class="btn btn-primary" id="saveSchedule" type="submit">Save</button>
+                                                                    <button class="btn btn-primary" id="" type="submit">Save</button>
                                                                     <!---->
                                                                 </div>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <a href="" data-toggle="modal" data-target="#detailadd-modal-lg"
+                                                <a href="" id="detailBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#detailadd-modal-lg"
                                                      class="btn btn-sm btn-clean btn-icon mr-2"> 
-                                                     <span class="fas fa-eye"></span> </a>
-                                                        <div class="modal fade" id="detailadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-md">
-                                                                <form novalidate="" class="pristine invalid touched">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Department Detail</h3>
-                                                                            <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <div class="form-group">
-                                                                                <label>Name*</label>
-                                                                                <input class="form-control pristine invalid touched" formcontrolname="DepartmentName" maxlength="250" type="text">
-                                                                                <!---->
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">close</button>
-                                                                            
-                                                                            <!---->
-                                                                        </div>
+                                                     <span class="fas fa-eye"></span> 
+                                                </a>
+                                                <div class="modal fade" id="detailadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-md">
+                                                        <form novalidate="" class="pristine invalid touched">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Department Detail</h3>
+                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label>Name*</label>
+                                                                        <input class="form-control pristine invalid touched" disabled name="deptName" id="deptName2" maxlength="250" type="text">
+                                                                        <!---->
                                                                     </div>
-                                                                </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">close</button>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                                 <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -213,6 +215,22 @@
 
 @push('js')
     <script>
+
+
+            $('div').on('click', '#editBtn', function (event) {
+                event.preventDefault();
+                var department = $(this).data('id');
+                console.log(department.deptName)
+                $('#deptName').val(department.deptName);
+                $("#departmentEditData").attr("action", "department/" + department.id);
+            });
+            $('div').on('click', '#detailBtn', function (event) {
+                event.preventDefault();
+                var department = $(this).data('id');
+                $('#deptName2').val(department.deptName);
+            });
+
+
            var KTDatatableHtmlTableDemo = function () {
         // Private functions
 
