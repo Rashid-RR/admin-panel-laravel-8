@@ -137,13 +137,14 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            
                             <!--begin: Search Form-->
                             <!--begin::Search Form-->
                             <div class="mb-7">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-9 col-xl-8">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-4 my-2 my-md-0">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div class="row justify-content-end">
+                                            <div class="col-md-3 my-2 my-md-0">
                                                 <div class="input-icon">
                                                     <input type="text" class="form-control" placeholder="Search..."
                                                         id="kt_datatable_search_query" />
@@ -167,11 +168,11 @@
                                                 </div>
                                             </div>
                                             
+                                            
                                         </div>
+                                        
                                     </div>
-                                    <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                                       
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <!--end::Search Form-->
@@ -179,6 +180,7 @@
                             <!--begin: Datatable-->
                             <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                                 <thead>
+                                    
                                     <tr>
                                         <th title="Field #1">Full Name</th>
                                         <th title="Field #2">Phone</th>
@@ -222,17 +224,7 @@
                                                 </a>
                                                 <a href="{{ route('admin.employee.show', $item->id) }}" 
                                                     class="btn btn-sm btn-clean btn-icon mr-2" title="details"> 
-                                                    <span class="svg-icon svg-icon-md"> <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                            height="24px" viewBox="0 0 24 24" version="1.1">
-                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                <rect x="0" y="0" width="24" height="24"></rect>
-                                                                <path
-                                                                    d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z"
-                                                                    fill="#000000"></path>
-                                                            </g>
-                                                        </svg> </span> </a>
+                                                    <span class="fas fa-eye"></span> </a>
                                                 <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
