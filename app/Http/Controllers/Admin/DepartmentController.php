@@ -64,9 +64,10 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function edit(Department $department)
+    public function edit($id)
     {
-        return view('admin.department.edit',['department' => Department::findOrFail($department->id)]);
+        dd($id);
+        return Department::findOrFail($id);
     }
 
     /**
