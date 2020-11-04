@@ -93,21 +93,22 @@ var KTWizard4 = function () {
 			_formEl,
 			{
 				fields: {
-					fname: {
+					firstName: {
 						validators: {
 							notEmpty: {
 								message: 'First name is required'
 							}
+							
 						}
 					},
-					lname: {
+					lastName: {
 						validators: {
 							notEmpty: {
 								message: 'Last Name is required'
 							}
 						}
 					},
-					phone: {
+					homePhone: {
 						validators: {
 							notEmpty: {
 								message: 'Phone is required'
@@ -122,6 +123,90 @@ var KTWizard4 = function () {
 							emailAddress: {
 								message: 'The value is not a valid email address'
 							}
+						}
+					}
+				},
+				gender: {
+					validators: {
+						notEmpty: {
+							message: 'Gender is required'
+						}
+					}
+				},
+				dob: {
+					validators: {
+						notEmpty: {
+							message: 'dob is required'
+						}
+					}
+				},
+				cnic: {
+					validators: {
+						notEmpty: {
+							message: 'cnic is required'
+						}
+					}
+				},
+				emergencyContact: {
+					validators: {
+						notEmpty: {
+							message: 'emergencyContact is required'
+						}
+					}
+				},
+			    employeeCode: {
+					validators: {
+						notEmpty: {
+							message: 'employeeCode is required'
+						}
+					}
+				},
+				hireDate: {
+					validators: {
+						notEmpty: {
+							message: 'hireDate is required'
+						}
+					}
+				},
+				joinDate: {
+					validators: {
+						notEmpty: {
+							message: 'joinDate is required'
+						}
+					}
+				},
+				salary: {
+					validators: {
+						notEmpty: {
+							message: 'salary is required'
+						}
+					}
+				},
+				department_id: {
+					validators: {
+						notEmpty: {
+							message: 'department_id is required'
+						}
+					}
+				},
+				designation_id: {
+					validators: {
+						notEmpty: {
+							message: 'designation_id is required'
+						}
+					}
+				},
+				location_id: {
+					validators: {
+						notEmpty: {
+							message: 'location_id is required'
+						}
+					}
+				},
+				shift_id: {
+					validators: {
+						notEmpty: {
+							message: 'shift_id is required'
 						}
 					}
 				},

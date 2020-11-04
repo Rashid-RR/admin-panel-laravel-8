@@ -144,7 +144,11 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+
+                                                                    
+
                                                                     <button class="btn btn-primary" id="" type="submit">Save</button>
+
                                                                     <!---->
                                                                 </div>
                                                             </div>

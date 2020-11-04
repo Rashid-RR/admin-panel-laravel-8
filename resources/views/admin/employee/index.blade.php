@@ -133,6 +133,11 @@
                                     <i class="fas fa-plus"></i>
                                     Add New
                                 </a>
+
+                                <a href="{{ route('admin.create2') }}" class="btn btn-primary font-weight-bolder text-center">
+                                    <i class="fas fa-plus"></i>
+                                    Add New2
+                                </a>
                                 <!--end::Button-->
                             </div>
                         </div>

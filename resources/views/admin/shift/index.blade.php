@@ -50,7 +50,7 @@
                                                 </div>
                                                 <hr>
                                                 <h5>Attendance Setting</h5><br>
-                                                <label class="col-lg-2 col-form-label">Working Hour</label>
+                                                <label class="col-lg-2 col-form-label" style="padding: 0" >Working Hour</label>
                                                 <div class="col-lg-6" style="padding: 0">
                                                     <input type="text" class="form-control" name="workingHours" required />
                                                 </div>
@@ -202,28 +202,6 @@
                                                                                 id="formGroupExampleInput" name="name" value="" required>
                                                                         </div>
                                                                     </div>
-                                                                    <hr>
-                                                                    <h5>Attendance Setting</h5><br>
-                                                                    <label class="col-lg-2 col-form-label">Working
-                                                                        Hour</label>
-                                                                    <div class="col-lg-6" style="padding: 0">
-                                                                        <input type="text" name="workingHours" value="" class="form-control workingHours"
-                                                                            required />
-                                                                    </div>
-                                                                    <div class="form-row mt-3">
-                                                                        <div class="form-group col-md-6">
-                                                                            <label for="example-time-input">Start
-                                                                                Time* (e.g. 09:00 AM)</label>
-                                                                            <input class="form-control startTime" type="time"
-                                                                                value="" name="startTime"
-                                                                                id="example-time-input" />
-                                                                        </div>
-                                                                        <div class="form-group col-md-6">
-                                                                            <label for="example-time-input">End
-                                                                                Time* (e.g. 09:00 PM)</label>
-                                                                            <input class="form-control endTime" type="time"
-                                                                                value="" name="endTime"
-                                                                                id="example-time-input" />
                                                                         </div>
 
                                                                     </div>
@@ -264,10 +242,9 @@
                                                                 </form>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    changes</button>
+
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                              <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>Update</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -298,6 +275,7 @@
                                                                         <input type="text" class="form-control shiftName2"
                                                                             id="formGroupExampleInput" name="name" value="" disabled required>
                                                                     </div>
+
                                                                 </div>
                                                                 <hr>
                                                                 <h5>Attendance Setting</h5><br>

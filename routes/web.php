@@ -29,7 +29,8 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     Route::post('/employee/import',[EmployeeController::class,'importCSV'])->name('emp.import');
     Route::post('/employee/import2',[EmployeeController::class,'importCSV2'])->name('emp.import2');
     Route::get('/employee/export',[EmployeeController::class,'exportCSV'])->name('emp.export');
-    Route::post('/employee/');
+    Route::post('/employee/'); 
+    Route::get('/create2',[EmployeeController::class,'create2'])->name('create2');
 
     Route::resource('employee',EmployeeController::class);
     Route::resource('department',DepartmentController::class);

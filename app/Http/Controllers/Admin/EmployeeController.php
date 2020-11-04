@@ -28,6 +28,8 @@ class EmployeeController extends Controller
         $employees = Employee::all();
         return view('admin.employee.index',compact('employees'));
     }
+   
+    
 
     /**
      * Show the form for creating a new resource.
@@ -41,6 +43,15 @@ class EmployeeController extends Controller
         $locations = Location::all();
         $shifts = Shift::all();
         return view('admin.employee.create',compact('departments','designations','locations','shifts'));
+        
+    }
+    public function create2()
+    {
+        $departments = Department::all();
+        $designations = Designation::all();
+        $locations = Location::all();
+        $shifts = Shift::all();
+        return view('admin.employee.create2',compact('departments','designations','locations','shifts'));
         
     }
     

@@ -110,7 +110,7 @@
             
                                         <td>{{$item->deptName}}</td>
                                         <td>
-                                            <div class="btn-group mr-1" role="group" aria-label="Basic example" >
+                                            <div class="btn-group mr-1" role="group" aria-label="Basic example" style="width: 0px!important" >
 
                                                 <a href="#" id="editBtn" data-toggle="modal" data-target="#editadd-modal-lg" data-id="{{ $item }}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> 
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
