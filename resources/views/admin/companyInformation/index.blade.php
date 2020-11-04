@@ -238,7 +238,7 @@
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
 
-                                            <a href=""
+                                            <a href="" data-toggle="modal" data-target="#edit1new-modal-lg"
                                                 class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span
                                                     class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -255,9 +255,232 @@
                                                         </g>
                                                     </svg> </span>
                                             </a>
-                                            <a href="" 
+                                            <form action="post" method="POST" action="{{ route('admin.employee.store') }}">
+                                                <div class="modal fade" id="edit1new-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Company Information</h3>
+                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label>Company Type</label>
+                                                                                <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyTypeID">
+                                                                                    <!----><option value="1">
+                                                                                        Partnership Firm
+                                                                                    </option><option value="2">
+                                                                                        Private Limited Company
+                                                                                    </option><option value="3">
+                                                                                        Pakistan
+                                                                                    </option><option value="4">
+                                                                                        Sole Proprietorship
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label>Company Title</label>
+                                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyName" maxlength="500" type="text">
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label>Website</label>
+                                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Website" maxlength="150" type="text">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label>Email</label>
+                                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Email" maxlength="250" type="text">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label>Total Employees</label>
+                                                                                <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="TotalEmployeeID">
+                                                                                    <!----><option value="1">
+                                                                                        1-25
+                                                                                    </option><option value="2">
+                                                                                        25-50
+                                                                                    </option><option value="3">
+                                                                                        50-100
+                                                                                    </option><option value="4">
+                                                                                        More than 100
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label for="usr">Salary Calculation Method </label>
+                                                                                <select class="form-control m-input ng-untouched ng-pristine ng-valid" formcontrolname="SalaryMethodID">
+                                                                                    <!----><option value="1">
+                                                                                        Calendar Days
+                                                                                    </option><option value="2">
+                                                                                        Working Days
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6" style="display:none;">
+                                                                            <div class="form-group">
+                                                                                <label>Allowed Employee</label>
+                                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="AllowedEmployee" type="number">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group row ml-2">
+                                                                            <div class="col-lg-9 col-xl-6">
+                                                                                <div class="image-input image-input-outline" id="kt_image_2">
+                                                                                    <div class="image-input-wrapper" style="background-image: url({{ asset('default.png') }})"></div>
+                                                                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                                                                        <i class="fa fa-pen icon-sm"></i>
+                                                                                        <input type="file" name="profile" accept=".png, .jpg, .jpeg" />
+                                                                                        {{-- <input type="hidden" name="profile_avatar_remove" /> --}}
+                                                                                    </label>
+                                                                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                                    </span>
+                                                                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                                                                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                                    <button class="btn btn-primary"  type="submit">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                
+                                            </form>
+                                            <a href="" data-toggle="modal" data-target="#detail1new-modal-lg"
+
                                                 class="btn btn-sm btn-clean btn-icon mr-2" title="details"> 
                                                 <span class="fas fa-eye"> </span> </a>
+                                                <form action="post" method="POST" action="{{ route('admin.employee.store') }}">
+                                                    <div class="modal fade" id="detail1new-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Company Details</h3>
+                                                                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label>Company Type</label>
+                                                                                    <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyTypeID" disabled>
+                                                                                        <!----><option value="1">
+                                                                                            Partnership Firm
+                                                                                        </option><option value="2">
+                                                                                            Private Limited Company
+                                                                                        </option><option value="3">
+                                                                                            Pakistan
+                                                                                        </option><option value="4">
+                                                                                            Sole Proprietorship
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label>Company Title</label>
+                                                                                    <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyName" maxlength="500" type="text" disabled>
+                                                                                    <!---->
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label>Website</label>
+                                                                                    <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Website" maxlength="150" type="text" disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label>Email</label>
+                                                                                    <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Email" maxlength="250" type="text" disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label>Total Employees</label>
+                                                                                    <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="TotalEmployeeID" disabled>
+                                                                                        <!----><option value="1">
+                                                                                            1-25
+                                                                                        </option><option value="2">
+                                                                                            25-50
+                                                                                        </option><option value="3">
+                                                                                            50-100
+                                                                                        </option><option value="4">
+                                                                                            More than 100
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="usr">Salary Calculation Method </label>
+                                                                                    <select class="form-control m-input ng-untouched ng-pristine ng-valid" formcontrolname="SalaryMethodID" disabled>
+                                                                                        <!----><option value="1">
+                                                                                            Calendar Days
+                                                                                        </option><option value="2">
+                                                                                            Working Days
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6" style="display:none;">
+                                                                                <div class="form-group">
+                                                                                    <label>Allowed Employee</label>
+                                                                                    <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="AllowedEmployee" type="number" disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row ml-2">
+                                                                                <div class="col-lg-9 col-xl-6">
+                                                                                    <div class="image-input image-input-outline" id="kt_image_2">
+                                                                                        <div class="image-input-wrapper" style="background-image: url({{ asset('default.png') }})"></div>
+                                                                                        <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                                                                            <i class="fa fa-pen icon-sm"></i>
+                                                                                            <input type="file" name="profile" accept=".png, .jpg, .jpeg" disabled/>
+                                                                                            {{-- <input type="hidden" name="profile_avatar_remove" /> --}}
+                                                                                        </label>
+                                                                                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                                                            <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                                        </span>
+                                                                                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                                                                                            <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                                        <button class="btn btn-primary"  type="submit">Save</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </form>
                                             <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                 <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
