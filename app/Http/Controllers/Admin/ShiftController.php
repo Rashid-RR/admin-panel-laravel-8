@@ -48,13 +48,13 @@ class ShiftController extends Controller
         $shiftModal->workingHours = $request->workingHours;
         $shiftModal->startTime = $request->startTime;
         $shiftModal->endTime = $request->endTime;
-        $shiftModal->monday = $request->monday;
-        $shiftModal->tuesday = $request->tuesday;
-        $shiftModal->wednesday = $request->wednesday;
-        $shiftModal->thursday = $request->thursday;
-        $shiftModal->friday = $request->friday;
-        $shiftModal->saturday = $request->saturday;
-        $shiftModal->sunday = $request->sunday;
+        $shiftModal->monday = ($request->monday) == '1' ? '1' : '0';
+        $shiftModal->tuesday = ($request->tuesday) == '1' ? '1' : '0';
+        $shiftModal->wednesday = ($request->wednesday) == '1' ? '1' : '0';
+        $shiftModal->thursday = ($request->thursday) == '1' ? '1' : '0';
+        $shiftModal->friday = ($request->friday) == '1' ? '1' : '0';
+        $shiftModal->saturday = ($request->saturday) == '1' ? '1' : '0';
+        $shiftModal->sunday = ($request->sunday) == '1' ? '1' : '0';
         $shiftModal->save();
 
         return redirect()->route('admin.shift.index')->with('success' , 'Shift Created Successfully !');
@@ -102,13 +102,13 @@ class ShiftController extends Controller
         $shiftModal->workingHours = $request->workingHours;
         $shiftModal->startTime = $request->startTime;
         $shiftModal->endTime = $request->endTime;
-        $shiftModal->monday = $request->monday;
-        $shiftModal->tuesday = $request->tuesday;
-        $shiftModal->wednesday = $request->wednesday;
-        $shiftModal->thursday = $request->thursday;
-        $shiftModal->friday = $request->friday;
-        $shiftModal->saturday = $request->saturday;
-        $shiftModal->sunday = $request->sunday;
+        $shiftModal->monday = ($request->monday) == '1' ? '1' : '0';
+        $shiftModal->tuesday = ($request->tuesday) == '1' ? '1' : '0';
+        $shiftModal->wednesday = ($request->wednesday) == '1' ? '1' : '0';
+        $shiftModal->thursday = ($request->thursday) == '1' ? '1' : '0';
+        $shiftModal->friday = ($request->friday) == '1' ? '1' : '0';
+        $shiftModal->saturday = ($request->saturday) == '1' ? '1' : '0';
+        $shiftModal->sunday = ($request->sunday) == '1' ? '1' : '0';
         $shiftModal->save();
         return redirect()->route('admin.shift.index')->with('success' , 'Shift Updated successfully !');
     }

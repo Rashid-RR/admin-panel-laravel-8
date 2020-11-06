@@ -110,7 +110,7 @@
             
                                         <td>{{$item->deptName}}</td>
                                         <td>
-                                            <div class="btn-group mr-1" role="group" aria-label="Basic example" style="width: 0px!important" >
+                                            <div class="btn-group mr-1" role="group" aria-label="Basic example">
 
                                                 <a href="#" id="editBtn" data-toggle="modal" data-target="#editadd-modal-lg" data-id="{{ $item }}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> 
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
@@ -129,34 +129,36 @@
                                                         </svg> 
                                                     </span>
                                                 </a>
-                                                <div class="modal fade" id="editadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-md">
-                                                        <form novalidate="" method="POST" action="" class="pristine invalid touched" id="departmentEditData">
-                                                            {{-- {{ route('admin.department.update',$item->id) }} --}}
-                                                            {{ @method_field('PUT') }}
-                                                            @csrf
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Department</h3>
-                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group">
-                                                                        <label>Name*</label>
-                                                                        {{-- <input type="hidden" id="deptId" name="id" value="" /> --}}
-                                                                        <input class="form-control pristine invalid touched" value="" id="deptName" name="deptName" maxlength="250" type="text">
+                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="departmentEditData">
+                                                    {{-- {{ route('admin.department.update',$item->id) }} --}}
+                                                    {{ @method_field('PUT') }}
+                                                    @csrf
+                                                    <div class="modal fade" id="editadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-md">
+                                                            
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Department</h3>
+                                                                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="form-group">
+                                                                            <label>Name*</label>
+                                                                            {{-- <input type="hidden" id="deptId" name="id" value="" /> --}}
+                                                                            <input class="form-control pristine invalid touched" value="" id="deptName" name="deptName" maxlength="250" type="text">
+                                                                            <!---->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                                        <button class="btn btn-primary" id="" type="submit">Save</button>
                                                                         <!---->
                                                                     </div>
                                                                 </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                    <button class="btn btn-primary" id="" type="submit">Save</button>
-                                                                    <!---->
-                                                                </div>
-                                                            </div>
-                                                        </form>
+                                                            
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </form>
                                                 <a href="" id="detailBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#detailadd-modal-lg"
                                                      class="btn btn-sm btn-clean btn-icon mr-2"> 
                                                      <span class="fas fa-eye"></span> 
@@ -210,7 +212,6 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 
 @push('js')
