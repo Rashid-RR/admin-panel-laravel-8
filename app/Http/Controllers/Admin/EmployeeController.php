@@ -64,7 +64,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+        dd($request);
         $this->validate($request,[
             'firstName' => 'required',
             'lastName' => 'required',

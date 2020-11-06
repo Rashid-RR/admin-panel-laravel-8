@@ -19,6 +19,9 @@
 .phone-input{
 	margin-bottom:8px;
 }
+.select2-container {
+    display:flow-root!important;
+}
 @endpush
 
 @section('content')
@@ -86,7 +89,8 @@
                                     <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
                                         <div class="col-xl-12 col-xxl-7">
                                             <!--begin: Wizard Form-->
-                                            <form class="form mt-0 mt-lg-10" id="kt_form">
+                                            <form class="form mt-0 mt-lg-10" id="kt_form" action="{{ route('admin.employee.store') }}" enctype="multipart/form-data">
+                                                @csrf
                                                 <!--begin: Wizard Step 1-->
                                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
 
@@ -130,13 +134,12 @@
                                                         <div class="col-xl-6">
                                                             <!--begin::Input-->
                                                             <div class="form-group">
-                                                                <label for="exampleFormControlSelect1">Gender</label>
-                                                                <select class="form-control" id="exampleFormControlSelect1" name="gender" required>
+                                                                <label for="kt_select2_1">Gender</label>
+                                                                <select class="form-control" id="kt_select2_1" name="gender" required>
                                                                   <option class="active" selected disabled>Select Gender</option>                                 
-                                                                  <option>Male</option>
-                                                                  <option>Female</option>
-                                                                  <option>Other</option>
-                                                                  
+                                                                  <option value="M">Male</option>
+                                                                  <option value="F">Female</option>
+                                                                  <option value="NotSpecified">Other</option>
                                                                 </select>
                                                                 <span class="form-text text-muted">Please select gender</span>
                                                               </div>
@@ -148,7 +151,6 @@
                                                             <div class="form-group">
                                                                 <label>DOB<span class="text-danger">*</span></label>
                                                                 <input type="text" class="form-control" name="dob" placeholder="Birth Date" id='kt_datepicker' required/>
-                                                                
                                                                 <span class="form-text text-muted">Select you date of birth</span>
                                                             </div>
                                                             <!--end::Input-->
@@ -199,16 +201,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Employee Address Line 1</label>
-                                                        <input type="text" class="form-control" name="address1" placeholder="Address Line 1"  />
+                                                        <label>Employee Address</label>
+                                                        <input type="text" class="form-control" name="employeeAddress" placeholder="Address Line 1"  />
                                                         <span class="form-text text-muted">Please enter your permanent home address.</span>
-                                                    </div>
-                                                    <!--end::Input-->
-                                                    <!--begin::Input-->
-                                                    <div class="form-group">
-                                                        <label>Employee Address Line 2</label>
-                                                        <input type="text" class="form-control" name="address2" placeholder="Address Line 2"  />
-                                                        <span class="form-text text-muted">Please enter your Address.</span>
                                                     </div>
                                                     <!--end::Input-->
                                                     <div class="row">
@@ -232,22 +227,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-xl-6">
-                                                            <!--begin::Input-->
-                                                            <div class="form-group">
-                                                                <label>State</label>
-                                                                <input type="text" class="form-control" name="state" placeholder="State"  />
-                                                                <span class="form-text text-muted">Please enter your State.</span>
-                                                            </div>
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <div class="col-xl-6">
+                                                        <div class="col-xl-12">
                                                             <!--begin::Select-->
                                                             <div class="form-group">
                                                                 <label>Country</label>
-                                                                <select name="country" class="form-control ">
+                                                                <select name="country" id="kt_select2_11" class="form-control ">
                                                                     <option value="">Select</option>
-                                                                    <option value="AF">Afghanistan</option>
+                                                                    <option value="Afghanistan">Afghanistan</option>
                                                                     <option value="AX">Åland Islands</option>
                                                                     <option value="AL">Albania</option>
                                                                     <option value="DZ">Algeria</option>
@@ -414,7 +400,7 @@
                                                                     <option value="MP">Northern Mariana Islands</option>
                                                                     <option value="NO">Norway</option>
                                                                     <option value="OM">Oman</option>
-                                                                    <option value="PK" selected="selected">Pakistan</option>
+                                                                    <option value="Pakistan" selected="selected">Pakistan</option>
                                                                     <option value="PW">Palau</option>
                                                                     <option value="PS">Palestinian Territory, Occupied</option>
                                                                     <option value="PA">Panama</option>
@@ -555,7 +541,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Departments<span class="text-danger">*</span></label>
-                                                                <select class="form-control"  name="department_id">
+                                                                <select class="form-control" id="kt_select2_111" name="department_id">
                                                                     <option value="">Select</option>
                                                                     @foreach ($departments as $item)
                                                                         <option value="{{ $item->id }}">{{ $item->deptName }}</option>
@@ -569,7 +555,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Designations<span class="text-danger">*</span></label>
-                                                                <select class="form-control"  name="designation_id">
+                                                                <select class="form-control" id="kt_select2_1111" name="designation_id">
                                                                     <option value="">Select</option>
                                                                     @foreach ($designations as $item)
                                                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -585,7 +571,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Location *</label>
-                                                                <select class="form-control" name="location_id">
+                                                                <select class="form-control" id="kt_select2_11112" name="location_id">
                                                                     <option value="">Select</option>
                                                                     @foreach ($locations as $item)
                                                                         <option value="{{ $item->id }}">{{ $item->location }}</option>
@@ -599,8 +585,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Shift *</label>
-                                                                <select class="form-control" name="shift_id">
-                                                                    <option value="">Select</option>
+                                                                <select class="form-control" id="kt_select2_111122" name="shift_id">
                                                                     @foreach ($shifts as $item)
                                                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                                     @endforeach
@@ -619,8 +604,8 @@
                                                         <div class="col-xl-6">
                                                             <!--begin::Input-->
                                                             <div class="form-group">
-                                                                <label>Name on Card</label>
-                                                                <input type="text" class="form-control form-control-solid form-control-lg" name="ccname" placeholder="Card Name" value="Nabeel" />
+                                                                <label>Account Title</label>
+                                                                <input type="text" class="form-control form-control-solid form-control-lg" name="accountTitle" placeholder="Card Name" value="Nabeel" />
                                                                 <span class="form-text text-muted">Please enter your Card Name.</span>
                                                             </div>
                                                             <!--end::Input-->
@@ -628,19 +613,19 @@
                                                         <div class="col-xl-6">
                                                             <!--begin::Input-->
                                                             <div class="form-group">
-                                                                <label>Card Number</label>
-                                                                <input type="text" class="form-control form-control-solid form-control-lg" name="ccnumber" placeholder="Card Number" value="4444 3333 2222 1111" />
+                                                                <label>Account Number</label>
+                                                                <input type="text" class="form-control form-control-solid form-control-lg" name="accountNumber" placeholder="Card Number" />
                                                                 <span class="form-text text-muted">Please enter your Address.</span>
                                                             </div>
                                                             <!--end::Input-->
                                                         </div>
                                                     </div>
-                                                    <div class="row">
+                                                    {{-- <div class="row">
                                                         <div class="col-xl-4">
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Card Expiry Month</label>
-                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="ccmonth" placeholder="Card Expiry Month" value="01" />
+                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="ccmonth" placeholder="Card Expiry Month" />
                                                                 <span class="form-text text-muted">Please enter your Card Expiry Month.</span>
                                                             </div>
                                                             <!--end::Input-->
@@ -649,7 +634,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Card Expiry Year</label>
-                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="ccyear" placeholder="Card Expire Year" value="21" />
+                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="ccyear" placeholder="Card Expire Year"/>
                                                                 <span class="form-text text-muted">Please enter your Card Expiry Year.</span>
                                                             </div>
                                                             <!--end::Input-->
@@ -658,23 +643,21 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Card CVV Number</label>
-                                                                <input type="password" class="form-control form-control-solid form-control-lg" name="cccvv" placeholder="Card CVV Number" value="123" />
+                                                                <input type="password" class="form-control form-control-solid form-control-lg" name="cccvv" placeholder="Card CVV Number" />
                                                                 <span class="form-text text-muted">Please enter your Card CVV Number.</span>
                                                             </div>
                                                             <!--end::Input-->
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <!--end: Wizard Step 3-->
                                                 <!--begin: Wizard Step 4-->
-                                                <div class="pb-5" data-wizard-type="step-content">
+                                                {{-- <div class="pb-5" data-wizard-type="step-content">
                                                     <!--begin::Section-->
                                                     <h4 class="mb-10 font-weight-bold text-dark">Review your Details and Submit</h4>
                                                     <h6 class="font-weight-bolder mb-3">Current Address:</h6>
                                                     <div class="text-dark-50 line-height-lg">
-                                                        <div>Address Line 1</div>
-                                                        <div>Address Line 2</div>
-                                                        <div>Melbourne 3000, VIC, Australia</div>
+                                                        <div>w</div>
                                                     </div>
                                                     <div class="separator separator-dashed my-5"></div>
                                                     <!--end::Section-->
@@ -703,7 +686,7 @@
                                                         <div>Preston 3072, VIC, Australia</div>
                                                     </div>
                                                     <!--end::Section-->
-                                                </div>
+                                                </div> --}}
                                                 <!--end: Wizard Step 4-->
                                                 <!--begin: Wizard Actions-->
                                                 <div class="d-flex justify-content-between border-top mt-5 pt-10">
@@ -711,7 +694,7 @@
                                                         <button type="button" class="btn btn-light-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-prev">Previous</button>
                                                     </div>
                                                     <div>
-                                                        <button type="button" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit">Submit</button>
+                                                        <button type="submit" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="">Submit</button>
                                                         <button type="button" class="btn btn-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-next">Next</button>
                                                     </div>
                                                 </div>
@@ -744,6 +727,19 @@
 
     <script>
         $(function(){
+
+
+            $('#eid').change(function(){
+                var eid = $(this).val();
+                var csrf = $('#token').val();
+                $.ajax({
+                    url : 'driver',
+                    data : {eid:eid,_token:csrf},
+                    type : 'post'
+                }).success(function(e){
+                    $('#name').val(e)
+                })
+            })
 		
         $(document.body).on('click', '.changeType' ,function(){
             $(this).closest('.phone-input').find('.type-text').text($(this).text());

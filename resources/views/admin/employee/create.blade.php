@@ -32,7 +32,6 @@
             <form class="form" id="createEmployee" method="POST" action="{{ route('admin.employee.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
-
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label text-right"><b>Profile Picture:</b></label>
                         <div class="col-lg-9 col-xl-6">

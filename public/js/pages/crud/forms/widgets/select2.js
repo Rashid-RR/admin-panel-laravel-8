@@ -15,11 +15,16 @@ var KTSelect2 = function() {
         $('#kt_select2_1111, #kt_select2_1_validate').select2({
             placeholder: 'Select a state'
         });
+        $('#kt_select2_11112, #kt_select2_1_validate').select2({
+            placeholder: 'Select a state'
+        });
+        $('#kt_select2_111122, #kt_select2_1_validate').select2({
+            placeholder: 'Select a state'
+        });
         // nested
         $('#kt_select2_2, #kt_select2_2_validate').select2({
             placeholder: 'Select a state'
         });
-
         // multi select
         $('#kt_select2_3, #kt_select2_3_validate').select2({
             placeholder: 'Select a state',
