@@ -89,6 +89,28 @@
                                             <form class="form mt-0 mt-lg-10" id="kt_form">
                                                 <!--begin: Wizard Step 1-->
                                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
+
+                                                    <div class="form-group row justify">
+                                                        <label class="col-lg-2 col-form-label"><b>Profile Picture:</b></label>
+                                                        <div class="col-lg-9 col-xl-6">
+                                                            <div class="image-input image-input-outline" id="kt_image_2">
+                                                                <div class="image-input-wrapper" style="background-image: url({{ asset('default.png') }})"></div>
+                                                                <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                                                    <i class="fa fa-pen icon-sm"></i>
+                                                                    <input type="file" name="profile" accept=".png, .jpg, .jpeg" />
+                                                                    {{-- <input type="hidden" name="profile_avatar_remove" /> --}}
+                                                                </label>
+                                                                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                </span>
+                                                                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                                                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                </span>
+                                                            </div>
+                                                            <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="mb-10 font-weight-bold text-dark">Enter your Account Details</div>
                                                     <!--begin::Input-->
                                                     <div class="form-group">
