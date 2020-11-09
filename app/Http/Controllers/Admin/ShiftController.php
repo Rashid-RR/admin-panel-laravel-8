@@ -119,9 +119,9 @@ class ShiftController extends Controller
      * @param  \App\Models\Shift  $shift
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shift $shift)
+    public function destroy($id)
     {
-        Shift::findOrFail($shift->id)->delete();
+        Shift::findOrFail($id)->delete();
         return redirect()->back()->with('success' , 'Shift deleted successfully !');
     }
 }

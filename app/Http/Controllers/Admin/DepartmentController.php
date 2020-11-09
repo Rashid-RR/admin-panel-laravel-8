@@ -92,9 +92,10 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy($id)
     {
-        Department::findOrFail($department->id)->delete();
+        //dd($id);
+        Department::findOrFail($id)->delete();
         return redirect()->back()->with('success','Department deleted successfully');
     }
 }

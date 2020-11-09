@@ -7408,34 +7408,34 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 
 					if (hiddenExist) {
 						// toggle show hidden columns
-						$(datatable.tableBody).find('.' + pfx + 'datatable-row').each(function() {
-							// if no toggle yet
-							if($(this).find('.' + pfx + 'datatable-toggle-detail').length === 0) {
-								// add toggle
-								$(this).prepend($('<td/>').
-										addClass(pfx + 'datatable-cell ' + pfx + 'datatable-toggle-detail').
-										append($('<a/>').
-											addClass(pfx + 'datatable-toggle-detail').
-											attr('href', '').
-											on('click', toggleHiddenColumns).
-											append('<i class="' + Plugin.getOption('layout.icons.rowDetail.collapse') + '"></i>')));
-							}
+						// $(datatable.tableBody).find('.' + pfx + 'datatable-row').each(function() {
+						// 	// if no toggle yet
+						// 	if($(this).find('.' + pfx + 'datatable-toggle-detail').length === 0) {
+						// 		// add toggle
+						// 		$(this).prepend($('<td/>').
+						// 				addClass(pfx + 'datatable-cell ' + pfx + 'datatable-toggle-detail').
+						// 				append($('<a/>').
+						// 					addClass(pfx + 'datatable-toggle-detail').
+						// 					attr('href', '').
+						// 					on('click', toggleHiddenColumns).
+						// 					append('<i class="' + Plugin.getOption('layout.icons.rowDetail.collapse') + '"></i>')));
+						// 	}
 
-							// check if subtable toggle exist
-							if ($(datatable.tableHead).find('.' + pfx + 'datatable-toggle-detail').length === 0) {
-								// add empty column to the header and footer
-								$(datatable.tableHead).
-									find('.' + pfx + 'datatable-row').
-									first().
-									prepend('<th class="' + pfx + 'datatable-cell ' + pfx + 'datatable-toggle-detail"><span></span></th>');
-								$(datatable.tableFoot).
-									find('.' + pfx + 'datatable-row').
-									first().
-									prepend('<th class="' + pfx + 'datatable-cell ' + pfx + 'datatable-toggle-detail"><span></span></th>');
-							} else {
-								$(datatable.tableHead).find('.' + pfx + 'datatable-toggle-detail').find('span');
-							}
-						});
+						// 	// check if subtable toggle exist
+						// 	if ($(datatable.tableHead).find('.' + pfx + 'datatable-toggle-detail').length === 0) {
+						// 		// add empty column to the header and footer
+						// 		$(datatable.tableHead).
+						// 			find('.' + pfx + 'datatable-row').
+						// 			first().
+						// 			prepend('<th class="' + pfx + 'datatable-cell ' + pfx + 'datatable-toggle-detail"><span></span></th>');
+						// 		$(datatable.tableFoot).
+						// 			find('.' + pfx + 'datatable-row').
+						// 			first().
+						// 			prepend('<th class="' + pfx + 'datatable-cell ' + pfx + 'datatable-toggle-detail"><span></span></th>');
+						// 	} else {
+						// 		$(datatable.tableHead).find('.' + pfx + 'datatable-toggle-detail').find('span');
+						// 	}
+						// });
 					}
 				});
 

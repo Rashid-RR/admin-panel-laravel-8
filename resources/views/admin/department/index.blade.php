@@ -185,7 +185,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
+                                                <a href="" id="deleteBtn" data-toggle="modal" data-target="#deleteadd-modal-lg" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                                                             height="24px" viewBox="0 0 24 24" version="1.1">
@@ -200,6 +200,29 @@
                                                             </g>
                                                         </svg> </span> 
                                                 </a>
+                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="departmentDeleteData">
+                                                    {{-- {{ route('admin.department.update',$item->id) }} --}}
+                                                    {{ @method_field('DELETE') }}
+                                                    @csrf
+                                                    <div class="modal fade" id="deleteadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-md">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Department</h3>
+                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div>Are you sure you want to delete this item ?</div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                                    <button class="btn btn-danger" id="" type="submit">Confirm</button>
+                                                                    <!---->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
@@ -217,7 +240,6 @@
 @push('js')
     <script>
 
-
             $('div').on('click', '#editBtn', function (event) {
                 event.preventDefault();
                 var department = $(this).data('id');
@@ -229,6 +251,12 @@
                 event.preventDefault();
                 var department = $(this).data('id');
                 $('#deptName2').val(department.deptName);
+            });
+            $('div').on('click','#deleteBtn',function (event) {
+               event.preventDefault();
+               var id = $(this).data('id');
+               console.log(id);
+               $('#departmentDeleteData').attr("action","department/" + id); 
             });
 
 

@@ -180,10 +180,10 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
+                                                <a href="" id="designationDeleteBtn" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete" data-toggle="modal" data-target="#deleteDesignation-modal-lg">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                            height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24"
+                                                            version="1.1">
                                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                                 <rect x="0" y="0" width="24" height="24"></rect>
                                                                 <path
@@ -193,8 +193,30 @@
                                                                     d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z"
                                                                     fill="#000000" opacity="0.3"></path>
                                                             </g>
-                                                        </svg> </span> 
+                                                        </svg> 
+                                                    </span>
                                                 </a>
+                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="designationDeleteData">
+                                                    {{ @method_field('DELETE') }}
+                                                    @csrf
+                                                    <div class="modal fade" id="deleteDesignation-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-md">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Shift</h3>
+                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div>Are you sure you want to delete this item ?</div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                                    <button class="btn btn-danger" id="" type="submit">Confirm</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
@@ -220,6 +242,11 @@
                 console.log(designation.deptName)
                 $('#name').val(designation.name);
                 $("#designationEditData").attr("action", "designation/" + designation.id);
+            });
+            $('div').on('click', '#designationDeleteBtn', function (event) {
+                event.preventDefault();
+                var id = $(this).data('id');
+                $("#designationDeleteData").attr("action", "designation/" + id);
             });
             $('div').on('click', '#designationDetailBtn', function (event) {
                 event.preventDefault();
