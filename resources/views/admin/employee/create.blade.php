@@ -90,8 +90,8 @@
                                         <div class="col-xl-12 col-xxl-7">
                                             <!--begin: Wizard Form-->
                                             <form class="form mt-0 mt-lg-10" id="kt_form" method="POST" action="{{ route('admin.employee.store') }}" enctype="multipart/form-data">
-                                                {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token"/> --}}
                                                 @csrf
+                                                
                                                 <!--begin: Wizard Step 1-->
                                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
 
@@ -545,7 +545,7 @@
                                                                 <select class="form-control" id="kt_select2_111" name="department_id">
                                                                     <option value="">Select</option>
                                                                     @foreach ($departments as $item)
-                                                                        <option value="{{ $item->id }}">{{ $item->deptName }}</option>
+                                                                        <option value="{{ $item->id }}" >{{ $item->deptName }}</option>
                                                                     @endforeach
                                                                 </select>
                                                                 <span class="form-text text-muted">Please select an department.</span>
