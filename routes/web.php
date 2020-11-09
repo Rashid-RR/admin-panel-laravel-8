@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\Admin\ShiftController;
 use App\Http\Controllers\Admin\CompanyInformationController;
+use App\Http\Controllers\Admin\CompanyTypeController;
+use App\Http\Controllers\Admin\SalaryMethodController;
 
 
 use App\Http\Controllers\Staff;
@@ -38,6 +40,8 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     Route::resource('shift',ShiftController::class);
     Route::resource('designation',DesignationController::class);
     Route::resource('companyInformation',CompanyInformationController::class);
+    Route::resource('companyType',CompanyTypeController::class);
+    Route::resource('salaryMethod',SalaryMethodController::class);
 });
 
 

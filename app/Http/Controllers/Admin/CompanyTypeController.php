@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\CompanyType;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class CompanyTypeController extends Controller
      */
     public function index()
     {
-        return CompanyType::all();
+        $companytypes=CompanyType::all();
+        return view('admin.companytype.index',compact('companytypes'));
+        
     }
 
     /**

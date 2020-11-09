@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\SalaryMethod;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class SalaryMethodController extends Controller
      */
     public function index()
     {
-        return SalaryMethod::all();
+        $salaries=SalaryMethod::all();
+        return view('admin.salarymethod.index',compact('salaries'));
+        
     }
 
     /**
