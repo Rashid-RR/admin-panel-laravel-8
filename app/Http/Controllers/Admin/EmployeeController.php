@@ -64,6 +64,62 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
+        $this->validate($request,[
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'gender' => 'required',
+            'cnic' => 'required',
+            'employeeAddress' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'salary' => 'required',
+            'profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $employee = new Employee;
+        $employee->firstName = $request->firstName;
+        $employee->lastName = $request->lastName;
+        $employee->gender = $request->gender;
+        $employee->dob = $request->dob;
+        $employee->cnic = $request->cnic;
+        $employee->employeeAddress = $request->employeeAddress;
+        $employee->email = $request->email;
+        $employee->workPhone = $request->workPhone;
+        $employee->emergencyPhone = $request->emergencyPhone;
+        $employee->homePhone = $request->homePhone;
+        $employee->emergencyContact = $request->emergencyContact;
+        $employee->country = $request->country;
+        $employee->city = $request->city;
+        $employee->salary = $request->salary;
+        $employee->postalCode = $request->postalCode;
+        $employee->employeeCode = $request->employeeCode;
+        $employee->hireDate = $request->hireDate;
+        $employee->joinDate = $request->joinDate;
+        $employee->department_id = $request->department_id;
+        $employee->designation_id = $request->designation_id;
+        $employee->location_id = $request->location_id;
+        $employee->shift_id = $request->shift_id;
+        
+        if($request->file('profile')){
+            $file = $request->profile;
+            $imageName = time().'.'.$file->extension();
+            $file->move(public_path('employeesProfile'), $imageName);
+            $employee->profile = $imageName;
+        }
+
+        $employee->save();
+        
+        return redirect()->route('admin.employee.index')->with('success','Employee created successfully !');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function create2Store(Request $request)
+    {
         dd($request);
         $this->validate($request,[
             'firstName' => 'required',
