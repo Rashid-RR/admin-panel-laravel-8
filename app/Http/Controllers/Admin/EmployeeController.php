@@ -52,7 +52,6 @@ class EmployeeController extends Controller
         $locations = Location::all();
         $shifts = Shift::all();
         return view('admin.employee.create2',compact('departments','designations','locations','shifts'));
-        
     }
     
 
@@ -64,7 +63,6 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $this->validate($request,[
             'firstName' => 'required',
             'lastName' => 'required',
