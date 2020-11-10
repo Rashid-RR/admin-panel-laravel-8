@@ -22,7 +22,7 @@ class CreateEmployeesTable extends Migration
             $table->string('cnic',13)->unique();
             $table->string('employeeAddress');
             $table->string('city',70);
-            $table->string('country',100);
+            $table->string('country',200);
             $table->string('postalCode',5);
             $table->string('homePhone');
             $table->string('workPhone');
