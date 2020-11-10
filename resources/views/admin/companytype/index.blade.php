@@ -32,13 +32,13 @@
                                 <!--begin::Dropdown-->
                                 <div class="dropdown dropdown-inline mr-2">
                                 </div>
-                                <a class="btn btn-primary font-weight-bolder text-center" data-toggle="modal" data-target="#deptadd-modal-lg">
+                                <a class="btn btn-primary font-weight-bolder text-center" data-toggle="modal" data-target="#companyTypeadd-modal-lg">
                                     <i class="fas fa-plus"></i>
                                     Add New
                                 </a>
-                                <div class="modal fade" id="deptadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="companyTypeadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-md">
-                                        <form class="pristine invalid touched" action="" method="POST">
+                                        <form class="pristine invalid touched" action="{{ route('admin.companyType.store') }}" method="POST">
                                             @csrf
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -48,7 +48,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Name*</label>
-                                                        <input class="form-control pristine invalid touched" placeholder="Enter department name.." name="deptName" type="text">
+                                                        <input class="form-control pristine invalid touched" placeholder="Enter Company Type.." name="name" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -112,7 +112,7 @@
                                         <td>
                                             <div class="btn-group mr-1" role="group" aria-label="Basic example">
 
-                                                <a href="#" id="editBtn" data-toggle="modal" data-target="#editadd-modal-lg" data-id="{{ $item }}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> 
+                                                <a href="#" id="companyTypeEditBtn" data-toggle="modal" data-target="#editadd-modal-lg" data-id="{{ $item }}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> 
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                                                             height="24px" viewBox="0 0 24 24" version="1.1">
@@ -129,37 +129,34 @@
                                                         </svg> 
                                                     </span>
                                                 </a>
-                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="departmentEditData">
+                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="companyTypeEditData">
                                                     {{-- {{ route('admin.department.update',$item->id) }} --}}
                                                     {{ @method_field('PUT') }}
                                                     @csrf
                                                     <div class="modal fade" id="editadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-md">
-                                                            
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Company Type</h3>
-                                                                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="form-group">
-                                                                            <label>Name*</label>
-                                                                            {{-- <input type="hidden" id="deptId" name="id" value="" /> --}}
-                                                                            <input class="form-control pristine invalid touched" value="" id="deptName" name="deptName" maxlength="250" type="text">
-                                                                            <!---->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                        <button class="btn btn-primary" id="" type="submit">Save</button>
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Company Type</h3>
+                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label>Name*</label>
+                                                                        <input class="form-control pristine invalid touched" value="" id="companyTypeName" name="name" maxlength="250" type="text">
                                                                         <!---->
                                                                     </div>
                                                                 </div>
-                                                            
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                                    <button class="btn btn-primary" id="" type="submit">Save</button>
+                                                                    <!---->
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </form>
-                                                <a href="" id="detailBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#detailadd-modal-lg"
+                                                <a href="" id="companyTypeDetailBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#detailadd-modal-lg"
                                                      class="btn btn-sm btn-clean btn-icon mr-2"> 
                                                      <span class="fas fa-eye"></span> 
                                                 </a>
@@ -173,8 +170,8 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
-                                                                        <label>Name*</label>
-                                                                        <input class="form-control pristine invalid touched" disabled name="deptName" id="deptName2" maxlength="250" type="text">
+                                                                        <label>Name</label>
+                                                                        <input class="form-control pristine invalid touched" disabled name="name" id="CompanyTypeDetailName" maxlength="250" type="text">
                                                                         <!---->
                                                                     </div>
                                                                 </div>
@@ -185,7 +182,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
+                                                <a href="" id="companyTypeDeleteBtn" data-toggle="modal" data-target="#deleteadd-modal-lg" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                                                             height="24px" viewBox="0 0 24 24" version="1.1">
@@ -200,6 +197,29 @@
                                                             </g>
                                                         </svg> </span> 
                                                 </a>
+                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="companyTypeDeleteData">
+                                                    {{-- {{ route('admin.department.update',$item->id) }} --}}
+                                                    {{ @method_field('DELETE') }}
+                                                    @csrf
+                                                    <div class="modal fade" id="deleteadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-md">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Company Type</h3>
+                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div>Are you sure you want to delete this item ?</div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                                    <button class="btn btn-danger" id="" type="submit">Confirm</button>
+                                                                    <!---->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
@@ -218,18 +238,27 @@
 @push('js')
     <script>
 
-
-            $('div').on('click', '#editBtn', function (event) {
+        //for edit modal data
+            $('div').on('click', '#companyTypeEditBtn', function (event) {
                 event.preventDefault();
-                var department = $(this).data('id');
-                console.log(department.deptName)
-                $('#deptName').val(department.deptName);
-                $("#departmentEditData").attr("action", "department/" + department.id);
+                var companyType = $(this).data('id');
+                console.log(companyType);
+                $('#companyTypeName').val(companyType.name);
+                $("#companyTypeEditData").attr("action", "companyType/" + companyType.id);
             });
-            $('div').on('click', '#detailBtn', function (event) {
+        //for delete modal data
+
+            $('div').on('click','#companyTypeDeleteBtn',function(event) {
+               event.preventDefault();
+               var id = $(this).data('id');
+               $('#companyTypeDeleteData').attr("action","companyType/" + id); 
+            });
+
+        //for detail modal data
+            $('div').on('click', '#companyTypeDetailBtn', function (event) {
                 event.preventDefault();
-                var department = $(this).data('id');
-                $('#deptName2').val(department.deptName);
+                var companyTypeName = $(this).data('id');
+                $('#CompanyTypeDetailName').val(companyTypeName.name);
             });
 
 

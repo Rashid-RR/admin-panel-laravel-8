@@ -15,7 +15,7 @@ class CompanyTypeController extends Controller
      */
     public function index()
     {
-        $companytypes=CompanyType::all();
+        $companytypes= CompanyType::all();
         return view('admin.companytype.index',compact('companytypes'));
         
     }
@@ -38,10 +38,11 @@ class CompanyTypeController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $this->validate($request,[
             'name' => 'required'
         ]);
-        CompanyType::created($request->all());
+        CompanyType::create($request->all());
         return redirect()->back()->with('success' , 'CompanyType Created Successfully !');
     }
 
@@ -74,12 +75,12 @@ class CompanyTypeController extends Controller
      * @param  \App\Models\CompanyType  $CompanyType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CompanyType $CompanyType)
+    public function update(Request $request, $id)
     {
         $this->validate($request,[
             'name' => 'required'
         ]);
-        CompanyType::findOrFail($CompanyType->id)->update($request->all());
+        CompanyType::findOrFail($id)->update($request->all());
         return redirect()->back()->with('success' , 'CompanyType Updated successfully !');
     }
 
@@ -89,9 +90,9 @@ class CompanyTypeController extends Controller
      * @param  \App\Models\CompanyType  $CompanyType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CompanyType $CompanyType)
+    public function destroy($id)
     {
-        CompanyType::findOrFail($CompanyType->id)->delete();
+        CompanyType::findOrFail($id)->delete();
         return redirect()->back()->with('success' , 'CompanyType deleted successfully !');
     }
 }

@@ -38,10 +38,11 @@ class SalaryMethodController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request,[
             'methodName' => 'required'
         ]);
-        SalaryMethod::created($request->all());
+        SalaryMethod::create($request->all());
         return redirect()->back()->with('success' , 'SalaryMethod Created Successfully !');
     }
 
@@ -74,12 +75,13 @@ class SalaryMethodController extends Controller
      * @param  \App\Models\SalaryMethod  $SalaryMethod
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SalaryMethod $SalaryMethod)
+    public function update(Request $request,$id)
     {
+        //dd($request);
         $this->validate($request,[
-            'name' => 'required'
+            'methodName' => 'required'
         ]);
-        SalaryMethod::findOrFail($SalaryMethod->id)->update($request->all());
+        SalaryMethod::findOrFail($id)->update($request->all());
         return redirect()->back()->with('success' , 'SalaryMethod Updated successfully !');
     }
 
@@ -89,9 +91,9 @@ class SalaryMethodController extends Controller
      * @param  \App\Models\SalaryMethod  $SalaryMethod
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SalaryMethod $SalaryMethod)
+    public function destroy($id)
     {
-        SalaryMethod::findOrFail($SalaryMethod->id)->delete();
+        SalaryMethod::findOrFail($id)->delete();
         return redirect()->back()->with('success' , 'SalaryMethod deleted successfully !');
     }
 }

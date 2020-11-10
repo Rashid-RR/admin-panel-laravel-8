@@ -3,14 +3,11 @@
 @section('title','Salary Method')
 
 @section('breadcrumb')
-    {{-- <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+    <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.department.index')}}" class="text-muted">Employees</a>
+            <a href="{{ route('admin.salaryMethod.index')}}" class="text-muted">SalaryMethods</a>
         </li>
-        <li class="breadcrumb-item">
-            <a href="{{ route('admin.department.create')}}" class="text-muted">Add Employee</a>
-        </li>
-    </ul> --}}
+    </ul>
 @endsection
 
 @push('css')
@@ -38,7 +35,7 @@
                                 </a>
                                 <div class="modal fade" id="deptadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-md">
-                                        <form class="pristine invalid touched" action="" method="POST">
+                                        <form class="pristine invalid touched" action="{{ route('admin.salaryMethod.store') }}" method="POST">
                                             @csrf
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -48,7 +45,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Method*</label>
-                                                        <input class="form-control pristine invalid touched" placeholder="Enter department name.." name="deptName" type="text">
+                                                        <input class="form-control pristine invalid touched" placeholder="e.g Cash,Bank,JazzCash" name="methodName" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -112,7 +109,7 @@
                                         <td>
                                             <div class="btn-group mr-1" role="group" aria-label="Basic example">
 
-                                                <a href="#" id="editBtn" data-toggle="modal" data-target="#editadd-modal-lg" data-id="{{ $item }}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> 
+                                                <a href="#" id="salaryMethodEditBtn" data-toggle="modal" data-target="#editadd-modal-lg" data-id="{{ $item }}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> 
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                                                             height="24px" viewBox="0 0 24 24" version="1.1">
@@ -129,7 +126,7 @@
                                                         </svg> 
                                                     </span>
                                                 </a>
-                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="departmentEditData">
+                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="salaryMethodEditData">
                                                     {{-- {{ route('admin.department.update',$item->id) }} --}}
                                                     {{ @method_field('PUT') }}
                                                     @csrf
@@ -145,7 +142,7 @@
                                                                         <div class="form-group">
                                                                             <label>Method*</label>
                                                                             {{-- <input type="hidden" id="deptId" name="id" value="" /> --}}
-                                                                            <input class="form-control pristine invalid touched" value="" id="deptName" name="deptName" maxlength="250" type="text">
+                                                                            <input class="form-control pristine invalid touched" value="" id="salaryMethodEditName" name="methodName" maxlength="250" type="text">
                                                                             <!---->
                                                                         </div>
                                                                     </div>
@@ -159,7 +156,7 @@
                                                         </div>
                                                     </div>
                                                 </form>
-                                                <a href="" id="detailBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#detailadd-modal-lg"
+                                                <a href="" id="salaryMethodDetailBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#detailadd-modal-lg"
                                                      class="btn btn-sm btn-clean btn-icon mr-2"> 
                                                      <span class="fas fa-eye"></span> 
                                                 </a>
@@ -174,7 +171,7 @@
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
                                                                         <label>Method*</label>
-                                                                        <input class="form-control pristine invalid touched" disabled name="deptName" id="deptName2" maxlength="250" type="text">
+                                                                        <input class="form-control pristine invalid touched" value="" disabled name="methodName" id="salaryMethodDetailName" maxlength="250" type="text">
                                                                         <!---->
                                                                     </div>
                                                                 </div>
@@ -185,7 +182,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
+                                                <a href="" id="salaryMethodDeleteBtn" data-toggle="modal" data-target="#deleteadd-modal-lg" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                                                             height="24px" viewBox="0 0 24 24" version="1.1">
@@ -200,6 +197,29 @@
                                                             </g>
                                                         </svg> </span> 
                                                 </a>
+                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="salaryMethodDeleteData">
+                                                    {{-- {{ route('admin.department.update',$item->id) }} --}}
+                                                    {{ @method_field('DELETE') }}
+                                                    @csrf
+                                                    <div class="modal fade" id="deleteadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-md">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Salary Method</h3>
+                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div>Are you sure you want to delete this item ?</div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                                    <button class="btn btn-danger" id="" type="submit">Confirm</button>
+                                                                    <!---->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
@@ -217,19 +237,26 @@
 @push('js')
     <script>
 
+        //for edit modal
+            $('div').on('click', '#salaryMethodEditBtn', function (event) {
+                event.preventDefault();
+                var salaryMethod = $(this).data('id');
+                $('#salaryMethodEditName').val(salaryMethod.methodName);
+                $("#salaryMethodEditData").attr("action", "salaryMethod/" + salaryMethod.id);
+            });
+        //for edit modal
+            $('div').on('click', '#salaryMethodDeleteBtn', function (event) {
+                event.preventDefault();
+                var id = $(this).data('id');
+                $("#salaryMethodDeleteData").attr("action", "salaryMethod/" + id);
+            });
+        //for detail modal
+            $('div').on('click', '#salaryMethodDetailBtn', function (event) {
+                event.preventDefault();
+                var salaryMethod = $(this).data('id');
+                $('#salaryMethodDetailName').val(salaryMethod.methodName);
+            });
 
-            $('div').on('click', '#editBtn', function (event) {
-                event.preventDefault();
-                var department = $(this).data('id');
-                console.log(department.deptName)
-                $('#deptName').val(department.deptName);
-                $("#departmentEditData").attr("action", "department/" + department.id);
-            });
-            $('div').on('click', '#detailBtn', function (event) {
-                event.preventDefault();
-                var department = $(this).data('id');
-                $('#deptName2').val(department.deptName);
-            });
 
 
            var KTDatatableHtmlTableDemo = function () {
