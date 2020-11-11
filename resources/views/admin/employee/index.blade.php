@@ -99,7 +99,7 @@
                                                 class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">
                                                 Choose an option:</li>
                                             <li class="navi-item">
-                                                <a href="#" class="navi-link">
+                                                <a href="#" class="navi-link" onclick=" makepdf()">
                                                     <span class="navi-icon">
                                                         <i class="la la-print"></i>
                                                     </span>
@@ -452,6 +452,17 @@ Dropzone.options.dropzone =
     jQuery(document).ready(function () {
         KTDatatableHtmlTableDemo.init();
     });
+
+
+    function makepdf(){
+       var printMe = document.getElementById('kt_datatable');
+        var wme = window.open("", "", "width:700,height:900");
+        wme.document.write(printMe.outerHTML);
+        wme.document.close();
+        wme.focus();
+        wme.print();
+    
+   }
 
 </script>
 @endpush

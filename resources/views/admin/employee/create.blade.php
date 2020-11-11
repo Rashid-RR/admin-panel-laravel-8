@@ -497,7 +497,10 @@
                                                                     <option value="Zambia">Zambia</option>
                                                                     <option value="Zimbabwe">Zimbabwe</option>
                                                                 </select>
+                                                                <span class="form-text text-muted">Please select your Country.</span>
                                                             </div>
+                                                            
+
                                                             <!--end::Select-->
                                                         </div>
                                                     </div>
@@ -569,7 +572,7 @@
                                                                         <option value="{{ $item->id }}" >{{ $item->deptName }}</option>
                                                                     @endforeach
                                                                 </select>
-                                                                <span class="form-text text-muted">Please select an department.</span>
+                                                                <span class="form-text text-muted">Please select an department</span>
                                                             </div>
                                                             <!--end::Input-->
                                                         </div>
@@ -583,7 +586,7 @@
                                                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                                     @endforeach
                                                                 </select>
-                                                                <span class="form-text text-muted">Please select an designation.</span>
+                                                                <span class="form-text text-muted">Please select an designation</span>
                                                             </div>
                                                             <!--end::Input-->
                                                         </div>
@@ -599,7 +602,7 @@
                                                                         <option value="{{ $item->id }}">{{ $item->location }}</option>
                                                                     @endforeach
                                                                 </select>
-                                                                <span class="form-text text-muted">Please select an location.</span>
+                                                                <span class="form-text text-muted">Please select an location</span>
                                                             </div>
                                                             <!--end::Input-->
                                                         </div>
@@ -612,7 +615,7 @@
                                                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                                     @endforeach
                                                                 </select>
-                                                                <span class="form-text text-muted">Please select an designation.</span>
+                                                                <span class="form-text text-muted">Please select an Shift.</span>
                                                             </div>
                                                             <!--end::Input-->
                                                         </div>
@@ -823,7 +826,7 @@ FormValidation.formValidation(
      notEmpty: {
       message: 'Date of Birth is required'
      },
-     uri: {
+     dob: {
       message: 'Date of Birth is not valid'
      }
     }
