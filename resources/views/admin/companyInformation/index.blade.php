@@ -472,8 +472,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                        <button class="btn btn-primary"  type="submit">Save</button>
+                                                                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">close</button>
                                                                     </div>
                                                                 </div>
                                                             </form>

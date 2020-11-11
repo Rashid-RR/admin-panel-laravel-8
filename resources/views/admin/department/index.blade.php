@@ -3,14 +3,11 @@
 @section('title','Departments')
 
 @section('breadcrumb')
-    {{-- <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.department.index')}}" class="text-muted">Employees</a>
+            <a href="{{ route('admin.department.index')}}" class="text-muted">Departments</a>
         </li>
-        <li class="breadcrumb-item">
-            <a href="{{ route('admin.department.create')}}" class="text-muted">Add Employee</a>
-        </li>
-    </ul> --}}
+    </ul> 
 @endsection
 
 @push('css')
