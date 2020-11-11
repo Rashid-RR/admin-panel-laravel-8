@@ -17,10 +17,10 @@ class CompanyInformationController extends Controller
      */
     public function index()
     {
-        $companyInfo = CompanyInformation::all();
-        $companyType = CompanyType::all();
-        $salaryMethod = SalaryMethod::all();
-        return view('admin.companyInformation.index',compact('companyInfo'));
+        $companyInformations = CompanyInformation::all();
+        $companyTypes = CompanyType::all();
+        $salaryMethods = SalaryMethod::all();
+        return view('admin.companyInformation.index',compact('companyInformations','companyTypes','salaryMethods'));
     }
 
     /**
@@ -43,10 +43,30 @@ class CompanyInformationController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $this->validate($request,[
-            'name' => 'required'
+            'companyType_id' => 'required',
+            'companyTitle'=> 'required',
+            'email'=> 'required',
+            'employeeRange' => 'required',
+            'salaryMethod_id' => 'required',
+            'companyLogo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-        CompanyInformation::created($request->all());
+        $companyInfo = new CompanyInformation;
+        $companyInfo->companyType_id = $request->companyType_id;
+        $companyInfo->companyTitle = $request->companyTitle;
+        $companyInfo->email = $request->email;
+        $companyInfo->employeeRange = $request->employeeRange;
+        $companyInfo->websiteAddress = $request->websiteAddress;
+        $companyInfo->salaryMethod_id = $request->salaryMethod_id;
+
+        if($request->file('companyLogo')){
+            $file = $request->companyLogo;
+            $imageName = time().'.'.$file->extension();
+            $file->move(public_path('companyLogos'), $imageName);
+            $companyInfo->companyLogo = $imageName;
+        }
+        $companyInfo->save();
         return redirect()->back()->with('success' , 'CompanyInformation Created Successfully !');
     }
 
@@ -67,9 +87,9 @@ class CompanyInformationController extends Controller
      * @param  \App\Models\CompanyInformation  $CompanyInformation
      * @return \Illuminate\Http\Response
      */
-    public function edit(CompanyInformation $CompanyInformation)
+    public function edit($id)
     {
-        return view('companyInformation.edit',['CompanyInformation' , CompanyInformation::findOrFail($CompanyInformation->id)]);
+        return view('admin.companyInformation.index',['CompanyInformationById' , CompanyInformation::findOrFail($id)]);
     }
 
     /**
@@ -94,9 +114,9 @@ class CompanyInformationController extends Controller
      * @param  \App\Models\CompanyInformation  $CompanyInformation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CompanyInformation $CompanyInformation)
+    public function destroy($id)
     {
-        CompanyInformation::findOrFail($CompanyInformation->id)->delete();
+        CompanyInformation::findOrFail($id)->delete();
         return redirect()->back()->with('success' , 'CompanyInformation deleted successfully !');
     }
 }

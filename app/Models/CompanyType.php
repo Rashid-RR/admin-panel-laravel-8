@@ -16,4 +16,9 @@ class CompanyType extends Model
 
     protected $dates = ['deleted_at'];
 
+    public function companyInformations()
+    {
+        return $this->hasMany('App\Models\CompanyInformation');
+    }
+
 }
