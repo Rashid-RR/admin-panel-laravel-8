@@ -4,22 +4,22 @@ var KTSelect2 = function() {
     var demos = function() {
         // basic
         $('#kt_select2_1, #kt_select2_1_validate').select2({
-            placeholder: 'Select a state'
+            placeholder: 'Select gender'
         });
         $('#kt_select2_11, #kt_select2_1_validate').select2({
-            placeholder: 'Select a state'
+            placeholder: 'Select your Country'
         });
         $('#kt_select2_111, #kt_select2_1_validate').select2({
-            placeholder: 'Select a state'
+            placeholder: 'Select an department.'
         });
         $('#kt_select2_1111, #kt_select2_1_validate').select2({
-            placeholder: 'Select a state'
+            placeholder: 'Select an designation.'
         });
         $('#kt_select2_11112, #kt_select2_1_validate').select2({
-            placeholder: 'Select a state'
+            placeholder: 'Select an location.'
         });
         $('#kt_select2_111122, #kt_select2_1_validate').select2({
-            placeholder: 'Select a state'
+            placeholder: 'Select an Shift'
         });
         // nested
         $('#kt_select2_2, #kt_select2_2_validate').select2({

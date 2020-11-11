@@ -710,7 +710,7 @@
                                                     <button type="button" class="btn btn-light-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-prev">Previous</button>
                                                 </div>
                                                 <div>
-                                                    <button type="submit" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" class="nextBtn" data-wizard-type="action-submit">Submit</button>
+                                                    <button type="submit" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" class="nextBtn" data-wizard-type="action-submit"><i class="fas fa-save"></i> Update</button>
                                                     <button type="button" class="btn btn-primary font-weight-bolder text-uppercase px-9 py-4"  id="nextBtn" data-wizard-type="action-next">Next</button>
                                                 </div>
                                             </div>
