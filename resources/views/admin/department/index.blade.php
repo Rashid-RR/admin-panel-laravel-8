@@ -45,7 +45,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Name*</label>
-                                                        <input class="form-control pristine invalid touched" placeholder="Enter department name.." name="deptName" type="text">
+                                                        <input class="form-control pristine invalid touched" placeholder="Enter department name.." name="deptName" type="text" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -376,6 +376,9 @@
     jQuery(document).ready(function () {
         KTDatatableHtmlTableDemo.init();
     });
+
+
+    
 
     </script>
 @endpush

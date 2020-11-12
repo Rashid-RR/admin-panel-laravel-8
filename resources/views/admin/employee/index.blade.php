@@ -100,7 +100,7 @@
                                                 class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">
                                                 Choose an option:</li>
                                             <li class="navi-item">
-                                                <a href="#" class="navi-link" onclick="myFunction()">
+                                                <a href="#" class="navi-link" onclick=" print()">
                                                     <span class="navi-icon">
                                                         <i class="la la-print"></i>
                                                     </span>
@@ -493,7 +493,22 @@ Dropzone.options.dropzone =
 // 	};
 
    function myFunction() {
-    $('#kt_datatable').DataTable( {})
+    $('#kt_datatable').DataTable( {
+   
+} );
+   }
+
+
+
+   function print(){
+       var printMe = document.getElementById('kt_datatable');
+        var wme = window.open("", "", "width:700,height:900");
+        wme.document.write(printMe.outerHTML);
+        wme.document.close();
+        wme.focus();
+        wme.print();
+    
+   }
 
    
 </script>

@@ -93,26 +93,129 @@ var KTWizard4 = function () {
 			_formEl,
 			{
 				fields: {
-					firstName: {
+					cnic:  {
 						validators: {
 							notEmpty: {
-								message: 'First name is required'
+								message: 'Cnic is required'
+							},
+							digits: {
+								message: 'The velue is not a valid Cnic'
+							},
+							stringLength: {
+								min:13,
+								max:13,
+								message: 'Please enter a valid Number' 
+							   },
+						}
+					},
+	
+					firstName:  {
+						validators: {
+							notEmpty: {
+								message: 'first Name is required'
+							},
+							stringLength: {
+							 min:4,
+							 max:15,
+							 message: 'Please enter a name within text length range 4 and 15 ' 
+							},
+							regexp: {
+								regexp: /^[a-zs]+$/i,
+								message: 'The full name can consist of alphabetical characters and spaces only'
 							}
 							
+						}
+						
+					},
+					dob:  {
+						validators: {
+							notEmpty: {
+								message: 'Date Of Birth is required'
+							},
+							date: {
+								format: 'YYYY/MM/DD',
+								message: 'The value is not a valid date',
+								min: '2000/01/01',
+							}
+							
+						}
+					},
+					emergencyContact:  {
+						validators: {
+							notEmpty: {
+								message: 'Emergency Contact is required'
+							},
+							digits: {
+								message: 'The velue is not a valid Emergency Contact'
+							},
+							stringLength: {
+								min:1,
+								max:12,
+								message: 'Please enter a valid Number' 
+							   },
+						}
+					},
+					workPhone:  {
+						validators: {
+							notEmpty: {
+								message: 'Work Phone Contact is required'
+							},
+							digits: {
+								message: 'The velue is not a valid work Phone'
+							},
+							stringLength: {
+								min:1,
+								max:12,
+								message: 'Please enter a valid Number' 
+							   },
+						}
+					},
+					emergencyPhone:  {
+						validators: {
+							notEmpty: {
+								message: 'Emergency Phone is required'
+							},
+							digits: {
+								message: 'The velue is not a valid Emergency Phone'
+							},
+							stringLength: {
+								min:11,
+								max:12,
+								message: 'Please enter a valid Number' 
+							   },
 						}
 					},
 					lastName: {
 						validators: {
 							notEmpty: {
 								message: 'Last Name is required'
+							},
+							stringLength: {
+								min:3,
+								max:15,
+								message: 'Please enter a name within text length range 4 and 15 '
+								
+							   },
+							regexp: {
+							regexp: /^[a-zs]+$/i,
+							message: 'The full name can consist of alphabetical characters and spaces only'
 							}
 						}
+						
 					},
 					homePhone: {
 						validators: {
 							notEmpty: {
 								message: 'Phone is required'
-							}
+							},
+							digits: {
+								message: 'The velue is not a valid Home Phone'
+							},
+							stringLength: {
+								min:11,
+								max:12,
+								message: 'Please enter a valid Number' 
+							   },
 						}
 					},
 					email: {
@@ -121,119 +224,18 @@ var KTWizard4 = function () {
 								message: 'Email is required'
 							},
 							emailAddress: {
-								message: 'The value is not a valid email address'
+								message: 'The value is not a valid Email address'
 							}
 						}
-					}
-				},
-				gender: {
-					validators: {
-						notEmpty: {
-							message: 'Gender is required'
-						}
-					}
-				},
-				dob: {
-					validators: {
-						notEmpty: {
-							message: 'dob is required'
-						}
-					}
-				},
-				cnic: {
-					validators: {
-						notEmpty: {
-							message: 'cnic is required'
-						}
-					}
-				},
-				emergencyContact: {
-					validators: {
-						notEmpty: {
-							message: 'emergencyContact is required'
-						}
-					}
-				},
-			    employeeCode: {
-					validators: {
-						notEmpty: {
-							message: 'employeeCode is required'
-						}
-					}
-				},
-				hireDate: {
-					validators: {
-						notEmpty: {
-							message: 'hireDate is required'
-						}
-					}
-				},
-				joinDate: {
-					validators: {
-						notEmpty: {
-							message: 'joinDate is required'
-						}
-					}
-				},
-				salary: {
-					validators: {
-						notEmpty: {
-							message: 'salary is required'
-						}
-					}
-				},
-				department_id: {
-					validators: {
-						notEmpty: {
-							message: 'department_id is required'
-						}
-					}
-				},
-				designation_id: {
-					validators: {
-						notEmpty: {
-							message: 'designation_id is required'
-						}
-					}
-				},
-				location_id: {
-					validators: {
-						notEmpty: {
-							message: 'location_id is required'
-						}
-					}
-				},
-				shift_id: {
-					validators: {
-						notEmpty: {
-							message: 'shift_id is required'
-						}
-					}
-				},
-				plugins: {
-					trigger: new FormValidation.plugins.Trigger(),
-					// Bootstrap Framework Integration
-					bootstrap: new FormValidation.plugins.Bootstrap({
-						//eleInvalidClass: '',
-						eleValidClass: '',
-					})
-				}
-			}
-		));
-
-		// Step 2
-		_validations.push(FormValidation.formValidation(
-			_formEl,
-			{
-				fields: {
-					address1: {
+					},
+					employeeAddress: {
 						validators: {
 							notEmpty: {
 								message: 'Address is required'
 							}
 						}
 					},
-					postcode: {
+					postalCode: {
 						validators: {
 							notEmpty: {
 								message: 'Postcode is required'
@@ -261,7 +263,76 @@ var KTWizard4 = function () {
 							}
 						}
 					}
+					
 				},
+
+				plugins: {
+					trigger: new FormValidation.plugins.Trigger(),
+					// Bootstrap Framework Integration
+					bootstrap: new FormValidation.plugins.Bootstrap({
+						//eleInvalidClass: '',
+						eleValidClass: '',
+					})
+				}
+			}
+		));
+
+		// Step 2
+		_validations.push(FormValidation.formValidation(
+			_formEl,
+			{
+				// fields: {
+				// 	employeeCode: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Employee Code is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	hireDate: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Hire Date is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	joinDate: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Join Date is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	designation_id: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Designation is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	location_id: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Location is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	salary: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'salary is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	department_id: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Department is required'
+				// 			}
+				// 		}
+				// 	}
+			
+				// },
 				plugins: {
 					trigger: new FormValidation.plugins.Trigger(),
 					// Bootstrap Framework Integration

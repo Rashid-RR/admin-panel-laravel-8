@@ -85,7 +85,7 @@
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label>Company Type</label>
-                                                                <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyTypeID">
+                                                                <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyTypeID" required>
                                                                     <!----><option value="1">
                                                                         Partnership Firm
                                                                     </option><option value="2">
@@ -101,26 +101,26 @@
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label>Company Title</label>
-                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyName" maxlength="500" type="text">
+                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="CompanyName" maxlength="500" type="text" required>
                                                                 <!---->
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label>Website</label>
-                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Website" maxlength="150" type="text">
+                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Website" maxlength="150" type="text" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label>Email</label>
-                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Email" maxlength="250" type="text">
+                                                                <input class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Email" maxlength="250" type="text" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label>Total Employees</label>
-                                                                <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="TotalEmployeeID">
+                                                                <select class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="TotalEmployeeID" required>
                                                                     <!----><option value="1">
                                                                         1-25
                                                                     </option><option value="2">
@@ -136,7 +136,7 @@
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label for="usr">Salary Calculation Method </label>
-                                                                <select class="form-control m-input ng-untouched ng-pristine ng-valid" formcontrolname="SalaryMethodID">
+                                                                <select class="form-control m-input ng-untouched ng-pristine ng-valid" formcontrolname="SalaryMethodID" required>
                                                                     <!----><option value="1">
                                                                         Calendar Days
                                                                     </option><option value="2">
@@ -155,7 +155,7 @@
                                                             <div class="col-lg-9 col-xl-6">
                                                                 <div class="image-input image-input-outline" id="kt_image_2">
                                                                     <div class="image-input-wrapper" style="background-image: url({{ asset('default.png') }})"></div>
-                                                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar" aria-required="true">
                                                                         <i class="fa fa-pen icon-sm"></i>
                                                                         <input type="file" name="profile" accept=".png, .jpg, .jpeg" />
                                                                         {{-- <input type="hidden" name="profile_avatar_remove" /> --}}
@@ -174,7 +174,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                    <button class="btn btn-primary"  type="submit"><i class="fas fa-save"></i>Update</button>
+                                                    <button class="btn btn-primary"  type="submit">Save</button>
                                                 </div>
                                             </div>
                                         </form>

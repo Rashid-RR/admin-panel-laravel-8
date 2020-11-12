@@ -46,7 +46,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Name*</label>
-                                                        <input class="form-control pristine invalid touched" placeholder="Enter Company Type.." name="name" type="text">
+                                                        <input class="form-control pristine invalid touched" placeholder="Enter Company Type.." name="name" type="text" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">

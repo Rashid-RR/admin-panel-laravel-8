@@ -120,7 +120,8 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>First Name</label>
-                                                        <input type="text" class="form-control" name="firstName" placeholder="First name" required/>
+                                                        <input type="text" class="form-control" onclick="validate();" name="firstName" id="name" placeholder="First name" minlength="4" maxlength="12" required/>
+                                                
                                                         <span class="form-text text-muted">Please enter your first name.</span>
                                                     </div>
                                                     <!--end::Input-->
@@ -135,11 +136,11 @@
                                                         <div class="col-xl-6">
                                                             <!--begin::Input-->
                                                             <div class="form-group">
-                                                                <label for="kt_select2_1">Gender</label>
+                                                                <label for="kt_select2_1" >Gender</label>
                                                                 <select class="form-control" id="kt_select2_1" name="gender" required>
                                                                   <option class="active" selected disabled>Select Gender</option>                                 
                                                                   <option value="M">Male</option>
-                                                                  <option value="F">Female</option>
+                                                                  <option value="F">Female</option> 
                                                                   <option value="NotSpecified">Other</option>
                                                                 </select>
                                                                 <span class="form-text text-muted">Please select gender</span>
@@ -746,6 +747,11 @@
 
 <script src="{{ asset('js/pages/custom/wizard/wizard-4.js')}}"></script>
 <script src="{{ asset('js/pages/crud/forms/validation/form-controls.js')}}"></script>
+<script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+
+
+
+
 
 
 
@@ -806,137 +812,168 @@
 
     // .......form validation.......  //
 
-FormValidation.formValidation(
- document.getElementById('kt_form_1'),
- {
-  fields: {
-   email: {
-    validators: {
-     notEmpty: {
-      message: 'Email is required'
-     },
-     emailAddress: {
-      message: 'The value is not a valid email address'
-     }
+// FormValidation.formValidation(
+//  document.getElementById('kt_form_1'),
+//  {
+//   fields: {
+//    email: {
+//     validators: {
+//      notEmpty: {
+//       message: 'Email is required'
+//      },
+//      emailAddress: {
+//       message: 'The value is not a valid email address'
+//      }
+//     }
+//    },
+
+//    dob: {
+//     validators: {
+//      notEmpty: {
+//       message: 'Date of Birth is required'
+//      },
+//      dob: {
+//       message: 'Date of Birth is not valid'
+//      }
+//     }
+//    },
+
+//    digits: {
+//     validators: {
+//      notEmpty: {
+//       message: 'Digits is required'
+//      },
+//      digits: {
+//       message: 'The velue is not a valid digits'
+//      }
+//     }
+//    },
+
+//    creditcard: {
+//     validators: {
+//      notEmpty: {
+//       message: 'Credit card number is required'
+//      },
+//      creditCard: {
+//       message: 'The credit card number is not valid'
+//      }
+//     }
+//    },
+
+//     Homephone: {
+//     validators: {
+//      notEmpty: {
+//       message: 'US phone number is required'
+//      },
+//      phone: {
+//       country: 'US',
+//       message: 'The value is not a valid US phone number'
+//      }
+//     }
+//    },
+
+//    option: {
+//     validators: {
+//      notEmpty: {
+//       message: 'Please select an option'
+//      }
+//     }
+//    },
+
+//    options: {
+//     validators: {
+//      choice: {
+//       min:2,
+//       max:5,
+//       message: 'Please select at least 2 and maximum 5 options'
+//      }
+//     }
+//    },
+
+//    memo: {
+//     validators: {
+//      notEmpty: {
+//       message: 'Please enter memo text'
+//      },
+//      stringLength: {
+//       min:50,
+//       max:100,
+//       message: 'Please enter a menu within text length range 50 and 100'
+//      }
+//     }
+//    },
+
+//    checkbox: {
+//     validators: {
+//      choice: {
+//       min:1,
+//       message: 'Please kindly check this'
+//      }
+//     }
+//    },
+
+//    checkboxes: {
+//     validators: {
+//      choice: {
+//       min:2,
+//       max:5,
+//       message: 'Please check at least 1 and maximum 2 options'
+//      }
+//     }
+//    },
+
+//    radios: {
+//     validators: {
+//      choice: {
+//       min:1,
+//       message: 'Please kindly check this'
+//      }
+//     }
+//    },
+//   },
+
+//   plugins: {
+//    trigger: new FormValidation.plugins.Trigger(),
+//    // Bootstrap Framework Integration
+//    bootstrap: new FormValidation.plugins.Bootstrap(),
+//    // Validate fields when clicking the Submit button
+//    submitButton: new FormValidation.plugins.SubmitButton(),
+//             // Submit the form when all fields are valid
+//    defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+//   }
+//  }
+// );
+(function() {
+'use strict';
+window.addEventListener('load', function() {
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+var forms = document.getElementsByClassName('needs-validation');
+// Loop over them and prevent submission
+var validation = Array.prototype.filter.call(forms, function(form) {
+form.addEventListener('submit', function(event) {
+if (form.checkValidity() === false) {
+event.preventDefault();
+event.stopPropagation();
+}
+form.classList.add('was-validated');
+}, false);
+});
+}, false);
+})();
+
+
+function validate(){
+    
+    var name = document.getElementById('name').value;
+    if(!regName.test(name)){
+        var regName = /^[a-zA-Z]/;
+        alert('Please enter your full name (first & last name).');
+        document.getElementById('name').focus();
+        return false;
+    }else{
+        alert('Valid name given.');
+        return true;
     }
-   },
-
-   dob: {
-    validators: {
-     notEmpty: {
-      message: 'Date of Birth is required'
-     },
-     dob: {
-      message: 'Date of Birth is not valid'
-     }
-    }
-   },
-
-   digits: {
-    validators: {
-     notEmpty: {
-      message: 'Digits is required'
-     },
-     digits: {
-      message: 'The velue is not a valid digits'
-     }
-    }
-   },
-
-   creditcard: {
-    validators: {
-     notEmpty: {
-      message: 'Credit card number is required'
-     },
-     creditCard: {
-      message: 'The credit card number is not valid'
-     }
-    }
-   },
-
-    Homephone: {
-    validators: {
-     notEmpty: {
-      message: 'US phone number is required'
-     },
-     phone: {
-      country: 'US',
-      message: 'The value is not a valid US phone number'
-     }
-    }
-   },
-
-   option: {
-    validators: {
-     notEmpty: {
-      message: 'Please select an option'
-     }
-    }
-   },
-
-   options: {
-    validators: {
-     choice: {
-      min:2,
-      max:5,
-      message: 'Please select at least 2 and maximum 5 options'
-     }
-    }
-   },
-
-   memo: {
-    validators: {
-     notEmpty: {
-      message: 'Please enter memo text'
-     },
-     stringLength: {
-      min:50,
-      max:100,
-      message: 'Please enter a menu within text length range 50 and 100'
-     }
-    }
-   },
-
-   checkbox: {
-    validators: {
-     choice: {
-      min:1,
-      message: 'Please kindly check this'
-     }
-    }
-   },
-
-   checkboxes: {
-    validators: {
-     choice: {
-      min:2,
-      max:5,
-      message: 'Please check at least 1 and maximum 2 options'
-     }
-    }
-   },
-
-   radios: {
-    validators: {
-     choice: {
-      min:1,
-      message: 'Please kindly check this'
-     }
-    }
-   },
-  },
-
-  plugins: {
-   trigger: new FormValidation.plugins.Trigger(),
-   // Bootstrap Framework Integration
-   bootstrap: new FormValidation.plugins.Bootstrap(),
-   // Validate fields when clicking the Submit button
-   submitButton: new FormValidation.plugins.SubmitButton(),
-            // Submit the form when all fields are valid
-   defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-  }
- }
-);
-
-    </script>
+}
+</script>
 @endpush
