@@ -13,6 +13,7 @@
     <div class="d-flex flex-column-fluid">
         <!--begin::Container-->
         <div class="container">
+            <a href="{{ route('admin.employee.index')}}" type="button" class="btn btn-secondary text-uppercase px-9 py-4 mb-2 mt-3" ><i class="fas fa-arrow-left"></i>Back</a>
             <div class="card card-custom card-transparent">
                 <div class="card-body p-0">
                     <!--begin: Wizard-->
@@ -73,8 +74,8 @@
                                 <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
                                     <div class="col-xl-12 col-xxl-7">
                                         <!--begin: Wizard Form-->
-                                        <form class="form mt-0 mt-lg-10" id="kt_form" method="POST" action="{{ route('admin.employee.store') }}" enctype="multipart/form-data">
-                                            @csrf
+                                        <div id="kt_form">
+                                            
                                             
                                             <!--begin: Wizard Step 1-->
                                             <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
@@ -104,14 +105,14 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>First Name</label>
-                                                    <input type="text" class="form-control" name="firstName" placeholder="First name" value="{{ $empById->firstName }}" required/>
+                                                    <input type="text" class="form-control" name="" placeholder="First name" value="{{ $empById->firstName }}" required disabled/>
                                                     <span class="form-text text-muted">Please enter your first name.</span>
                                                 </div>
                                                 <!--end::Input-->
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Last Name</label>
-                                                    <input type="text" class="form-control" name="lastName" placeholder="Last name" value="{{ $empById->lastName }}" required/>
+                                                    <input type="text" class="form-control" name="" placeholder="Last name" value="{{ $empById->lastName }}" required disabled/>
                                                     <span class="form-text text-muted">Please enter your last name.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -120,7 +121,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label for="kt_select2_1">Gender</label>
-                                                            <select class="form-control" id="kt_select2_1" name="gender" value="{{ $empById->gender }}" required>
+                                                            <select class="form-control" id="kt_select2_1" name="gender" value="{{ $empById->gender }}" required disabled >
                                                               <option class="active" selected disabled>Select Gender</option>                                 
                                                               <option value="M">Male</option>
                                                               <option value="F">Female</option>
@@ -135,7 +136,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>DOB<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="dob" placeholder="Birth Date" id='kt_datepicker' value="{{$empById->dob}}"  required/>
+                                                            <input type="text" class="form-control" name="" placeholder="Birth Date" id='kt_datepicker' value="{{$empById->dob}}"  required disabled/>
                                                             <span class="form-text text-muted">Select you date of birth</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -146,7 +147,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>CNIC<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="cnic" placeholder="Enter your CNIC no." value="{{$empById->cnic}}" required/>   
+                                                            <input type="text" class="form-control" name="" placeholder="Enter your CNIC no." value="{{$empById->cnic}}" required disabled/>   
                                                             <span class="form-text text-muted">Please enter your CNIC number.</span>
                                         
                                                         </div>
@@ -156,7 +157,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Email:</label>
-                                                            <input type="email" class="form-control" name="email" placeholder="Enter your email" value="{{$empById->email}}" required />                                                                
+                                                            <input type="email" class="form-control" name="" placeholder="Enter your email" value="{{$empById->email}}" required disabled/>                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter your email address.</span>
                                                         </div>
@@ -168,7 +169,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Home Phone:</label>
-                                                            <input type="tel" class="form-control" name="homePhone" placeholder="Home number" value="{{$empById->homePhone}}" required />                                                                
+                                                            <input type="tel" class="form-control" name="" placeholder="Home number" value="{{$empById->homePhone}}" required disabled/>                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter home no.</span>
                                                         </div>
@@ -178,7 +179,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Emergency Contact:</label>
-                                                            <input type="text" class="form-control" name="emergencyContact" placeholder="Emergency contact" value="{{$empById->emergencyContact}}" required/>                                                                
+                                                            <input type="text" class="form-control" name="" placeholder="Emergency contact" value="{{$empById->emergencyContact}}" required disabled/>                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter emergency contact no.</span>
                                                         </div>
@@ -190,7 +191,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Work Phone:</label>
-                                                            <input type="tel" class="form-control" name="workPhone" placeholder="Home number" value="{{$empById->workPhone}}" required />                                                                
+                                                            <input type="tel" class="form-control" name="" placeholder="Home number" value="{{$empById->workPhone}}" required disabled/>                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter Work Phone.</span>
                                                         </div>
@@ -200,7 +201,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Emergency Phone:</label>
-                                                            <input type="text" class="form-control" disabled name="emergencyPhone" placeholder="Emergency contact" value="{{$empById->emergencyPhone}}" required/>                                                                
+                                                            <input type="text" class="form-control"  name="" placeholder="Emergency contact" value="{{$empById->emergencyPhone}}" required disabled/>                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter emergency Emergency Phone.</span>
                                                         </div>
@@ -214,7 +215,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Postcode</label>
-                                                            <input type="text" class="form-control" disabled name="postalCode" placeholder="Postcode" value="{{$empById->postalCode}}" />
+                                                            <input type="text" class="form-control" disabled name="" placeholder="Postcode" value="{{$empById->postalCode}}" disabled />
                                                             <span class="form-text text-muted">Please enter your Postcode.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -223,7 +224,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>City</label>
-                                                            <input type="text" class="form-control" disabled name="city" placeholder="City" value="{{$empById->city }}" />
+                                                            <input type="text" class="form-control" disabled name="city" placeholder="City" value="{{$empById->city }}" disabled/>
                                                             <span class="form-text text-muted">Please enter your City.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -234,7 +235,7 @@
                                                         <!--begin::Select-->
                                                         <div class="form-group">
                                                             <label>Country</label>
-                                                            <input type="text" name="country" disabled value="{{$empById->country}}" >
+                                                            <input type="text"  class="form-control" name="country" disabled value="{{$empById->country}}" disabled >
                                                             <span class="form-text text-muted">Please select your Country.</span>
                                                         </div>
                                                         <!--end::Select-->
@@ -242,7 +243,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Employee Address</label>
-                                                    <input type="text" class="form-control" disabled name="employeeAddress" placeholder="Address Line 1" value="{{$empById->employeeCode}}" />
+                                                    <input type="text" class="form-control" disabled name="" placeholder="Address Line 1" value="{{$empById->employeeCode}}" disabled/>
                                                     <span class="form-text text-muted">Please enter your permanent home address.</span>
                                                 </div>
                                             </div>
@@ -256,7 +257,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Employee Code:</label>
-                                                            <input type="text" class="form-control" disabled name="employeeCode" placeholder="Enter Employee Code" required/>
+                                                            <input type="text" class="form-control" disabled name="" placeholder="Enter Employee Code" required disabled/>
                                                             <span class="form-text text-muted">Please employee code.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -265,7 +266,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Hire Date<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="hireDate" placeholder="Hire Date" id='kt_datepicker2' value="{{ $empById->hireDate }}" required/>                                                                
+                                                            <input type="text" class="form-control" name="" placeholder="Hire Date" id='kt_datepicker2' value="{{ $empById->hireDate }}" required disabled/>                                                                
 
                                                             <span class="form-text text-muted">Select your hiring date.</span>
                                                         </div>
@@ -277,7 +278,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Joining Date</b><span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="joinDate" placeholder="Join Date" id='kt_datepicker3' value="{{ $empById->joinDate }}" required/>                                                                
+                                                            <input type="text" class="form-control" name="" placeholder="Join Date" id='kt_datepicker3' value="{{ $empById->joinDate }}" required disabled/>                                                                
                                                             
                                                             <span class="form-text text-muted">Select your joining date.</span>
                                                         </div>
@@ -287,7 +288,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Salary:</label>
-                                                            <input type="number" class="form-control" name="salary" placeholder="Enter employee salary" value="{{ $empById->salary }}" required/>                                                                
+                                                            <input type="number" class="form-control" name="" placeholder="Enter employee salary" value="{{ $empById->salary }}" required disabled/>                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter your salary.</span>
                                                         </div>
@@ -299,7 +300,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Departments<span class="text-danger">*</span></label>
-                                                            <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->department->deptName }}" placeholder="Department" />
+                                                            <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->department->deptName }}" placeholder="Department" disabled/>
                                                             <span class="form-text text-muted">Please select an department.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -308,7 +309,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Designations<span class="text-danger">*</span></label>
-                                                            <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->designation->name }}" placeholder="Designation" />
+                                                            <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->designation->name }}" placeholder="Designation" disabled/>
                                                             <span class="form-text text-muted">Please select an designation.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -319,7 +320,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Location *</label>
-                                                            <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->location->location }}" placeholder="Location" />
+                                                            <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->location->location }}" placeholder="Location" disabled/>
                                                             <span class="form-text text-muted">Please select an location.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -328,7 +329,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Shift *</label>
-                                                            <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->shift->name }}" placeholder="Shift" />
+                                                            <input disabled type="text" class="form-control form-control-lg form-control-solid"  value="{{ $empById->shift->name }}" placeholder="Shift" disabled/>
                                                             <span class="form-text text-muted">Please select an designation.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -438,7 +439,7 @@
                                                 </div>
                                             </div>
                                             <!--end: Wizard Actions-->
-                                        </form>
+                                        </div>
                                         <!--end: Wizard Form-->
                                     </div>
                                 </div>

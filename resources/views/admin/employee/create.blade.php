@@ -29,6 +29,7 @@
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
+                <a href="{{ route('admin.employee.index')}}" type="button" class="btn btn-secondary text-uppercase px-9 py-4 mb-2" ><i class="fas fa-arrow-left"></i>Back</a>   
                 <div class="card card-custom card-transparent">
                     <div class="card-body p-0">
                         <!--begin: Wizard-->
