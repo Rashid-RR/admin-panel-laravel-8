@@ -17,12 +17,12 @@ var KTFormControls = function () {
 						}
 					},
 
-					url: {
+					cnic: {
 						validators: {
 							notEmpty: {
 								message: 'Website URL is required'
 							},
-							uri: {
+							cnic: {
 								message: 'The website address is not valid'
 							}
 						}

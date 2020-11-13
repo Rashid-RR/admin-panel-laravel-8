@@ -12,6 +12,7 @@
 
 @push('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+<link href="{{ asset('css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
 @endpush
 
 @section('content')
@@ -99,7 +100,7 @@
                                                 class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">
                                                 Choose an option:</li>
                                             <li class="navi-item">
-                                                <a href="#" class="navi-link" onclick=" makepdf()">
+                                                <a href="#" class="navi-link" onclick=" print()">
                                                     <span class="navi-icon">
                                                         <i class="la la-print"></i>
                                                     </span>
@@ -327,6 +328,7 @@
 
 <script src="{{ asset('js/pages/crud/file-upload/dropzonejs.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
+{{-- <script src="{{ asset('js/pages/crud/datatables/basic/basic.js')}}"></script> --}}
 
 <script>
 

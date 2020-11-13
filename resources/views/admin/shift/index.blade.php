@@ -213,13 +213,13 @@
                                                                             <label for="example-time-input">Start
                                                                                 Time* (e.g. 09:00 AM)</label>
                                                                             <input class="form-control startTime" type="time" value="" name="startTime"
-                                                                                id="example-time-input" />
+                                                                                id="example-time-input" required/>
                                                                         </div>
                                                                         <div class="form-group col-md-6">
                                                                             <label for="example-time-input">End
                                                                                 Time* (e.g. 09:00 PM)</label>
                                                                             <input class="form-control endTime" type="time" value="" name="endTime"
-                                                                                id="example-time-input" />
+                                                                                id="example-time-input" required/>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group mt-1">

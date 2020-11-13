@@ -166,7 +166,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>

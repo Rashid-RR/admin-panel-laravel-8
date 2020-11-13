@@ -45,7 +45,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Method*</label>
-                                                        <input class="form-control pristine invalid touched" placeholder="e.g Cash,Bank,JazzCash" name="methodName" type="text">
+                                                        <input class="form-control pristine invalid touched" placeholder="e.g Cash,Bank,JazzCash" name="methodName" type="text" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
