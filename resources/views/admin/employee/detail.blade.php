@@ -13,7 +13,8 @@
     <div class="d-flex flex-column-fluid">
         <!--begin::Container-->
         <div class="container">
-            <a href="{{ route('admin.employee.index')}}" type="button" class="btn btn-secondary text-uppercase px-9 py-4 mb-2 mt-3" ><i class="fas fa-arrow-left"></i>Back</a>
+            <a href="{{ route('admin.employee.index')}}" class="btn btn-light-primary font-weight-bolder mt-2 mb-2">
+                <i class="ki ki-long-arrow-back icon-sm"></i>Back</a>
             <div class="card card-custom card-transparent">
                 <div class="card-body p-0">
                     <!--begin: Wizard-->
@@ -434,7 +435,6 @@
                                                     <button type="button" class="btn btn-light-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-prev">Previous</button>
                                                 </div>
                                                 <div>
-                                                    <button type="submit" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" class="nextBtn" data-wizard-type="action-submit">Submit</button>
                                                     <button type="button" class="btn btn-primary font-weight-bolder text-uppercase px-9 py-4"  id="nextBtn" data-wizard-type="action-next">Next</button>
                                                 </div>
                                             </div>
