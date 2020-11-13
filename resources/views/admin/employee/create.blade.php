@@ -92,7 +92,7 @@
                                     <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
                                         <div class="col-xl-12 col-xxl-7">
                                             <!--begin: Wizard Form-->
-                                            <form class="form mt-0 mt-lg-10" id="kt_form" method="POST" action="{{ route('admin.employee.store') }}" enctype="multipart/form-data">
+                                            <form class="form mt-0 mt-lg-10" id="kt_form" method="POST" action="{{ route('admin.employee.store') }}" enctype="multipart/form-data" autocomplete="off">
                                                 @csrf
                                                 
                                                 <!--begin: Wizard Step 1-->
@@ -121,9 +121,9 @@
 
                                                     <div class="mb-10 font-weight-bold text-dark">Enter your Account Details</div>
                                                     <!--begin::Input-->
-                                                    <div class="form-group">
+                                                    <div class="form-group" >
                                                         <label>First Name</label>
-                                                        <input type="text" class="form-control" onclick="validate();" name="firstName" id="name" placeholder="First name" minlength="4" maxlength="12" required/>
+                                                        <input type="text" class="form-control" name="firstName" id="name" placeholder="First name" minlength="3" maxlength="12" autocomplete="off" required/>
                                                 
                                                         <span class="form-text text-muted">Please enter your first name.</span>
                                                     </div>
@@ -131,7 +131,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Last Name</label>
-                                                        <input type="text" class="form-control" name="lastName" placeholder="Last name" required/>
+                                                        <input type="text" class="form-control" name="lastName" placeholder="Last name" autocomplete="off" required/>
                                                         <span class="form-text text-muted">Please enter your last name.</span>
                                                     </div>
                                                     <!--end::Input-->
@@ -155,7 +155,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>DOB<span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="dob" placeholder="Birth Date" id='kt_datepicker' required/>
+                                                                <input type="text" class="form-control" name="dob" placeholder="Birth Date" id='kt_datepicker' autocomplete="off" required/>
                                                                 <span class="form-text text-muted">Select you date of birth</span>
                                                             </div>
                                                             <!--end::Input-->
@@ -166,7 +166,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>CNIC<span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="cnic" placeholder="Enter your CNIC no." required/>                                                                
+                                                                <input type="text" class="form-control" name="cnic" placeholder="Enter your CNIC no." autocomplete="off" required/>                                                                
                                                                 <span class="form-text text-muted">Please enter correct CNIC.</span>
                                                                 
                                                             </div>
@@ -176,7 +176,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Email:</label>
-                                                                <input type="email" class="form-control" name="email" placeholder="Enter your email" required />                                                                
+                                                                <input type="email" class="form-control" name="email" placeholder="Enter your email" autocomplete="off" required />                                                                
                                                                 
                                                                 <span class="form-text text-muted">Please enter your email address.</span>
                                                             </div>
@@ -188,7 +188,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Home Phone:</label>
-                                                                <input type="tel" class="form-control" name="homePhone" placeholder="Home number" required />                                                                
+                                                                <input type="tel" class="form-control" name="homePhone" placeholder="e.g 03xxxxxxxxx or 92xxxxxxxxxx"  autocomplete="off" required/>                                                                
                                                                 
                                                                 <span class="form-text text-muted">Please enter home no.</span>
                                                             </div>
@@ -198,7 +198,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Emergency Contact:</label>
-                                                                <input type="text" class="form-control" name="emergencyContact" placeholder="Emergency contact" required/>                                                                
+                                                                <input type="text" class="form-control" name="emergencyContact" placeholder="e.g 03xxxxxxxxx or 92xxxxxxxxxx" autocomplete="off" required/>                                                                
                                                                 
                                                                 <span class="form-text text-muted">Please enter emergency contact no.</span>
                                                             </div>
@@ -210,7 +210,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Work Phone:</label>
-                                                                <input type="tel" class="form-control" name="workPhone" placeholder="Home number" required />                                                                
+                                                                <input type="tel" class="form-control" name="workPhone" placeholder="e.g 03xxxxxxxxx or 92xxxxxxxxxx" autocomplete="off" required />                                                                
                                                                 
                                                                 <span class="form-text text-muted">Please enter Work Phone.</span>
                                                             </div>
@@ -220,7 +220,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Emergency Phone:</label>
-                                                                <input type="text" class="form-control" name="emergencyPhone" placeholder="Emergency contact" required/>                                                                
+                                                                <input type="text" class="form-control" name="emergencyPhone" placeholder="e.g 03xxxxxxxxx or 92xxxxxxxxxx" autocomplete="off" required/>                                                                
                                                                 
                                                                 <span class="form-text text-muted">Please enter emergency Emergency Phone.</span>
                                                             </div>
@@ -232,7 +232,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Postcode</label>
-                                                                <input type="text" class="form-control" name="postalCode" placeholder="Postcode"  />
+                                                                <input type="text" class="form-control" name="postalCode" placeholder="Postcode"  autocomplete="off"/>
                                                                 <span class="form-text text-muted">Please enter your Postcode.</span>
                                                             </div>
                                                             <!--end::Input-->
@@ -241,7 +241,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>City</label>
-                                                                <input type="text" class="form-control" name="city" placeholder="City"  />
+                                                                <input type="text" class="form-control" name="city" placeholder="City"  autocomplete="off"/>
                                                                 <span class="form-text text-muted">Please enter your City.</span>
                                                             </div>
                                                             <!--end::Input-->
@@ -510,7 +510,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Employee Address</label>
-                                                        <input type="text" class="form-control" name="employeeAddress" placeholder="Address Line 1"  />
+                                                        <input type="text" class="form-control" name="employeeAddress" placeholder="Address Line 1"  autocomplete="off"/>
                                                         <span class="form-text text-muted">Please enter your permanent home address.</span>
                                                     </div>
                                                     <!--end::Input-->
@@ -527,7 +527,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Employee Code:</label>
-                                                                <input type="text" class="form-control" name="employeeCode" placeholder="Enter Employee Code" required/>
+                                                                <input type="text" class="form-control" name="employeeCode" placeholder="Enter Employee Code" autocomplete="off" required/>
                                                                 <span class="form-text text-muted">Please employee code.</span>
                                                             </div>
                                                             <!--end::Input-->
@@ -536,7 +536,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Hire Date<span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="hireDate" placeholder="Hire Date" id='kt_datepicker2' required/>                                                                
+                                                                <input type="text" class="form-control" name="hireDate" placeholder="Hire Date" id='kt_datepicker2' autocomplete="off" required/>                                                                
 
                                                                 <span class="form-text text-muted">Select your hiring date.</span>
                                                             </div>
@@ -548,7 +548,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Joining Date</b><span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="joinDate" placeholder="Join Date" id='kt_datepicker3' required/>                                                                
+                                                                <input type="text" class="form-control" name="joinDate" placeholder="Join Date" id='kt_datepicker3' autocomplete="off" required/>                                                                
                                                                 
                                                                 <span class="form-text text-muted">Select your joining date.</span>
                                                             </div>
@@ -558,7 +558,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Salary:</label>
-                                                                <input type="number" class="form-control" name="salary" placeholder="Enter employee salary" required/>                                                                
+                                                                <input type="number" class="form-control" name="salary" placeholder="Enter employee salary" autocomplete="off" required/>                                                                
                                                                 
                                                                 <span class="form-text text-muted">Please enter your salary.</span>
                                                             </div>
@@ -634,7 +634,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Document Name</label>
-                                                                <input type="text" class="form-control" name="name" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" required/>
+                                                                <input type="text" class="form-control" name="name" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" autocomplete="off" required/>
                                                         
                                                                 <span class="form-text text-muted">Please enter your Document Name.</span>
                                                             </div>
@@ -644,12 +644,27 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Expire Date<span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="expiryDate" placeholder="Expire Date" id='kt_datepicker4' required/>
+                                                                <input type="text" class="form-control" name="expiryDate" placeholder="Expire Date" id='kt_datepicker4' autocomplete="off" required/>
                                                                 <span class="form-text text-muted"></span>
                                                             </div>
                                                             <!--end::Input-->
                                                         </div>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label>Document Type<span class="text-danger">*</span></label>
+                                                        <select class="form-control" id="kt_select2_1111223344555" name="type">
+                                                            <option value="1" selected disabled>Select</option>
+                                                            <option value="2">Resume</option>
+                                                            <option value="3">certificate</option>
+                                                            <option value="4">CV</option>
+                                                            <option value="5">Others</option>
+                                                            {{-- @foreach ($designations as $item)
+                                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                            @endforeach --}}
+                                                        </select>
+                                                        <span class="form-text text-muted">Please select an document type</span>
+                                                    </div>
+                                                    
                                                     <div class="form-group">
 														<label>File Browser</label>
 														<div></div>

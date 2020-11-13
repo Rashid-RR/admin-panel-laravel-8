@@ -27,7 +27,7 @@
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="{{ route('admin.employee.index') }}" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
-                        <i class="fas fa-user">
+                        <i class="fas fa-users">
                             </i></span>
                         <!--end::Svg Icon-->
                     </span>
@@ -38,7 +38,7 @@
                 <a href="{{ route('admin.department.index') }}" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
                        
-                        <i class=" fas fa-home"></i>
+                        <i class="fas fa-home"></i>
                         <!--end::Svg Icon-->
                     </span>
                     <span class="menu-text">Department</span>

@@ -615,58 +615,52 @@
                                             </div>
                                                 <!--end: Wizard Step 2-->
                                             <!--begin: Wizard Step 3-->
-                                            {{-- <div class="pb-5" data-wizard-type="step-content">
-                                                <div class="mb-10 font-weight-bold text-dark">Enter your Payment Details</div>
+                                            <div class="pb-5" data-wizard-type="step-content">
+                                                <div class="mb-10 font-weight-bold text-dark">Enter your Document Details</div>
                                                 <div class="row">
                                                     <div class="col-xl-6">
                                                         <!--begin::Input-->
                                                         <div class="form-group">
-                                                            <label>Account Title</label>
-                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="accountTitle" placeholder="Card Name" value="Nabeel" />
-                                                            <span class="form-text text-muted">Please enter your Card Name.</span>
+                                                            <label>Document Name</label>
+                                                            <input type="text" class="form-control" name="name" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" required/>
+                                                    
+                                                            <span class="form-text text-muted">Please enter your Document Name.</span>
                                                         </div>
                                                         <!--end::Input-->
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <!--begin::Input-->
                                                         <div class="form-group">
-                                                            <label>Account Number</label>
-                                                            <input type="text" class="form-control form-control-solid form-control-lg" name="accountNumber" placeholder="Card Number" />
-                                                            <span class="form-text text-muted">Please enter your Address.</span>
+                                                            <label>Expire Date<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" name="expiryDate" placeholder="Expire Date" id='kt_datepicker4' required/>
+                                                            <span class="form-text text-muted"></span>
                                                         </div>
                                                         <!--end::Input-->
                                                     </div>
                                                 </div>
-                                                {{-- <div class="row">
-                                                    <div class="col-xl-4">
-                                                        <!--begin::Input-->
-                                                        <div class="form-group">
-                                                            <label>Card Expiry Month</label>
-                                                            <input type="number" class="form-control form-control-solid form-control-lg" name="ccmonth" placeholder="Card Expiry Month" />
-                                                            <span class="form-text text-muted">Please enter your Card Expiry Month.</span>
-                                                        </div>
-                                                        <!--end::Input-->
+                                                <div class="form-group">
+                                                    <label>File Browser</label>
+                                                    <div></div>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFile" name="image"/>
+                                                        <label class="custom-file-label" for="customFile">Choose file</label>
                                                     </div>
-                                                    <div class="col-xl-4">
-                                                        <!--begin::Input-->
-                                                        <div class="form-group">
-                                                            <label>Card Expiry Year</label>
-                                                            <input type="number" class="form-control form-control-solid form-control-lg" name="ccyear" placeholder="Card Expire Year"/>
-                                                            <span class="form-text text-muted">Please enter your Card Expiry Year.</span>
-                                                        </div>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <div class="col-xl-4">
-                                                        <!--begin::Input-->
-                                                        <div class="form-group">
-                                                            <label>Card CVV Number</label>
-                                                            <input type="password" class="form-control form-control-solid form-control-lg" name="cccvv" placeholder="Card CVV Number" />
-                                                            <span class="form-text text-muted">Please enter your Card CVV Number.</span>
-                                                        </div>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                </div> 
-                                            </div> 
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Document Type<span class="text-danger">*</span></label>
+                                                <select class="form-control" id="kt_select2_1111223344555" name="type">
+                                                    <option value="1" selected disabled>Select</option>
+                                                    <option value="2">Resume</option>
+                                                    <option value="3">certificate</option>
+                                                    <option value="4">CV</option>
+                                                    <option value="5">Others</option>
+                                                    {{-- @foreach ($designations as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                    @endforeach --}}
+                                                </select>
+                                                <span class="form-text text-muted">Please select an document type</span>
+                                            </div>
                                             <!--end: Wizard Step 3-->
                                             <!--begin: Wizard Step 4-->
                                             {{-- <div class="pb-5" data-wizard-type="step-content">
