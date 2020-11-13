@@ -247,108 +247,7 @@
                                                         </g>
                                                     </svg> </span>
                                             </a>
-                                            <div class="modal fade" id="edit1new-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-lg">
-                                                    <form method="POST" id="companyInfoForm" action="" enctype="multipart/form-data">
-                                                        @csrf
-                                                        {{ @method_field('PUT') }}
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Company Information</h3>
-                                                                <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="row">
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group">
-                                                                            <label>Company Type</label>
-                                                                            <select class="form-control" id="companyTypeSelect" name="companyType_id">
-                                                                                @foreach($companyTypes as $item2)
-                                                                                    <option value="{{ $item2->id }}" @if($item->companyType_id == $item2->id) {{'selected'}} @endif>{{ $item2->name }}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group">
-                                                                            <label>Company Title</label>
-                                                                            <input class="form-control" value="" id="companyTitle" name="companyTitle" maxlength="500" type="text">
-                                                                            <!---->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group">
-                                                                            <label>Website Link</label>
-                                                                            <input class="form-control" value="" id="websiteAddress" name="websiteAddress" maxlength="150" type="url">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group">
-                                                                            <label>Email</label>
-                                                                            <input class="form-control" value="" id="companyEmail" name="email" maxlength="250" type="email">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group">
-                                                                            <label>Total Employees</label>
-                                                                            <select class="form-control" name="employeeRange">
-                                                                                <option value="1-25" @if($item->employeeRange === '1-25') {{'selected'}} @endif>
-                                                                                    1-25
-                                                                                </option>
-                                                                                <option value="25-50" @if($item->employeeRange === '25-50') {{'selected'}} @endif>
-                                                                                    25-50
-                                                                                </option>
-                                                                                <option value="50-100" @if($item->employeeRange === '50-100') {{'selected'}} @endif>
-                                                                                    50-100
-                                                                                </option>
-                                                                                <option value="more than 100" @if($item->employeeRange === 'more than 100') {{'selected'}} @endif>
-                                                                                    More than 100
-                                                                                </option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group">
-                                                                            <label for="usr">Salary Method</label>
-                                                                            <select class="form-control" id="" name="salaryMethod_id">
-                                                                                @foreach($salaryMethods as $item3)
-                                                                                    <option value="{{ $item3->id }}" @if($item->salaryMethod_id == $item->id) {{'selected'}} @endif>{{ $item2->methodName }}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3 mt-20">
-                                                                        <label for="CompanyLogo">Company Logo</label>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <div class="col-lg-9 col-xl-6">
-                                                                            <div class="image-input image-input-outline" id="kt_image_2">
-                                                                                <div class="image-input-wrapper" style="background-image: url({{ asset( 'companyLogos/'.$item->companyLogo ) }})"></div>
-                                                                                <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-                                                                                    <i class="fa fa-pen icon-sm"></i>
-                                                                                    <input type="file" name="companyLogo" accept=".png, .jpg, .jpeg" />
-                                                                                    {{-- <input type="hidden" name="profile_avatar_remove" /> --}}
-                                                                                </label>
-                                                                                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-                                                                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                                                                </span>
-                                                                                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
-                                                                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                                                                </span>
-                                                                            </div>
-                                                                            <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                <button class="btn btn-primary" type="submit">Save</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                            
                                             <a href="" id="companyDetailBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#detail1new-modal-lg"
                                                 class="btn btn-sm btn-clean btn-icon mr-2" title="details"> 
                                                 <span class="fas fa-eye"> </span> 
@@ -474,6 +373,112 @@
                             </tbody>
                         </table>
                         <!--end: Datatable-->
+                        <div class="modal fade" id="edit1new-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <form method="POST" id="companyInfoForm" action="" enctype="multipart/form-data">
+                                    @csrf
+                                    {{ @method_field('PUT') }}
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Company Information</h3>
+                                            <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Company Type</label>
+                                                        <select class="form-control" id="companyTypeSelect" name="companyType_id">
+                                                            {{-- @foreach($companyTypes as $item)
+                                                            @if($item->companyType_id == $item->id)
+                                                                <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                                                            @else
+                                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                            @endif
+                                                            @endforeach --}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Company Title</label>
+                                                        <input class="form-control" value="" id="companyTitle" name="companyTitle" maxlength="500" type="text">
+                                                        <!---->
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Website Link</label>
+                                                        <input class="form-control" value="" id="websiteAddress" name="websiteAddress" maxlength="150" type="url">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input class="form-control" value="" id="companyEmail" name="email" maxlength="250" type="email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Total Employees</label>
+                                                        <select class="form-control" name="employeeRange">
+                                                            {{-- <option value="1-25" @if($item->employeeRange === '1-25') {{'selected'}} @endif>
+                                                                1-25
+                                                            </option>
+                                                            <option value="25-50" @if($item->employeeRange === '25-50') {{'selected'}} @endif>
+                                                                25-50
+                                                            </option>
+                                                            <option value="50-100" @if($item->employeeRange === '50-100') {{'selected'}} @endif>
+                                                                50-100
+                                                            </option>
+                                                            <option value="more than 100" @if($item->employeeRange === 'more than 100') {{'selected'}} @endif>
+                                                                More than 100
+                                                            </option> --}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="usr">Salary Method</label>
+                                                        <select class="form-control" id="" name="salaryMethod_id">
+                                                            {{-- @foreach($salaryMethods as $item3)
+                                                                <option value="{{ $item3->id }}" @if($item->salaryMethod_id == $item->id) {{'selected'}} @endif>{{ $item2->methodName }}</option>
+                                                            @endforeach --}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mt-20">
+                                                    <label for="CompanyLogo">Company Logo</label>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <div class="image-input image-input-outline" id="kt_image_2">
+                                                            <div class="image-input-wrapper" style="background-image: url({{ asset( 'companyLogos/'.$item->companyLogo ) }})"></div>
+                                                            <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                                                <i class="fa fa-pen icon-sm"></i>
+                                                                <input type="file" name="companyLogo" accept=".png, .jpg, .jpeg" />
+                                                                {{-- <input type="hidden" name="profile_avatar_remove" /> --}}
+                                                            </label>
+                                                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                            </span>
+                                                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -485,14 +490,29 @@
 @push('js')
 <script>
 
+            var companyTypes =    {!! json_encode($companyTypes->toArray()) !!};
+          
+            console.log(companyTypes);
             //for edit
             $('div').on('click', '#companyEditBtn', function (event) {
                 event.preventDefault();
                 var companyInfo = $(this).data('id');
                 var getCompanyTypeById = $.get( "companyInformation/" + companyInfo.id);
+
                 $('#companyTitle').val(companyInfo.companyTitle);
                 $('#websiteAddress').val(companyInfo.websiteAddress);
                 $('#companyEmail').val(companyInfo.email);
+
+                var options = '';
+                companyTypes.forEach(x => {
+                    if(x.id == companyInfo.companyType_id ){
+                        options += `<option value="`+ x.id +`" selected> `+x.name+` </option>`
+                    }
+                    else{
+                        options += `<option value="`+ x.id +`"> `+x.name+` </option>`
+                    }
+                });
+                document.getElementById('companyTypeSelect').innerHTML = options;
                 $("#companyInfoForm").attr("action", "companyInformation/" + companyInfo.id);
             });
             $('div').on('click', '#companyDetailBtn', function (event) {

@@ -112,15 +112,15 @@ var KTWizard4 = function () {
 					firstName:  {
 						validators: {
 							notEmpty: {
-								message: 'first Name is required'
+								message: 'First Name is required'
 							},
 							stringLength: {
-							 min:4,
+							 min:3,
 							 max:15,
-							 message: 'Please enter a name within text length range 4 and 15 ' 
+							 message: 'Please enter a name within text length range 3 and 15 ' 
 							},
 							regexp: {
-								regexp: /^[a-zs]+$/i,
+								regexp: /^[a-zA-Z\s]+$/,
 								message: 'The full name can consist of alphabetical characters and spaces only'
 							}
 							
@@ -197,8 +197,8 @@ var KTWizard4 = function () {
 								
 							   },
 							regexp: {
-							regexp: /^[a-zs]+$/i,
-							message: 'The full name can consist of alphabetical characters and spaces only'
+								regexp: /^[a-zA-Z\s]+$/,
+								message: 'The full name can consist of alphabetical characters and spaces only'
 							}
 						}
 						
