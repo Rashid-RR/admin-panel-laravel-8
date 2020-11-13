@@ -417,7 +417,7 @@
 							<!--begin::Container-->
 							<div class="container">
 								<!--begin::Dashboard-->
-								<div class="py-6">
+								<div class="">
 									@yield('content')
 								</div>
 								<!--end::Dashboard-->

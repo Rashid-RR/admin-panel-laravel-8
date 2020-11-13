@@ -115,7 +115,7 @@ var KTWizard4 = function () {
 								message: 'first Name is required'
 							},
 							stringLength: {
-							 min:4,
+							 min:3,
 							 max:15,
 							 message: 'Please enter a name within text length range 4 and 15 ' 
 							},
