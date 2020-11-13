@@ -496,5 +496,11 @@ Dropzone.options.dropzone =
         KTDatatableHtmlTableDemo.init();
     });
 
+    function myFunction() {
+    $('#kt_datatable').DataTable( {
+   
+    });
+   }
+
 </script>
 @endpush
