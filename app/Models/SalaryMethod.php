@@ -14,4 +14,9 @@ class SalaryMethod extends Model
     protected $table = 'salary_methods';
     protected $fillable = ['methodName'];
     protected $dates = ['deleted_at'];
+
+    public function companyInformations()
+    {
+        return $this->hasMany('App\Models\CompanyInformation');
+    }
 }
