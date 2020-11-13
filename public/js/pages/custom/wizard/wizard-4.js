@@ -92,23 +92,22 @@ var KTWizard4 = function () {
 		_validations.push(FormValidation.formValidation(
 			_formEl,
 			{
-				fields: {
-					cnic:  {
-						validators: {
-							notEmpty: {
-								message: 'Cnic is required'
-							},
-							digits: {
-								message: 'The velue is not a valid Cnic'
-							},
-							stringLength: {
-								min:13,
-								max:13,
-								message: 'Please enter a valid Number' 
-							   },
-						}
-					},
-	
+				// fields: {
+				// 	cnic:  {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Cnic is required'
+				// 			},
+				// 			digits: {
+				// 				message: 'The velue is not a valid Cnic'
+				// 			},
+				// 			stringLength: {
+				// 				min:13,
+				// 				max:13,
+				// 				message: 'Please enter a valid Number' 
+				// 			   },
+				// 		}
+				// 	},
 					firstName:  {
 						validators: {
 							notEmpty: {
@@ -122,149 +121,149 @@ var KTWizard4 = function () {
 							regexp: {
 								regexp: /^[a-zs]+$/i,
 								message: 'The full name can consist of alphabetical characters and spaces only'
-							}
+              }
 							
-						}
+				// 		}
 						
-					},
-					dob:  {
-						validators: {
-							notEmpty: {
-								message: 'Date Of Birth is required'
-							},
-							date: {
-								format: 'YYYY/MM/DD',
-								message: 'The value is not a valid date',
-								min: '2000/01/01',
-							}
+				// 	},
+				// 	dob:  {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Date Of Birth is required'
+				// 			},
+				// 			date: {
+				// 				format: 'YYYY/MM/DD',
+				// 				message: 'The value is not a valid date',
+				// 				min: '2000/01/01',
+				// 			}
 							
-						}
-					},
-					emergencyContact:  {
-						validators: {
-							notEmpty: {
-								message: 'Emergency Contact is required'
-							},
-							digits: {
-								message: 'The velue is not a valid Emergency Contact'
-							},
-							stringLength: {
-								min:1,
-								max:12,
-								message: 'Please enter a valid Number' 
-							   },
-						}
-					},
-					workPhone:  {
-						validators: {
-							notEmpty: {
-								message: 'Work Phone Contact is required'
-							},
-							digits: {
-								message: 'The velue is not a valid work Phone'
-							},
-							stringLength: {
-								min:1,
-								max:12,
-								message: 'Please enter a valid Number' 
-							   },
-						}
-					},
-					emergencyPhone:  {
-						validators: {
-							notEmpty: {
-								message: 'Emergency Phone is required'
-							},
-							digits: {
-								message: 'The velue is not a valid Emergency Phone'
-							},
-							stringLength: {
-								min:11,
-								max:12,
-								message: 'Please enter a valid Number' 
-							   },
-						}
-					},
-					lastName: {
-						validators: {
-							notEmpty: {
-								message: 'Last Name is required'
-							},
-							stringLength: {
-								min:3,
-								max:15,
-								message: 'Please enter a name within text length range 4 and 15 '
+				// 		}
+				// 	},
+				// 	emergencyContact:  {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Emergency Contact is required'
+				// 			},
+				// 			digits: {
+				// 				message: 'The velue is not a valid Emergency Contact'
+				// 			},
+				// 			stringLength: {
+				// 				min:1,
+				// 				max:12,
+				// 				message: 'Please enter a valid Number' 
+				// 			   },
+				// 		}
+				// 	},
+				// 	workPhone:  {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Work Phone Contact is required'
+				// 			},
+				// 			digits: {
+				// 				message: 'The velue is not a valid work Phone'
+				// 			},
+				// 			stringLength: {
+				// 				min:1,
+				// 				max:12,
+				// 				message: 'Please enter a valid Number' 
+				// 			   },
+				// 		}
+				// 	},
+				// 	emergencyPhone:  {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Emergency Phone is required'
+				// 			},
+				// 			digits: {
+				// 				message: 'The velue is not a valid Emergency Phone'
+				// 			},
+				// 			stringLength: {
+				// 				min:11,
+				// 				max:12,
+				// 				message: 'Please enter a valid Number' 
+				// 			   },
+				// 		}
+				// 	},
+				// 	lastName: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Last Name is required'
+				// 			},
+				// 			stringLength: {
+				// 				min:3,
+				// 				max:15,
+				// 				message: 'Please enter a name within text length range 4 and 15 '
 								
-							   },
-							regexp: {
-							regexp: /^[a-zs]+$/i,
-							message: 'The full name can consist of alphabetical characters and spaces only'
-							}
-						}
+				// 			   },
+				// 			regexp: {
+				// 			regexp: /^[a-zs]+$/i,
+				// 			message: 'The full name can consist of alphabetical characters and spaces only'
+				// 			}
+				// 		}
 						
-					},
-					homePhone: {
-						validators: {
-							notEmpty: {
-								message: 'Phone is required'
-							},
-							digits: {
-								message: 'The velue is not a valid Home Phone'
-							},
-							stringLength: {
-								min:11,
-								max:12,
-								message: 'Please enter a valid Number' 
-							   },
-						}
-					},
-					email: {
-						validators: {
-							notEmpty: {
-								message: 'Email is required'
-							},
-							emailAddress: {
-								message: 'The value is not a valid Email address'
-							}
-						}
-					},
-					employeeAddress: {
-						validators: {
-							notEmpty: {
-								message: 'Address is required'
-							}
-						}
-					},
-					postalCode: {
-						validators: {
-							notEmpty: {
-								message: 'Postcode is required'
-							}
-						}
-					},
-					city: {
-						validators: {
-							notEmpty: {
-								message: 'City is required'
-							}
-						}
-					},
-					state: {
-						validators: {
-							notEmpty: {
-								message: 'State is required'
-							}
-						}
-					},
-					country: {
-						validators: {
-							notEmpty: {
-								message: 'Country is required'
-							}
-						}
-					}
+				// 	},
+				// 	homePhone: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Phone is required'
+				// 			},
+				// 			digits: {
+				// 				message: 'The velue is not a valid Home Phone'
+				// 			},
+				// 			stringLength: {
+				// 				min:11,
+				// 				max:12,
+				// 				message: 'Please enter a valid Number' 
+				// 			   },
+				// 		}
+				// 	},
+				// 	email: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Email is required'
+				// 			},
+				// 			emailAddress: {
+				// 				message: 'The value is not a valid Email address'
+				// 			}
+				// 		}
+				// 	},
+				// 	employeeAddress: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Address is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	postalCode: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Postcode is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	city: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'City is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	state: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'State is required'
+				// 			}
+				// 		}
+				// 	},
+				// 	country: {
+				// 		validators: {
+				// 			notEmpty: {
+				// 				message: 'Country is required'
+				// 			}
+				// 		}
+				// 	}
 					
-				},
+				// },
 
 				plugins: {
 					trigger: new FormValidation.plugins.Trigger(),
