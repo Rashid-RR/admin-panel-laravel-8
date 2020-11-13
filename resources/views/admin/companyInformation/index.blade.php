@@ -15,7 +15,7 @@
 @endpush
 
 @section('content')
-   <div class="">
+   <div class="py-6">
     <div class="col-md-12">
         <div class="card card-primary card-outline">
             <div class="card-header">

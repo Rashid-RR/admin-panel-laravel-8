@@ -16,7 +16,7 @@
 @endpush
 
 @section('content')
-        <div class="col-md-12">
+        <div class="col-md-12 py-6">
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     <div class="card card-custom">
@@ -100,7 +100,7 @@
                                                 class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">
                                                 Choose an option:</li>
                                             <li class="navi-item">
-                                                <a href="#" class="navi-link" onclick=" print()">
+                                                <a href="#" class="navi-link" onclick="makepdf()">
                                                     <span class="navi-icon">
                                                         <i class="la la-print"></i>
                                                     </span>
@@ -495,6 +495,12 @@ Dropzone.options.dropzone =
     jQuery(document).ready(function () {
         KTDatatableHtmlTableDemo.init();
     });
+
+    function myFunction() {
+    $('#kt_datatable').DataTable( {
+   
+    });
+   }
 
 </script>
 @endpush

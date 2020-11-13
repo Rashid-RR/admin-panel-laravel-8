@@ -417,7 +417,9 @@
 							<!--begin::Container-->
 							<div class="container">
 								<!--begin::Dashboard-->
-								@yield('content')
+								<div class="">
+									@yield('content')
+								</div>
 								<!--end::Dashboard-->
 							</div>
 							<!--end::Container-->

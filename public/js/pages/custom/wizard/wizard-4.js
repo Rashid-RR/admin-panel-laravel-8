@@ -108,21 +108,20 @@ var KTWizard4 = function () {
 				// 			   },
 				// 		}
 				// 	},
-	
-				// 	firstName:  {
-				// 		validators: {
-				// 			notEmpty: {
-				// 				message: 'first Name is required'
-				// 			},
-				// 			stringLength: {
-				// 			 min:4,
-				// 			 max:15,
-				// 			 message: 'Please enter a name within text length range 4 and 15 ' 
-				// 			},
-				// 			regexp: {
-				// 				regexp: /^[a-zs]+$/i,
-				// 				message: 'The full name can consist of alphabetical characters and spaces only'
-				// 			}
+					firstName:  {
+						validators: {
+							notEmpty: {
+								message: 'first Name is required'
+							},
+							stringLength: {
+							 min:3,
+							 max:15,
+							 message: 'Please enter a name within text length range 4 and 15 ' 
+							},
+							regexp: {
+								regexp: /^[a-zs]+$/i,
+								message: 'The full name can consist of alphabetical characters and spaces only'
+              }
 							
 				// 		}
 						
