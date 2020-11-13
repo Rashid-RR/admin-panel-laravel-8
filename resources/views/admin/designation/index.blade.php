@@ -45,7 +45,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Name*</label>
-                                                        <input class="form-control pristine invalid touched" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text" required>
+                                                        <input class="form-control pristine invalid touched" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text" autocomplete="off" required>
                                                         <!---->
                                                     </div>
                                                 </div>
@@ -138,7 +138,7 @@
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
                                                                         <label>Name*</label>
-                                                                        <input class="form-control pristine invalid touched" id="name" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text">
+                                                                        <input class="form-control pristine invalid touched" id="name" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text" autocomplete="off">
                                                                         <!---->
                                                                     </div>
                                                                 </div>

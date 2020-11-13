@@ -45,7 +45,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Method*</label>
-                                                        <input class="form-control pristine invalid touched" placeholder="e.g Cash,Bank,JazzCash" name="methodName" type="text" required>
+                                                        <input class="form-control pristine invalid touched" placeholder="e.g Cash,Bank,JazzCash" name="methodName" type="text" autocomplete="off" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -142,7 +142,7 @@
                                                                         <div class="form-group">
                                                                             <label>Method*</label>
                                                                             {{-- <input type="hidden" id="deptId" name="id" value="" /> --}}
-                                                                            <input class="form-control pristine invalid touched" value="" id="salaryMethodEditName" name="methodName" maxlength="250" type="text">
+                                                                            <input class="form-control pristine invalid touched" value="" id="salaryMethodEditName" name="methodName" maxlength="250" type="text" autocomplete="off">
                                                                             <!---->
                                                                         </div>
                                                                     </div>

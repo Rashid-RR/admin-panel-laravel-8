@@ -24,6 +24,9 @@ var KTSelect2 = function() {
         $('#kt_select2_11112233, #kt_select2_1_validate').select2({
             placeholder: 'Select a company type'
         });
+        $('#kt_select2_11112212, #kt_select2_1_validate').select2({
+            placeholder: 'Select a company type'
+        });
         $('#kt_select2_1111223344, #kt_select2_1_validate').select2({
             placeholder: 'Select a company type'
         });

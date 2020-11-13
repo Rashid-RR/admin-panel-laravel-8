@@ -97,20 +97,20 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>Company Title</label>
-                                                            <input class="form-control" name="companyTitle" maxlength="500" type="text">
+                                                            <input class="form-control" name="companyTitle" maxlength="500" type="text" autocomplete="off">
                                                             <!---->
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>Website Link</label>
-                                                            <input class="form-control" name="websiteAddress" maxlength="150" type="url">
+                                                            <input class="form-control" name="websiteAddress" maxlength="150" type="url" autocomplete="off">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>Email</label>
-                                                            <input class="form-control" name="email" maxlength="250" type="email">
+                                                            <input class="form-control" name="email" maxlength="250" type="email" autocomplete="off">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -262,9 +262,19 @@
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group">
                                                                             <label>Company Type</label>
-                                                                            <select class="form-control" id="companyTypeSelect" name="companyType_id">
+                                                                            <select class="form-control" id="kt_select2_11112212" name="companyType_id">
+                                                                                <option value="1" disabled selected>Select</option>
                                                                                 @foreach($companyTypes as $item2)
                                                                                     <option value="{{ $item2->id }}" @if($item->companyType_id == $item2->id) {{'selected'}} @endif>{{ $item2->name }}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>Company Type</label>
+                                                                            <select class="form-control" id="kt_select2_11112233" name="companyType_id">
+                                                                                <option value="">Select</option>
+                                                                                @foreach($companyTypes as $item)
+                                                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                                                 @endforeach
                                                                             </select>
                                                                         </div>
@@ -272,20 +282,20 @@
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group">
                                                                             <label>Company Title</label>
-                                                                            <input class="form-control" value="" id="companyTitle" name="companyTitle" maxlength="500" type="text">
+                                                                            <input class="form-control" value="" id="companyTitle" name="companyTitle" maxlength="500" type="text" autocomplete="off">
                                                                             <!---->
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group">
                                                                             <label>Website Link</label>
-                                                                            <input class="form-control" value="" id="websiteAddress" name="websiteAddress" maxlength="150" type="url">
+                                                                            <input class="form-control" value="" id="websiteAddress" name="websiteAddress" maxlength="150" type="url" autocomplete="off">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group">
                                                                             <label>Email</label>
-                                                                            <input class="form-control" value="" id="companyEmail" name="email" maxlength="250" type="email">
+                                                                            <input class="form-control" value="" id="companyEmail" name="email" maxlength="250" type="email" autocomplete="off"00>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6">
@@ -378,7 +388,7 @@
                                                                 <div class="col-sm-6">
                                                                     <div class="form-group">
                                                                         <label>Website Link</label>
-                                                                        <input class="form-control" value="" id="websiteAddressDetail" disabled type="url">
+                                                                        <input class="form-control"  value="" id="websiteAddressDetail" disabled type="url">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-6">
@@ -481,6 +491,7 @@
 @endsection
 
 @push('js')
+
 <script>
 
             //for edit
@@ -636,6 +647,8 @@
     jQuery(document).ready(function () {
         KTDatatableHtmlTableDemo.init();
     });
+
+    
 
 </script>
 @endpush

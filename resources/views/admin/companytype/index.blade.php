@@ -46,7 +46,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Name*</label>
-                                                        <input class="form-control pristine invalid touched" placeholder="Enter Company Type.." name="name" type="text" required>
+                                                        <input class="form-control pristine invalid touched" placeholder="Enter Company Type.." name="name" type="text" autocomplete="off" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -141,7 +141,7 @@
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
                                                                         <label>Name*</label>
-                                                                        <input class="form-control pristine invalid touched" value="" id="companyTypeName" name="name" maxlength="250" type="text">
+                                                                        <input class="form-control pristine invalid touched" value="" id="companyTypeName" name="name" maxlength="250" type="text" autocomplete="off">
                                                                         <!---->
                                                                     </div>
                                                                 </div>

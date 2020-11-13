@@ -115,14 +115,14 @@
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>First Name</label>
-                                                    <input type="text" class="form-control" name="firstName" placeholder="First name" value="{{$employee->firstName}}" required/>
+                                                    <input type="text" class="form-control" name="firstName" placeholder="First name" value="{{$employee->firstName}}" autocomplete="off" required/>
                                                     <span class="form-text text-muted">Please enter your first name.</span>
                                                 </div>
                                                 <!--end::Input-->
                                                 <!--begin::Input-->
                                                 <div class="form-group">
                                                     <label>Last Name</label>
-                                                    <input type="text" class="form-control" name="lastName" placeholder="Last name" value="{{$employee->lastName}}" required/>
+                                                    <input type="text" class="form-control" name="lastName" placeholder="Last name" value="{{$employee->lastName}}" autocomplete="off" required/>
                                                     <span class="form-text text-muted">Please enter your last name.</span>
                                                 </div>
                                                 <!--end::Input-->
@@ -157,7 +157,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>CNIC<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="cnic" placeholder="Enter your CNIC no." value="{{ $employee->cnic }}" required/>   
+                                                            <input type="text" class="form-control" name="cnic" placeholder="Enter your CNIC no." value="{{ $employee->cnic }}" autocomplete="off" required/>   
                                                             <span class="form-text text-muted">Please enter your CNIC number.</span>
                                         
                                                         </div>
@@ -167,7 +167,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Email:</label>
-                                                            <input type="email" class="form-control" name="email" placeholder="Enter your email" value="{{ $employee->email }}" required />                                                                
+                                                            <input type="email" class="form-control" name="email" placeholder="Enter your email" value="{{ $employee->email }}" autocomplete="off" required />                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter your email address.</span>
                                                         </div>
@@ -179,7 +179,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Home Phone:</label>
-                                                            <input type="tel" class="form-control" name="homePhone" placeholder="Home number" value="{{ $employee->homePhone }}"  required />                                                                
+                                                            <input type="tel" class="form-control" name="homePhone" placeholder="Home number" value="{{ $employee->homePhone }}"  autocomplete="off" required />                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter home no.</span>
                                                         </div>
@@ -189,7 +189,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Emergency Contact:</label>
-                                                            <input type="text" class="form-control" name="emergencyContact" placeholder="Emergency contact" value="{{ $employee->emergencyContact }}" required/>                                                                
+                                                            <input type="text" class="form-control" name="emergencyContact" placeholder="Emergency contact" value="{{ $employee->emergencyContact }}" autocomplete="off" required/>                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter emergency contact no.</span>
                                                         </div>
@@ -201,7 +201,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Work Phone:</label>
-                                                            <input type="tel" class="form-control" name="workPhone" placeholder="Home number" value="{{$employee->workPhone}}" required />                                                                
+                                                            <input type="tel" class="form-control" name="workPhone" placeholder="Home number" value="{{$employee->workPhone}}" autocomplete="off" required />                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter Work Phone.</span>
                                                         </div>
@@ -211,7 +211,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Emergency Phone:</label>
-                                                            <input type="text" class="form-control" name="emergencyPhone" placeholder="Emergency contact" value="{{ $employee->emergencyPhone }}" required/>                                                                
+                                                            <input type="text" class="form-control" name="emergencyPhone" placeholder="Emergency contact" value="{{ $employee->emergencyPhone }}" autocomplete="off" required/>                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter emergency Emergency Phone.</span>
                                                         </div>
@@ -225,7 +225,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Postcode</label>
-                                                            <input type="text" class="form-control" name="postalCode" placeholder="Postcode" value="{{ $employee->postalCode }}" />
+                                                            <input type="text" class="form-control" name="postalCode" placeholder="Postcode" value="{{ $employee->postalCode }}" autocomplete="off"/>
                                                             <span class="form-text text-muted">Please enter your Postcode.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -234,7 +234,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>City</label>
-                                                            <input type="text" class="form-control" name="city" placeholder="City" value=" {{$employee->city}} " />
+                                                            <input type="text" class="form-control" name="city" placeholder="City" value=" {{$employee->city}} " autocomplete="off"/>
                                                             <span class="form-text text-muted">Please enter your City.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -501,7 +501,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Employee Address</label>
-                                                    <input type="text" class="form-control" name="employeeAddress" placeholder="Address Line 1" value="{{ $employee->employeeAddress }}" />
+                                                    <input type="text" class="form-control" name="employeeAddress" placeholder="Address Line 1" value="{{ $employee->employeeAddress }}" autocomplete="off"/>
                                                     <span class="form-text text-muted">Please enter your permanent home address.</span>
                                                 </div>
                                             </div>
@@ -515,7 +515,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Employee Code:</label>
-                                                            <input type="text" class="form-control" name="employeeCode" placeholder="Enter Employee Code" value="{{$employee->employeeCode}}" required/>
+                                                            <input type="text" class="form-control" name="employeeCode" placeholder="Enter Employee Code" value="{{$employee->employeeCode}}" autocomplete="off" required/>
                                                             <span class="form-text text-muted">Please employee code.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -524,7 +524,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Hire Date<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="hireDate" placeholder="Hire Date" id='kt_datepicker2' value="{{ $employee->hireDate }}" required/>                                                                
+                                                            <input type="text" class="form-control" name="hireDate" placeholder="Hire Date" id='kt_datepicker2' value="{{ $employee->hireDate }}" autocomplete="off" required/>                                                                
 
                                                             <span class="form-text text-muted">Select your hiring date.</span>
                                                         </div>
@@ -536,7 +536,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Joining Date</b><span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="joinDate" placeholder="Join Date" id='kt_datepicker3' value="{{ $employee->joinDate }}" required/>                                                                
+                                                            <input type="text" class="form-control" name="joinDate" placeholder="Join Date" id='kt_datepicker3' value="{{ $employee->joinDate }}" autocomplete="off" required/>                                                                
                                                             
                                                             <span class="form-text text-muted">Select your joining date.</span>
                                                         </div>
@@ -546,7 +546,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Salary:</label>
-                                                            <input type="number" class="form-control" name="salary" placeholder="Enter employee salary" value="{{ $employee->salary }}" required/>                                                                
+                                                            <input type="number" class="form-control" name="salary" placeholder="Enter employee salary" value="{{ $employee->salary }}" autocomplete="off" required/>                                                                
                                                             
                                                             <span class="form-text text-muted">Please enter your salary.</span>
                                                         </div>
@@ -622,7 +622,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Document Name</label>
-                                                            <input type="text" class="form-control" name="name" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" required/>
+                                                            <input type="text" class="form-control" name="name" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" autocomplete="off" required/>
                                                     
                                                             <span class="form-text text-muted">Please enter your Document Name.</span>
                                                         </div>
@@ -632,7 +632,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Expire Date<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="expiryDate" placeholder="Expire Date" id='kt_datepicker4' required/>
+                                                            <input type="text" class="form-control" name="expiryDate" placeholder="Expire Date" id='kt_datepicker4' autocomplete="off" required/>
                                                             <span class="form-text text-muted"></span>
                                                         </div>
                                                         <!--end::Input-->

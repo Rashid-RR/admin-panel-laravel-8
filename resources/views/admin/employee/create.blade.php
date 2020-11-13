@@ -510,7 +510,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Employee Address</label>
-                                                        <input type="text" class="form-control" name="employeeAddress" placeholder="Address Line 1"  autocomplete="off"/>
+                                                        <input type="text" class="form-control" name="employeeAddress" placeholder="Home Address"  autocomplete="off"/>
                                                         <span class="form-text text-muted">Please enter your permanent home address.</span>
                                                     </div>
                                                     <!--end::Input-->
@@ -744,6 +744,7 @@
 @push('js')
 
 <script src="{{ asset('js/pages/custom/wizard/wizard-4.js')}}"></script>
+
 <script src="{{ asset('js/pages/crud/forms/validation/form-controls.js')}}"></script>
 <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
 
