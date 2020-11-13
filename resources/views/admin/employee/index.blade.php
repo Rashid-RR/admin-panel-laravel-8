@@ -286,6 +286,36 @@
                                 </tbody>
                             </table>
                             <!--end: Datatable-->
+
+                            {{-- for print page --}}
+
+                            <table class="datatable datatable-bordered datatable-head-custom" style="display: none;" id="forPrint">
+                                <thead>
+                                    
+                                    <tr>
+                                        <th title="Field #1">Full Name</th>
+                                        <th title="Field #2">Phone</th>
+                                        <th title="Field #3">CNIC</th>
+                                        <th title="Field #4">Designation</th>
+                                        <th title="Field #5">Department</th>
+                                        <th title="Field #6">Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($employees as $item2)
+                                    <tr>
+                                        <td>{{ $item2->firstName .' '. $item2->lastName }}
+                                        </td>
+                                        <td>{{ $item2->emergencyPhone }}</td>
+                                        <td>{{ $item2->cnic }}</td>
+                                        <td>{{ $item2->designation->name }}</td>
+                                        <td>{{ $item2->department->deptName }}</td>
+                                        <td>{{ $item2->email }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>
@@ -308,6 +338,17 @@
                console.log(id);
                $('#employeeDeleteData').attr("action","employee/" + id); 
             });
+
+            function makepdf(){
+                var printMe = document.getElementById('forPrint');
+                document.getElementById('forPrint').style.display = "block";
+                var wme = window.open("", "", "width:100%,height:100%");
+                wme.document.write(printMe.outerHTML);
+                wme.document.close();
+                wme.focus();
+                wme.print();
+                document.getElementById('forPrint').style.display = "none";
+            }
 
     "use strict";
     // Class definition
@@ -455,61 +496,5 @@ Dropzone.options.dropzone =
         KTDatatableHtmlTableDemo.init();
     });
 
-
-//     function makepdf(){
-//        var printMe = document.getElementById('kt_datatable');
-//         var wme = window.open("", "", "width:700,height:900");
-//         wme.document.write(printMe.outerHTML);
-//         wme.document.close();
-//         wme.focus();
-//         wme.print();
-        
-
-       
-//    }
-
-// ...........checkbox javascript......................................
-
-
-// table.on('change', '.group-checkable', function() {
-// 			var set = $(this).closest('table').find('td:first-child .checkable');
-// 			var checked = $(this).is(':checked');
-
-// 			$(set).each(function() {
-// 				if (checked) {
-// 					$(this).prop('checked', true);
-// 					$(this).closest('tr').addClass('active');
-// 				}
-// 				else {
-// 					$(this).prop('checked', false);
-// 					$(this).closest('tr').removeClass('active');
-// 				}
-// 			});
-// 		});
-
-// 		table.on('change', 'tbody tr .checkbox', function() {
-// 			$(this).parents('tr').toggleClass('active');
-// 		});
-// 	};
-
-   function myFunction() {
-    $('#kt_datatable').DataTable( {
-   
-} );
-   }
-
-
-
-   function print(){
-       var printMe = document.getElementById('kt_datatable');
-        var wme = window.open("", "", "width:700,height:900");
-        wme.document.write(printMe.outerHTML);
-        wme.document.close();
-        wme.focus();
-        wme.print();
-    
-   }
-
-   
 </script>
 @endpush
