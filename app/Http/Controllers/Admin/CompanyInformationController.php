@@ -106,7 +106,7 @@ class CompanyInformationController extends Controller
             'companyTitle'=> 'required',
             'email'=> 'required',
             'salaryMethod_id' => 'required',
-            'companyLogo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'companyLogo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         $companyInfo = CompanyInformation::findOrFail($id);
         $companyInfo->companyType_id = $request->companyType_id;
