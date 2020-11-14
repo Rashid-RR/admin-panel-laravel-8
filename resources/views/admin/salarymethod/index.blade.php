@@ -29,6 +29,77 @@
                                 <!--begin::Dropdown-->
                                 <div class="dropdown dropdown-inline mr-2">
                                 </div>
+                                <div class="card-toolbar">
+                                    <a href="" data-toggle="modal" data-target="#addnew-modal-md"
+                                        class="btn btn-primary font-weight-bolder text-center">
+                                        <i class="fas fa-plus"></i>
+                                        create a new
+                                    </a>
+                                    <div class="modal fade" id="addnew-modal-md" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-md" role="document">
+                                            <div class="modal-content">
+                                                <form method="POST" action="{{ route('admin.shift.store') }}">
+                                                    @csrf
+                                                    <div class="modal-header">
+                                                        <h2 class="modal-title" id="exampleModalLabel">Add New Attendance</h2>
+                                                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i
+                                                                class="fa fa-times fa-sm"></i></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                       <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Employee*</label>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                                                        <input formcontrolname="EmployeeID" type="text" hidden="" class="ng-untouched ng-pristine ng-invalid">
+                                                                        <input class="form-control ng-pristine ng-invalid ng-touched" placeholder="Search Employee" required="" type="text">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Attendance Date</label>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                                                        <input type="text" class="form-control" id="kt_datepicker_1_modal" readonly="readonly" placeholder="Select date" />
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                       </div>
+                                                       <div class="row">
+                                                           <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Time-In* (e.g. 09:00 AM)</label>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                                                    <input type="text" class="form-control" id="kt_datetimepicker_5" placeholder="Select date &amp; time" data-toggle="datetimepicker" data-target="#kt_datetimepicker_5" />
+                                                                </div>
+                                                            </div>
+                                                           </div>
+                                                           <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Time Out* (e.g. 06:00 PM)</label>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                                                    <input type="text" class="form-control" id="kt_datetimepicker_5" placeholder="Select date &amp; time" data-toggle="datetimepicker" data-target="#kt_datetimepicker_5" />
+                                                                </div>
+                                                            </div>
+                                                           </div>
+                                                       </div>
+                                                       <div class="form-group">
+                                                        <label>Remarks</label>
+                                                        <textarea class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Remarks">
+                                                        </textarea>
+                                                    </div>  
+
+                                                            
+                                                    </div>
+                                                   
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Button-->
+                                </div>
                                 <a class="btn btn-primary font-weight-bolder text-center" data-toggle="modal" data-target="#deptadd-modal-lg">
                                     <i class="fas fa-plus"></i>
                                     Add New
@@ -235,6 +306,11 @@
 @endsection
 
 @push('js')
+<script src="{{ asset('js/pages/crud/forms/widgets/bootstrap-timepicker.js')}}"></script>
+<script src="{{ asset('js/pages/crud/forms/widgets/bootstrap-datepicker.js')}}"></script>
+
+
+
     <script>
 
         //for edit modal
