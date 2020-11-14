@@ -13,7 +13,8 @@ use Illuminate\Http\Request;
 //use Excel;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\EmployeeImport;
-
+use App\Models\Document;
+use App\Models\DocumentType;
 use File;
 
 class EmployeeController extends Controller
@@ -119,7 +120,7 @@ class EmployeeController extends Controller
      */
     public function create2Store(Request $request)
     {
-        dd($request);
+        //dd($request);
         $this->validate($request,[
             'firstName' => 'required',
             'lastName' => 'required',
@@ -132,6 +133,8 @@ class EmployeeController extends Controller
             'profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $employee = new Employee;
+        $document = new Document;
+        $documentType = new DocumentType;
         $employee->firstName = $request->firstName;
         $employee->lastName = $request->lastName;
         $employee->gender = $request->gender;
@@ -154,6 +157,9 @@ class EmployeeController extends Controller
         $employee->designation_id = $request->designation_id;
         $employee->location_id = $request->location_id;
         $employee->shift_id = $request->shift_id;
+
+        $document->name = $request->name;
+        $document->expiryDate = $request->expiryDate;
         
         if($request->file('profile')){
             $file = $request->profile;
@@ -162,7 +168,29 @@ class EmployeeController extends Controller
             $employee->profile = $imageName;
         }
 
+        if($request->file('image')){
+            $file = $request->image;
+            $extention = $file->extension();
+            $extensionExist = DocumentType::where('type',$extention)->get();
+            if(!$extensionExist){
+                $documentType->type = $extention;
+                $documentType->save();
+
+                $currentDocumentType = DocumentType::where('type',$extention)->get();
+                $document->documentType_id = $currentDocumentType->id;
+            }
+
+            $imageName = time().'.'.$file->extension();
+            $file->move(public_path('employeesDocument'), $imageName);
+            $document->image = $imageName;
+        }
+
         $employee->save();
+
+        $currentEmp = Employee::where('email',$request->email)->get();
+        $document->employee_id = $currentEmp->id;
+
+        $document->save();
         
         return redirect()->route('admin.employee.index')->with('success','Employee created successfully !');
     }
