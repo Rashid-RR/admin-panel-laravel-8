@@ -44,7 +44,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Name*</label>
-                                                        <input class="form-control pristine invalid touched" placeholder="Enter department name.." name="deptName" type="text" required>
+                                                        <input class="form-control pristine invalid touched" placeholder="Enter department name.." name="deptName" type="text" autocomplete="off" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -125,7 +125,6 @@
                                                         </svg> 
                                                     </span>
                                                 </a>
-                                                
                                                 <a href="" id="detailBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#detailadd-modal-lg"
                                                      class="btn btn-sm btn-clean btn-icon mr-2"> 
                                                      <span class="fas fa-eye"></span> 

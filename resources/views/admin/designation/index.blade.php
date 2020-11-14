@@ -45,7 +45,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Name*</label>
-                                                        <input class="form-control pristine invalid touched" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text" required>
+                                                        <input class="form-control pristine invalid touched" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text" autocomplete="off" required>
                                                         <!---->
                                                     </div>
                                                 </div>
@@ -125,7 +125,6 @@
                                                             </g>
                                                         </svg> </span>
                                                 </a>
-                                             
                                                 <a href="" id="designationDetailBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#detail-desg-modal-lg"
                                                      class="btn btn-sm btn-clean btn-icon mr-2"> 
                                                      <span class="fas fa-eye"></span> 

@@ -107,8 +107,7 @@ var KTWizard4 = function () {
 								message: 'Please enter a valid Number' 
 							   },
 						}
-					},
-	
+					},	
 					firstName:  {
 						validators: {
 							notEmpty: {
@@ -194,7 +193,6 @@ var KTWizard4 = function () {
 								min:3,
 								max:15,
 								message: 'Please enter a name within text length range 4 and 15 '
-								
 							   },
 							regexp: {
 								regexp: /^[a-zA-Z\s]+$/,

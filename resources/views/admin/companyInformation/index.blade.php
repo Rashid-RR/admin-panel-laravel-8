@@ -5,7 +5,7 @@
 @section('breadcrumb')
     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.companyInformation.index')}}" class="text-muted">Company Infomation</a>
+            <a href="{{ route('admin.companyInformation.index')}}" class="text-muted">Company</a>
         </li>
     </ul>
 @endsection
@@ -78,7 +78,7 @@
                                         @csrf
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Company Information</h3>
+                                                <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Company</h3>
                                                 <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
                                             </div>
                                             <div class="modal-body">
@@ -97,20 +97,20 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>Company Title</label>
-                                                            <input class="form-control" name="companyTitle" maxlength="500" type="text">
+                                                            <input class="form-control" name="companyTitle" maxlength="500" type="text" autocomplete="off">
                                                             <!---->
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>Website Link</label>
-                                                            <input class="form-control" name="websiteAddress" maxlength="150" type="url">
+                                                            <input class="form-control" name="websiteAddress" maxlength="150" type="url" autocomplete="off">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>Email</label>
-                                                            <input class="form-control" name="email" maxlength="250" type="email">
+                                                            <input class="form-control" name="email" maxlength="250" type="email" autocomplete="off">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -226,12 +226,10 @@
                                                         </g>
                                                     </svg> </span>
                                             </a>
-                                            
                                             <a href="" id="companyDetailBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#detail1new-modal-lg"
                                                 class="btn btn-sm btn-clean btn-icon mr-2" title="details"> 
                                                 <span class="fas fa-eye"> </span> 
                                             </a>
-                                            
                                             <a href="" id="companyInformationDeleteBtn" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete" data-toggle="modal" data-target="#deleteDesignation-modal-lg">
                                                 <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24"
@@ -437,6 +435,7 @@
 @endsection
 
 @push('js')
+
 <script>
 
             var companyTypes = {!! json_encode($companyTypes->toArray()) !!};
@@ -625,6 +624,8 @@
     jQuery(document).ready(function () {
         KTDatatableHtmlTableDemo.init();
     });
+
+    
 
 </script>
 @endpush
