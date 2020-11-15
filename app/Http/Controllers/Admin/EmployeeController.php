@@ -46,14 +46,6 @@ class EmployeeController extends Controller
         return view('admin.employee.create',compact('departments','designations','locations','shifts'));
         
     }
-    public function create2()
-    {
-        $departments = Department::all();
-        $designations = Designation::all();
-        $locations = Location::all();
-        $shifts = Shift::all();
-        return view('admin.employee.create2',compact('departments','designations','locations','shifts'));
-    }
     
 
     /**
@@ -77,64 +69,8 @@ class EmployeeController extends Controller
             'profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $employee = new Employee;
-        $employee->firstName = $request->firstName;
-        $employee->lastName = $request->lastName;
-        $employee->gender = $request->gender;
-        $employee->dob = $request->dob;
-        $employee->cnic = $request->cnic;
-        $employee->employeeAddress = $request->employeeAddress;
-        $employee->email = $request->email;
-        $employee->workPhone = $request->workPhone;
-        $employee->emergencyPhone = $request->emergencyPhone;
-        $employee->homePhone = $request->homePhone;
-        $employee->emergencyContact = $request->emergencyContact;
-        $employee->country = $request->country;
-        $employee->city = $request->city;
-        $employee->salary = $request->salary;
-        $employee->postalCode = $request->postalCode;
-        $employee->employeeCode = $request->employeeCode;
-        $employee->hireDate = $request->hireDate;
-        $employee->joinDate = $request->joinDate;
-        $employee->department_id = $request->department_id;
-        $employee->designation_id = $request->designation_id;
-        $employee->location_id = $request->location_id;
-        $employee->shift_id = $request->shift_id;
-        
-        if($request->file('profile')){
-            $file = $request->profile;
-            $imageName = time().'.'.$file->extension();
-            $file->move(public_path('employeesProfile'), $imageName);
-            $employee->profile = $imageName;
-        }
-
-        $employee->save();
-        
-        return redirect()->route('admin.employee.index')->with('success','Employee created successfully !');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function create2Store(Request $request)
-    {
-        //dd($request);
-        $this->validate($request,[
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'gender' => 'required',
-            'cnic' => 'required',
-            'employeeAddress' => 'required',
-            'city' => 'required',
-            'country' => 'required',
-            'salary' => 'required',
-            'profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $employee = new Employee;
         $document = new Document;
-        $documentType = new DocumentType;
+
         $employee->firstName = $request->firstName;
         $employee->lastName = $request->lastName;
         $employee->gender = $request->gender;
@@ -160,7 +96,15 @@ class EmployeeController extends Controller
 
         $document->name = $request->name;
         $document->expiryDate = $request->expiryDate;
+        $document->documentType_id = $request->type;
         
+        if($request->file('image')){
+            $file = $request->image;
+            $imageName = time().'.'.$file->extension();
+            $file->move(public_path('employeesDocument'), $imageName);
+            $document->image = $imageName;
+        }
+
         if($request->file('profile')){
             $file = $request->profile;
             $imageName = time().'.'.$file->extension();
@@ -168,32 +112,22 @@ class EmployeeController extends Controller
             $employee->profile = $imageName;
         }
 
-        if($request->file('image')){
-            $file = $request->image;
-            $extention = $file->extension();
-            $extensionExist = DocumentType::where('type',$extention)->get();
-            if(!$extensionExist){
-                $documentType->type = $extention;
-                $documentType->save();
-
-                $currentDocumentType = DocumentType::where('type',$extention)->get();
-                $document->documentType_id = $currentDocumentType->id;
-            }
-
-            $imageName = time().'.'.$file->extension();
-            $file->move(public_path('employeesDocument'), $imageName);
-            $document->image = $imageName;
-        }
-
         $employee->save();
 
-        $currentEmp = Employee::where('email',$request->email)->get();
-        $document->employee_id = $currentEmp->id;
+        $document->employee_id = $employee->id;
 
         $document->save();
         
         return redirect()->route('admin.employee.index')->with('success','Employee created successfully !');
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    
 
     /**
      * Display the specified resource.
@@ -204,7 +138,9 @@ class EmployeeController extends Controller
     public function show($id)
     {
         $empById = Employee::findOrFail($id);
-        return view('admin.employee.detail',compact('empById'));
+        $documentById = Document::where('employee_id',$empById->id)->first();
+        $documentTypeById = DocumentType::findOrFail($documentById->documentType_id);
+        return view('admin.employee.detail',compact('empById','documentById','documentTypeById'));
     }
 
     /**
@@ -221,7 +157,9 @@ class EmployeeController extends Controller
        $designations = Designation::all();
        $locations = Location::all();
        $shifts = Shift::all();
-       return view('admin.employee.edit',compact('employee','departments','designations','locations','shifts'));
+       $documentById = Document::where('employee_id',$employee->id)->first();
+       $documentTypeById = DocumentType::findOrFail($documentById->documentType_id);
+       return view('admin.employee.edit',compact('employee','departments','designations','locations','shifts','documentById','documentTypeById'));
     }
 
     /**
@@ -233,6 +171,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request,$id)
     {
+        //dd($request);
         $this->validate($request,[
             'firstName' => 'required',
             'lastName' => 'required',
@@ -242,8 +181,11 @@ class EmployeeController extends Controller
             'city' => 'required',
             'country' => 'required',
             'salary' => 'required',
+            'profile' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $employee = Employee::findOrFail($id);
+        $document = Document::where('employee_id',$id)->first();
+
         $employee->firstName = $request->firstName;
         $employee->lastName = $request->lastName;
         $employee->gender = $request->gender;
@@ -266,7 +208,17 @@ class EmployeeController extends Controller
         $employee->designation_id = $request->designation_id;
         $employee->location_id = $request->location_id;
         $employee->shift_id = $request->shift_id;
-        
+
+        $document->name = $request->name;
+        $document->expiryDate = $request->expiryDate;
+        $document->documentType_id = $request->type;
+        if($request->file('image')){
+            $file = $request->image;
+            $imageName = time().'.'.$file->extension();
+            $file->move(public_path('employeesDocument'), $imageName);
+            $document->image = $imageName;
+        }
+
         if($request->file('profile')){
             $file = $request->profile;
             $imageName = time().'.'.$file->extension();
@@ -275,6 +227,7 @@ class EmployeeController extends Controller
         }
 
         $employee->save();
+        $document->save();
         
         return redirect()->route('admin.employee.index')->with('success','Employee updated successfully !');
     }

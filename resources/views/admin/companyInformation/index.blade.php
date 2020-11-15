@@ -272,7 +272,7 @@
                 {{ @method_field('PUT') }}
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Company Information</h3>
+                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Company  </h3>
                         <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
                     </div>
                     <div class="modal-body">
@@ -338,7 +338,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i>Update</button>
                     </div>
                 </div>
             </form>
@@ -403,7 +403,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                    <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i>Update</button>
+                    
                 </div>
             </div>
         </div>

@@ -655,11 +655,11 @@
                                                     <div class="form-group">
                                                         <label>Document Type<span class="text-danger">*</span></label>
                                                         <select class="form-control" id="kt_select2_1111223344555" name="type">
-                                                            <option value="1" selected disabled>Select</option>
-                                                            <option value="2">Resume</option>
-                                                            <option value="3">certificate</option>
-                                                            <option value="4">CV</option>
-                                                            <option value="5">Others</option>
+                                                            <option value="" selected disabled>Select</option>
+                                                            <option value="1">Resume</option>
+                                                            <option value="2">Certificate</option>
+                                                            <option value="3">CV</option>
+                                                            <option value="4">Other</option>
                                                             {{-- @foreach ($designations as $item)
                                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                             @endforeach --}}

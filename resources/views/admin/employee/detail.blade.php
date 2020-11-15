@@ -50,8 +50,8 @@
                                     <div class="wizard-wrapper">
                                         <div class="wizard-number">3</div>
                                         <div class="wizard-label">
-                                            <div class="wizard-title">Bank</div>
-                                            <div class="wizard-desc">Add Bank Options</div>
+                                            <div class="wizard-title">Add Document</div>
+                                            <div class="wizard-desc">Add Document Options</div>
                                         </div>
                                     </div>
                                 </div>
@@ -123,12 +123,13 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label for="kt_select2_1">Gender</label>
-                                                            <select class="form-control" id="kt_select2_1" name="gender" value="{{ $empById->gender }}" required disabled >
-                                                              <option class="active" selected disabled>Select Gender</option>                                 
-                                                              <option value="M">Male</option>
-                                                              <option value="F">Female</option>
-                                                              <option value="NotSpecified">Other</option>
-                                                            </select>
+                                                            @if($empById->gender == 'M')
+                                                                    <input type="text" class="form-control" value="Male" required disabled/>
+                                                                @elseif($empById->gender == 'F')
+                                                                    <input type="text" class="form-control" value="Female" required disabled/>
+                                                                @else
+                                                                    <input type="text" class="form-control" value="Not Specified" required disabled/>
+                                                              @endif
                                                             <span class="form-text text-muted">Please select gender</span>
                                                           </div>
                                                         
@@ -243,11 +244,6 @@
                                                         <!--end::Select-->
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Employee Address</label>
-                                                    <input type="text" class="form-control" disabled name="" placeholder="Address Line 1" value="{{$empById->employeeCode}}" disabled/>
-                                                    <span class="form-text text-muted">Please enter your permanent home address.</span>
-                                                </div>
                                             </div>
                                             <!--end: Wizard Step 1-->
                                             <!--begin: Wizard Step 2-->
@@ -259,7 +255,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Employee Code:</label>
-                                                            <input type="text" class="form-control" disabled name="" placeholder="Enter Employee Code" required disabled/>
+                                                            <input type="text" class="form-control" value="{{ $empById->employeeCode }}" disabled/>
                                                             <span class="form-text text-muted">Please employee code.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -347,8 +343,7 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Document Name</label>
-                                                            <input type="text" class="form-control" name="name" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" required/>
-                                                    
+                                                            <input type="text" class="form-control" value="{{$documentById->name}}" disabled/>
                                                             <span class="form-text text-muted">Please enter your Document Name.</span>
                                                         </div>
                                                         <!--end::Input-->
@@ -357,35 +352,43 @@
                                                         <!--begin::Input-->
                                                         <div class="form-group">
                                                             <label>Expire Date<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="expiryDate" placeholder="Expire Date" id='kt_datepicker4' required/>
+                                                            <input type="text" class="form-control" value="{{$documentById->expiryDate}}" disabled/>
                                                             <span class="form-text text-muted"></span>
                                                         </div>
                                                         <!--end::Input-->
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>File Browser</label>
-                                                    <div></div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile" name="image"/>
-                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    <label>Document Type<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" value="{{$documentTypeById->type}}" disabled/>
+                                                    <span class="form-text text-muted">Please select an document type</span>
+                                                </div>
+                                                <div class="form-group row justify">
+                                                    <label class="col-lg-5 col-form-label">
+                                                        <b>
+                                                            <a href="{{ asset('employeesDocument/'.$documentById->image) }}" download="Employee-Document">Download Document</a>
+                                                        </b>
+                                                    </label>
+                                                    <div class="col-lg-7 col-xl-4">
+                                                        <div class="image-input image-input-outline" id="kt_image_2">
+                                                            <div class="image-input-wrapper" style="background-image: url({{ asset('employeesDocument/'.$documentById->image) }})"></div>
+                                                            {{-- <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                                                <i class="fa fa-pen icon-sm"></i>
+                                                                <input type="file" name="profile" accept=".png, .jpg, .jpeg" />
+                                                                <input type="hidden" name="profile_avatar_remove" />
+                                                            </label> --}}
+                                                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                            </span>
+                                                            {{-- <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar" aria-disabled="t">
+                                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                            </span> --}}
+                                                        </div>
+                                                        <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Document Type<span class="text-danger">*</span></label>
-                                                <select class="form-control" id="kt_select2_1111223344555" name="type">
-                                                    <option value="1" selected disabled>Select</option>
-                                                    <option value="2">Resume</option>
-                                                    <option value="3">certificate</option>
-                                                    <option value="4">CV</option>
-                                                    <option value="5">Others</option>
-                                                    {{-- @foreach ($designations as $item)
-                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                    @endforeach --}}
-                                                </select>
-                                                <span class="form-text text-muted">Please select an document type</span>
-                                            </div>
+                                            
                                             <!--end: Wizard Step 3-->
                                             <!--begin: Wizard Step 4-->
                                             {{-- <div class="pb-5" data-wizard-type="step-content">

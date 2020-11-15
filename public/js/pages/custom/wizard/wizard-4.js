@@ -126,19 +126,6 @@ var KTWizard4 = function () {
 						}
 						
 					},
-					dob:  {
-						validators: {
-							notEmpty: {
-								message: 'Date Of Birth is required'
-							},
-							date: {
-								format: 'YYYY/MM/DD',
-								message: 'The value is not a valid date',
-								min: '2000/01/01',
-							}
-							
-						}
-					},
 					emergencyContact:  {
 						validators: {
 							notEmpty: {
