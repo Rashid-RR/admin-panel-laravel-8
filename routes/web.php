@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AttendanceController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     Route::resource('companyInformation',CompanyInformationController::class);
     Route::resource('companyType',CompanyTypeController::class);
     Route::resource('salaryMethod',SalaryMethodController::class);
+    Route::resource('attendance',AttendanceController::class);
 });
 
 
