@@ -48,7 +48,6 @@ class CompanyInformationController extends Controller
             'companyType_id' => 'required',
             'companyTitle'=> 'required',
             'email'=> 'required',
-            'employeeRange' => 'required',
             'salaryMethod_id' => 'required',
             'companyLogo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
@@ -99,12 +98,31 @@ class CompanyInformationController extends Controller
      * @param  \App\Models\CompanyInformation  $CompanyInformation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CompanyInformation $CompanyInformation)
+    public function update(Request $request,$id)
     {
+       //dd($request);
         $this->validate($request,[
-            'name' => 'required'
+            'companyType_id' => 'required',
+            'companyTitle'=> 'required',
+            'email'=> 'required',
+            'salaryMethod_id' => 'required',
+            'companyLogo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-        CompanyInformation::findOrFail($CompanyInformation->id)->update($request->all());
+        $companyInfo = CompanyInformation::findOrFail($id);
+        $companyInfo->companyType_id = $request->companyType_id;
+        $companyInfo->companyTitle = $request->companyTitle;
+        $companyInfo->email = $request->email;
+        $companyInfo->employeeRange = $request->employeeRange;
+        $companyInfo->websiteAddress = $request->websiteAddress;
+        $companyInfo->salaryMethod_id = $request->salaryMethod_id;
+
+        if($request->file('companyLogo')){
+            $file = $request->companyLogo;
+            $imageName = time().'.'.$file->extension();
+            $file->move(public_path('companyLogos'), $imageName);
+            $companyInfo->companyLogo = $imageName;
+        }
+        $companyInfo->save();
         return redirect()->back()->with('success' , 'CompanyInformation Updated successfully !');
     }
 

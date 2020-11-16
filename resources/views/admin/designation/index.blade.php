@@ -15,7 +15,7 @@
 @endpush
 
 @section('content')
-    <div class="col-md-12">
+    <div class="col-md-12 py-6">
         <div class="col-md-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
@@ -125,61 +125,11 @@
                                                             </g>
                                                         </svg> </span>
                                                 </a>
-                                                <div class="modal fade" id="edit-desg-modal-lg" role="dialog" style="display: none;">
-                                                    <div class="modal-dialog modal-md">
-                                                        <form novalidate="" action="" id="designationEditData" class="pristine invalid touched" method="POST">
-                                                            {{ @method_field('PUT') }}
-                                                            @csrf
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Designation</h3>
-                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group">
-                                                                        <label>Name*</label>
-                                                                        <input class="form-control pristine invalid touched" id="name" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text" autocomplete="off">
-                                                                        <!---->
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                    <button class="btn btn-primary" id="" type="submit"><i class="fas fa-save"></i>Update</button>
-
-                                                                    <!---->
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
                                                 <a href="" id="designationDetailBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#detail-desg-modal-lg"
                                                      class="btn btn-sm btn-clean btn-icon mr-2"> 
                                                      <span class="fas fa-eye"></span> 
                                                 </a>
-                                                <div class="modal fade" id="detail-desg-modal-lg" role="dialog" style="display: none;">
-                                                    <div class="modal-dialog modal-md">
-                                                        <form novalidate="" class="pristine invalid touched">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Designation Details</h3>
-                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group">
-                                                                        <label>Name</label>
-                                                                        <input class="form-control pristine invalid touched" value="" id="designationName" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text" disabled>
-                                                                        <!---->
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    
-                                                                    <button class="btn btn-secondary outline-btn" data-dismiss="modal" type="submit">close</button>
-                                                                    <!---->
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
+                                                
                                                 <a href="" id="designationDeleteBtn" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete" data-toggle="modal" data-target="#deleteDesignation-modal-lg">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24"
@@ -196,27 +146,7 @@
                                                         </svg> 
                                                     </span>
                                                 </a>
-                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="designationDeleteData">
-                                                    {{ @method_field('DELETE') }}
-                                                    @csrf
-                                                    <div class="modal fade" id="deleteDesignation-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-md">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Shift</h3>
-                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div>Are you sure you want to delete this item ?</div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                    <button class="btn btn-danger" id="" type="submit">Confirm</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
+                                                
                                             </div>
                                         </td>
                                     </tr>
@@ -230,6 +160,87 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal popups --}}
+
+    {{-- for edit --}}
+    <div class="modal fade" id="edit-desg-modal-lg" role="dialog" style="display: none;">
+        <div class="modal-dialog modal-md">
+            <form novalidate="" action="" id="designationEditData" class="pristine invalid touched" method="POST">
+                {{ @method_field('PUT') }}
+                @csrf
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Designation</h3>
+                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Name*</label>
+                            <input class="form-control pristine invalid touched" id="name" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text">
+                            <!---->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                        <button class="btn btn-primary" id="" type="submit"><i class="fas fa-save"></i>Update</button>
+
+                        <!---->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- for detail --}}
+    <div class="modal fade" id="detail-desg-modal-lg" role="dialog" style="display: none;">
+        <div class="modal-dialog modal-md">
+            <form novalidate="" class="pristine invalid touched">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Designation Details</h3>
+                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input class="form-control pristine invalid touched" value="" id="designationName" name="name" maxlength="250" placeholder="e.g. Software Engineer" type="text" disabled>
+                            <!---->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        
+                        <button class="btn btn-secondary outline-btn" data-dismiss="modal" type="submit">close</button>
+                        <!---->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- for delete --}}
+    <form novalidate="" method="POST" action="" class="pristine invalid touched" id="designationDeleteData">
+        {{ @method_field('DELETE') }}
+        @csrf
+        <div class="modal fade" id="deleteDesignation-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Shift</h3>
+                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>Are you sure you want to delete this item ?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                        <button class="btn btn-danger" id="" type="submit">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 @endsection
 
 @push('js')

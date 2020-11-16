@@ -42,7 +42,11 @@ class Employee extends Model
         'designation_id',
         'location_id',
         'shift_id',
-        'profile'
+        'profile',
+        'name',
+        'expiryDate',
+        'type',
+        'image'
     ];
 
     public static function getEmployee()

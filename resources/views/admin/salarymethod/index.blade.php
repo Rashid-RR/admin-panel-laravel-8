@@ -15,7 +15,7 @@
 @endpush
 
 @section('content')
-    <div class="col-md-12">
+    <div class="col-md-12 py-6">
         <div class="col-md-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
@@ -240,62 +240,11 @@
                                                         </svg> 
                                                     </span>
                                                 </a>
-                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="salaryMethodEditData">
-                                                    {{-- {{ route('admin.department.update',$item->id) }} --}}
-                                                    {{ @method_field('PUT') }}
-                                                    @csrf
-                                                    <div class="modal fade" id="editadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-md">
-                                                            
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Salary Method</h3>
-                                                                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="form-group">
-                                                                            <label>Method*</label>
-                                                                            {{-- <input type="hidden" id="deptId" name="id" value="" /> --}}
-                                                                            <input class="form-control pristine invalid touched" value="" id="salaryMethodEditName" name="methodName" maxlength="250" type="text" autocomplete="off">
-                                                                            <!---->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                        <button class="btn btn-primary" id="" type="submit"><i class="fas fa-save"></i>Update</button>
-                                                                        <!---->
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </form>
                                                 <a href="" id="salaryMethodDetailBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#detailadd-modal-lg"
                                                      class="btn btn-sm btn-clean btn-icon mr-2"> 
                                                      <span class="fas fa-eye"></span> 
                                                 </a>
-                                                <div class="modal fade" id="detailadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-md">
-                                                        <form novalidate="" class="pristine invalid touched">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Detail Salary Method</h3>
-                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group">
-                                                                        <label>Method*</label>
-                                                                        <input class="form-control pristine invalid touched" value="" disabled name="methodName" id="salaryMethodDetailName" maxlength="250" type="text">
-                                                                        <!---->
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">close</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
+                                                
                                                 <a href="" id="salaryMethodDeleteBtn" data-toggle="modal" data-target="#deleteadd-modal-lg" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -311,29 +260,7 @@
                                                             </g>
                                                         </svg> </span> 
                                                 </a>
-                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="salaryMethodDeleteData">
-                                                    {{-- {{ route('admin.department.update',$item->id) }} --}}
-                                                    {{ @method_field('DELETE') }}
-                                                    @csrf
-                                                    <div class="modal fade" id="deleteadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-md">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Salary Method</h3>
-                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div>Are you sure you want to delete this item ?</div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                    <button class="btn btn-danger" id="" type="submit">Confirm</button>
-                                                                    <!---->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
+                                                
                                             </div>
                                         </td>
                                     </tr>
@@ -346,6 +273,91 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    {{-- Modal popups --}}
+
+    {{-- for edit --}}
+    <form novalidate="" method="POST" action="" class="pristine invalid touched" id="salaryMethodEditData">
+        {{-- {{ route('admin.department.update',$item->id) }} --}}
+        {{ @method_field('PUT') }}
+        @csrf
+        <div class="modal fade" id="editadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Edit Salary Method</h3>
+                            <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Method*</label>
+                                {{-- <input type="hidden" id="deptId" name="id" value="" /> --}}
+                                <input class="form-control pristine invalid touched" value="" id="salaryMethodEditName" name="methodName" maxlength="250" type="text">
+                                <!---->
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                            <button class="btn btn-primary" id="" type="submit"><i class="fas fa-save"></i>Update</button>
+                            <!---->
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </form>
+
+    {{-- for detail --}}
+    <div class="modal fade" id="detailadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <form novalidate="" class="pristine invalid touched">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Detail Salary Method</h3>
+                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Method*</label>
+                            <input class="form-control pristine invalid touched" value="" disabled name="methodName" id="salaryMethodDetailName" maxlength="250" type="text">
+                            <!---->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- for delete --}}
+    <form novalidate="" method="POST" action="" class="pristine invalid touched" id="salaryMethodDeleteData">
+        {{-- {{ route('admin.department.update',$item->id) }} --}}
+        {{ @method_field('DELETE') }}
+        @csrf
+        <div class="modal fade" id="deleteadd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Salary Method</h3>
+                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>Are you sure you want to delete this item ?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                        <button class="btn btn-danger" id="" type="submit">Confirm</button>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 @endsection
 
 @push('js')

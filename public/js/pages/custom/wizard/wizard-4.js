@@ -92,9 +92,9 @@ var KTWizard4 = function () {
 		_validations.push(FormValidation.formValidation(
 			_formEl,
 			{
-				 fields: {
-				 	cnic:  {
-				 		validators: {
+				fields: {
+					cnic:  {
+						validators: {
 							notEmpty: {
 								message: 'Cnic is required'
 							},
@@ -107,37 +107,24 @@ var KTWizard4 = function () {
 								message: 'Please enter a valid Number' 
 							   },
 						}
-					},
+					},	
 					firstName:  {
 						validators: {
 							notEmpty: {
-								message: 'first Name is required'
+								message: 'First Name is required'
 							},
 							stringLength: {
-							 min:4,
+							 min:3,
 							 max:15,
-							 message: 'Please enter a name within text length range 4 and 15 ' 
+							 message: 'Please enter a name within text length range 3 and 15 ' 
 							},
 							regexp: {
-								regexp: /^[a-zs]+$/i,
+								regexp: /^[a-zA-Z\s]+$/,
 								message: 'The full name can consist of alphabetical characters and spaces only'
 							}
 							
 						}
 						
-					},
-					dob:  {
-						validators: {
-							notEmpty: {
-								message: 'Date Of Birth is required'
-							},
-							date: {
-								format: 'YYYY/MM/DD',
-								message: 'The value is not a valid date',
-								min: '2000/01/01',
-							}
-							
-						}
 					},
 					emergencyContact:  {
 						validators: {
@@ -192,12 +179,11 @@ var KTWizard4 = function () {
 							stringLength: {
 								min:3,
 								max:15,
-								message: 'Please enter a name within text length range 3 and 15 '
-								
+								message: 'Please enter a name within text length range 4 and 15 '
 							   },
 							regexp: {
-							regexp: /^[a-zs]+$/i,
-							message: 'The full name can consist of alphabetical characters and spaces only'
+								regexp: /^[a-zA-Z\s]+$/,
+								message: 'The full name can consist of alphabetical characters and spaces only'
 							}
 						}
 						
@@ -280,58 +266,58 @@ var KTWizard4 = function () {
 		_validations.push(FormValidation.formValidation(
 			_formEl,
 			{
-				// fields: {
-				// 	employeeCode: {
-				// 		validators: {
-				// 			notEmpty: {
-				// 				message: 'Employee Code is required'
-				// 			}
-				// 		}
-				// 	},
-				// 	hireDate: {
-				// 		validators: {
-				// 			notEmpty: {
-				// 				message: 'Hire Date is required'
-				// 			}
-				// 		}
-				// 	},
-				// 	joinDate: {
-				// 		validators: {
-				// 			notEmpty: {
-				// 				message: 'Join Date is required'
-				// 			}
-				// 		}
-				// 	},
-				// 	designation_id: {
-				// 		validators: {
-				// 			notEmpty: {
-				// 				message: 'Designation is required'
-				// 			}
-				// 		}
-				// 	},
-				// 	location_id: {
-				// 		validators: {
-				// 			notEmpty: {
-				// 				message: 'Location is required'
-				// 			}
-				// 		}
-				// 	},
-				// 	salary: {
-				// 		validators: {
-				// 			notEmpty: {
-				// 				message: 'salary is required'
-				// 			}
-				// 		}
-				// 	},
-				// 	department_id: {
-				// 		validators: {
-				// 			notEmpty: {
-				// 				message: 'Department is required'
-				// 			}
-				// 		}
-				// 	}
+				fields: {
+					employeeCode: {
+						validators: {
+							notEmpty: {
+								message: 'Employee Code is required'
+							}
+						}
+					},
+					hireDate: {
+						validators: {
+							notEmpty: {
+								message: 'Hire Date is required'
+							}
+						}
+					},
+					joinDate: {
+						validators: {
+							notEmpty: {
+								message: 'Join Date is required'
+							}
+						}
+					},
+					designation_id: {
+						validators: {
+							notEmpty: {
+								message: 'Designation is required'
+							}
+						}
+					},
+					location_id: {
+						validators: {
+							notEmpty: {
+								message: 'Location is required'
+							}
+						}
+					},
+					salary: {
+						validators: {
+							notEmpty: {
+								message: 'salary is required'
+							}
+						}
+					},
+					department_id: {
+						validators: {
+							notEmpty: {
+								message: 'Department is required'
+							}
+						}
+					}
 			
-				// },
+				},
 				plugins: {
 					trigger: new FormValidation.plugins.Trigger(),
 					// Bootstrap Framework Integration

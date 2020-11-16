@@ -15,7 +15,7 @@
 @endpush
 
 @section('content')
-    <div class="col-md-12">
+    <div class="col-md-12 py-6">
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="card card-custom">
@@ -175,174 +175,10 @@
                                                             </g>
                                                         </svg> </span>
                                                 </a>
-                                                <div class="modal fade" id="edit-modal-lg" tabindex="-1" role="dialog"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <form action="" method="POST" class="pristine invalid touched" id="shiftEditData">
-                                                                {{ @method_field('PUT') }}
-                                                                @csrf
-                                                                <div class="modal-header">
-                                                                    <h2 class="modal-title" id="exampleModalLabel">Edit
-                                                                        Shift</h2>
-                                                                    <button class="close mt-modal-close"
-                                                                        data-dismiss="modal" type="button"><i
-                                                                            class="fa fa-times fa-sm"></i></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group row">
-                                                                        <label
-                                                                            class="col-xl-4 col-lg-4 col-form-label">Shift
-                                                                            Name</label>
-                                                                        <div class="col-lg-12 col-xl-12">
-                                                                            <input type="text"
-                                                                                class="form-control shiftName"
-                                                                                id="formGroupExampleInput" name="name"
-                                                                                value="" required>
-                                                                        </div>
-                                                                    </div>
-                                                                    <h5>Attendance Setting</h5><br>
-                                                                    <label class="col-lg-2 col-form-label">Working
-                                                                        Hour</label>
-                                                                    <div class="col-lg-6" style="padding: 0">
-                                                                        <input type="text" name="workingHours" value="" class="form-control workingHours"
-                                                                            required />
-                                                                    </div>
-                                                                    <div class="form-row mt-3">
-                                                                        <div class="form-group col-md-6">
-                                                                            <label for="example-time-input">Start
-                                                                                Time* (e.g. 09:00 AM)</label>
-                                                                            <input class="form-control startTime" type="time" value="" name="startTime"
-                                                                                id="example-time-input" required/>
-                                                                        </div>
-                                                                        <div class="form-group col-md-6">
-                                                                            <label for="example-time-input">End
-                                                                                Time* (e.g. 09:00 PM)</label>
-                                                                            <input class="form-control endTime" type="time" value="" name="endTime"
-                                                                                id="example-time-input" required/>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group mt-1">
-                                                                        <h5>Working Days</h5>
-                                                                        <div class="checkbox-inline mt-4">
-                                                                            <label class="checkbox">
-                                                                                <input type="checkbox" name="monday" value="1" class="monday" />
-                                                                                <span></span>Monday</label>
-                                                                            <label class="checkbox">
-                                                                                <input type="checkbox" name="tuesday" value="1"
-                                                                                    class="tuesday" />
-                                                                                <span></span>Tuesday</label>
-                                                                            <label class="checkbox">
-                                                                                <input type="checkbox" name="wednesday" value="1"
-                                                                                    class="wednesday" />
-                                                                                <span></span>Wednesday</label>
-                                                                            <label class="checkbox">
-                                                                                <input type="checkbox" name="thursday" value="1"
-                                                                                    class="thursday" />
-                                                                                <span></span>Thursday</label>
-                                                                            <label class="checkbox">
-                                                                                <input type="checkbox" name="friday" value="1"
-                                                                                    class="friday" />
-                                                                                <span></span>Friday</label>
-                                                                            <label class="checkbox">
-                                                                                <input type="checkbox" name="saturday" value="1"
-                                                                                    class="saturday" />
-                                                                                <span></span>Satuday</label>
-                                                                            <label class="checkbox">
-                                                                                <input type="checkbox" name="sunday" value="1"
-                                                                                    class="sunday" />
-                                                                                <span></span>Sunday</label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary"><i
-                                                                            class="fas fa-save"></i>Update</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                                 <a href="" id="shiftDeltailBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#detail-modal-lg" class="btn btn-sm btn-clean btn-icon mr-2" title="details">
                                                     <span class="fas fa-eye"></span> 
                                                 </a>
-
-                                                <div class="modal fade" id="detail-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h2 class="modal-title" id="exampleModalLabel">
-                                                                    Shift Details</h2>
-                                                                <button class="close mt-modal-close" data-dismiss="modal" type="button"><i
-                                                                        class="fa fa-times fa-sm"></i></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="form-group row">
-                                                                    <label class="col-xl-4 col-lg-4 col-form-label">Shift
-                                                                        Name</label>
-                                                                    <div class="col-lg-12 col-xl-12">
-                                                                        <input type="text" class="form-control shiftName2" id="formGroupExampleInput"
-                                                                            value="" disabled required>
-                                                                    </div>
-
-                                                                </div>
-                                                                <hr>
-                                                                <h5>Attendance Setting</h5><br>
-                                                                <label class="col-lg-2 col-form-label">Working
-                                                                    Hour</label>
-                                                                <div class="col-lg-6" style="padding: 0">
-                                                                    <input type="text" value="" class="form-control workingHours2"
-                                                                        required disabled />
-                                                                </div>
-                                                                <div class="form-row mt-3">
-                                                                    <div class="form-group col-md-6">
-                                                                        <label for="example-time-input">Start Time* (e.g. 09:00 AM)</label>
-                                                                        <input class="form-control startTime2" type="time" value="" id="example-time-input" disabled />
-                                                                    </div>
-                                                                    <div class="form-group col-md-6">
-                                                                        <label for="example-time-input">End
-                                                                            Time* (e.g. 09:00 PM)</label>
-                                                                        <input class="form-control endTime2" type="time" value=""
-                                                                            id="example-time-input" disabled />
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="form-group mt-1">
-                                                                    <h5>Working Days</h5>
-                                                                    <div class="checkbox-inline mt-4">
-                                                                        <label class="checkbox">
-                                                                            <input type="checkbox" value="1" class="monday2" disabled />
-                                                                            <span></span>Monday</label>
-                                                                        <label class="checkbox">
-                                                                            <input type="checkbox" value="1" class="tuesday2" disabled />
-                                                                            <span></span>Tuesday</label>
-                                                                        <label class="checkbox">
-                                                                            <input type="checkbox" value="1" class="wednesday2" disabled />
-                                                                            <span></span>Wednesday</label>
-                                                                        <label class="checkbox">
-                                                                            <input type="checkbox" value="1" class="thursday2" disabled />
-                                                                            <span></span>Thursday</label>
-                                                                        <label class="checkbox">
-                                                                            <input type="checkbox" value="1" class="friday2" disabled />
-                                                                            <span></span>Friday</label>
-                                                                        <label class="checkbox">
-                                                                            <input type="checkbox" value="1" class="saturday2" disabled />
-                                                                            <span></span>Satuday</label>
-                                                                        <label class="checkbox">
-                                                                            <input type="checkbox" value="1" class="sunday2" disabled />
-                                                                            <span></span>Sunday</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <a href="" id="shiftDeleteBtn" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete" data-toggle="modal" data-target="#deleteShift-modal-lg">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24"
@@ -359,27 +195,7 @@
                                                         </svg> 
                                                     </span>
                                                 </a>
-                                                <form novalidate="" method="POST" action="" class="pristine invalid touched" id="shiftDeleteData">
-                                                    {{ @method_field('DELETE') }}
-                                                    @csrf
-                                                    <div class="modal fade" id="deleteShift-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-md">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Shift</h3>
-                                                                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div>Are you sure you want to delete this item ?</div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
-                                                                    <button class="btn btn-danger" id="" type="submit">Confirm</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
+
                                             </div>
                                         </td>
                                     </tr>
@@ -391,11 +207,209 @@
             </div>
         </div>
     </div>
+
+    {{-- Popup modal --}}
+
+    {{-- for edit --}}
+    <div class="modal fade" id="edit-modal-lg" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form action="" method="POST" class="pristine invalid touched" id="shiftEditData">
+                    {{ @method_field('PUT') }}
+                    @csrf
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">Edit
+                            Shift</h2>
+                        <button class="close mt-modal-close"
+                            data-dismiss="modal" type="button"><i
+                                class="fa fa-times fa-sm"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label
+                                class="col-xl-4 col-lg-4 col-form-label">Shift
+                                Name</label>
+                            <div class="col-lg-12 col-xl-12">
+                                <input type="text"
+                                    class="form-control shiftName"
+                                    id="formGroupExampleInput" name="name"
+                                    value="" required>
+                            </div>
+                        </div>
+                        <h5>Attendance Setting</h5><br>
+                        <label class="col-lg-2 col-form-label">Working
+                            Hour</label>
+                        <div class="col-lg-6" style="padding: 0">
+                            <input type="text" name="workingHours" value="" class="form-control workingHours"
+                                required />
+                        </div>
+                        <div class="form-row mt-3">
+                            <div class="form-group col-md-6">
+                                <label for="example-time-input">Start
+                                    Time* (e.g. 09:00 AM)</label>
+                                <input class="form-control startTime" type="time" value="" name="startTime"
+                                    id="example-time-input" required/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="example-time-input">End
+                                    Time* (e.g. 09:00 PM)</label>
+                                <input class="form-control endTime" type="time" value="" name="endTime"
+                                    id="example-time-input" required/>
+                            </div>
+                        </div>
+                        <div class="form-group mt-1">
+                            <h5>Working Days</h5>
+                            <div class="checkbox-inline mt-4">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="monday" value="1" class="monday" />
+                                    <span></span>Monday</label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="tuesday" value="1"
+                                        class="tuesday" />
+                                    <span></span>Tuesday</label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="wednesday" value="1"
+                                        class="wednesday" />
+                                    <span></span>Wednesday</label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="thursday" value="1"
+                                        class="thursday" />
+                                    <span></span>Thursday</label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="friday" value="1"
+                                        class="friday" />
+                                    <span></span>Friday</label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="saturday" value="1"
+                                        class="saturday" />
+                                    <span></span>Satuday</label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="sunday" value="1"
+                                        class="sunday" />
+                                    <span></span>Sunday</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"><i
+                                class="fas fa-save"></i>Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{-- for detail --}}
+    <div class="modal fade" id="detail-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">
+                        Shift Details</h2>
+                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i
+                            class="fa fa-times fa-sm"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-xl-4 col-lg-4 col-form-label">Shift
+                            Name</label>
+                        <div class="col-lg-12 col-xl-12">
+                            <input type="text" class="form-control shiftName2" id="formGroupExampleInput"
+                                value="" disabled required>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <h5>Attendance Setting</h5><br>
+                    <label class="col-lg-2 col-form-label">Working
+                        Hour</label>
+                    <div class="col-lg-6" style="padding: 0">
+                        <input type="text" value="" class="form-control workingHours2"
+                            required disabled />
+                    </div>
+                    <div class="form-row mt-3">
+                        <div class="form-group col-md-6">
+                            <label for="example-time-input">Start
+                                Time* (e.g. 09:00 AM)</label>
+                            <input class="form-control startTime2" type="time" value=""
+                                id="example-time-input" disabled />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="example-time-input">End
+                                Time* (e.g. 09:00 PM)</label>
+                            <input class="form-control endTime2" type="time" value=""
+                                id="example-time-input" disabled />
+                        </div>
+
+                    </div>
+                    <div class="form-group mt-1">
+                        <h5>Working Days</h5>
+                        <div class="checkbox-inline mt-4">
+                            <label class="checkbox">
+                                <input type="checkbox" value="1" class="monday2" disabled />
+                                <span></span>Monday</label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="1" class="tuesday2" disabled />
+                                <span></span>Tuesday</label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="1" class="wednesday2" disabled />
+                                <span></span>Wednesday</label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="1" class="thursday2" disabled />
+                                <span></span>Thursday</label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="1" class="friday2" disabled />
+                                <span></span>Friday</label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="1" class="saturday2" disabled />
+                                <span></span>Satuday</label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="1" class="sunday2" disabled />
+                                <span></span>Sunday</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- for delete --}}
+    <form novalidate="" method="POST" action="" class="pristine invalid touched" id="shiftDeleteData">
+        {{ @method_field('DELETE') }}
+        @csrf
+        <div class="modal fade" id="deleteShift-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="grid-heading text-color-skyblue font-weight-400 no-padding">Delete Shift</h3>
+                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>Are you sure you want to delete this item ?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                        <button class="btn btn-danger" id="" type="submit">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 @endsection
 
 @push('js')
     <script>
         //for Edit operation perform
+        //var companyTypes =    {!! json_encode($shifts->toArray()) !!};
+
         $('div').on('click', '#shiftEditBtn', function (event) {
             event.preventDefault();
             var shift = $(this).data('id');
@@ -405,24 +419,38 @@
             $('.endTime').val(shift.endTime);
             if (shift.monday == 1) {
                 $('.monday').attr("checked", true);
+            }else{
+                $('.monday').attr("checked", false);
             }
             if (shift.tuesday == 1) {
                 $('.tuesday').attr("checked", true);
+            }else{
+                $('.tuesday').attr("checked", false);
             }
             if (shift.wednesday == 1) {
                 $('.wednesday').attr("checked", true);
+            }else{
+                $('.wednesday').attr("checked", false);
             }
             if (shift.thursday == 1) {
                 $('.thursday').attr("checked", true);
+            }else{
+                $('.thursday').attr("checked", false);
             }
             if (shift.friday == 1) {
                 $('.friday').attr("checked", true);
+            }else{
+                $('.friday').attr("checked", false);
             }
             if (shift.saturday == 1) {
                 $('.saturday').attr("checked", true);
+            }else{
+                $('.saturday').attr("checked", false);
             }
             if (shift.sunday == 1) {
                 $('.sunday').attr("checked", true);
+            }else{
+                $('.sunday').attr("checked", false);
             }
             $("#shiftEditData").attr("action", "shift/" + shift.id);
         });
@@ -442,24 +470,38 @@
             $('.endTime2').val(shift.endTime);
             if (shift.monday == 1) {
                 $('.monday2').attr("checked", true);
+            }else{
+                $('.monday2').attr("checked", false);
             }
             if (shift.tuesday == 1) {
                 $('.tuesday2').attr("checked", true);
+            }else{
+                $('.tuesday2').attr("checked", false);
             }
             if (shift.wednesday == 1) {
                 $('.wednesday2').attr("checked", true);
+            }else{
+                $('.wednesday2').attr("checked", false);
             }
             if (shift.thursday == 1) {
                 $('.thursday2').attr("checked", true);
+            }else{
+                $('.thursday2').attr("checked", false);
             }
             if (shift.friday == 1) {
                 $('.friday2').attr("checked", true);
+            }else{
+                $('.friday2').attr("checked", false);
             }
             if (shift.saturday == 1) {
                 $('.saturday2').attr("checked", true);
+            }else{
+                $('.saturday2').attr("checked", false);
             }
             if (shift.sunday == 1) {
                 $('.sunday2').attr("checked", true);
+            }else{
+                $('.sunday2').attr("checked", false);
             }
         });
 
