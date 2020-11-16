@@ -97,4 +97,9 @@ class Employee extends Model
     public function shift(){
         return $this->belongsTo('App\Models\Shift');
     }
+
+    //---------------
+    public function attendances(){
+        return $this->hasMany('App\Models\Attendance');
+    }
 }
