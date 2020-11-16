@@ -179,9 +179,6 @@
                                                 <a href="" id="shiftDeltailBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#detail-modal-lg" class="btn btn-sm btn-clean btn-icon mr-2" title="details">
                                                     <span class="fas fa-eye"></span> 
                                                 </a>
-
-                                                
-
                                                 <a href="" id="shiftDeleteBtn" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete" data-toggle="modal" data-target="#deleteShift-modal-lg">
                                                     <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24"

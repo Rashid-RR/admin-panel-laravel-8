@@ -550,7 +550,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Joining Date</b><span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="joinDate" placeholder="Join Date" id='kt_datepicker3' autocomplete="off" required/>                                                                
+                                                                <input type="text" class="form-control" name="joinDate" placeholder="Join Date" id='kt_datepicker3' required/>                                                                
                                                                 
                                                                 <span class="form-text text-muted">Select your joining date.</span>
                                                             </div>
