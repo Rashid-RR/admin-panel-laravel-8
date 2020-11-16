@@ -37,12 +37,12 @@
                                     </a>
                                     <div class="modal fade" id="addnew-modal-md" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-md" role="document">
+                                        <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
                                                 <form method="POST" action="{{ route('admin.shift.store') }}">
                                                     @csrf
-                                                    <div class="modal-header">
-                                                        <h2 class="modal-title" id="exampleModalLabel">Add New Attendance</h2>
+                                                    <div class="modal-header bg-secondary">
+                                                        <h2 class="modal-title text-primary" id="exampleModalLabel">Add New Attendance</h2>
                                                         <button class="close mt-modal-close" data-dismiss="modal" type="button"><i
                                                                 class="fa fa-times fa-sm"></i></button>
                                                     </div>
@@ -66,34 +66,77 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                       </div>
-                                                       <div class="row">
-                                                           <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Time-In* (e.g. 09:00 AM)</label>
-                                                                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                    <input type="text" class="form-control" id="kt_datetimepicker_5" placeholder="Select date &amp; time" data-toggle="datetimepicker" data-target="#kt_datetimepicker_5" />
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Start Time* (e.g. 09:00 AM)</label>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                                                        <input class="form-control startTime2" type="time" value="" id="example-time-input" />
+                                                                        <span class="form-text text-muted">Select your Time</span>                                                             
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Time Out* (e.g. 06:00 PM)</label>
-                                                                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                    <input type="text" class="form-control" id="kt_datetimepicker_5" placeholder="Select date &amp; time" data-toggle="datetimepicker" data-target="#kt_datetimepicker_5" />
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Start Date*</label>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control" name="startDate" placeholder="Start Date" id='kt_datepicker3' autocomplete="off" required/>   
+                                                                            <div class="input-group-append">
+                                                                                <span class="input-group-text">
+                                                                                    <i class="far fa-calendar-alt"></i>
+                                                                                </span>
+                                                                            </div>  
+                                                                            
+                                                                        </div>        
+                                                                        <span class="form-text text-muted">Select your date</span>  
+                                                     
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                           </div>
-                                                       </div>
-                                                       <div class="form-group">
-                                                        <label>Remarks</label>
-                                                        <textarea class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="Remarks">
-                                                        </textarea>
-                                                    </div>  
-
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>End Time* (e.g. 09:00 AM)</label>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                                                        <input class="form-control startTime2" type="time" value="" id="example-time-input" />
+                                                                        <span class="form-text text-muted">Select your Time</span>                                                             
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>End Date*</label>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control" name="endDate" placeholder="End Date" id='kt_datepicker3' required/>   
+                                                                            <div class="input-group-append">
+                                                                                <span class="input-group-text">
+                                                                                    <i class="far fa-calendar-alt"></i>
+                                                                                </span>
+                                                                            </div>  
+                                                                            
+                                                                        </div>        
+                                                                        <span class="form-text text-muted">Select your date</span>  
+                                                     
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Remarks</label>
+                                                            <textarea class="form-control" rows="4" cols="50" name="comment">
                                                             
+                                                            </textarea>
+                                                        </div>
                                                     </div>
-                                                   
+                                                    <div class="modal-footer bg-secondary">
+                                                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                                                        <button class="btn btn-primary" id="" type="submit">Save</button>
+                                                    </div>
+
                                                 </form>
                                             </div>
                                         </div>

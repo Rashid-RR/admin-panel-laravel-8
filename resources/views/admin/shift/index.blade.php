@@ -299,10 +299,8 @@
                                                                 </div>
                                                                 <div class="form-row mt-3">
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="example-time-input">Start
-                                                                            Time* (e.g. 09:00 AM)</label>
-                                                                        <input class="form-control startTime2" type="time" value=""
-                                                                            id="example-time-input" disabled />
+                                                                        <label for="example-time-input">Start Time* (e.g. 09:00 AM)</label>
+                                                                        <input class="form-control startTime2" type="time" value="" id="example-time-input" disabled />
                                                                     </div>
                                                                     <div class="form-group col-md-6">
                                                                         <label for="example-time-input">End
