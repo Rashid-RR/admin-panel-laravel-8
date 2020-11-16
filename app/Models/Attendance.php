@@ -21,7 +21,7 @@ class Attendance extends Model
         'endTime',
         'endDate',
         'remarks',
-        'employee_id'
+        'employee_id',
     ];
 
     public function employee(){

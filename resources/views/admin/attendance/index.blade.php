@@ -38,7 +38,7 @@
                                         <form method="POST" action="{{ route('admin.attendance.store') }}">
                                             @csrf
                                             <div class="modal-header">
-                                                <h2 class="modal-title text-primary" id="exampleModalLabel">Add New Attendance</h2>
+                                                <h2 class="modal-title" id="exampleModalLabel">Add New Attendance</h2>
                                                 <button class="close mt-modal-close" data-dismiss="modal" type="button"><i
                                                         class="fa fa-times fa-sm"></i></button>
                                             </div>
@@ -46,19 +46,21 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Employee*</label>
-                                                            <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                <input formcontrolname="EmployeeID" type="text" hidden="" class="ng-untouched ng-pristine ng-invalid">
-                                                                <input class="form-control" placeholder="Search Employee" required="" type="text">
-                                                            </div>
+                                                            <label for="kt_select2_11112233445787">Employee</label>
+                                                            <select class="form-control" id="kt_select2_11112233445787" name="employee_id" required>
+                                                              <option class="active" selected disabled></option>
+                                                              @foreach($employees as $item)
+                                                                    <option value="{{ $item->id }}">{{$item->firstName}}</option>
+                                                              @endforeach
+                                                            </select>
+                                                            <span class="form-text text-muted">Please select gender</span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Attendance Date</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                <input type="text" class="form-control" id="kt_datepicker4" readonly="readonly" placeholder="Select date" />
-                                                                
+                                                                <input type="text" class="form-control" id="kt_datepicker4" name="attendanceDate" readonly="readonly" placeholder="Select date" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -68,7 +70,7 @@
                                                         <div class="form-group">
                                                             <label>Start Time* (e.g. 09:00 AM)</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                <input class="form-control startTime2" type="time" value="" id="example-time-input" />
+                                                                <input class="form-control startTime2" type="time" value="" name="startTime" id="example-time-input" />
                                                                 <span class="form-text text-muted">Select your Time</span>                                                             
                                                             </div>
                                                         </div>
@@ -78,7 +80,7 @@
                                                             <label>Start Date*</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="startDate" placeholder="Start Date" id='kt_datepicker5' autocomplete="off" required/>   
+                                                                    <input type="text" class="form-control" name="startDate" placeholder="Start Date" id='kt_datepicker5' autocomplete="off" value="2020/11/16" min="2018-01-01" max="2018-12-31" required/>   
                                                                     <div class="input-group-append">
                                                                         <span class="input-group-text">
                                                                             <i class="far fa-calendar-alt"></i>
@@ -97,7 +99,7 @@
                                                         <div class="form-group">
                                                             <label>End Time* (e.g. 09:00 AM)</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                <input class="form-control startTime2" type="time" value="" id="example-time-input" />
+                                                                <input class="form-control startTime2" type="time" name="endTime" id="example-time-input" />
                                                                 <span class="form-text text-muted">Select your Time</span>                                                             
                                                             </div>
                                                         </div>
@@ -107,25 +109,21 @@
                                                             <label>End Date*</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="endDate" placeholder="End Date" id='kt_datepicker6' required/>   
+                                                                    <input type="text" class="form-control" name="endDate" placeholder="End Date" id='kt_datepicker6' value="2020/11/16" min="2018-01-01" max="2018-12-31" required/>   
                                                                     <div class="input-group-append">
                                                                         <span class="input-group-text">
                                                                             <i class="far fa-calendar-alt"></i>
                                                                         </span>
-                                                                    </div>  
-                                                                    
+                                                                    </div>
                                                                 </div>        
-                                                                <span class="form-text text-muted">Select your date</span>  
-                                                
+                                                                <span class="form-text text-muted">Select your date</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Remarks</label>
-                                                    <textarea class="form-control" rows="4" cols="50" name="comment">
-                                                    
-                                                    </textarea>
+                                                    <textarea class="form-control" rows="5" name="remarks" id="comment"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -192,7 +190,7 @@
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
 
-                                            <a href="" id="companyEditBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#edit1new-modal-lg"
+                                            <a href="" id="attendanceEditBtn" data-toggle="modal" data-id="{{ $item }}" data-target="#editAttendance-modal-md"
                                                 class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span
                                                     class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -209,11 +207,11 @@
                                                         </g>
                                                     </svg> </span>
                                             </a>
-                                            <a href="" id="companyDetailBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#detail1new-modal-lg"
+                                            <a href="" id="attendanceDetailBtn" data-id="{{ $item }}" data-toggle="modal" data-target="#detailAttendance-modal-md"
                                                 class="btn btn-sm btn-clean btn-icon mr-2" title="details"> 
                                                 <span class="fas fa-eye"> </span> 
                                             </a>
-                                            <a href="" id="companyInformationDeleteBtn" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete" data-toggle="modal" data-target="#deleteDesignation-modal-lg">
+                                            <a href="" id="attendanceDeleteBtn" data-id="{{ $item->id }}" class="btn btn-sm btn-clean btn-icon" title="Delete" data-toggle="modal" data-target="#deleteAttendance-modal-md">
                                                 <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24"
                                                         version="1.1">
@@ -248,16 +246,202 @@
    {{-- Modal Popup --}}
 
    {{-- for edit --}}
-    
+    <div class="modal fade" id="editAttendance-modal-md" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form method="POST" action="" class="editAttendanceForm">
+                    @csrf
+                    {{ @method_field('PUT') }}
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">Edit Attendance</h2>
+                        <button class="close mt-modal-close" data-dismiss="modal" type="button"><i
+                                class="fa fa-times fa-sm"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="kt_select2_11112233445788">Employee</label>
+                                    <select class="editAttendanceEmployee" id="kt_select2_11112233445788" name="employee_id" required>
+                                        
+                                    </select>
+                                    <span class="form-text text-muted">Please select Employee</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Attendance Date</label>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                        <input type="text" class="form-control editAttendanceDate" id="kt_datepicker4" name="attendanceDate" readonly="readonly" placeholder="Select date" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Start Time* (e.g. 09:00 AM)</label>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                        <input class="form-control editAttendanceStartTime" type="time" value="" name="startTime" id="example-time-input" />
+                                        <span class="form-text text-muted">Select your Time</span>                                                             
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Start Date*</label>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control editAttendanceStartDate" name="startDate" placeholder="Start Date" id='kt_datepicker5' autocomplete="off" value="" min="2018-01-01" max="2018-12-31" required/>   
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                </span>
+                                            </div>  
+                                            
+                                        </div>        
+                                        <span class="form-text text-muted">Select your date</span>  
+                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>End Time* (e.g. 09:00 AM)</label>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                        <input class="form-control editAttendanceEndTime" type="time" name="endTime" id="example-time-input" />
+                                        <span class="form-text text-muted">Select your Time</span>                                                             
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>End Date*</label>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control editAttendanceEndDate" name="endDate" placeholder="End Date" id='kt_datepicker6' value="" min="2018-01-01" max="2018-12-31" required/>   
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                </span>
+                                            </div>
+                                        </div>        
+                                        <span class="form-text text-muted">Select your date</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Remarks</label>
+                            <textarea class="form-control editAttendanceRemarks" rows="5" name="remarks" id="comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                        <button class="btn btn-primary" id="" type="submit"><i class="fas fa-save"></i>Update</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 
     {{-- for detail --}}
-    
+    <div class="modal fade" id="detailAttendance-modal-md" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Detail Attendance</h2>
+                    <button class="close mt-modal-close" data-dismiss="modal" type="button"><i
+                            class="fa fa-times fa-sm"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Employee</label>
+                                <input type="text" class="form-control editAttendanceEmployee" value="" disabled/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Attendance Date</label>
+                                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                    <input type="text" class="form-control editAttendanceDate" disabled/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Start Time* (e.g. 09:00 AM)</label>
+                                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                    <input class="form-control editAttendanceStartTime" value="" disabled />                                                           
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Start Date*</label>
+                                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control editAttendanceStartDate"value="" disabled/>   
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="far fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>End Time* (e.g. 09:00 AM)</label>
+                                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                    <input class="form-control editAttendanceEndTime" value="" disabled />                                                            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>End Date*</label>
+                                <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control editAttendanceEndDate" disabled  value=""/>   
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="far fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Remarks</label>
+                        <textarea class="form-control editAttendanceRemarks" rows="5" disabled></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {{-- for delete --}}
-    <form novalidate="" method="POST" action="" class="pristine invalid touched" id="companyInformationDeleteData">
+    <form novalidate="" method="POST" action="" class="pristine invalid touched" id="attendanceDeleteData">
         {{ @method_field('DELETE') }}
         @csrf
-        <div class="modal fade" id="deleteDesignation-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="deleteAttendance-modal-md" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -282,65 +466,55 @@
 
 <script>
 
-            var attendances = {!! json_encode($attendances->toArray()) !!};
-          
+            var employees = {!! json_encode($employees->toArray()) !!};          
 
             //for edit
-            $('div').on('click', '#companyEditBtn', function (event) {
+            $('div').on('click', '#attendanceEditBtn', function (event) {
                 event.preventDefault();
-                var companyInfo = $(this).data('id');
+                var attendance = $(this).data('id');
 
-                $('#companyTitle').val(companyInfo.companyTitle);
-                $('#websiteAddress').val(companyInfo.websiteAddress);
-                $('#companyEmail').val(companyInfo.email);
+                $('.editAttendanceDate').val(attendance.attendanceDate);
+                $('.editAttendanceStartTime').val(attendance.startTime);
+                $('.editAttendanceStartDate').val(attendance.startDate);
+                $('.editAttendanceEndTime').val(attendance.endTime);
+                $('.editAttendanceEndDate').val(attendance.endDate);
+                $('.editAttendanceRemarks').val(attendance.remarks);
 
                 var options = '';
                 
-                companyTypes.forEach(x => {
-                    if(x.id == companyInfo.companyType_id ){
-                        options += `<option value="`+ x.id +`" selected> `+x.name+` </option>`
+                employees.forEach(x => {
+                    if(x.id == attendance.employee_id ){
+                        options += `<option value="`+ x.id +`" selected> `+x.firstName+` </option>`
                     }
                     else{
-                        options += `<option value="`+ x.id +`"> `+x.name+` </option>`
+                        options += `<option value="`+ x.id +`"> `+x.firstName+` </option>`
                     }
                 });
+                $('.editAttendanceEmployee').append(options);
 
-                var options2 = '';
-                salaryMethods.forEach(y => {
-                    if(y.id == companyInfo.salaryMethod_id){
-                        options2 += `<option value="`+ y.id +`" selected>`+y.methodName+`</option>`
-                    }else{
-                        options2 += `<option value="`+ y.id +`">`+y.methodName+`</option>`
-                    }
-                });
-
-                document.getElementById('companyTypeSelect').innerHTML = options;
-                document.getElementById('salaryMethodSelect').innerHTML = options2;
-
-                $("#companyInfoForm").attr("action", "companyInformation/" + companyInfo.id);
+                $(".editAttendanceForm").attr("action", "attendance/" + attendance.id);
             });
 
             // for detail
-            $('div').on('click', '#companyDetailBtn', function (event) {
+            $('div').on('click', '#attendanceDetailBtn', function (event) {
                 event.preventDefault();
-                var companyInfo = $(this).data('id');
-                console.log("companyInfo");
-                console.log(companyInfo);
-                $('#companyTypeDetail').val(companyInfo.companytype.name);
-                $('#companyTitleDetail').val(companyInfo.companyTitle);
-                $('#websiteAddressDetail').val(companyInfo.websiteAddress);
-                $('#companyEmailDetail').val(companyInfo.email);
-                $('#employeeRangeDetail').val(companyInfo.employeeRange);
-                $('#salaryMethodDetail').val(companyInfo.salarymethod.methodName);
-                $('#companyDetailLogo').css('background-image', 'url(' + "/companyLogos/" + companyInfo.companyLogo + ')');
+                var attendance = $(this).data('id');
+
+                $('.editAttendanceDate').val(attendance.attendanceDate);
+                $('.editAttendanceStartTime').val(attendance.startTime);
+                $('.editAttendanceStartDate').val(attendance.startDate);
+                $('.editAttendanceEndTime').val(attendance.endTime);
+                $('.editAttendanceEndDate').val(attendance.endDate);
+                $('.editAttendanceRemarks').val(attendance.remarks);
+                $('.editAttendanceEmployee').val(attendance.employee.firstName +' '+ attendance.employee.lastName);
 
             });
 
             // for delete
-            $('div').on('click', '#companyInformationDeleteBtn', function (event) {
+            $('div').on('click', '#attendanceDeleteBtn', function (event) {
                 event.preventDefault();
                 var id = $(this).data('id');
-                $("#companyInformationDeleteData").attr("action", "companyInformation/" + id);
+                $("#attendanceDeleteData").attr("action", "attendance/" + id);
             });
 
 

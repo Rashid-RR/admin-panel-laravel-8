@@ -115,7 +115,7 @@
 							<!--begin::Header-->
 							<div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
 								<h3 class="font-weight-bold m-0">User Profile
-								{{-- <small class="text-muted font-size-sm ml-2">12 messages</small></h3> --}}
+								<small class="text-muted font-size-sm ml-2"></small></h3>
 								<a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
 									<i class="ki ki-close icon-xs text-muted"></i>
 								</a>
@@ -471,7 +471,7 @@
         @stack('js')
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="{{ asset('js/pages/widgets.js')}}"></script>
-		<script src="{{ asset('js/pages/crud/forms/validation/	.js')}}"></script>
+		<script src="{{ asset('js/pages/crud/forms/validation/form-widgets.js')}}"></script>
 		<script src="{{ asset('js/pages/crud/forms/widgets/select2.js')}}"></script>
 		<script src="{{ asset('js/pages/crud/file-upload/image-input.js')}}"></script>
 		<!--end::Page Scripts-->

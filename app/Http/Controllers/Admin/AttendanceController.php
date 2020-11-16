@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Attendance;
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
@@ -16,7 +17,8 @@ class AttendanceController extends Controller
     public function index()
     {
         $attendances = Attendance::all();
-        return view('admin.attendance.index',compact('attendances'));
+        $employees = Employee::all();
+        return view('admin.attendance.index',compact('attendances','employees'));
     }
 
     /**
@@ -53,6 +55,7 @@ class AttendanceController extends Controller
         $attendance->startDate = $request->startDate;
         $attendance->endTime = $request->endTime;
         $attendance->endDate = $request->endDate;
+        $attendance->remarks = $request->remarks;
 
         $attendance->save();
         return redirect()->back()->with('success' , 'Attendance created successfully !');
@@ -105,6 +108,7 @@ class AttendanceController extends Controller
         $attendance->startDate = $request->startDate;
         $attendance->endTime = $request->endTime;
         $attendance->endDate = $request->endDate;
+        $attendance->remarks = $request->remarks;   
 
         $attendance->save();
         return redirect()->back()->with('success' , 'Attendance update successfully !');

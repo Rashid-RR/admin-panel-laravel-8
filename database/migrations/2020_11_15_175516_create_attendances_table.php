@@ -20,7 +20,7 @@ class CreateAttendancesTable extends Migration
             $table->date('startDate');
             $table->time('endTime');
             $table->date('endDate');
-            $table->string('remarks');
+            $table->string('remarks')->nullable();
 
             //FK for employee
             $table->unsignedInteger('employee_id');
