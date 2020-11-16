@@ -30,7 +30,6 @@
                                 <div class="dropdown dropdown-inline mr-2">
                                 </div>
                                 <div class="card-toolbar">
-                                    
                                     <!--end::Button-->
                                 </div>
                                 <a class="btn btn-primary font-weight-bolder text-center" data-toggle="modal" data-target="#deptadd-modal-lg">

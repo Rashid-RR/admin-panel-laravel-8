@@ -149,7 +149,7 @@
                                                                   <option value="NotSpecified">Other</option>
                                                                 </select>
                                                                 <span class="form-text text-muted">Please select gender</span>
-                                                              </div>
+                                                            </div>
                                                             
                                                             <!--end::Input-->
                                                         </div>
