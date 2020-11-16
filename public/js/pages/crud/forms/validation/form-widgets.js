@@ -43,6 +43,21 @@ var KTFormWidgetsValidation = function () {
         $('#kt_datepicker4').datepicker({
             format: 'yyyy/mm/dd',
             todayHighlight: true,
+            startDate: '+0d',
+            endDate : '+0d',
+            templates: {
+                leftArrow: '<i class=\"la la-angle-left\"></i>',
+                rightArrow: '<i class=\"la la-angle-right\"></i>'
+            }
+        }).on('changeDate', function(e) {
+            // Revalidate field
+            validator.revalidateField('date');
+        });
+        $('#kt_datepicker44').datepicker({
+            format: 'yyyy/mm/dd',
+            todayHighlight: true,
+            startDate: '+0d',
+            endDate : '+0d',
             templates: {
                 leftArrow: '<i class=\"la la-angle-left\"></i>',
                 rightArrow: '<i class=\"la la-angle-right\"></i>'
@@ -54,6 +69,21 @@ var KTFormWidgetsValidation = function () {
         $('#kt_datepicker5').datepicker({
             format: 'yyyy/mm/dd',
             todayHighlight: true,
+            startDate: '+0d',
+            endDate : '+0d',
+            templates: {
+                leftArrow: '<i class=\"la la-angle-left\"></i>',
+                rightArrow: '<i class=\"la la-angle-right\"></i>'
+            }
+        }).on('changeDate', function(e) {
+            // Revalidate field
+            validator.revalidateField('date');
+        });
+        $('#kt_datepicker55').datepicker({
+            format: 'yyyy/mm/dd',
+            todayHighlight: true,
+            startDate: '+0d',
+            endDate : '+0d',
             templates: {
                 leftArrow: '<i class=\"la la-angle-left\"></i>',
                 rightArrow: '<i class=\"la la-angle-right\"></i>'
@@ -65,6 +95,21 @@ var KTFormWidgetsValidation = function () {
         $('#kt_datepicker6').datepicker({
             format: 'yyyy/mm/dd',
             todayHighlight: true,
+            startDate: '+0d',
+            endDate : '+1d',
+            templates: {
+                leftArrow: '<i class=\"la la-angle-left\"></i>',
+                rightArrow: '<i class=\"la la-angle-right\"></i>'
+            }
+        }).on('changeDate', function(e) {
+            // Revalidate field
+            validator.revalidateField('date');
+        });
+        $('#kt_datepicker66').datepicker({
+            format: 'yyyy/mm/dd',
+            todayHighlight: true,
+            startDate: '+0d',
+            endDate : '+1d',
             templates: {
                 leftArrow: '<i class=\"la la-angle-left\"></i>',
                 rightArrow: '<i class=\"la la-angle-right\"></i>'

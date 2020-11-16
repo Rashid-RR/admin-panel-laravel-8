@@ -60,7 +60,7 @@
                                                         <div class="form-group">
                                                             <label>Attendance Date</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                <input type="text" class="form-control" id="kt_datepicker4" name="attendanceDate" readonly="readonly" placeholder="Select date" />
+                                                                <input type="text" class="form-control" id="kt_datepicker4" name="attendanceDate" value="{{ date('Y/m/d') }}" readonly="readonly" placeholder="Select date" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -70,7 +70,7 @@
                                                         <div class="form-group">
                                                             <label>Start Time* (e.g. 09:00 AM)</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                <input class="form-control startTime2" type="time" value="" name="startTime" id="example-time-input" />
+                                                                <input class="form-control startTime2" type="time" name="startTime" id="AddStartTime" />
                                                                 <span class="form-text text-muted">Select your Time</span>                                                             
                                                             </div>
                                                         </div>
@@ -80,7 +80,7 @@
                                                             <label>Start Date*</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="startDate" placeholder="Start Date" id='kt_datepicker5' autocomplete="off" value="2020/11/16" min="2018-01-01" max="2018-12-31" required/>   
+                                                                    <input type="text" class="form-control" name="startDate" placeholder="Start Date" id='kt_datepicker5' autocomplete="off" value="{{ date('Y/m/d') }}" min="2018-01-01" max="2018-12-31" required/>   
                                                                     <div class="input-group-append">
                                                                         <span class="input-group-text">
                                                                             <i class="far fa-calendar-alt"></i>
@@ -99,7 +99,7 @@
                                                         <div class="form-group">
                                                             <label>End Time* (e.g. 09:00 AM)</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                <input class="form-control startTime2" type="time" name="endTime" id="example-time-input" />
+                                                                <input class="form-control startTime2" type="time" name="endTime" id="AddEndTime" />
                                                                 <span class="form-text text-muted">Select your Time</span>                                                             
                                                             </div>
                                                         </div>
@@ -109,7 +109,7 @@
                                                             <label>End Date*</label>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="endDate" placeholder="End Date" id='kt_datepicker6' value="2020/11/16" min="2018-01-01" max="2018-12-31" required/>   
+                                                                    <input type="text" class="form-control" name="endDate" placeholder="End Date" id='kt_datepicker6' value="{{ date('Y/m/d') }}" min="2018-01-01" max="2018-12-31" required/>   
                                                                     <div class="input-group-append">
                                                                         <span class="input-group-text">
                                                                             <i class="far fa-calendar-alt"></i>
@@ -272,7 +272,7 @@
                                 <div class="form-group">
                                     <label>Attendance Date</label>
                                     <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                        <input type="text" class="form-control editAttendanceDate" id="kt_datepicker4" name="attendanceDate" readonly="readonly" placeholder="Select date" />
+                                        <input type="text" class="form-control editAttendanceDate" id="kt_datepicker44" value="{{ date('Y/m/d') }}" name="attendanceDate" readonly="readonly" placeholder="Select date" />
                                     </div>
                                 </div>
                             </div>
@@ -292,7 +292,7 @@
                                     <label>Start Date*</label>
                                     <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                         <div class="input-group">
-                                            <input type="text" class="form-control editAttendanceStartDate" name="startDate" placeholder="Start Date" id='kt_datepicker5' autocomplete="off" value="" min="2018-01-01" max="2018-12-31" required/>   
+                                            <input type="text" class="form-control editAttendanceStartDate" name="startDate" placeholder="Start Date" id='kt_datepicker55' autocomplete="off" value="{{ date('Y/m/d') }}" min="2018-01-01" max="2018-12-31" required/>   
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
                                                     <i class="far fa-calendar-alt"></i>
@@ -321,7 +321,7 @@
                                     <label>End Date*</label>
                                     <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                         <div class="input-group">
-                                            <input type="text" class="form-control editAttendanceEndDate" name="endDate" placeholder="End Date" id='kt_datepicker6' value="" min="2018-01-01" max="2018-12-31" required/>   
+                                            <input type="text" class="form-control editAttendanceEndDate" name="endDate" placeholder="End Date" id='kt_datepicker66' value="{{ date('Y/m/d') }}" min="2018-01-01" max="2018-12-31" required/>   
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
                                                     <i class="far fa-calendar-alt"></i>
@@ -517,6 +517,25 @@
                 $("#attendanceDeleteData").attr("action", "attendance/" + id);
             });
 
+            //for time
+            var d = new Date();
+            var hours = d.getHours();
+            var min = d.getMinutes();
+
+            hour = (hours < 10 ? "0" : "") + hours;
+            min = (min < 10 ? "0" : "") + min;
+
+            document.getElementById("AddStartTime").defaultValue = d.getHours()+':'+d.getMinutes();
+            document.getElementById("AddEndTime").value = hours+':'+min;
+            document.getElementById("AddStartTime").readOnly = true;
+            // var d = new Date(),        
+            //     h = d.getHours(),
+            //     m = d.getMinutes();
+            // if(h < 10) h = '0' + h; 
+            // if(m < 10) m = '0' + m; 
+            // $('#AddStartTime').each(function(){ 
+            //     $(this).attr({'value': h + ':' + m});
+            // });
 
     "use strict";
     // Class definition
