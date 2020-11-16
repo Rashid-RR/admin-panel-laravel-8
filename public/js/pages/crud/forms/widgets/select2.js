@@ -36,6 +36,9 @@ var KTSelect2 = function() {
         $('#kt_select2_1111223344555, #kt_select2_1_validate').select2({
             placeholder: 'Select a document type'
         });
+        $('#kt_select2_11112233445787, #kt_select2_1_validate').select2({
+            placeholder: 'Select Your Employee'
+        });
         
         // nested
         $('#kt_select2_2, #kt_select2_2_validate').select2({

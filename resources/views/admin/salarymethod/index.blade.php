@@ -41,7 +41,7 @@
                                             <div class="modal-content">
                                                 <form method="POST" action="{{ route('admin.shift.store') }}">
                                                     @csrf
-                                                    <div class="modal-header bg-secondary">
+                                                    <div class="modal-header">
                                                         <h2 class="modal-title text-primary" id="exampleModalLabel">Add New Attendance</h2>
                                                         <button class="close mt-modal-close" data-dismiss="modal" type="button"><i
                                                                 class="fa fa-times fa-sm"></i></button>
@@ -50,18 +50,20 @@
                                                        <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label>Employee*</label>
-                                                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                        <input formcontrolname="EmployeeID" type="text" hidden="" class="ng-untouched ng-pristine ng-invalid">
-                                                                        <input class="form-control ng-pristine ng-invalid ng-touched" placeholder="Search Employee" required="" type="text">
-                                                                    </div>
+                                                                    <label for="kt_select2_1" >Employee</label>
+                                                                    <select class="form-control" id="kt_select2_11112233445787" name="employee" required>
+                                                                      <option class="active" selected disabled></option>                                 
+                                                                      <option value="ali">Ali</option>
+                                                                      <option value="Nabeel">Nabeel</option> 
+                                                                    </select>
+                                                                    <span class="form-text text-muted">Please select Employee</span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Attendance Date</label>
                                                                     <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                                        <input type="text" class="form-control" id="kt_datepicker_1_modal" readonly="readonly" placeholder="Select date" />
+                                                                        <input type="text" class="form-control" id="kt_datepicker4" value="2020/11/16"  placeholder="Select date" />
                                                                         
                                                                     </div>
                                                                 </div>
@@ -82,7 +84,7 @@
                                                                     <label>Start Date*</label>
                                                                     <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" name="startDate" placeholder="Start Date" id='kt_datepicker3' autocomplete="off" required/>   
+                                                                            <input type="text" class="form-control" name="startDate" placeholder="Start Date" value="2020/11/16" min="2018-01-01" max="2018-12-31" id='kt_datepicker5' autocomplete="off" required/>   
                                                                             <div class="input-group-append">
                                                                                 <span class="input-group-text">
                                                                                     <i class="far fa-calendar-alt"></i>
@@ -111,7 +113,7 @@
                                                                     <label>End Date*</label>
                                                                     <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" name="endDate" placeholder="End Date" id='kt_datepicker3' required/>   
+                                                                            <input type="text" class="form-control" name="endDate" placeholder="End Date" id='kt_datepicker6' value="2020/11/16" min="2020-11-01" max="2020-11-30" required/>   
                                                                             <div class="input-group-append">
                                                                                 <span class="input-group-text">
                                                                                     <i class="far fa-calendar-alt"></i>
@@ -127,12 +129,12 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Remarks</label>
-                                                            <textarea class="form-control" rows="4" cols="50" name="comment">
+                                                            <textarea class="form-control" rows="5" id="comment"></textarea>
                                                             
                                                             </textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="modal-footer bg-secondary">
+                                                    <div class="modal-footer">
                                                         <button class="btn btn-secondary btn-payday-cancel" data-dismiss="modal" type="button">Cancel</button>
                                                         <button class="btn btn-primary" id="" type="submit">Save</button>
                                                     </div>
