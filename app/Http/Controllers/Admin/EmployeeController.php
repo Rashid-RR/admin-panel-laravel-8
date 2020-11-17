@@ -70,6 +70,7 @@ class EmployeeController extends Controller
         ]);
         $employee = new Employee;
         $document = new Document;
+        
 
         $employee->firstName = $request->firstName;
         $employee->lastName = $request->lastName;
@@ -94,17 +95,6 @@ class EmployeeController extends Controller
         $employee->location_id = $request->location_id;
         $employee->shift_id = $request->shift_id;
 
-        $document->name = $request->name;
-        $document->expiryDate = $request->expiryDate;
-        $document->documentType_id = $request->type;
-        
-        if($request->file('image')){
-            $file = $request->image;
-            $imageName = time().'.'.$file->extension();
-            $file->move(public_path('employeesDocument'), $imageName);
-            $document->image = $imageName;
-        }
-
         if($request->file('profile')){
             $file = $request->profile;
             $imageName = time().'.'.$file->extension();
@@ -114,9 +104,19 @@ class EmployeeController extends Controller
 
         $employee->save();
 
-        $document->employee_id = $employee->id;
-
-        $document->save();
+        if($request->name && $request->expiryDate && $request->type){
+            $document->name = $request->name;
+            $document->expiryDate = $request->expiryDate;
+            $document->documentType_id = $request->type;
+            $document->employee_id = $employee->id;
+            if($request->file('image')){
+                $file = $request->image;
+                $imageName = time().'.'.$file->extension();
+                $file->move(public_path('employeesDocument'), $imageName);
+                $document->image = $imageName;
+            }
+            $document->save();
+        }
         
         return redirect()->route('admin.employee.index')->with('success','Employee created successfully !');
     }

@@ -636,7 +636,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Document Name</label>
-                                                                <input type="text" class="form-control" name="name" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" autocomplete="off" required/>
+                                                                <input type="text" class="form-control" name="name" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" autocomplete="off"/>
                                                         
                                                                 <span class="form-text text-muted">Please enter your Document Name.</span>
                                                             </div>
@@ -646,7 +646,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group">
                                                                 <label>Expire Date<span class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control" name="expiryDate" placeholder="Expire Date" id='kt_datepicker4' autocomplete="off" required/>
+                                                                <input type="text" class="form-control" name="expiryDate" placeholder="Expire Date" id='kt_datepicker4' autocomplete="off"/>
                                                                 <span class="form-text text-muted"></span>
                                                             </div>
                                                             <!--end::Input-->
