@@ -336,58 +336,64 @@
                                             </div>
                                                 <!--end: Wizard Step 2-->
                                             <!--begin: Wizard Step 3-->
-                                            <div class="pb-5" data-wizard-type="step-content">
-                                                <div class="mb-10 font-weight-bold text-dark">Enter your Document Details</div>
-                                                <div class="row">
-                                                    <div class="col-xl-6">
-                                                        <!--begin::Input-->
-                                                        <div class="form-group">
-                                                            <label>Document Name</label>
-                                                            <input type="text" class="form-control" value="{{$documentById->name}}" disabled/>
-                                                            <span class="form-text text-muted">Please enter your Document Name.</span>
+                                            @if($documentById != null)
+                                                <div class="pb-5" data-wizard-type="step-content">
+                                                    <div class="mb-10 font-weight-bold text-dark">Enter your Document Details</div>
+                                                    <div class="row">
+                                                        <div class="col-xl-6">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group">
+                                                                <label>Document Name</label>
+                                                                <input type="text" class="form-control" value="{{$documentById->name}}" disabled/>
+                                                                <span class="form-text text-muted">Please enter your Document Name.</span>
+                                                            </div>
+                                                            <!--end::Input-->
                                                         </div>
-                                                        <!--end::Input-->
+                                                        <div class="col-xl-6">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group">
+                                                                <label>Expire Date<span class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" value="{{$documentById->expiryDate}}" disabled/>
+                                                                <span class="form-text text-muted"></span>
+                                                            </div>
+                                                            <!--end::Input-->
+                                                        </div>
                                                     </div>
-                                                    <div class="col-xl-6">
-                                                        <!--begin::Input-->
-                                                        <div class="form-group">
-                                                            <label>Expire Date<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" value="{{$documentById->expiryDate}}" disabled/>
-                                                            <span class="form-text text-muted"></span>
+                                                    <div class="form-group">
+                                                        <label>Document Type<span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" value="{{$documentTypeById->type}}" disabled/>
+                                                        <span class="form-text text-muted">Please select an document type</span>
+                                                    </div>
+                                                    <div class="form-group row justify">
+                                                        <label class="col-lg-5 col-form-label">
+                                                            <b>
+                                                                <a href="{{ asset('employeesDocument/'.$documentById->image) }}" download="Employee-Document">Download Document</a>
+                                                            </b>
+                                                        </label>
+                                                        <div class="col-lg-7 col-xl-4">
+                                                            <div class="image-input image-input-outline" id="kt_image_2">
+                                                                <div class="image-input-wrapper" style="background-image: url({{ asset('employeesDocument/'.$documentById->image) }})"></div>
+                                                                {{-- <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                                                    <i class="fa fa-pen icon-sm"></i>
+                                                                    <input type="file" name="profile" accept=".png, .jpg, .jpeg" />
+                                                                    <input type="hidden" name="profile_avatar_remove" />
+                                                                </label> --}}
+                                                                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                </span>
+                                                                {{-- <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar" aria-disabled="t">
+                                                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                </span> --}}
+                                                            </div>
+                                                            <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
                                                         </div>
-                                                        <!--end::Input-->
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Document Type<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" value="{{$documentTypeById->type}}" disabled/>
-                                                    <span class="form-text text-muted">Please select an document type</span>
-                                                </div>
-                                                <div class="form-group row justify">
-                                                    <label class="col-lg-5 col-form-label">
-                                                        <b>
-                                                            <a href="{{ asset('employeesDocument/'.$documentById->image) }}" download="Employee-Document">Download Document</a>
-                                                        </b>
-                                                    </label>
-                                                    <div class="col-lg-7 col-xl-4">
-                                                        <div class="image-input image-input-outline" id="kt_image_2">
-                                                            <div class="image-input-wrapper" style="background-image: url({{ asset('employeesDocument/'.$documentById->image) }})"></div>
-                                                            {{-- <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-                                                                <i class="fa fa-pen icon-sm"></i>
-                                                                <input type="file" name="profile" accept=".png, .jpg, .jpeg" />
-                                                                <input type="hidden" name="profile_avatar_remove" />
-                                                            </label> --}}
-                                                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-                                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                                            </span>
-                                                            {{-- <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar" aria-disabled="t">
-                                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                                            </span> --}}
-                                                        </div>
-                                                        <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @else
+                                                <div class="pb-5" data-wizard-type="step-content">
+                                                    <div class="mb-10 font-weight-bold text-primary">Documents isn't uploaded yet !</div>
+                                                </div>    
+                                            @endif
                                             
                                             <!--end: Wizard Step 3-->
                                             <!--begin: Wizard Step 4-->

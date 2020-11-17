@@ -139,7 +139,10 @@ class EmployeeController extends Controller
     {
         $empById = Employee::findOrFail($id);
         $documentById = Document::where('employee_id',$empById->id)->first();
-        $documentTypeById = DocumentType::findOrFail($documentById->documentType_id);
+        $documentTypeById = '';
+        if($documentById != null){
+            $documentTypeById = DocumentType::findOrFail($documentById->documentType_id);
+        }
         return view('admin.employee.detail',compact('empById','documentById','documentTypeById'));
     }
 
@@ -158,7 +161,11 @@ class EmployeeController extends Controller
        $locations = Location::all();
        $shifts = Shift::all();
        $documentById = Document::where('employee_id',$employee->id)->first();
-       $documentTypeById = DocumentType::findOrFail($documentById->documentType_id);
+       $documentTypeById = '';
+       if($documentById != null){
+        $documentTypeById = DocumentType::findOrFail($documentById->documentType_id);
+       }
+       
        return view('admin.employee.edit',compact('employee','departments','designations','locations','shifts','documentById','documentTypeById'));
     }
 
@@ -186,6 +193,34 @@ class EmployeeController extends Controller
         $employee = Employee::findOrFail($id);
         $document = Document::where('employee_id',$id)->first();
 
+        if($document != null){
+            $document->name = $request->name;
+            $document->expiryDate = $request->expiryDate;
+            $document->documentType_id = $request->type;
+            if($request->file('image')){
+                $file = $request->image;
+                $imageName = time().'.'.$file->extension();
+                $file->move(public_path('employeesDocument'), $imageName);
+                $document->image = $imageName;
+            }
+            $document->employee_id = $employee->id;
+            $document->save();
+        }
+        else{
+            $document = new Document;
+            $document->name = $request->name;
+            $document->expiryDate = $request->expiryDate;
+            $document->documentType_id = $request->type;
+            if($request->file('image')){
+                $file = $request->image;
+                $imageName = time().'.'.$file->extension();
+                $file->move(public_path('employeesDocument'), $imageName);
+                $document->image = $imageName;
+            }
+            $document->employee_id = $employee->id;
+            $document->save();
+        }
+
         $employee->firstName = $request->firstName;
         $employee->lastName = $request->lastName;
         $employee->gender = $request->gender;
@@ -209,15 +244,7 @@ class EmployeeController extends Controller
         $employee->location_id = $request->location_id;
         $employee->shift_id = $request->shift_id;
 
-        $document->name = $request->name;
-        $document->expiryDate = $request->expiryDate;
-        $document->documentType_id = $request->type;
-        if($request->file('image')){
-            $file = $request->image;
-            $imageName = time().'.'.$file->extension();
-            $file->move(public_path('employeesDocument'), $imageName);
-            $document->image = $imageName;
-        }
+        
 
         if($request->file('profile')){
             $file = $request->profile;
@@ -227,7 +254,7 @@ class EmployeeController extends Controller
         }
 
         $employee->save();
-        $document->save();
+        
         
         return redirect()->route('admin.employee.index')->with('success','Employee updated successfully !');
     }

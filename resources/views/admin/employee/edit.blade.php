@@ -60,8 +60,8 @@
                                     <div class="wizard-wrapper">
                                         <div class="wizard-number">3</div>
                                         <div class="wizard-label">
-                                            <div class="wizard-title">Bank</div>
-                                            <div class="wizard-desc">Add Bank Options</div>
+                                            <div class="wizard-title">Document</div>
+                                            <div class="wizard-desc">Add Document Options</div>
                                         </div>
                                     </div>
                                 </div>
@@ -617,49 +617,99 @@
                                             </div>
                                                 <!--end: Wizard Step 2-->
                                             <!--begin: Wizard Step 3-->
-                                            <div class="pb-5" data-wizard-type="step-content">
-                                                <div class="mb-10 font-weight-bold text-dark">Enter your Document Details</div>
-                                                <div class="row">
-                                                    <div class="col-xl-6">
-                                                        <!--begin::Input-->
-                                                        <div class="form-group">
-                                                            <label>Document Name</label>
-                                                            <input type="text" class="form-control" name="name" value="{{$documentById->name}}" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" autocomplete="off" required/>
-                                                    
-                                                            <span class="form-text text-muted">Please enter your Document Name.</span>
+                                            @if($documentById != null)
+                                                <div class="pb-5" data-wizard-type="step-content">
+                                                    <div class="mb-10 font-weight-bold text-dark">Enter your Document Details</div>
+                                                    <div class="row">
+                                                        <div class="col-xl-6">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group">
+                                                                <label>Document Name</label>
+                                                                <input type="text" class="form-control" name="name" value="{{$documentById->name}}" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" autocomplete="off" required/>
+                                                        
+                                                                <span class="form-text text-muted">Please enter your Document Name.</span>
+                                                            </div>
+                                                            <!--end::Input-->
                                                         </div>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <div class="col-xl-6">
-                                                        <!--begin::Input-->
-                                                        <div class="form-group">
-                                                            <label>Expire Date<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" name="expiryDate" value="{{$documentById->expiryDate}}" placeholder="Expire Date" id='kt_datepicker4' autocomplete="off" required/>
-                                                            <span class="form-text text-muted"></span>
+                                                        <div class="col-xl-6">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group">
+                                                                <label>Expire Date<span class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" name="expiryDate" value="{{$documentById->expiryDate}}" placeholder="Expire Date" id='kt_datepicker8' autocomplete="off" required/>
+                                                                <span class="form-text text-muted"></span>
+                                                            </div>
+                                                            <!--end::Input-->
                                                         </div>
-                                                        <!--end::Input-->
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>File Browser</label>
+                                                        <div></div>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" value="{{ asset('employeesDocument/'.$documentById->image) }}" id="customFile" name="image"/>
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Document Type<span class="text-danger">*</span></label>
+                                                        <select class="form-control" id="kt_select2_1111223344555" name="type">
+                                                            <option value="" selected disabled>Select</option>
+                                                            <option value="1" @if($documentById->documentType_id === 1) {{'selected'}} @endif>Resume</option>
+                                                            <option value="2" @if($documentById->documentType_id === 2) {{'selected'}} @endif>Certificate</option>
+                                                            <option value="3" @if($documentById->documentType_id === 3) {{'selected'}} @endif>CV</option>
+                                                            <option value="4" @if($documentById->documentType_id === 4) {{'selected'}} @endif>Others</option>
+                                                        </select>
+                                                        <span class="form-text text-muted">Please select an document type</span>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>File Browser</label>
-                                                    <div></div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" value="{{ asset('employeesDocument/'.$documentById->image) }}" id="customFile" name="image"/>
-                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+
+                                            @else
+
+                                                <div class="pb-5" data-wizard-type="step-content">
+                                                    <div class="mb-10 font-weight-bold text-dark">Enter your Document Details</div>
+                                                    <div class="row">
+                                                        <div class="col-xl-6">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group">
+                                                                <label>Document Name</label>
+                                                                <input type="text" class="form-control" name="name" value="" id="name" placeholder="e.g cv,resume etc" minlength="4" maxlength="12" autocomplete="off" required/>
+                                                        
+                                                                <span class="form-text text-muted">Please enter your Document Name.</span>
+                                                            </div>
+                                                            <!--end::Input-->
+                                                        </div>
+                                                        <div class="col-xl-6">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group">
+                                                                <label>Expire Date<span class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" name="expiryDate" value="" placeholder="Expire Date" id='kt_datepicker8' autocomplete="off" required/>
+                                                                <span class="form-text text-muted"></span>
+                                                            </div>
+                                                            <!--end::Input-->
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Document Type<span class="text-danger">*</span></label>
-                                                    <select class="form-control" id="kt_select2_1111223344555" name="type">
-                                                        <option value="" selected disabled>Select</option>
-                                                        <option value="1" @if($documentById->documentType_id === 1) {{'selected'}} @endif>Resume</option>
-                                                        <option value="2" @if($documentById->documentType_id === 2) {{'selected'}} @endif>Certificate</option>
-                                                        <option value="3" @if($documentById->documentType_id === 3) {{'selected'}} @endif>CV</option>
-                                                        <option value="4" @if($documentById->documentType_id === 4) {{'selected'}} @endif>Others</option>
-                                                    </select>
-                                                    <span class="form-text text-muted">Please select an document type</span>
-                                                </div>
-                                            </div>
+                                                    <div class="form-group">
+                                                        <label>File Browser</label>
+                                                        <div></div>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" value="" id="customFile" name="image"/>
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Document Type<span class="text-danger">*</span></label>
+                                                        <select class="form-control" id="kt_select2_1111223344555" name="type">
+                                                            <option value="" selected disabled>Select</option>
+                                                            <option value="1">Resume</option>
+                                                            <option value="2">Certificate</option>
+                                                            <option value="3">CV</option>
+                                                            <option value="4">Others</option>
+                                                        </select>
+                                                        <span class="form-text text-muted">Please select an document type</span>
+                                                    </div>
+                                                </div>    
+
+                                            @endif
+                                            
                                             
                                             <!--end: Wizard Step 3-->
                                             <!--begin: Wizard Step 4-->
