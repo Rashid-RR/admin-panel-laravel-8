@@ -108,7 +108,7 @@
                 </a>
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                <a href="{{ route('admin.attendance.index') }}" class="menu-link menu-toggle">
+                <a href="{{ route('admin.emp.attendances') }}" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
                         <i class="fas fa-user-clock"></i>
                         <!--end::Svg Icon-->

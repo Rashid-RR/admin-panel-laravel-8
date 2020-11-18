@@ -20,6 +20,15 @@ class AttendanceController extends Controller
         $employees = Employee::all();
         return view('admin.attendance.index',compact('attendances','employees'));
     }
+    public function attendances()
+    {
+        return view('admin.attendance.attendance');
+    }
+    
+    public function holidays()
+    {
+        return view('admin.attendance.holiday');
+    }
 
     /**
      * Show the form for creating a new resource.
