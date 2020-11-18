@@ -30,6 +30,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
 
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::post('/employee/import',[EmployeeController::class,'importCSV'])->name('emp.import');
+
     Route::get('/employee/exportCSV',[EmployeeController::class,'exportCSV'])->name('emp.exportCSV');
     Route::get('/employee/exportEXCEL',[EmployeeController::class,'exportEXCEL'])->name('emp.exportEXCEL');
     // Route::get('/employee/exportPDF',[EmployeeController::class,'exportPDF'])->name('emp.exportPDF');

@@ -5,7 +5,7 @@
 @section('breadcrumb')
     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.attendance.index')}}" class="text-muted">Attendance</a>
+            <a href="{{ route('admin.emp.attendances')}}" class="text-muted">Attendance</a>
         </li>
     </ul>
 @endsection
