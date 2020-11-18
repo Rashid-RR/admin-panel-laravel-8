@@ -37,7 +37,7 @@
                                 <i class="fas fa-plus"></i>
                                 Add Attendance
                             </a>
-                            <a href="{{ route('admin.emp.holidays') }}" class="btn btn-primary font-weight-bolder text-center">
+                            <a href="{{ route('admin.holiday.index') }}" class="btn btn-primary font-weight-bolder text-center">
                                 <i class="fas fa-plus"></i>
                                 Add Holidays
                             </a>

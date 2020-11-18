@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\Admin\ShiftController;
 use App\Http\Controllers\Admin\CompanyInformationController;
 use App\Http\Controllers\Admin\CompanyTypeController;
+use App\Http\Controllers\Admin\HolidayController;
 use App\Http\Controllers\Admin\SalaryMethodController;
 
 
@@ -33,6 +34,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
 
     Route::get('/employee/exportCSV',[EmployeeController::class,'exportCSV'])->name('emp.exportCSV');
     Route::get('/employee/exportEXCEL',[EmployeeController::class,'exportEXCEL'])->name('emp.exportEXCEL');
+    Route::get('/employee/attendances',[AttendanceController::class,'attendances'])->name('emp.attendances');
     // Route::get('/employee/exportPDF',[EmployeeController::class,'exportPDF'])->name('emp.exportPDF');
     Route::post('/employee/'); 
     // Route::get('/create2',[EmployeeController::class,'create2'])->name('create2');
@@ -46,6 +48,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     Route::resource('companyType',CompanyTypeController::class);
     Route::resource('salaryMethod',SalaryMethodController::class);
     Route::resource('attendance',AttendanceController::class);
+    Route::resource('holiday',HolidayController::class);
 });
 Route::post('/employee/importCSV2',[EmployeeController::class,'importCSV2'])->name('emp.importCSV2');
 
