@@ -11,5 +11,7 @@ class Holiday extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = ['name','fromDate','toDate'];
+
     protected $dates = ['deleted_at'];
 }

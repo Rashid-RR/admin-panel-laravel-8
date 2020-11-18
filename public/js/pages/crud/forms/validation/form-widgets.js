@@ -129,6 +129,50 @@ var KTFormWidgetsValidation = function () {
             // Revalidate field
             validator.revalidateField('date');
         });
+        $('#kt_datepicker012').datepicker({
+            format: 'yyyy/mm/dd',
+            todayHighlight: true,
+            templates: {
+                leftArrow: '<i class=\"la la-angle-left\"></i>',
+                rightArrow: '<i class=\"la la-angle-right\"></i>'
+            }
+        }).on('changeDate', function(e) {
+            // Revalidate field
+            validator.revalidateField('date');
+        });
+        $('#kt_datepicker013').datepicker({
+            format: 'yyyy/mm/dd',
+            todayHighlight: true,
+            templates: {
+                leftArrow: '<i class=\"la la-angle-left\"></i>',
+                rightArrow: '<i class=\"la la-angle-right\"></i>'
+            }
+        }).on('changeDate', function(e) {
+            // Revalidate field
+            validator.revalidateField('date');
+        });
+        $('#kt_datepicker014').datepicker({
+            format: 'yyyy/mm/dd',
+            todayHighlight: true,
+            templates: {
+                leftArrow: '<i class=\"la la-angle-left\"></i>',
+                rightArrow: '<i class=\"la la-angle-right\"></i>'
+            }
+        }).on('changeDate', function(e) {
+            // Revalidate field
+            validator.revalidateField('date');
+        });
+        $('#kt_datepicker015').datepicker({
+            format: 'yyyy/mm/dd',
+            todayHighlight: true,
+            templates: {
+                leftArrow: '<i class=\"la la-angle-left\"></i>',
+                rightArrow: '<i class=\"la la-angle-right\"></i>'
+            }
+        }).on('changeDate', function(e) {
+            // Revalidate field
+            validator.revalidateField('date');
+        });
 
         // Datetimepicker
         $('#kt_datetimepicker').datetimepicker({

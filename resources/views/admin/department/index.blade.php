@@ -28,6 +28,107 @@
                                 <!--begin::Dropdown-->
                                 <div class="dropdown dropdown-inline mr-2">
                                 </div>
+                                <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="svg-icon svg-icon-md">
+                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path
+                                                    d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z"
+                                                    fill="#000000" opacity="0.3" />
+                                                <path
+                                                    d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z"
+                                                    fill="#000000" />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>Export
+                                </button>
+                                <button type="button" class="btn btn-light-primary font-weight-bolder" data-toggle="modal" data-target="#import-modal"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <span class="svg-icon svg-icon-md">
+                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path
+                                                    d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z"
+                                                    fill="#000000" opacity="0.3" />
+                                                <path
+                                                    d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z"
+                                                    fill="#000000" />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>Import
+                                </button>
+                                <div class="modal fade" id="import-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="">
+                                        <div class="modal-content">
+                                            
+                                            <div class="modal-header">
+                                                <h2 class="modal-title" id="exampleModalLabel">Import Employee CSV</h2>
+                                                <button class="close mt-modal-close" data-dismiss="modal" type="button"><i class="fa fa-times fa-sm"></i></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col-lg-12 col-md-9 col-sm-12">
+                                                    <form method="post">
+                                                        @csrf
+                                                        <div class="dropzone dropzone-default" id="dropzone">
+                                                            <div class="dropzone-msg dz-message needsclick" id="dZUpload">
+                                                                <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+                                                                <span class="dropzone-msg-desc">Drag or drop files to upload</span>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary" id="sheetUploadBtn">Upload</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--begin::Dropdown Menu-->
+                                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <ul class="navi flex-column navi-hover py-2">
+                                        <li
+                                            class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">
+                                            Choose an option:</li>
+                                        <li class="navi-item">
+                                            <a href="#" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-print"></i>
+                                                </span>
+                                                <span class="navi-text">Print</span>
+                                            </a>
+                                        </li>
+                                        <li class="navi-item">
+                                            <a href="{{ route('admin.dept.exportEXCEL') }}" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-file-excel-o"></i>
+                                                </span>
+                                                <span class="navi-text">Excel</span>
+                                            </a>
+                                        </li>
+                                        <li class="navi-item">
+                                            <a href="" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-file-text-o"></i>
+                                                </span>
+                                                <span class="navi-text">CSV</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!--end::Navigation-->
+                                </div>
+                                <!--end::Dropdown Menu-->
                                 <a class="btn btn-primary font-weight-bolder text-center" data-toggle="modal" data-target="#deptadd-modal-lg">
                                     <i class="fas fa-plus"></i>
                                     Add New
@@ -75,8 +176,6 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            
-                                            
                                         </div>
                                         
                                     </div>
@@ -90,20 +189,16 @@
                             <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                                 <thead>
                                     <tr>
-                                        
                                         <th title="Field #1">Department Name</th>
                                         <th title="Field #2">Actions</th>
                                         <th title="Field #3"></th>
                                         <th title="Field #4"></th>
                                         <th title="Field #5"></th>
-                                        
-
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($departments as $item)
                                     <tr>
-            
                                         <td>{{$item->deptName}}</td>
                                         <td>
                                             <div class="btn-group mr-1" role="group" aria-label="Basic example">
@@ -245,7 +340,11 @@
 @endsection
 
 @push('js')
+<script src="{{ asset('js/pages/crud/file-upload/dropzonejs.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
     <script>
+
+    
 
             $('div').on('click', '#editBtn', function (event) {
                 event.preventDefault();
@@ -388,6 +487,60 @@
     });
 
 
+    Dropzone.options.dropzone = {
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        autoProcessQueue: false,
+        url: '/department/importCSV2',
+        createImageThumbnails: true,
+        autoDiscover: false,
+        addRemoveLinks: true,
+
+        init: function () {
+
+            var myDropzone = this;
+
+            // Update selector to match your button
+            $("#sheetUploadBtn").click(function (e) {
+                e.preventDefault();
+                myDropzone.processQueue();
+            });
+
+            this.on('sending', function(file, xhr, formData) {
+                // Append all form inputs to the formData Dropzone will POST
+                var data = $('#dropzone').serializeArray();
+                $.each(data, function(key, el) {
+                    formData.append(el.name, el.value);
+                });
+            });
+            // this.on("complete", function(xhr, formData) {
+            // swal({
+            //         title: "Success",
+            //         text: "Files successfully uploaded",
+            //         type: "success",
+            //         timer: 3000,
+            //         showConfirmButton: false
+            //     },
+            //     setTimeout(function () {
+            //         location.reload();
+            //     }, 2300)
+            // );
+            // });
+
+            // this.on("error", function(xhr, formData) {
+            // swal({
+            //         title: "Whoops!",
+            //         text: "Files not uploaded, there was a problem.",
+            //         type: "error",
+            //         timer: 3000,
+            //         showConfirmButton: false
+            //     },
+            //     setTimeout(function () {
+            //         location.reload();
+            //     }, 2300)
+            // );
+            // });
+        }
+    }
     
 
     </script>

@@ -32,13 +32,11 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::post('/employee/import',[EmployeeController::class,'importCSV'])->name('emp.import');
 
+    Route::get('/department/exportEXCEL',[DepartmentController::class,'exportEXCEL'])->name('dept.exportEXCEL');
+
     Route::get('/employee/exportCSV',[EmployeeController::class,'exportCSV'])->name('emp.exportCSV');
     Route::get('/employee/exportEXCEL',[EmployeeController::class,'exportEXCEL'])->name('emp.exportEXCEL');
     Route::get('/employee/attendances',[AttendanceController::class,'attendances'])->name('emp.attendances');
-    // Route::get('/employee/exportPDF',[EmployeeController::class,'exportPDF'])->name('emp.exportPDF');
-    Route::post('/employee/'); 
-    // Route::get('/create2',[EmployeeController::class,'create2'])->name('create2');
-    // Route::post('/create2Store',[EmployeeController::class,'create2Store'])->name('create2Store');
 
     Route::resource('employee',EmployeeController::class);
     Route::resource('department',DepartmentController::class);
@@ -51,8 +49,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     Route::resource('holiday',HolidayController::class);
 });
 Route::post('/employee/importCSV2',[EmployeeController::class,'importCSV2'])->name('emp.importCSV2');
-
-////////-----------------------------------------------------------------------------------------------------------------
+Route::post('/department/importCSV2',[DepartmentController::class,'importCSV2'])->name('dept.importCSV2');
 
 Route::group(['as' => 'staff.','prefix' => 'staff','namespace' => 'Staff','middleware' => ['auth','staff']],function(){
     Route::get('dashboard',[Staff\DashboardController::class,'index'])->name('dashboard');

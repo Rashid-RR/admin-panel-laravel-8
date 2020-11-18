@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\DepartmentExport;
 use App\Http\Controllers\Controller;
+use App\Imports\DepartmentImport;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DepartmentController extends Controller
 {
@@ -97,5 +100,17 @@ class DepartmentController extends Controller
         //dd($id);
         Department::findOrFail($id)->delete();
         return redirect()->back()->with('success','Department deleted successfully');
+    }
+    
+    public function importCSV2(Request $request)
+    {
+        $employeeSheet = $request->file('file');
+        $sheetName = time().'.'.$employeeSheet->extension();
+        $employeeSheet->move(public_path('departmentSheet'),$sheetName);
+        Excel::import(new DepartmentImport,$request->file('file'));
+    }
+    public function exportEXCEL(Request $request)
+    {
+        return (new DepartmentExport)->download('department.xlsx');
     }
 }

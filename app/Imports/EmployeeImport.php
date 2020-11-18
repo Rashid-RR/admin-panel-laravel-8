@@ -13,9 +13,9 @@ use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 
-class EmployeeImport implements ToModel,WithStartRow,SkipsOnFailure
+class EmployeeImport implements ToModel,WithStartRow
 {
-    use Importable, SkipsOnFailure;
+    use Importable;
     /**
     * @param array $row
     *
@@ -24,11 +24,6 @@ class EmployeeImport implements ToModel,WithStartRow,SkipsOnFailure
     public function startRow(): int
     {
         return 2;
-    }
-
-    public function onFailure(Failure ...$failures)
-    {
-        // Handle the failures how you'd like.
     }
 
     public function model(array $row)
