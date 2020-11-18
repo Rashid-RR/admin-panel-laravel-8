@@ -37,7 +37,7 @@
 		<div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
 			<!--begin::Logo-->
 			<a href="index.html">
-				<img alt="Logo" src="{{ asset('media/logos/Logo.png')}}" width="160" height="47"/>
+				<img alt="Logo" src="{{ asset('media/logos/Logo.png')}}" width="160" height="47" />
 			</a>
 			<!--end::Logo-->
 			<!--begin::Toolbar-->
@@ -77,7 +77,7 @@
 				<!--begin::Aside-->
 				<div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
 					<!--begin::Brand-->
-					<div class="brand flex-column-auto" id="kt_brand">
+					<div class="brand" id="kt_brand">
 						<!--begin::Logo-->
 						<a href="index.html" class="brand-logo">
 							<img alt="Logo" src="{{ asset('media/logos/Logo.png')}}" width="160" height="47" />
@@ -474,6 +474,7 @@
 		<script src="{{ asset('js/pages/crud/forms/validation/form-widgets.js')}}"></script>
 		<script src="{{ asset('js/pages/crud/forms/widgets/select2.js')}}"></script>
 		<script src="{{ asset('js/pages/crud/file-upload/image-input.js')}}"></script>
+		<script src="{{ asset('js/custom.js')}}"></script>
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->

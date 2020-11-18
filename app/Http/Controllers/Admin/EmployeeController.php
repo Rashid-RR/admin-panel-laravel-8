@@ -15,6 +15,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\EmployeeImport;
 use App\Models\Document;
 use App\Models\DocumentType;
+use Dotenv\Exception\ValidationException;
 use File;
 
 class EmployeeController extends Controller
@@ -283,14 +284,18 @@ class EmployeeController extends Controller
         return back();
     }
     public function importCSV2(Request $request)
-    {   
+    {
         $employeeSheet = $request->file('file');
-        $employeeSheetName = $employeeSheet->getClientOriginalName();
-        $employeeSheet->move(public_path('employeeSheet'),$employeeSheetName);
-        
+        $sheetName = time().'.'.$employeeSheet->extension();
+        $employeeSheet->move(public_path('employeeSheet'),$sheetName);
+        Excel::import(new EmployeeImport,$request->file('file'));
     }
     public function exportCSV(Request $request)
     {
-        return Excel::download(new EmployeeExport, 'employee.csv');
+        return (new EmployeeExport)->download('employee.csv');
+    }
+    public function exportEXCEL(Request $request)
+    {
+        return (new EmployeeExport)->download('employee.xlsx');
     }
 }
