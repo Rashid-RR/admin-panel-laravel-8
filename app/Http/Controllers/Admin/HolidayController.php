@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
 
-use App\Models\Designation;
+use App\Models\Holiday;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DesignationController extends Controller
+class HolidayController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class DesignationController extends Controller
      */
     public function index()
     {
-        $designations = Designation::all();
-        return view('admin.designation.index',compact('designations'));
+        $holidays = Holiday::all();
+        return view('admin.holiday.index',compact('holidays'));
     }
 
     /**
@@ -40,57 +40,57 @@ class DesignationController extends Controller
         $this->validate($request,[
             'name' => 'required'
         ]);
-        Designation::create($request->all());
-        return redirect()->back()->with('success','Designation is created successgully !');
+        Holiday::create($request->all());
+        return redirect()->back()->with('success','Holiday is created successgully !');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Designation  $designation
+     * @param  \App\Models\Holiday  $Holiday
      * @return \Illuminate\Http\Response
      */
-    public function show(Designation $designation)
+    public function show(Holiday $Holiday)
     {
-        return view('admin.designation.detail',['desgination' => $designation]);
+        return view('admin.holiday.detail',['holiday' => $Holiday]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Designation  $designation
+     * @param  \App\Models\Holiday  $Holiday
      * @return \Illuminate\Http\Response
      */
-    public function edit(Designation $designation)
+    public function edit(Holiday $Holiday)
     {
-        return view('designation.edit',['designation',Designation::findOrFail($designation->id)]);
+        return view('holiday.edit',['holiday',Holiday::findOrFail($Holiday->id)]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Designation  $designation
+     * @param  \App\Models\Holiday  $Holiday
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Designation $designation)
+    public function update(Request $request,$id)
     {
         $this->validate($request,[
             'name' => 'required'
         ]);
-        Designation::findOrFail($designation->id)->update($request->all());
-        return redirect()->back()->with('success','Designation update successfully !');
+        Holiday::findOrFail($id)->update($request->all());
+        return redirect()->back()->with('success','Holiday update successfully !');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Designation  $designation
+     * @param  \App\Models\Holiday  $Holiday
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Designation::findOrFail($id)->delete();
-        return redirect()->back()->with('success','Designation deleted successfully !');
+        Holiday::findOrFail($id)->delete();
+        return redirect()->back()->with('success','Holiday deleted successfully !');
     }
 }

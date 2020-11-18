@@ -6,12 +6,16 @@ namespace App\Imports;
 
 use App\Models\Employee;
 use Illuminate\Contracts\Validation\Rule;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
+use Maatwebsite\Excel\Validators\Failure;
 
-class EmployeeImport implements ToModel,WithStartRow
+class EmployeeImport implements ToModel,WithStartRow,SkipsOnFailure
 {
+    use Importable, SkipsOnFailure;
     /**
     * @param array $row
     *
@@ -22,8 +26,14 @@ class EmployeeImport implements ToModel,WithStartRow
         return 2;
     }
 
+    public function onFailure(Failure ...$failures)
+    {
+        // Handle the failures how you'd like.
+    }
+
     public function model(array $row)
     {
+        dd($row);
         if(!Employee::where('cnic', '=', $row[4])->exists()){
             return new Employee([
                 'firstName' => $row[0],

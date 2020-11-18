@@ -66,7 +66,7 @@
                                             <!--end::Svg Icon-->
                                         </span>Import</button>
                                         <div class="modal fade" id="import-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
+                                            <div class="modal-dialog" role="">
                                                 <div class="modal-content">
                                                     
                                                     <div class="modal-header">
@@ -75,18 +75,27 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <form method="post" action="{{url('admin/employee/import2')}}" enctype="multipart/form-data" class="dropzone dropzone-default" id="dropzone">
+                                                            {{-- <form method="post" action="{{ route('admin.emp.importCSV2') }}" enctype="multipart/form-data" class="dropzone dropzone-default" id="dropzone">
                                                             @csrf
-                                                            <div class="dropzone-msg dz-message needsclick">
+                                                            <div class="dropzone-msg dz-message needsclick" id="dZUpload">
                                                                 <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
                                                                 <span class="dropzone-msg-desc">Drag or drop files to upload</span>
                                                             </div>
+                                                            </form> --}}
+                                                            <form method="post">
+                                                                @csrf
+                                                                <div class="dropzone dropzone-default" id="dropzone">
+                                                                    <div class="dropzone-msg dz-message needsclick" id="dZUpload">
+                                                                        <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+                                                                        <span class="dropzone-msg-desc">Drag or drop files to upload</span>
+                                                                    </div>
+                                                                </div>
                                                             </form>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                                        <button type="submit" class="btn btn-primary" id="sheetUploadBtn">Upload</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,7 +117,7 @@
                                                 </a>
                                             </li>
                                             <li class="navi-item">
-                                                <a href="{{ route('admin.emp.export') }}" class="navi-link">
+                                                <a href="{{ route('admin.emp.exportEXCEL') }}" class="navi-link">
                                                     <span class="navi-icon">
                                                         <i class="la la-file-excel-o"></i>
                                                     </span>
@@ -116,7 +125,7 @@
                                                 </a>
                                             </li>
                                             <li class="navi-item">
-                                                <a href="{{ route('admin.emp.export') }}" class="navi-link">
+                                                <a href="{{ route('admin.emp.exportCSV') }}" class="navi-link">
                                                     <span class="navi-icon">
                                                         <i class="la la-file-text-o"></i>
                                                     </span>
@@ -154,7 +163,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 my-2 my-md-0">
+                                            {{-- <div class="col-md-4 my-2 my-md-0">
                                                 <div class="d-flex align-items-center">
                                                     <label class="mr-3 mb-0 d-none d-md-block">Designation</label>
                                                     <select class="form-control" id="kt_datatable_search_status">
@@ -167,7 +176,7 @@
                                                         <option value="6">Front-End Developer</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             
                                             
                                         </div>
@@ -332,47 +341,81 @@
 
 <script>
 
-            $('div').on('click','#deleteEmpBtn',function (event) {
-               event.preventDefault();
-               var id = $(this).data('id');
-               console.log(id);
-               $('#employeeDeleteData').attr("action","employee/" + id); 
-            });
+    $('div').on('click','#deleteEmpBtn',function (event) {
+        event.preventDefault();
+        var id = $(this).data('id');
+        console.log(id);
+        $('#employeeDeleteData').attr("action","employee/" + id); 
+    });
 
-            function makepdf(){
-                var printMe = document.getElementById('forPrint');
-                document.getElementById('forPrint').style.display = "block";
-                var wme = window.open("", "", "width:100%,height:100%");
-                wme.document.write(printMe.outerHTML);
-                wme.document.close();
-                wme.focus();
-                wme.print();
-                document.getElementById('forPrint').style.display = "none";
-            }
+    function makepdf(){
+        var printMe = document.getElementById('forPrint');
+        document.getElementById('forPrint').style.display = "block";
+        var wme = window.open("", "", "width:100%,height:100%");
+        wme.document.write(printMe.outerHTML);
+        wme.document.close();
+        wme.focus();
+        wme.print();
+        document.getElementById('forPrint').style.display = "none";
+    }
 
     "use strict";
     // Class definition
 
-Dropzone.options.dropzone =
-         {
-            maxFilesize: 12,
-            renameFile: function(file) {
-                var dt = new Date();
-                var time = dt.getTime();
-               return time+file.name;
-            },
-            acceptedFiles: ".csv,.xsls",
-            addRemoveLinks: true,
-            timeout: 5000,
-            success: function(file, response) 
-            {
-                console.log(response);
-            },
-            error: function(file, response)
-            {
-               return false;
-            }
-};
+    Dropzone.options.dropzone = {
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        autoProcessQueue: false,
+        url: '/employee/importCSV2',
+        createImageThumbnails: true,
+        autoDiscover: false,
+        addRemoveLinks: true,
+
+        init: function () {
+
+            var myDropzone = this;
+
+            // Update selector to match your button
+            $("#sheetUploadBtn").click(function (e) {
+                e.preventDefault();
+                myDropzone.processQueue();
+            });
+
+            this.on('sending', function(file, xhr, formData) {
+                // Append all form inputs to the formData Dropzone will POST
+                var data = $('#dropzone').serializeArray();
+                $.each(data, function(key, el) {
+                    formData.append(el.name, el.value);
+                });
+            });
+            // this.on("complete", function(xhr, formData) {
+            // swal({
+            //         title: "Success",
+            //         text: "Files successfully uploaded",
+            //         type: "success",
+            //         timer: 3000,
+            //         showConfirmButton: false
+            //     },
+            //     setTimeout(function () {
+            //         location.reload();
+            //     }, 2300)
+            // );
+            // });
+
+            // this.on("error", function(xhr, formData) {
+            // swal({
+            //         title: "Whoops!",
+            //         text: "Files not uploaded, there was a problem.",
+            //         type: "error",
+            //         timer: 3000,
+            //         showConfirmButton: false
+            //     },
+            //     setTimeout(function () {
+            //         location.reload();
+            //     }, 2300)
+            // );
+            // });
+        }
+    }
 
 
 

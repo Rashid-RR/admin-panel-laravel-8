@@ -30,8 +30,9 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
 
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::post('/employee/import',[EmployeeController::class,'importCSV'])->name('emp.import');
-    Route::post('/employee/import2',[EmployeeController::class,'importCSV2'])->name('emp.import2');
-    Route::get('/employee/export',[EmployeeController::class,'exportCSV'])->name('emp.export');
+    Route::get('/employee/exportCSV',[EmployeeController::class,'exportCSV'])->name('emp.exportCSV');
+    Route::get('/employee/exportEXCEL',[EmployeeController::class,'exportEXCEL'])->name('emp.exportEXCEL');
+    // Route::get('/employee/exportPDF',[EmployeeController::class,'exportPDF'])->name('emp.exportPDF');
     Route::post('/employee/'); 
     // Route::get('/create2',[EmployeeController::class,'create2'])->name('create2');
     // Route::post('/create2Store',[EmployeeController::class,'create2Store'])->name('create2Store');
@@ -45,7 +46,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     Route::resource('salaryMethod',SalaryMethodController::class);
     Route::resource('attendance',AttendanceController::class);
 });
-
+Route::post('/employee/importCSV2',[EmployeeController::class,'importCSV2'])->name('emp.importCSV2');
 
 ////////-----------------------------------------------------------------------------------------------------------------
 
