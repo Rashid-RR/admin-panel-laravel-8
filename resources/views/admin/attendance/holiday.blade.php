@@ -156,7 +156,7 @@ type="text/css" />
                         <!--end::Search Form-->
                         <!--end: Search Form-->
                         <!--begin: Datatable-->
-                        <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
+                       <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                             <thead>
                                 <tr>
                                     <th title="Field #1">Holiday Name</th>
@@ -224,8 +224,10 @@ type="text/css" />
                                 </tr>
                                 @endforeach
                             </tbody>
-                        </table>
+                        </table> 
                         <!--end: Datatable-->
+
+                        
 
                     </div>
                 </div>
@@ -574,3 +576,4 @@ type="text/css" />
 
 </script>
 @endpush
+    
