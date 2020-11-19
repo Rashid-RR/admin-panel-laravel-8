@@ -36,7 +36,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
 
     Route::get('/employee/exportCSV',[EmployeeController::class,'exportCSV'])->name('emp.exportCSV');
     Route::get('/employee/exportEXCEL',[EmployeeController::class,'exportEXCEL'])->name('emp.exportEXCEL');
-    Route::get('/employee/attendances',[AttendanceController::class,'attendances'])->name('emp.attendances');
+    Route::get('/attendances',[AttendanceController::class,'attendances'])->name('attendances');
 
     Route::resource('employee',EmployeeController::class);
     Route::resource('department',DepartmentController::class);
