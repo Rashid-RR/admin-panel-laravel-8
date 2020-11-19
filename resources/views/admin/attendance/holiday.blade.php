@@ -5,7 +5,7 @@
 @section('breadcrumb')
 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.emp.attendances')}}" class="text-muted">Attendances</a>
+        <a href="{{ route('admin.attendances')}}" class="text-muted">Attendances</a>
     </li>
     <li class="breadcrumb-item">
         <a href="{{ route('admin.holiday.index')}}" class="text-muted">Holidays</a>
@@ -33,6 +33,9 @@ type="text/css" />
 @section('content')
 <div class="py-6">
     <div class="col-md-12">
+        <a href="{{ route('admin.attendances')}}" class="btn btn-light-primary font-weight-bolder mb-2 mt-4">
+            <i class="ki ki-long-arrow-back icon-sm"></i>Back
+        </a>
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <div class="card card-custom">
@@ -406,8 +409,6 @@ type="text/css" />
 @endsection
 
 @push('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="{{ asset('js/pages/custom/education/student/calendar.js')}}"></script>
 
 
 <script>
