@@ -30,7 +30,8 @@
                 <div class="card card-custom">
                     <div class="card-header flex-wrap border-0 pt-6 pb-0">
                         <div class="card-title">
-                            
+                            <h3 class="card-label">Attendances
+                                <span class="d-block text-muted pt-2 font-size-sm">Employee Attendances</span></h3>
                         </div>
                         <div class="card-toolbar m-2">
                             <a href="{{ route('admin.attendance.index') }}" class="btn btn-primary font-weight-bolder text-center m-2">
@@ -46,10 +47,14 @@
                     </div>
                     <div class="card-body">
 
-                        <div class="card card-custom">
-                                   
+                        <div class="card card-custom">       
                             <div class="card-body pt-10">
-                                <div id="kt_calendar"></div>
+                                {{-- <div id="kt_calendar"></div> --}}
+
+                                {{-- New code --}}
+
+
+                                {{-- New Code End --}}
                             </div>
                         </div>
                         
@@ -69,18 +74,12 @@
 
 @push('js')
 <script src="{{ asset('js/pages/custom/education/student/calendar.js')}}"></script>
-{{-- <script src="{{ asset('https://app.paypeople.pk/assets/app/js/jquery-3.3.1.min.js')}}"></script>
-
-<script src="{{ asset('https://app.paypeople.pk/assets/app/js/bootstrap.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 
 
 <script>
 
-        
-
-    
 
 </script>
 @endpush
