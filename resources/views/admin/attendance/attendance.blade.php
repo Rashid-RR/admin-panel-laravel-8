@@ -47,9 +47,39 @@
                     </div>
                     <div class="card-body">
 
-                        <div class="card card-custom">       
-                            <div class="card-body pt-10">
-                                {{-- <div id="kt_calendar"></div> --}}
+                        <div class="card card-custom ">       
+                            <div class="card-body pt-7 ">
+
+                                <div class="col-sm-9 col-lg-12" style="text-align: end">
+                                    <span class="AttendIconDetail" >
+                                        <span class="AttendIcon" style="margin-left: 25px">
+                                            Early-Out
+                                            <img src="{{ asset('media/icons/EarlyOut.png') }}" style="width: 20px">
+                                            
+                                        </span>
+                                        <span class="AttendIcon" style="margin-left: 25px">
+                                            Lateness
+                                            <img src="{{ asset('media/icons/LateNess.png') }}" style="width: 20px">
+                                        </span>
+                                        <span class="AttendIcon" style="margin-left: 25px" >
+                                            Public Holiday
+                                            <img src="{{ asset('media/icons/calande_icon.png') }}" style="width: 20px">
+                                        </span>
+                                        <span class="AttendIcon" style="margin-left: 25px">
+                                            Present
+                                            <img src="{{ asset('media/icons/present.png') }}" style="width: 20px">
+                                        </span>
+                                        <span class="AttendIcon" style="margin-left: 25px">
+                                            Absent
+                                            <img src="{{ asset('media/icons/absent.png') }}" style="width: 20px">
+                                        </span>
+                                        <span class="AttendIcon" style="margin-left: 25px">
+                                            On Leave
+                                            <img src="{{ asset('media/icons/onleave.png') }}" style="width: 20px">
+                                        </span>
+                                    </span>
+                                </div>
+                                {{-- <div   id="kt_calendar"></div> --}}
 
                                 {{-- New code --}}
 
