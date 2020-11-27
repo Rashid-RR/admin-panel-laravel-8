@@ -198,11 +198,13 @@
                                 <thead>
                                     <tr>
                                         
-                                        <th title="Field #1">Employees</th>
-                                        <th title="Field #2">Actions</th>
-                                        <th title="Field #3"></th>
-                                        <th title="Field #4"></th>
-                                        <th title="Field #5"></th>
+                                        <th title="Field #1">Name</th>
+                                        <th title="Field #2">Category</th>
+                                        <th title="Field #3">Leave Type</th>
+                                        <th title="Field #4">Hours</th>
+                                        <th title="Field #5">Balance</th>
+                                        <th title="Field #5">Duration</th>
+                                        <th title="Field #5">Actions</th>
                                         
 
                                     </tr>
