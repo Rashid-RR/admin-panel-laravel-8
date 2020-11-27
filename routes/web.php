@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ShiftController;
 use App\Http\Controllers\Admin\CompanyInformationController;
 use App\Http\Controllers\Admin\CompanyTypeController;
 use App\Http\Controllers\Admin\HolidayController;
+use App\Http\Controllers\Admin\LeaveController;
 use App\Http\Controllers\Admin\SalaryMethodController;
 
 
@@ -47,6 +48,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],f
     Route::resource('salaryMethod',SalaryMethodController::class);
     Route::resource('attendance',AttendanceController::class);
     Route::resource('holiday',HolidayController::class);
+    Route::resource('leave',LeaveController::class);
 });
 Route::post('/employee/importCSV2',[EmployeeController::class,'importCSV2'])->name('emp.importCSV2');
 Route::post('/department/importCSV2',[DepartmentController::class,'importCSV2'])->name('dept.importCSV2');

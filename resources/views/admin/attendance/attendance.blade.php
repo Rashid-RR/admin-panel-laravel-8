@@ -63,7 +63,7 @@
                                         </span>
                                         <span class="AttendIcon" style="margin-left: 25px" >
                                             Public Holiday
-                                            <img src="{{ asset('media/icons/calander_icon.png') }}" style="width: 20px">
+                                            <img src="{{ asset('media/icons/calande_icon.png') }}" style="width: 20px">
                                         </span>
                                         <span class="AttendIcon" style="margin-left: 25px">
                                             Present
@@ -79,7 +79,7 @@
                                         </span>
                                     </span>
                                 </div>
-                                {{-- <div id="kt_calendar"></div> --}}
+                                {{-- <div   id="kt_calendar"></div> --}}
 
                                 {{-- New code --}}
 
