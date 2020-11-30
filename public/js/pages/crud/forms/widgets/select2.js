@@ -42,7 +42,7 @@ var KTSelect2 = function() {
         $('#kt_select2_11112233445788, #kt_select2_1_validate').select2({
             placeholder: 'Select Your Employee'
         });
-        $('#kt_select2_111122334457899, #kt_select2_1_validate').select2({
+        $('#kt_select2_11112233445789, #kt_select2_1_validate').select2({
             placeholder: 'Select Your Employee'
         });
         $('#kt_select2_111122334457810, #kt_select2_1_validate').select2({

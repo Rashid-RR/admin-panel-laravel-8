@@ -46,8 +46,9 @@
                                                    <div class="row">
                                                        <div class="col-md-5 col-lg-5">
                                                             <div class="form-group">
-                                                                <label>Employee<span class="text-danger">*</span></label>
-                                                                <select class="form-control" id="kt_select2_111122334457899" name="type">
+                                                                <label for>Employee<span class="text-danger">*</span></label>
+                                                                <select class="editAttendanceEmployee" id="kt_select2_11112233445789" name="type">
+                                                                    
                                                                     
                                                                     {{-- @foreach ($designations as $item)
                                                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -110,7 +111,7 @@
                                                                 <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control"
-                                                                            name="toDate" placeholder="To Date"
+                                                                            name="toDate" placeholder="To Date" autocomplete="off"
                                                                             id='kt_datepicker0166' required />
                                                                         <div class="input-group-append">
                                                                             <span class="input-group-text">
@@ -128,12 +129,12 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Balance</label>
-                                                                <input type="number" class="form-control" name="balance" placeholder=""  autocomplete="off" readonly/>
+                                                                <input type="number" class="form-control" name="balance" placeholder="0"  autocomplete="off" readonly/>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label>action</label>
+                                                                <label>Action</label>
                                                                 <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                                                                     <div class="radio-inline">
                                                                         <label class="radio">
@@ -150,7 +151,7 @@
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="form-group">
-                                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type reason Here..."></textarea>
                                                             </div>
                                                         </div>
 
